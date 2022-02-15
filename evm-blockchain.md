@@ -1,0 +1,74 @@
+# EVM Blockchain
+
+### Block number <a href="#block-number" id="block-number"></a>
+
+Get the current latest block number
+
+```csharp
+string chain = "ethereum";
+string network = "mainnet"; // mainnet ropsten kovan rinkeby goerli
+
+int blockNumber = await EVM.BlockNumber(chain, network);
+print(blockNumber); Some code
+```
+
+### Balance Of <a href="#balance-of" id="balance-of"></a>
+
+Get the balance of the native blockchain
+
+```csharp
+string chain = "ethereum";
+string network = "rinkeby"; // mainnet ropsten kovan rinkeby goerli
+string account = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+
+string balance = await EVM.BalanceOf(chain, network, account);
+print(balance);
+```
+
+### Verify <a href="#verify" id="verify"></a>
+
+Verify a signed message.
+
+```csharp
+string message = "YOUR_MESSAGE";
+string signature = "0x94bdbebbd0180195b89721a55c3a436a194358c9b3c4eafd22484085563ff55e49a4552904266a5b56662b280757f6aad3b2ab91509daceef4e5b3016afd34781b";
+
+string address = await EVM.Verify(message, signature);
+print(address);
+```
+
+### Transaction Status[¶](https://chainsafe.github.io/game-docs/#transaction-status) <a href="#transaction-status" id="transaction-status"></a>
+
+```csharp
+string chain = "ethereum";
+string network = "mainnet";
+string transaction = "0x911d4ec9193e0dc14d9d034d88c311453112c5097f29c366ccc9c5e5bc7072e1";
+
+string txConfirmed = await EVM.TxStatus(chain, network, transaction);
+print(txConfirmed); // success, fail, pending
+```
+
+### Nonce <a href="#nonce" id="nonce"></a>
+
+```csharp
+string chain = "ethereum";
+string network = "rinkeby";
+string account = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+
+string nonce = await EVM.Nonce(chain, network, account);
+print(nonce);
+```
+
+### Convert WEI to ETH and ETH to WEI <a href="#convert-wei-to-eth-and-eth-to-wei" id="convert-wei-to-eth-and-eth-to-wei"></a>
+
+```csharp
+float eth = float.Parse("0.1");
+float decimals = 1000000000000000000; // 18 decimals
+float wei = eth * decimals;
+print(Convert.ToDecimal(wei).ToString());
+
+float wei = float.Parse("10123755");
+float decimals = 1000000000000000000; // 18 decimals
+float eth = wei / decimals;
+print(Convert.ToDecimal(eth).ToString());
+```
