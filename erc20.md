@@ -4,14 +4,20 @@ description: A standard interface for tokens.
 
 # ERC20
 
+
+
 ### Balance Of <a href="#balance-of_3" id="balance-of_3"></a>
+
+Returns the balance of a standard ERC20 token. E.g. "xdai"
 
 ```csharp
 string chain = "xdai";
 string network = "mainnet";
 string contract = "0xa106739de31fa7a9df4a93c9bea3e1bade0924e2";
 string account = "0x000000ea89990a17Ec07a35Ac2BBb02214C50152";
+// string rpc = "rpchere"; // optional parameter
 
+// BigInteger balanceOf = await ERC20.BalanceOf(chain, network, contract, account, rpc); // use this if you need an rpc input
 BigInteger balanceOf = await ERC20.BalanceOf(chain, network, contract, account);
 print(balanceOf);
 ```

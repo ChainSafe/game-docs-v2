@@ -12,13 +12,43 @@ int blockNumber = await EVM.BlockNumber(chain, network);
 print(blockNumber); Some code
 ```
 
+### Gas Price <a href="#block-number" id="block-number"></a>
+
+Get the current gas price for a transaction based on chain / network and rpc.
+
+```csharp
+string chain = "ethereum"; // ethereum bsc cronos
+string network = "goerli"; // mainnet kovan goerli
+string rpc = "https://goerli.infura.io/v3/"; // network rpc
+
+string gasPrice = await EVM.GasPrice(chain, network, rpc);
+print(gasPrice); 
+```
+
+### Gas Limit <a href="#block-number" id="block-number"></a>
+
+Get the current gas limit for a transaction based on chain / network and rpc.
+
+```csharp
+string chain = "ethereum"; // ethereum bsc cronos
+string network = "goerli"; // mainnet kovan goerli
+string rpc = "https://goerli.infura.io/v3/"; // network rpc
+string to = "0xdD4c825203f97984e7867F11eeCc813A036089D1"; // acount to send to 
+string Value = "0"; // value to send in wei
+string data = await EVM.CreateContractData(abi, method, args);
+//string from = PlayerPrefs.GetString("Account"); // optional parameter
+
+string gaslimit = await EVM.GasLimit(chain, network, rpc, to, Value, data);
+print(gaslimit); 
+```
+
 ### Balance Of <a href="#balance-of" id="balance-of"></a>
 
 Get the balance of the native blockchain
 
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby"; // mainnet ropsten kovan rinkeby goerli
+string network = "goerli"; // mainnet ropsten kovan rinkeby goerli
 string account = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
 
 string balance = await EVM.BalanceOf(chain, network, account);
@@ -43,7 +73,8 @@ print(address);
 string chain = "ethereum";
 string network = "mainnet";
 string transaction = "0x911d4ec9193e0dc14d9d034d88c311453112c5097f29c366ccc9c5e5bc7072e1";
-
+// string rpc = "rpchere"; // optional parameter
+// string txConfirmed = await EVM.TxStatus(chain, network, transaction, rpc); // use this if you need an rpc parameter
 string txConfirmed = await EVM.TxStatus(chain, network, transaction);
 print(txConfirmed); // success, fail, pending
 ```
@@ -52,7 +83,7 @@ print(txConfirmed); // success, fail, pending
 
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby";
+string network = "goerli";
 string account = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
 
 string nonce = await EVM.Nonce(chain, network, account);

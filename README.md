@@ -12,7 +12,7 @@ Discord: [https://discord.gg/gG7dZrGJaa](https://discord.gg/gG7dZrGJaa)
 
 ### Demo
 
-In this video, we will go over the final project. This project will show you the end product of a game that connects to an open marketplace like OpenSean and connect this to a game object in Unity3D.
+In this video, we will go over the final project. This project will show you the end product of a game that connects to an open marketplace like OpenSea and connect this to a game object in Unity3D.
 
 {% embed url="https://www.youtube.com/watch?index=2&list=PLPn3rQCo3XrOQkC3v55Ou8NMPgn8pb7O5&v=j5YF6gqzREc" %}
 
@@ -79,15 +79,38 @@ print(account);
 
 The SDK will require variables `chain` and `network`.  These values are needed by the SDK to determine whether you are connecting to a testnet or mainnet deployment of your chosen blockchain.
 
-| chain     | network                              |
-| --------- | ------------------------------------ |
-| ethereum  | mainnet ropsten kovan rinkeby goerli |
-| avalanche | mainnet testnet                      |
-| binance   | mainnet testnet                      |
-| moonbeam  | mainnet testnet                      |
-| polygon   | mainnet testnet                      |
-| xdai      | mainnet testnet                      |
-| harmony   | mainnet testnet                      |
+| chain     | network                                                                   |
+| --------- | ------------------------------------------------------------------------- |
+| ethereum  | <ul><li>mainnet</li><li>goerli</li></ul>                                  |
+| avalanche | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| binance   | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| moonbeam  | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| polygon   | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| xdai      | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| harmony   | <ul><li>mainnet </li><li>testnet</li></ul>                                |
+| cronos    | <ul><li>mainnet </li><li>testnet </li><li><strong>beta</strong></li></ul> |
+
+Some of the SDK calls are not supported on all networks. The table below details the calls that are supported on each network.\
+
+
+| Network                 | EVM Block Number                    | EVM Balance Of                      | EVM Verify                          | EVM Transaction Status              | EVM Nonce                           | EVM Convert                         | ERC1155 Balance Of                  | ERC1155 Owner Of                    | ERC1155 Owner Of Batch              | ERC1155 URI                         | ERC1155 All1155s | ERC721 Balance Of                   | ERC721 Owner Of                     | ERC721 Owner Of Batch               | ERC721 URI                          | ERC721 All721s | ERC20 Balance Of                    | ERC20 Name                          | ERC20 Symbol                        | ERC20 Decimals                      | ERC20 Total Supply                  | EVM Custom Contract Call            |
+| ----------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ---------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | -------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Ethereum Mainnet        | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Ethereum Goerli Testnet | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Avalanche Mainnet       | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Avalanche Testnet       | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Binance Mainnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Binance Testnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Moonbeam Mainnet        | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Moonbeam Testnet        | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Polygon Mainnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Polygon Testnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| XDai Mainnet            | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| XDai Testnet            | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Harmony Mainnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Harmony Testnet         | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Cronos Mainnet          | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
+| Cronos Testnet          | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌                | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | ❌              | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> | <mark style="color:green;">✔</mark> |
 
 ## EVM Blockchain
 
@@ -109,7 +132,7 @@ Get the balance of the native blockchain
 
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby"; // mainnet ropsten kovan rinkeby goerli
+string network = "goerli"; // mainnet ropsten kovan rinkeby goerli
 string account = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
 
 string balance = await EVM.BalanceOf(chain, network, account);
@@ -200,7 +223,7 @@ balance of account `0xaCA9B6D9B1636D99156bB12825c75De1E5a58870` with token id `2
 
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby";
+string network = "goerli";
 string contract = "0x2ebecabbbe8a8c629b99ab23ed154d74cd5d4342";
 string[] accounts = { "0xaCA9B6D9B1636D99156bB12825c75De1E5a58870", "0xaCA9B6D9B1636D99156bB12825c75De1E5a58870" };
 string[] tokenIds = { "17", "22" };
@@ -230,12 +253,16 @@ print(uri);
 
 Get all 1155 tokens from an account.
 
+Please refer to Assets/Web3Unity/Scripts/Prefabs/EVM/AllErc1155Example.cs for it's example usage.
+
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby"; // mainnet ropsten kovan rinkeby goerli
+string network = "goerli"; // mainnet ropsten kovan rinkeby goerli
 string account = "0xebc0e6232fb9d494060acf580105108444f7c696";
 string contract = "";
-string response = await EVM.AllErc1155(chain, network, account, contract);
+int first = 500;
+int skip = 0;
+string response = await EVM.AllErc1155(chain, network, account, contract, first, skip);
 print(response);
 ```
 
@@ -306,12 +333,16 @@ print(uri)
 
 Get all 721 tokens from an account
 
+Please refer to Assets/Web3Unity/Scripts/Prefabs/EVM/AllErc721Example.cs for it's example usage.
+
 ```csharp
 string chain = "ethereum";
-string network = "rinkeby"; // mainnet ropsten kovan rinkeby goerli
+string network = "goerli"; // mainnet ropsten kovan rinkeby goerli
 string account = "0xebc0e6232fb9d494060acf580105108444f7c696";
 string contract = "";
-string response = await EVM.AllErc721(chain, network, account, contract);
+int first = 500;
+int skip = 0;
+string response = await EVM.AllErc721(chain, network, account, contract, first, skip);
 print(response);
 ```
 
@@ -424,7 +455,7 @@ contract AddTotal {
 // set chain: ethereum, moonbeam, polygon etc
 string chain = "ethereum";
 // set network mainnet, testnet
-string network = "rinkeby";
+string network = "goerli";
 // smart contract method to call
 string method = "myTotal";
 // abi in json format
@@ -446,10 +477,7 @@ print(response);
 ```csharp
 /*
 1 Mainnet
-3 Ropsten
-4 Rinkeby
 5 Goerli
-42 Kovan
 56 Binance Smart Chain Mainnet
 97 Binance Smart Chain Testnet
 100 xDai
@@ -458,6 +486,8 @@ print(response);
 80001 Matic Testnet
 43113 Avalanche Testnet
 43114 Avalanche Mainnet
+338 Cronos Testnet
+25 Cronos Mainnet
 */
 int networkId = Web3GL.Network();
 ```
@@ -528,6 +558,8 @@ try {
 
 ### Sign through WebGL
 
+Working example: [https://chainsafe.github.io/game-sign-example/](https://chainsafe.github.io/game-sign-example/)
+
 ```csharp
 try {
   string message = "hello";
@@ -545,7 +577,7 @@ try {
 ### Sign through Mobile and Desktop
 
 ```csharp
-string response = await Web3Mobile.Sign("hello");
+string response = await Web3Wallet.Sign("hello");
 print(response);
 ```
 
@@ -553,7 +585,7 @@ print(response);
 
 ```csharp
 // https://chainlist.org/
-string chainId = "4"; // rinkeby
+string chainId = "5"; // goerli
 // account to send to
 string to = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
 // value in wei
@@ -565,7 +597,7 @@ string gasLimit = "";
 // gas price OPTIONAL
 string gasPrice = "";
 // send transaction
-string response = await Web3Mobile.SendTransaction(chainId, to, value, data, gasLimit, gasPrice);
+string response = await Web3Wallet.SendTransaction(chainId, to, value, data, gasLimit, gasPrice);
 print(response);
 ```
 
@@ -573,7 +605,7 @@ print(response);
 
 ```csharp
 // https://chainlist.org/
-string chainId = "4"; // rinkeby
+string chainId = "5"; // goerli
 // contract to interact with 
 string contract = "0x6b0bc2e986b0e70db48296619a96e9ac02c5574b";
 // value in wei
@@ -582,7 +614,7 @@ string value = "0";
 string abi = "[ { \"inputs\": [ { \"internalType\": \"string\", \"name\": \"uri_\", \"type\": \"string\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"ApprovalForAll\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" }, { \"indexed\": false, \"internalType\": \"uint256[]\", \"name\": \"values\", \"type\": \"uint256[]\" } ], \"name\": \"TransferBatch\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"TransferSingle\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": false, \"internalType\": \"string\", \"name\": \"value\", \"type\": \"string\" }, { \"indexed\": true, \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" } ], \"name\": \"URI\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address[]\", \"name\": \"accounts\", \"type\": \"address[]\" }, { \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" } ], \"name\": \"balanceOfBatch\", \"outputs\": [ { \"internalType\": \"uint256[]\", \"name\": \"\", \"type\": \"uint256[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" } ], \"name\": \"isApprovedForAll\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_address\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_amount\", \"type\": \"uint256\" } ], \"name\": \"ownerMint\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" }, { \"internalType\": \"uint256[]\", \"name\": \"amounts\", \"type\": \"uint256[]\" }, { \"internalType\": \"bytes\", \"name\": \"data\", \"type\": \"bytes\" } ], \"name\": \"safeBatchTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"amount\", \"type\": \"uint256\" }, { \"internalType\": \"bytes\", \"name\": \"data\", \"type\": \"bytes\" } ], \"name\": \"safeTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"setApprovalForAll\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"bytes4\", \"name\": \"interfaceId\", \"type\": \"bytes4\" } ], \"name\": \"supportsInterface\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"name\": \"uri\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
 // smart contract method to call
 string method = "safeTransferFrom";
-// account to sent tokens to
+// account to send tokens to
 string toAccount = PlayerPrefs.GetString("Account");
 // token id to send
 string tokenId = "2";
@@ -598,7 +630,7 @@ string gasLimit = "";
 // gas price OPTIONAL
 string gasPrice = "";
 // send transaction
-string response = await Web3Mobile.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
+string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
 print(response);
 ```
 
@@ -606,7 +638,7 @@ print(response);
 
 ```csharp
 // https://chainlist.org/
-string chainId = "4"; // rinkeby
+string chainId = "5"; // goerli
 // contract to interact with 
 string contract = "0xde458cd3deaa28ce67beefe3f45368c875b3ffd6";
 // value in wei
@@ -629,7 +661,7 @@ string gasLimit = "";
 // gas price OPTIONAL
 string gasPrice = "";
 // send transaction
-string response = await Web3Mobile.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
+string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
 print(response);
 ```
 
@@ -637,7 +669,7 @@ print(response);
 
 ```csharp
 // https://chainlist.org/
-string chainId = "4"; // rinkeby
+string chainId = "5"; // goerli
 // contract to interact with 
 string contract = "0xc778417e063141139fce010982780140aa0cd5ab";
 // value in wei
@@ -660,7 +692,7 @@ string gasLimit = "";
 // gas price OPTIONAL
 string gasPrice = "";
 // send transaction
-string response = await Web3Mobile.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
+string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
 print(response);
 ```
 

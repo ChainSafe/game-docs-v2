@@ -1,9 +1,3 @@
----
-description: >-
-  This is an overview of how to create a simple game using the ChainSafe gaming
-  SDK
----
-
 # Tutorial
 
 ### Demo
@@ -37,12 +31,6 @@ Prefabs are prebuilt components that supply pre-configured functionality. The SD
 In this video, we will create an in-game item and connect this to an NFT. This requires us to write a C# script in Unity.
 
 {% embed url="https://youtu.be/axA65yq2dMk" %}
-
-### Minting NFT
-
-In this video, we will mint an NFT on the OpenSea marketplace. This will be the NFT that we will use in-game.
-
-{% embed url="https://youtu.be/t7bAdW5IeUA" %}
 
 ### Connect NFT to Marketplace
 

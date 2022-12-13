@@ -1,14 +1,13 @@
 # WebGL
 
+
+
 ### Get User's Network <a href="#get-users-network" id="get-users-network"></a>
 
 ```csharp
 /*
 1 Mainnet
-3 Ropsten
-4 Rinkeby
 5 Goerli
-42 Kovan
 56 Binance Smart Chain Mainnet
 97 Binance Smart Chain Testnet
 100 xDai
@@ -47,7 +46,7 @@ Send will execute a smart contract method, altering the smart contract state.
 
 Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/)
 
-{% embed url="https://www.youtube.com/watch?index=12&list=PLPn3rQCo3XrOQkC3v55Ou8NMPgn8pb7O5&v=buxj5VXi_qs" %}
+{% embed url="https://www.youtube.com/watch?v=buxj5VXi_qs" %}
 
 ```csharp
 // SPDX-License-Identifier: MIT
@@ -87,6 +86,8 @@ try {
 
 ### Sign through WebGL <a href="#sign-through-webgl" id="sign-through-webgl"></a>
 
+Working example: [https://chainsafe.github.io/game-sign-example/](https://chainsafe.github.io/game-sign-example/)
+
 ```csharp
 try {
   string message = "hello";
@@ -94,5 +95,32 @@ try {
   Debug.Log(response);
 } catch (Exception e) {
   Debug.LogException(e, this);
+}
+```
+
+### SHA3 through WebGL
+
+Will calculate the sha3 of the input.&#x20;
+
+```csharp
+ try {
+    string message = "hello";
+    string hashedMessage = await Web3GL.Sha3(message);
+}   catch (Exception e) {
+    Debug.LogException(e, this);
+}
+```
+
+### Sign Verify Account in WebGL
+
+Will hash and sign a message and return the signer's account.
+
+```csharp
+try {
+   string hashedMessage = await Web3GL.Sha3(message);
+   string signHashed = await Web3GL.Sign(hashedMessage);
+   Task<string> verify = EVM.Verify(hashedMessage, signHashed);
+ } catch (Exception e) {
+   Debug.LogException(e, this);
 }
 ```
