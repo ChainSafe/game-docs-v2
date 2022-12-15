@@ -7,7 +7,7 @@ sidebar_label: How To's
 
 # How To's
 
-:::note
+:::info
 
 In this section, we have supplied a list of how to videos explaining how to
 implement different aspects of the ChainSafe Gaming SDK

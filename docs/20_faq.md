@@ -7,7 +7,7 @@ sidebar_label: FAQ
 
 # FAQ
 
-:::note
+:::info
 
 Frequently asked questions about the ChainSafe gaming SDK.
 

@@ -7,7 +7,7 @@ sidebar_label: In Game Marketplace
 
 # In Game Marketplace
 
-:::note
+:::info
 
 Allows for interaction with the ChainSafe Gaming SDK marketplace endpoints.
 

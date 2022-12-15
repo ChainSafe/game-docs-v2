@@ -7,7 +7,7 @@ sidebar_label: Implementing Social Logins To  WebGL Builds
 
 # Implementing Social Logins To  WebGL Builds
 
-:::note
+:::info
 
 How to import and use social logins with WebGL builds.
 
