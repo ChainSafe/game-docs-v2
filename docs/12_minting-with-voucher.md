@@ -7,7 +7,7 @@ sidebar_label: Minting With Voucher
 
 # Minting With Voucher
 
-::: info
+:::info
 
 This functionality is currently in beta and has only been tested and deployed
 on the Goerli testnet
