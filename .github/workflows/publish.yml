@@ -20,4 +20,4 @@ jobs:
           accountId: 2238a825c5aca59233eab1f221f7aefb
           projectName: game-docs-v2
           directory: /build
-          gitHubToken: ""
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
