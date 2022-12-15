@@ -8,15 +8,15 @@ jobs:
       deployments: write
     name: Publish to Cloudflare Pages
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Chekout
+        uses: actions/checkout@v3
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version: 16
       - run: yarn install --frozen-lockfile
       - run: yarn build
-
-      # Run a buld step here if your project requires
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
@@ -24,5 +24,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 2238a825c5aca59233eab1f221f7aefb
           projectName: game-docs-v2
-          directory: /build
+          directory: build/
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
