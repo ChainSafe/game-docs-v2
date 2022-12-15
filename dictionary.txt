@@ -27,6 +27,7 @@ chainID
 ChainId
 chainsafe
 ChainSafe
+Cloudflare
 config
 convert-wei-to-eth-and-eth-to-wei
 CreateApproval
@@ -35,6 +36,7 @@ Cronos
 crypto
 cryptographically
 Ctrl
+Docusaurus
 eg.
 EIP712
 ERC-1155
@@ -126,6 +128,7 @@ uri
 URI
 uri_1
 V1
+v2
 VoucherMint
 VSCode
 web3
@@ -142,6 +145,7 @@ WebGL
 WebGL2020x
 WebGLTemplates
 WebLogin
+webpack
 webpage
 webserver
 WebTemplates
