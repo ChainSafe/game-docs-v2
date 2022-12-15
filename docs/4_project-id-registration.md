@@ -7,7 +7,7 @@ sidebar_label: Project ID Registration
 
 # Project ID Registration
 
-:::note
+:::info
 
 Registering your project to gain access to build features with our SDK
 
