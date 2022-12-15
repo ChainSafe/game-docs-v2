@@ -1,0 +1,31 @@
+.menu__link--active {
+  color: #FFEC3D;
+}
+:root {
+  --ifm-color-primary-dark: #FFEC3D;
+  --ifm-color-primary: #FFEC3D;
+  --ifm-menu-color-active: #FFEC3D;
+  --aa-primary-color-rgb: #FFEC3D !important;
+  --aa-text-color-rgb: #FFEC3D !important;
+  --aa-text-color-rgb: #FFEC3D !important;
+}
+
+
+a {
+  color: #FFEC3D;
+}
+
+a:hover {
+  color: #FFEC3D;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: #FFEC3D;
+}
+
+.aa-DetachedSearchButton {
+  color: #FFEC3D !important;
+}
+.aa-DetachedSearchButtonIcon {
+  color: #FFEC3D !important;
+}
