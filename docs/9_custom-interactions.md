@@ -9,7 +9,7 @@ sidebar_label: Custom Interactions
 
 ### Call Custom Blockchains {#call-custom-blockchains}
 
-Connect to any EVM compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL.
+Connect to any EVM compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns the native token's balance for the chain, if you'd like to get the balance a custom erc20 token you can see the balanceOf example here: [https://docs.gaming.chainsafe.io/erc20/](https://docs.gaming.chainsafe.io/erc20/)
 
 ```csharp
 string chain = "rootstock";
