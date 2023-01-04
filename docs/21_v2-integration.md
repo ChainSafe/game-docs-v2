@@ -1,11 +1,11 @@
 ---
-slug: /v2-integration
+slug: /version-2-integration
 sidebar_position: 21
-sidebar_label: V2 Integration
+sidebar_label: Version 2 Integration
 ---
 
 
-# V2 Integration
+# Version 2 Integration
 
 :::info
 
