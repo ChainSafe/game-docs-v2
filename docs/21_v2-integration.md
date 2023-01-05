@@ -38,7 +38,7 @@ Download & import the latest version 2 of the SDK package from [https://github.c
 
 ### Adding The New Libraries {#adding-the-new-libraries}
 
-You may see some errors when you intitially import the new package, don't worry this is normal. As the libraries have now been given namespaces you just need to import them up the top to gain access to all of their features. This has been done for EVM, Web Wallet & Contracts. You can import them at the top of the file as seen below. Web GL should just work as normal given that the changes below are present.
+You may see some errors when you initially import the new package, don't worry this is normal. As the libraries have now been given name spaces you just need to import them up the top to gain access to all of their features. This has been done for EVM, Web Wallet & Contracts. You can import them at the top of the file as seen below. Web Graphics Library should just work as normal given that the changes below are present.
 
 ![](assets\v2\v2importevmlib.png)
 
@@ -49,7 +49,7 @@ You may see some errors when you intitially import the new package, don't worry 
 
 ### Changes To Remove Errors {#changes-to-remove-errors}
 
-The next step is to change your EVM.Call & EVM.CreateContractData methods to the new way of doing things. You'll see this is now done locally with less parameters as opposed to going through the API. This means less time spent developing/waiting & more time spent gaming yay!
+The next step is to change your EVM.Call & EVM.CreateContractData methods to the new way of doing things. You'll see this is now done locally with less parameters as opposed to going through the API. This means less time spent developing/waiting & more time spent gaming!
 
 ![](assets\v2\v2InstallErrors.png)
 
@@ -73,9 +73,9 @@ Following a similar pattern, the same can be done for create contract data, plea
 
 ![](assets\v2\v2createcontractdatanew.png)
 
-### WebGL Sign Verify {#webgl-sign-verify}
+### WebGraphicsLibrary Sign Verify {#webgraphicslibrary-sign-verify}
 
-Web GL Sign verify has been altered slightly so now instead of it being an EVM.Call it's handled entierly within the lib, pretty neat hey! You can see the changes between the old and the new versions below.
+Web Graphics Library Sign verify has been altered slightly so now instead of it being an EVM.Call it's handled entirely within the lib, pretty neat hey! You can see the changes between the old and the new versions below.
 
 ![](assets\v2\v2webglsignverifyold.png)
 
