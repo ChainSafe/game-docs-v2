@@ -73,7 +73,7 @@ Following a similar pattern, the same can be done for create contract data, plea
 
 ![](assets\v2\v2createcontractdatanew.png)
 
-### WebGraphicsLibrary Sign Verify {#webgraphicslibrary-sign-verify}
+### Web Graphics Library Sign Verify {#web-graphics-library-sign-verify}
 
 Web Graphics Library Sign verify has been altered slightly so now instead of it being an EVM.Call it's handled entirely within the lib, pretty neat hey! You can see the changes between the old and the new versions below.
 
