@@ -15,22 +15,22 @@ This guide will help you switch over from version 1 of the SDK to version 2, don
 
 ### Major Changes {#major-changes}
 
-The major changes between version 1 and version 2 of the SDK have been made to help new users onboarding into the SDK aswell as to increase ease of use for our current developers.
+The major changes between version 1 and version 2 of the SDK have been made to help new users onboarding into the SDK as well as increasing ease of use for our current developers.
 
 These changes include:
 
-New libraries being present so code is alot cleaner, i.e EVM & Webwallet.
+New libraries being present so code is a lot cleaner, i.e EVM & Web Wallet.
 RPC providers are now handled user side as opposed to API side.
 Methods have been cleaned up so you no longer need to enter the network and chain parameters over and over.
-OnHashMessage for sign verify with WebGL has been altered slightly to be handled via libraries.
+On Hash Message for sign verify with WebGL has been altered slightly to be handled via libraries.
 
-### Removing The Old SDK Files {#removing-the-old-sdk-files}
+### Removing The Old Files {#removing-the-old-files}
 
 Delete the Plugins, Web3Unity & WebGLTemplates folders from your game as seen below to ensure there are no code clashes.
 
 ![](assets\v2\v2DeletePreviousSDKFiles.png)
 
-### Importing Version 2 Of The SDK {#importing-version-2-of-the-sdk}
+### Importing Version 2 {#importing-version-2}
 
 Download & import the latest version 2 of the SDK package from [https://github.com/ChainSafe/Gaming_SDK_V2/releases/](https://github.com/ChainSafe/Gaming_SDK_V2/releases/)
 
@@ -38,7 +38,7 @@ Download & import the latest version 2 of the SDK package from [https://github.c
 
 ### Adding The New Libraries {#adding-the-new-libraries}
 
-You may see some errors when you intitally import the new package, don't worry this is normal. As the libs are now been namespaced you just need to import them up the top to gain access to all of their features. This has been done for EVM, Webwallet & contracts. You can import them at the top of the file as seen below. Webgl should just work as normal given that the changes below are present.
+You may see some errors when you intitially import the new package, don't worry this is normal. As the libraries have now been given namespaces you just need to import them up the top to gain access to all of their features. This has been done for EVM, Web Wallet & Contracts. You can import them at the top of the file as seen below. Web GL should just work as normal given that the changes below are present.
 
 ![](assets\v2\v2importevmlib.png)
 
@@ -49,7 +49,7 @@ You may see some errors when you intitally import the new package, don't worry t
 
 ### Changes To Remove Errors {#changes-to-remove-errors}
 
-The next step is to change your EVM.Call & EVM.CreateContractData methods to the new way of doing things. You'll see this is now done locally with less parameters as opposed to going through the API. This means less time spent developing/waiting & more time spent gaming woohoo!
+The next step is to change your EVM.Call & EVM.CreateContractData methods to the new way of doing things. You'll see this is now done locally with less parameters as opposed to going through the API. This means less time spent developing/waiting & more time spent gaming yay!
 
 ![](assets\v2\v2InstallErrors.png)
 
@@ -73,9 +73,9 @@ Following a similar pattern, the same can be done for create contract data, plea
 
 ![](assets\v2\v2createcontractdatanew.png)
 
-### WebGL Sign Verify Changes {#webgl-sign-verify-changes}
+### WebGL Sign Verify {#webgl-sign-verify}
 
-Webgl Sign verify has been altered slightly so now instead of it being an EVM.Call it's handled entiriely within the lib, pretty neat hey! You can see the changes between the old and the new versions below.
+Web GL Sign verify has been altered slightly so now instead of it being an EVM.Call it's handled entierly within the lib, pretty neat hey! You can see the changes between the old and the new versions below.
 
 ![](assets\v2\v2webglsignverifyold.png)
 
