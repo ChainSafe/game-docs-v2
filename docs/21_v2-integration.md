@@ -21,12 +21,14 @@ These changes include:
 
 New libraries being present so code is a lot cleaner, i.e EVM & Web Wallet.
 RPC providers are now handled user side as opposed to API side which means you will need an infura enabled rpc (chainstack) or a local node.
+Chainstack offers 3 million calls per month for free, this is more than enough for testing and most production applications.
 Methods have been cleaned up so you no longer need to enter the network and chain parameters over and over.
 On Hash Message for sign verify with WebGL has been altered slightly to be handled via libraries.
+Private key calls will now need a new import of "using Web3Unity.Scripts.Library.Web3PrivateKey"
 
 ### Removing The Old Files {#removing-the-old-files}
 
-Delete the Plugins, Web3Unity & WebGLTemplates folders from your game as seen below to ensure there are no code clashes.
+Delete the Web3Unity & WebGLTemplates and Plugins -> Nethereum folders from your game as seen below to ensure there are no code clashes.
 
 ![](assets\v2\v2DeletePreviousSDKFiles.png)
 
@@ -65,7 +67,7 @@ Below you can see the differences between the old EVM.Call and the new contract.
 
 ### EVM.CreateContractData-To-Call-Data {#evm.createcontractdata-to-call-data}
 
-Following a similar pattern, the same can be done for create contract data, please pay attention to the slight changes. You'll notice that the previous way of serializing data into object has now been included into the contract object for ease of use. You can simply remove these and place them into the object creation as seen below.
+Following a similar pattern, the same can be done for create contract data, please pay attention to the slight changes. You'll notice that the previous way of serializing data into object has now been included into the contract object for ease of use. You can simply remove these and place them into the object creation as seen below. Please note this only for Web Wallet Builds.
 
 ![](assets\v2\v2importcontractslib.png)
 
