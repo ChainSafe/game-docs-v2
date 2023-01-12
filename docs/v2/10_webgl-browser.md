@@ -6,7 +6,7 @@ sidebar_label: WebGL Browser
 
 :::info
 
-Web GL or browser builds are built using the Web GL prefabs & scripts.
+WebGL or browser builds are built using the WebGL prefabs & scripts.
 
 :::
 
@@ -203,7 +203,7 @@ public class WebGLSha3Example : MonoBehaviour
 
 ### Verify WebGL {#verify}
 
-Verify a signed message Web GL.
+Verify a signed message WebGL.
 
 ```csharp
 using System;

@@ -56,9 +56,9 @@ The next step is to change your EVM.Call & EVM.CreateContractData methods to the
 ![](v2Assets/v2InstallErrors.png)
 
 ### Contract ABI to JSON format {#contract-abi-to-json-format}
-In order to interact with a contract you'll need the abi of the contract in a readable format, to do this you can follow the steps below.
+In order to interact with a contract you'll need the ABI of the contract in a readable format, to do this you can follow the steps below.
 
-1. copy the abi from your contract source, remix or other IDE.
+1. copy the ABI from your contract source, remix or other IDE.
 2. paste it into your browser address bar to get it onto 1 line.
 3. copy it again from the address bar and paste it into here https://codebeautify.org/csharp-escape-unescape
 4. press escape and copy the result.

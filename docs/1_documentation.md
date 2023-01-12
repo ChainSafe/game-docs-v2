@@ -4,7 +4,7 @@ sidebar_position: 1
 sidebar_label: Documentation
 ---
 
-# Welcome To Chainsafe!
+# Welcome To ChainSafe!
 
 SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/ChainSafe/web3.unity/releases)
 
