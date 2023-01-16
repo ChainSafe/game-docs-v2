@@ -466,9 +466,10 @@ public class Web3WalletContractSend : MonoBehaviour
         string method = "addTotal";
         string amount = "1";
         var contract = new Contract(contractAbi, contractAddress);
+        // values should be parsed as integers here
         var calldata = contract.Calldata(method, new object[]
         {
-            amount
+            int.Parse(amount)
         });
         // send transaction
         string response = await Web3Wallet.SendTransaction(chainId, contractAddress, "0", calldata, "", "");
