@@ -98,7 +98,7 @@ public class ERC721URIExample : MonoBehaviour
 }
 ```
 
-### ALLERC721 {#all-erc-721"}
+### All721s {#all-721s"}
 
 ```csharp
 using UnityEngine;

@@ -87,7 +87,7 @@ public class ERC1155URIExample : MonoBehaviour
 }
 ```
 
-### ALLERC1155 {#all-erc-1155"}
+### All1155s {#all-1155s"}
 
 ```csharp
 using System.Numerics;
