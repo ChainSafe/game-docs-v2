@@ -9,13 +9,13 @@ sidebar_label: Getting Started
 
 :::info
 
-This guide will help you switch over from version 1 of the SDK to version 2, don't worry it's quite easy and offers a much more streamlined process of learning & using the SDK. Please note that this is currently in Beta and will still go through changes.
+This guide will help you switch over from version 1.6 of the SDK to current version, don't worry it's quite easy and offers a much more streamlined process of learning & using the SDK. Please note that this is currently in Beta and will still go through changes.
 
 :::
 
 ### Major Changes {#major-changes}
 
-The major changes between version 1 and version 2 of the SDK have been made to help new users onboarding into the SDK as well as increasing ease of use for our current developers.
+The major changes between versions 1.6 and the current of the SDK have been made to help new users onboarding into the SDK as well as increasing ease of use for our current developers.
 
 These changes include:
 
@@ -34,7 +34,7 @@ Delete the Web3Unity & WebGLTemplates and Plugins -> Nethereum folders from your
 
 ### Importing Version 2 {#importing-version-2}
 
-Download & import the latest version 2 of the SDK package from [https://github.com/ChainSafe/Gaming_SDK_V2/releases/](https://github.com/ChainSafe/Gaming_SDK_V2/releases/)
+Download & import the latest version of the SDK package from [https://github.com/ChainSafe/Gaming_SDK_V2/releases/](https://github.com/ChainSafe/Gaming_SDK_V2/releases/)
 
 ![](v2Assets/v2installv2unitypackage.png)
 
