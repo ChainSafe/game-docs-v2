@@ -10,10 +10,10 @@ SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/Chain
 
 Bridging Unity games to the blockchain. Create your in game NFTs.
 
-## Version 1 Legacy Builds
+## Legacy Builds 1.6
 
 Press here: [https://docs.gaming.chainsafe.io/v1/getting-started-v1](https://docs.gaming.chainsafe.io/v1/getting-started-v1) to open our legacy documentation. (use the left sidebar when in local testing as these links are not active yet)
 
-## Version 2 Builds
+## Current SDK Builds
 
 Press here: [https://docs.gaming.chainsafe.io/v2/version-2-integration](https://docs.gaming.chainsafe.io/v2/version-2-integration) to open our version 2 documentation. (use the left sidebar when in local testing as these links are not active yet)
