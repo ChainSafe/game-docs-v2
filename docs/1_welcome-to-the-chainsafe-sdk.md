@@ -16,4 +16,4 @@ Press here: [https://docs.gaming.chainsafe.io/v1/getting-started-v1](https://doc
 
 ## Current SDK Builds
 
-Press here: [https://docs.gaming.chainsafe.io/v2/version-2-integration](https://docs.gaming.chainsafe.io/v2/version-2-integration) to open our version 2 documentation. (use the left sidebar when in local testing as these links are not active yet)
+Press here: [https://docs.gaming.chainsafe.io/v2/version-2-integration](https://docs.gaming.chainsafe.io/v2/version-2-integration) to open our current SDK documentation. (use the left sidebar when in local testing as these links are not active yet)
