@@ -1,11 +1,11 @@
 ---
-slug: /v2/getting-started-v2
+slug: /v2/getting-started
 sidebar_position: 1
-sidebar_label: Getting Started V2
+sidebar_label: Getting Started
 ---
 
 
-# Getting Started V2
+# Getting Started
 
 :::info
 

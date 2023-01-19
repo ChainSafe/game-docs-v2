@@ -1,7 +1,7 @@
 ---
 slug: /
 sidebar_position: 1
-sidebar_label: Documentation
+sidebar_label: Welcome To The ChainSafe SDK
 ---
 
 # Welcome To ChainSafe!
