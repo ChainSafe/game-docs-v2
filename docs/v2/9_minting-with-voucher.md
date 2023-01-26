@@ -1,5 +1,5 @@
 ---
-slug: /v2/minting-with-voucher
+slug: /current/minting-with-voucher
 sidebar_position: 9
 sidebar_label: Minting With Voucher
 ---

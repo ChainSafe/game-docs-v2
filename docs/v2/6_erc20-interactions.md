@@ -1,5 +1,5 @@
 ---
-slug: /v2/erc20-interactions
+slug: /current/erc20-interactions
 sidebar_position: 6
 sidebar_label: ERC20 Interactions
 ---

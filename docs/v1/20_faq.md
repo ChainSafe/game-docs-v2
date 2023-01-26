@@ -1,5 +1,5 @@
 ---
-slug: /v1/faq
+slug: /legacy/faq
 sidebar_position: 20
 sidebar_label: FAQ
 ---

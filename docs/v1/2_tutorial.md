@@ -1,5 +1,5 @@
 ---
-slug: /v1/tutorial
+slug: /legacy/tutorial
 sidebar_position: 2
 sidebar_label: Tutorial
 ---

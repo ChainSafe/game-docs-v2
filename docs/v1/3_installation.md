@@ -1,5 +1,5 @@
 ---
-slug: /v1/installation
+slug: /legacy/installation
 sidebar_position: 3
 sidebar_label: Installation
 ---

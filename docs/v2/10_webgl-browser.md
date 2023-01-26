@@ -1,5 +1,5 @@
 ---
-slug: /v2/webgl-browser
+slug: /current/webgl-browser
 sidebar_position: 10
 sidebar_label: WebGL Browser
 ---

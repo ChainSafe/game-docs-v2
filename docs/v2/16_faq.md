@@ -1,5 +1,5 @@
 ---
-slug: /v2/faq
+slug: /current/faq
 sidebar_position: 16
 sidebar_label: FAQ
 ---

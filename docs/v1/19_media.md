@@ -1,5 +1,5 @@
 ---
-slug: /v1/media
+slug: /legacy/media
 sidebar_position: 19
 sidebar_label: Media
 ---

@@ -1,5 +1,5 @@
 ---
-slug: /v1/webgl
+slug: /legacy/webgl
 sidebar_position: 13
 sidebar_label: WebGL
 ---

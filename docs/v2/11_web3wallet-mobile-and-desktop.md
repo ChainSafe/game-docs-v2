@@ -1,5 +1,5 @@
 ---
-slug: /v2/web3wallet-mobile-and-desktop
+slug: /current/web3wallet-mobile-and-desktop
 sidebar_position: 11
 sidebar_label: Web3Wallet Mobile & Desktop
 ---

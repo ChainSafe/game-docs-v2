@@ -1,5 +1,5 @@
 ---
-slug: /v2/using-the-minter
+slug: /current/using-the-minter
 sidebar_position: 7
 sidebar_label: Using The Minter
 ---

@@ -1,5 +1,5 @@
 ---
-slug: /v1/implementing-social-logins-to-webgl-builds
+slug: /legacy/implementing-social-logins-to-webgl-builds
 sidebar_position: 17
 sidebar_label: Implementing Social Logins To  WebGL Builds
 ---

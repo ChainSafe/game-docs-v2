@@ -1,5 +1,5 @@
 ---
-slug: /v2/in-game-marketplace
+slug: /current/in-game-marketplace
 sidebar_position: 8
 sidebar_label: In Game Marketplace
 ---

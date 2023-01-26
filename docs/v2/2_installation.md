@@ -1,5 +1,5 @@
 ---
-slug: /v2/installation
+slug: /current/installation
 sidebar_position: 2
 sidebar_label: Installation
 ---

@@ -1,5 +1,5 @@
 ---
-slug: /v1/mobile-and-desktop
+slug: /legacy/mobile-and-desktop
 sidebar_position: 14
 sidebar_label: Mobile & Desktop
 ---

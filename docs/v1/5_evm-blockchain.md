@@ -1,5 +1,5 @@
 ---
-slug: /v1/evm-blockchain
+slug: /legacy/evm-blockchain
 sidebar_position: 5
 sidebar_label: EVM Blockchain
 ---

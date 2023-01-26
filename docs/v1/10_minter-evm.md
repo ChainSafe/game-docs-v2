@@ -1,5 +1,5 @@
 ---
-slug: /v1/minter-evm
+slug: /legacy/minter-evm
 sidebar_position: 10
 sidebar_label: Minter - EVM
 ---

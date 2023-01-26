@@ -1,5 +1,5 @@
 ---
-slug: /v1/how-tos
+slug: /legacy/how-tos
 sidebar_position: 18
 sidebar_label: How To's
 ---

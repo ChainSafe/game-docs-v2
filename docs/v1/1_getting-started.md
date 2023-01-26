@@ -1,10 +1,10 @@
 ---
-slug: /v1/getting-started-v1
+slug: /legacy/getting-started
 sidebar_position: 1
-sidebar_label: Getting Started V1
+sidebar_label: Getting Started
 ---
 
-# Getting Started V1
+# Getting Started
 
 SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/ChainSafe/web3.unity/releases)
 

@@ -1,5 +1,5 @@
 ---
-slug: /v1/importing-nfts
+slug: /legacy/importing-nfts
 sidebar_position: 16
 sidebar_label: Importing NFTs
 ---

@@ -12,8 +12,8 @@ Bridging Unity games to the blockchain. Create your in game NFTs.
 
 ## Current SDK Builds
 
-Press here: [https://docs.gaming.chainsafe.io/v2/version-2-integration](https://docs.gaming.chainsafe.io/v2/version-2-integration) to open our current SDK documentation. (use the left sidebar when in local testing as these links are not active yet)
+Press here: [https://docs.gaming.chainsafe.io/current/getting-started](https://docs.gaming.chainsafe.io/current/getting-started) to open our current SDK documentation.
 
 ## Legacy Builds 1.6
 
-Press here: [https://docs.gaming.chainsafe.io/v1/getting-started-v1](https://docs.gaming.chainsafe.io/v1/getting-started-v1) to open our legacy documentation. (use the left sidebar when in local testing as these links are not active yet)
+Press here: [https://docs.gaming.chainsafe.io/legacy/getting-started](https://docs.gaming.chainsafe.io/legacy/getting-started) to open our legacy documentation.

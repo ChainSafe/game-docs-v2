@@ -1,5 +1,5 @@
 ---
-slug: /v1/keep-your-games-safe-from-cheaters
+slug: /legacy/keep-your-games-safe-from-cheaters
 sidebar_position: 15
 sidebar_label: Keep Your Games Safe From Cheaters
 ---

@@ -1,5 +1,5 @@
 ---
-slug: /v1/custom-interactions
+slug: /legacy/custom-interactions
 sidebar_position: 9
 sidebar_label: Custom Interactions
 ---

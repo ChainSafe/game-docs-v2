@@ -1,5 +1,5 @@
 ---
-slug: /v2/erc1155-interactions
+slug: /current/erc1155-interactions
 sidebar_position: 4
 sidebar_label: ERC1155 Interactions
 ---

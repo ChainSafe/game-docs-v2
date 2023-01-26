@@ -1,5 +1,5 @@
 ---
-slug: /v2/getting-started
+slug: /current/getting-started
 sidebar_position: 1
 sidebar_label: Getting Started
 ---

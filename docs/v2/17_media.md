@@ -1,5 +1,5 @@
 ---
-slug: /v2/media
+slug: /current/media
 sidebar_position: 17
 sidebar_label: Media
 ---
