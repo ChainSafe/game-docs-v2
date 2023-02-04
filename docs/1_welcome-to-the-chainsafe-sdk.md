@@ -6,9 +6,11 @@ sidebar_label: Welcome To The ChainSafe SDK
 
 # Welcome To ChainSafe!
 
+![](v2/v2Assets/IntroImageChainsafe.png)
+
 SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/ChainSafe/web3.unity/releases)
 
-Bridging Unity games to the blockchain. Create your in game NFTs.
+Bridging Unity games to the blockchain & Helping you to create your in game NFTs.
 
 ## Current SDK Builds
 
