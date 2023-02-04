@@ -12,6 +12,11 @@ WebGL or browser builds are built using the WebGL prefabs & scripts.
 
 # WebGL
 
+### Building To WebGL ###
+
+Here's NFTPixels to walk you through building out your project to WebGL
+<iframe width="960" height="500" src="https://www.youtube.com/embed/3u3ka8k3o08?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Start A Web3GL Build With web3.unity v2 (For Browsers!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Get User's Network {#get-users-network}
 
 ```csharp
@@ -248,7 +253,8 @@ Call will execute a smart contract method without altering the smart contract st
 
 Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/)
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/8A9NmuCucqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+NFTPixels will walk you through making read and write calls to the blockchain using WebGL
+<iframe width="960" height="500" src="https://www.youtube.com/embed/-AzyBq9jj6o?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Make Read+Write Interactions Custom Contracts Using Web3GL On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
 

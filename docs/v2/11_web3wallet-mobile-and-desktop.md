@@ -12,7 +12,10 @@ Mobile & desktop builds are built using the Web3Wallet prefabs & scripts.
 
 # Mobile & Desktop
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/41w6G6Hp9ig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### Building To Web3Wallet ###
+
+Here's NFTPixels to walk you through building out your project to Web3Wallet for mobile and desktop
+<iframe width="960" height="500" src="https://www.youtube.com/embed/ZD65bofy-zk?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr" title="How To Start A Web3Wallet Build With web3.unity v2 (For Desktop And Mobile!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Block number {#block-number}
 
@@ -364,7 +367,8 @@ Call will execute a smart contract method without altering the smart contract st
 
 Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/)
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/8A9NmuCucqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+NFTPixels will walk you through making read and write calls to the blockchain using Web3Wallet
+<iframe width="960" height="500" src="https://www.youtube.com/embed/VZ1EBVXoZ9E?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr" title="How To Make Read+Write Interactions With Custom Smart Contracts Using Web3Wallet On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
 

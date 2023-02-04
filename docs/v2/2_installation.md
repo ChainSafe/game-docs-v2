@@ -52,6 +52,9 @@ Now, that we have a new Unity3D project. We are ready to install the ChainSafe g
 
 ![](v2Assets/step5.png)
 
+Here's NFTPixels to walk you through this process!
+<iframe width="960" height="500" src="https://www.youtube.com/embed/9QtcXo_6izw?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Install The ChainSafe Gaming web3.unity SDK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Building a WebGL Project
 
 Now, we are going to build out our game scene. We will only add the necessary components to build and connect the SDK to a sample Unity3D scene. The SDK provides a WebLogin scene that connects your Web3 wallet to Unity. The is found in the Web3Unity -> Scenes folder and is name WebLogin. This is going to be the first scene that game developers will use.

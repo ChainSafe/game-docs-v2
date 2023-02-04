@@ -26,6 +26,9 @@ Methods have been cleaned up so you no longer need to enter the network and chai
 On Hash Message for sign verify with WebGL has been altered slightly to be handled via libraries.
 Private key transactions have been removed, you may still use sign however, these calls will now need a new import of "using Web3Unity.Scripts.Library.Web3PrivateKey"
 
+Here's a side by side video comparing the chicken demo in 1.6 and the latest release of the sdk from Sneakz
+<iframe width="960" height="500" src="https://www.youtube.com/embed/V7R8_3XvBEo?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="A Side-By-Side Code Comparison Between v1.6.x and v2 Of web3.unity Using The Chicken Demo!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Removing The Old Files {#removing-the-old-files}
 
 Delete the Web3Unity & WebGLTemplates and Plugins -> Nethereum folders from your game as seen below to ensure there are no code clashes.

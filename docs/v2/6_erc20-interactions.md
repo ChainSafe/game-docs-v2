@@ -13,6 +13,11 @@ A standard interface for native & custom tokens.
 
 :::
 
+### Video Explanation Of ERC20 Prefabs
+
+Here's a video explanation to help you better understand our new prefabs with Sneakz
+<iframe width="960" height="500" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
 Connect to any EVM compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns the native token's balance for the chain, if you'd like to get the balance a custom erc20 token you can see the balance of example here: [https://docs.gaming.chainsafe.io/v2/erc20/](https://docs.gaming.chainsafe.io/v2/erc20/)
