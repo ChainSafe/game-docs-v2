@@ -1,10 +1,10 @@
 ---
 slug: /
 sidebar_position: 1
-sidebar_label: Welcome To The ChainSafe SDK
+sidebar_label: ChainSafe Gaming
 ---
 
-# Welcome To The ChainSafe SDK!
+# Welcome To ChainSafe Gaming!
 
 ![](v2/v2Assets/IntroImageChainsafe.png)
 

@@ -7,7 +7,7 @@ module.exports = {
       collapsible: true,
       collapsed: false,
       items: [
-        'welcome-to-the-chainsafe-sdk',
+        'chainsafe-gaming',
         {
           type: 'category',
           label: 'SDK Documentation',
