@@ -10,7 +10,7 @@ sidebar_label: ChainSafe Gaming
 
 ## Bridging Unity games to the blockchain & Helping you to create your in game NFTs
 
-SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/ChainSafe/web3.unity/releases)
+ChainSafe Gaming SDK: [https://github.com/ChainSafe/web3.unity/releases](https://github.com/ChainSafe/web3.unity/releases)
 
 ## Current SDK Builds
 
