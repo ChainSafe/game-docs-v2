@@ -1,6 +1,6 @@
 ---
-slug: /faq
-sidebar_position: 20
+slug: /current/faq
+sidebar_position: 16
 sidebar_label: FAQ
 ---
 
@@ -39,7 +39,7 @@ Not currently. Although, the SDK is mainly compatible with Ethereum Virtual Mach
 
 **Answer #1:** This usually happens because the game has not informed the user that a MetaMask pop up will occur. You can solve this by adding a simple notification as seen below.
 
-![](assets/reqMetamask.png)
+![](v2Assets/reqMetamask.png)
 
 **Answer #2:** Some stores may require a demo version of the game so that the stores teams can review the product without needing an external wallet. You can simply add a demo button within the game that takes the user to a free-to-play version of your game without blockchain calls to test. This should be enough for the store to accept your games application. Happy coding!
 
@@ -47,7 +47,7 @@ Not currently. Although, the SDK is mainly compatible with Ethereum Virtual Mach
 
 You can do this by editing the WebGLTemplates -> WebGL2020x -> Web3 -> index.js file. You need to uncomment the wallet at the top to allow the UNPKG javascript file to be used and then uncomment the wallet in the connect function below. Other wallets can be added the same way, provided the developers of the wallet supply a UNPKG javascript file and the wallet is EVM-compatible (such as MetaMask).
 
-![](assets/EnablingAlternateWallets.png)
+![](v2Assets/EnablingAlternateWallets.png)
 
 ## Common Questions About Upgrading To The Latest Version of web3.unity
 
@@ -140,11 +140,11 @@ C#// Some code
 
 ### I'm getting the following error `Cannot read properties of undefined reading connect` when clicking the login button. What am I doing wrong?
 
-![](assets/image0.jpg)
+![](v2Assets/image0.jpg)
 
 This error typically happens when the user hasn't selected the Web3GL template for making WebGL Games. Make sure you have selected the provided template before making a Web3GL-based game.
 
-![](assets/webgl\_template.png)
+![](v2Assets/webgl\_template.png)
 
 ### I'm having issues building with react or into a server and it's showing `Uncaught TypeError: Cannot read properties of undefined (reading 'connect')` on build, what should I do?
 
