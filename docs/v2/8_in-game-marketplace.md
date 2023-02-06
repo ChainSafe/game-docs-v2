@@ -9,13 +9,13 @@ sidebar_label: In Game Marketplace
 
 :::info
 
-Allows for interaction with the ChainSafe Gaming SDK marketplace endpoints.
+Allows for interaction with the web3.unity SDK marketplace endpoints.
 
 :::
 
 ## Create Approval Transaction
 
-In order to interact with the marketplace an account must be given approval by the minting interface. This is easily achieved using the ChainSafe Gaming SDK's **EVM.CreateApproveTransaction** class method. A sample code snippet is provided below and please refer to **CreateApproval.cs** and **CreateApproval** prefabs provided in the SDK.
+In order to interact with the marketplace an account must be given approval by the minting interface. This is easily achieved using the web3.unity SDK's **EVM.CreateApproveTransaction** class method. A sample code snippet is provided below and please refer to **CreateApproval.cs** and **CreateApproval** prefabs provided in the SDK.
 
 ```csharp
 using System;

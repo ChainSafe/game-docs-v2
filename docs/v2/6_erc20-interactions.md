@@ -16,7 +16,7 @@ A standard interface for native & custom tokens.
 ### Video Explanation Of ERC20 Prefabs
 
 Here's a video explanation to help you better understand our new prefabs with Sneakz
-<iframe width="960" height="500" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 

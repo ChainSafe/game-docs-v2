@@ -153,7 +153,7 @@ You need to add the web3 component into your react build manually. To do so:
 1. &#x20;In your public folder, add the web3 folder from a unity build.
 2. Then import the following as a script at index.html.
 3. 
- ```js
+```js
  \<script src="%PUBLIC\_URL%/YourGame/web3/index.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3modal.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3.min.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/network.js">\</script>
 ```
  This should solve your issue. Happy coding!

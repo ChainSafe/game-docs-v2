@@ -27,7 +27,7 @@ On Hash Message for sign verify with WebGL has been altered slightly to be handl
 Private key transactions have been removed, you may still use sign however, these calls will now need a new import of "using Web3Unity.Scripts.Library.Web3PrivateKey"
 
 Here's a side by side video comparing changes in the chicken demo in 1.6 and the latest release from Sneakz
-<iframe width="960" height="500" src="https://www.youtube.com/embed/V7R8_3XvBEo?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="A Side-By-Side Code Comparison Between v1.6.x and v2 Of web3.unity Using The Chicken Demo!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/V7R8_3XvBEo?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="A Side-By-Side Code Comparison Between v1.6.x and v2 Of web3.unity Using The Chicken Demo!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Removing The Old Files {#removing-the-old-files}
 

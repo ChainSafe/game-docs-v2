@@ -23,7 +23,7 @@ Don't panic, this is just so that we can offer a more hands on approach when it 
 
 Don't want to scroll through reading? No problem! NFTPixels is here with a quick sign up video.
 
-<iframe width="960" height="500" src="https://www.youtube.com/embed/TbDGaySQ1Io?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Register A Project With web3.unity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/TbDGaySQ1Io?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Register A Project With web3.unity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Sign up on our dashboard via email
 

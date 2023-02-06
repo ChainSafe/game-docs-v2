@@ -10,7 +10,7 @@ sidebar_label: Installation
 :::info
 
 In this section, we will go through the steps necessary to install the
-ChainSafe Gaming SDK into the Unity3D game engine.
+web3.unity SDK into the Unity3D game engine.
 
 :::
 
@@ -22,7 +22,7 @@ You will need to have MetaMask installed in order to make Web3 enabled games. If
 
 ### Downloading the SDK
 
-You will first need to download the ChainSafe Gaming SDK from our GitHub repository. This can be found by following this link [ChainSafe gaming SDK GitHub](https://github.com/chainsafe).&#x20;
+You will first need to download the web3.unity SDK from our GitHub repository. This can be found by following this link [web3.unity SDK GitHub](https://github.com/chainsafe).&#x20;
 
 ![](v2Assets/step1.png)
 
@@ -46,14 +46,14 @@ Now, that we have created a new project and have a clean interface to work with 
 
 ![](v2Assets/step4.png)
 
-### Importing the ChainSafe Gaming SDK
+### Importing the web3.unity SDK
 
-Now, that we have a new Unity3D project. We are ready to install the ChainSafe gaming SDK package. Dragging the package in the assets directory will bring up the following dialogue shown on the screen below.
+Now, that we have a new Unity3D project. We are ready to install the web3.unity SDK package. Dragging the package in the assets directory will bring up the following dialogue shown on the screen below.
 
 ![](v2Assets/step5.png)
 
 Here's NFTPixels to walk you through this process!
-<iframe width="960" height="500" src="https://www.youtube.com/embed/9QtcXo_6izw?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Install The ChainSafe Gaming web3.unity SDK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/9QtcXo_6izw?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Install The ChainSafe Gaming web3.unity SDK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Building a WebGL Project
 
@@ -63,7 +63,7 @@ Now, we are going to build out our game scene. We will only add the necessary co
 
 ### Building out our Sample Scene
 
-The ChainSafe gaming SDK is Multi-Chain. Meaning, that our SDK can connect to many different versions of the Ethereum Virtual Machine. This is an important step that is often missed when deploying your project. This is found in the **WebGL Templates -> Web3GL - 2020x -> network.js** file. You will simply replace the value with the ChainId of the EVM blockchain you wish to connect to. The SDK however will detect the network your Web3 wallet has selected and will change without you having to configure it.
+The web3.unity SDK is Multi-Chain. Meaning, that our SDK can connect to many different versions of the Ethereum Virtual Machine. This is an important step that is often missed when deploying your project. This is found in the **WebGL Templates -> Web3GL - 2020x -> network.js** file. You will simply replace the value with the ChainId of the EVM blockchain you wish to connect to. The SDK however will detect the network your Web3 wallet has selected and will change without you having to configure it.
 
 &#x20;
 
@@ -79,7 +79,7 @@ And make sure it is in the first index followed by the sample scene found in the
 
 ### **Connecting the ChainSafe WebGL Template**
 
-In order to connect the ChainSafe gaming SDK to Web3. We are going to need to select the custom template provided by the SDK.  On selecting the Player Settings and navigating to Player -> Resolution and Presentation select the Web4GL-2020x template.&#x20;
+In order to connect the web3.unity SDK to Web3. We are going to need to select the custom template provided by the SDK.  On selecting the Player Settings and navigating to Player -> Resolution and Presentation select the Web4GL-2020x template.&#x20;
 
 ![](v2Assets/step9.png)
 
@@ -99,5 +99,5 @@ After entering your password and selecting an account. The SDK will automaticall
 
 ### Congratulations
 
-You have successfully installed the ChainSafe Gaming SDK. We look forward to seeing what you build.
+You have successfully installed the web3.unity SDK. We look forward to seeing what you build.
 

@@ -16,7 +16,7 @@ A standard interface for non-fungible tokens
 ### Video Explanation Of ERC721 Prefabs
 
 Here's a video explanation to help you better understand our new prefabs with Sneakz
-<iframe width="960" height="500" src="https://www.youtube.com/embed/lfPCldSqaq4?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-721 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/lfPCldSqaq4?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-721 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Balance Of {#balance-of}
 

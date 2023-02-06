@@ -14,19 +14,17 @@ on the Goerli testnet
 
 :::
 
-Voucher minting (also known as lazy minting or "just-in-time minting") allows a number of use-cases that enable developers to implement mechanics such as play-to-earn (P2E). The basic idea is that a developer can cryptographically sign a voucher (containing the data of the NFT to be minted) allowing a player to present this signature together with the NFT data to the contract to mint the NFT. Vouchers that are issued to the player are single-use vouchers to prevent replay attacks where the same voucher is used to mint multiple items. The minting is paid for by the user minting the asset so that the \
-\
-When a player calls the `redeem` function on the ERC721 or ERC1155 contract, the signature is validated and if this signature is valid, then the NFT is minted.\
-\
-One of the major advantages of voucher minting is that the Gas cost of minting the NFT is paid by the user calling the `redeem` function and generating the vouchers off-chain costs the developer nothing other than time.\
-\
-The Voucher Signer server component can be a standalone service or it could be integrated into existing backend services of the game. This service must be run by the developer themselves, as game \
-\
+Voucher minting (also known as lazy minting or "just-in-time minting") allows a number of use-cases that enable developers to implement mechanics such as play-to-earn (P2E). The basic idea is that a developer can cryptographically sign a voucher (containing the data of the NFT to be minted) allowing a player to present this signature together with the NFT data to the contract to mint the NFT. Vouchers that are issued to the player are single-use vouchers to prevent replay attacks where the same voucher is used to mint multiple items. The minting is paid for by the user minting the asset so that When a player calls the `redeem` function on the ERC721 or ERC1155 contract, the signature is validated and if this signature is valid, then the NFT is minted.
+
+One of the major advantages of voucher minting is that the Gas cost of minting the NFT is paid by the user calling the `redeem` function and generating the vouchers off-chain costs the developer nothing other than time.
+
+The Voucher Signer server component can be a standalone service or it could be integrated into existing backend services of the game. This service must be run by the developer themselves.
+
 For more information on how voucher minting works, you can refer to [this NFT School article](https://nftschool.dev/tutorial/lazy-minting/#how-it-works).
 
 ![](<v2Assets/Lazy Minting.png>)
 
-The general flow for voucher minting is as follows:\
+The general flow for voucher minting is as follows:
 
 
 1. A player completes an in-game action (eg. wins a battle in the game) earning themselves the right to mint an NFT.
@@ -38,8 +36,8 @@ The general flow for voucher minting is as follows:\
 
 ### Lazy Minting Signer
 
-The sample code provided [here](https://github.com/ChainSafe/lazy-minting-server/blob/main/src/index.ts) shows a NodeJS (Express server) implementation of a voucher signer, with no validation of whether the conditions for issuing a voucher have been met.\
-\
+The sample code provided [here](https://github.com/ChainSafe/lazy-minting-server/blob/main/src/index.ts) shows a NodeJS (Express server) implementation of a voucher signer, with no validation of whether the conditions for issuing a voucher have been met.
+
 This example implements methods for both ERC721 and ERC1155 vouchers, though you will likely only use one of these in your application. These are both included for demo purposes.
 
 Prerequisites:
@@ -50,8 +48,7 @@ Prerequisites:
 
 ### Generate an ERC721 Voucher
 
-\
-1\. Validate whether user is entitled to mint the NFT (This has been hard-coded to true in the example server). In real-world cases the game state would be queried to ensure that the user requesting the voucher is indeed entitled to receive it.\
+1. Validate whether user is entitled to mint the NFT (This has been hard-coded to true in the example server). In real-world cases the game state would be queried to ensure that the user requesting the voucher is indeed entitled to receive it.
 
 
 ```typescript
@@ -59,7 +56,7 @@ Prerequisites:
 if (!voucherEarned) { throw new Error("Voucher is not yet earned"); }
 ```
 
-2\. Generate metadata for the NFT and upload to ChainSafe Storage or another IPFS host of your choice. You will now have the CID of the metadata.
+2. Generate metadata for the NFT and upload to ChainSafe Storage or another IPFS host of your choice. You will now have the CID of the metadata.
 
 ```typescript
 const metadata = { 
@@ -80,7 +77,7 @@ try {
 
 `uploadResult` is the CID of the metadata for which the voucher will now be signed.
 
-3\. Generate an EIP712 TypedData signed message using the LazyMinter utility. Please note that the `tokenId` that is passed needs to be formatted correctly using the `cidToTokenId()` helper provided.
+3. Generate an EIP712 TypedData signed message using the LazyMinter utility. Please note that the `tokenId` that is passed needs to be formatted correctly using the `cidToTokenId()` helper provided.
 
 ```csharp
 const provider = getDefaultProvider(5) // Goerli
@@ -95,7 +92,7 @@ const voucher = await minter.createVoucher721({
 })
 ```
 
-4\. Return the voucher and signature to the user
+4. Return the voucher and signature to the user
 
 ```csharp
 res.send(voucher)
@@ -103,14 +100,14 @@ res.send(voucher)
 
 ### Generate an ERC1155 Voucher
 
-1\. Validate whether user is entitled to mint the NFT (This has been hard-coded to true in the example server). In real-world cases the game state would be queried to ensure that the user requesting the voucher is indeed entitled to receive it.
+1. Validate whether user is entitled to mint the NFT (This has been hard-coded to true in the example server). In real-world cases the game state would be queried to ensure that the user requesting the voucher is indeed entitled to receive it.
 
 ```typescript
 // Query game state to determine whether the user making the request is authorized to mint const const voucherEarned = true
 if (!voucherEarned) { throw new Error("Voucher is not yet earned"); }
 ```
 
-2\. Generate metadata for the NFT and upload to ChainSafe storage (IPFS). You will now have the CID of the metadata which is necessary for minting the token. When uploading metadata to be used for an ERC1155 the hashing algorithm used should be set to `blake2b-208` to ensure that the resulting CID can be used as a token Id.
+2. Generate metadata for the NFT and upload to ChainSafe storage (IPFS). You will now have the CID of the metadata which is necessary for minting the token. When uploading metadata to be used for an ERC1155 the hashing algorithm used should be set to `blake2b-208` to ensure that the resulting CID can be used as a token Id.
 
 ```typescript
 const metadata = {
@@ -132,7 +129,7 @@ try {
 
 `uploadResult` is the CID of the metadata for which the voucher will now be signed.\
 \
-3\. Generate an EIP712 TypedData signed message using the LazyMinter utility.&#x20;
+3. Generate an EIP712 TypedData signed message using the LazyMinter utility.&#x20;
 
 ```typescript
 const provider = getDefaultProvider(5)
@@ -169,7 +166,7 @@ const voucher = await minter.createGamingVoucher1155({
 })
 ```
 
-4\. Return the voucher and signature to the user
+4. Return the voucher and signature to the user
 
 ```typescript
 res.send(voucher)
