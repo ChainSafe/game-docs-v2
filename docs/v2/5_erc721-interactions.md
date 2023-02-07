@@ -9,13 +9,13 @@ sidebar_label: ERC721 Interactions
 
 :::info
 
-A standard interface for non-fungible tokens
+A standard interface for non-fungible tokens.
 
 :::
 
-### Video Explanation Of ERC721 Prefabs
+### Video Explanation Of ERC-721 Prefabs
 
-Here's a video explanation to help you better understand our new prefabs with Sneakz
+Here's a video explanation to help you better understand our new ERC-721 prefabs, with Sneakz:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/lfPCldSqaq4?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-721 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Balance Of {#balance-of}
@@ -42,7 +42,7 @@ public class ERC721BalanceOfExample : MonoBehaviour
 
 ### Owner Of {#owner-of}
 
-Find the owner of a NFT
+Find the owner of an NFT
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -103,7 +103,7 @@ public class ERC721URIExample : MonoBehaviour
 }
 ```
 
-### All721s {#all-721s"}
+### All 721's {#all-721s"}
 
 ```csharp
 using UnityEngine;

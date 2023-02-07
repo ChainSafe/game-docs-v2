@@ -9,18 +9,18 @@ sidebar_label: ERC20 Interactions
 
 :::info
 
-A standard interface for native & custom tokens.
+A standard interface for native & custom fungible tokens.
 
 :::
 
 ### Video Explanation Of ERC20 Prefabs
 
-Here's a video explanation to help you better understand our new prefabs with Sneakz
+Here's a video explanation to help you better understand our new ERC-20 prefabs, with Sneakz:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
-Connect to any EVM compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns the native token's balance for the chain, if you'd like to get the balance a custom erc20 token you can see the balance of example here: [https://docs.gaming.chainsafe.io/v2/erc20/](https://docs.gaming.chainsafe.io/v2/erc20/)
+Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns the native token's balance for the chain. If you'd like to get the balance a custom ERC-20 token, you can see a balance of example [here](https://docs.gaming.chainsafe.io/v2/erc20/).
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -48,7 +48,7 @@ public class ERC20CustomTokenBalance : MonoBehaviour
 
 ### Balance Of {#balance-of}
 
-Returns the balance of a standard or custom ERC20 token. E.g. "xdai"
+Returns the balance of a standard or custom ERC-20 token, e.g. "xdai"
 
 ```csharp
 using System.Numerics;
@@ -70,7 +70,7 @@ public class ERC20BalanceOfExample : MonoBehaviour
 
 ### Name {#name}
 
-Returns the name of the token. E.g. "USD Coin"
+Returns the name of the token, e.g. "USD Coin"
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -89,7 +89,7 @@ public class ERC20NameExample : MonoBehaviour
 
 ### Symbol {#symbol}
 
-Returns the symbol of the token. E.g. USDC.
+Returns the symbol of the token, e.g. "USDC".
 
 ```csharp
 using UnityEngine;
@@ -109,7 +109,7 @@ public class ERC20SymbolExample : MonoBehaviour
 
 ### Decimals {#decimals}
 
-Returns the number of decimals the token uses - e.g. 6, means to divide the token amount by 1000000 to get its user representation.
+Returns the number of decimals the token uses, e.g. 6, which means to divide the token amount by 1000000 to get its human readable representation.
 
 ```csharp
 using System.Numerics;

@@ -9,15 +9,15 @@ sidebar_label: ERC1155 Interactions
 
 :::info
 
-  A standard interface for contracts that manage multiple token types. A single
+  ERC-1155 is a standard interface for contracts that manage multiple token types. A single
   deployed contract may include any combination of fungible tokens, non-fungible
-  tokens or other configurations
+  tokens, or other configurations.
 
 :::
 
-### Video Explanation Of ERC1155 Prefabs
+### Video Explanation Of ERC-1155 Prefabs
 
-Here's a video explanation to help you better understand our new prefabs with Sneakz
+Here's a video explanation to help you better understand the new prefabs in web3.unity's latest release, with Sneakz:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/35GdxYaEjlM?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-1155 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Balance Of {#balance-of}
@@ -43,7 +43,7 @@ public class ERC1155BalanceOfExample : MonoBehaviour
 
 ### Balance Of Batch {#balance-of-batch}
 
-Balance of batch will get the balance of a list of accounts and token ids. For example:
+Balance of batch will get the balance of a list of accounts and token ID's. For example:
 
 Get the balance of account `0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2` with token id `1` and
 
@@ -74,7 +74,7 @@ public class ERC1155BalanceOfBatchExample : MonoBehaviour
 
 ### URI {#uri}
 
-Returns meta data about the token.
+Returns metadata about the token.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -92,7 +92,7 @@ public class ERC1155URIExample : MonoBehaviour
 }
 ```
 
-### All1155s {#all-1155s"}
+### All 1155's {#all-1155s"}
 
 ```csharp
 using System.Numerics;
