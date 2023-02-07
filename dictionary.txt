@@ -193,3 +193,6 @@ dev
 Infura-enabled
 web3-enabled
 Web3GL-enabled
+analytics
+GitHub
+github
