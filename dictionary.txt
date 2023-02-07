@@ -188,3 +188,8 @@ QuickNode
 RPCs
 ChainSafe's
 Web3GL-based
+scalable
+dev
+Infura-enabled
+web3-enabled
+Web3GL-enabled
