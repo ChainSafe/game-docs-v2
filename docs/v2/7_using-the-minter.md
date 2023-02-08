@@ -10,7 +10,7 @@ sidebar_label: Using The Minter
 :::info
 
 
-  Our minter is currently working on both EVM testnet and mainnet. A fuller list
+  Our minter is currently working on both EVM testnet and mainnet. A full list
   of supported chains will be added upon request from other chains and our wider
   gaming community.
 
@@ -33,16 +33,19 @@ sidebar_label: Using The Minter
 | Moonbeam     | Mainnet       | 1284     |
 
 
-This video shows user's how to mint an asset using our In game minting features
+### Minting An NFT In-game
+
+This video shows users how to mint an asset using our in-game minting features:
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/GsaNTvxE1I0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### Retrieving An NFT Balance In-game
 
-This video shows how to retrieve a balance of a minted asset created with the ChainSafe marketplace.
+This video shows how to retrieve the balance of a minted asset created with the ChainSafe Gaming marketplace:
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/as_zbMAZvTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-### Mint NFT via WebGL & WebWallet
+### Mint NFT Via WebGL & WebWallet Voucher Minting
 
-Our implementation will mint an NFT via WebGL or WebWallet via voucher minting. This is often more secure as it requires a couple of steps rather then just having an open mint function. More information can be found here [https://docs.gaming.chainsafe.io/v2/minting-with-voucher](https://docs.gaming.chainsafe.io/v2/minting-with-voucher)
+ChainSafe Gaming's web3.unity SDK provides an implementation for minting an NFT via WebGL or WebWallet voucher minting. Minting via voucher can be more secure as it requires additional steps from the user, as opposed to having an open mint function. More information can be found [here](https://docs.gaming.chainsafe.io/v2/minting-with-voucher).
