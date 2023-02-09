@@ -5,7 +5,7 @@ sidebar_label: In Game Marketplace
 ---
 
 
-# In Game Marketplace
+# In-game Marketplace
 
 :::info
 

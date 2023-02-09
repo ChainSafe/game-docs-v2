@@ -198,3 +198,6 @@ GitHub
 github
 blockchain-enabled
 EVM-based
+UI
+Integrable
+
