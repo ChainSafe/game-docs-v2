@@ -196,3 +196,5 @@ Web3GL-enabled
 analytics
 GitHub
 github
+blockchain-enabled
+EVM-based

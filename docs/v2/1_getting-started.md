@@ -96,4 +96,4 @@ New version:
 ![](v2Assets/v2webglsignverifynew.png)
 
 ### Test, Test & Test Again! {#test-test-&-test-again}
-So far, this is all you should need to do. As we continue to make changes, we'll be implementing and testing these within both versions of the chicken demo. If you get stuck in any way, you can always refer to the examples in their respective repositories here [https://discord.com/channels/593655374469660673/948330931394052116/1006409190400598070/](https://discord.com/channels/593655374469660673/948330931394052116/1006409190400598070/). Please give it a test and let our devs know in Discord if you have any troubles. Happy coding!
+So far, this is all you should need to do. As we continue to make changes, we'll be implementing and testing these within both versions of the chicken demo. If you get stuck in any way, you can always refer to the examples in the respective WebGL and WebWallet  repositories from our [Discord announcement](https://discord.com/channels/593655374469660673/948330931394052116/1006409190400598070/). Please give it a test and let our devs know in Discord if you have any troubles. Happy coding!

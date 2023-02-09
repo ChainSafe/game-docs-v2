@@ -48,4 +48,4 @@ This video shows how to retrieve the balance of a minted asset created with the 
 
 ### Mint NFT Via WebGL & WebWallet Voucher Minting
 
-ChainSafe Gaming's web3.unity SDK provides an implementation for minting an NFT via WebGL or WebWallet voucher minting. Minting via voucher can be more secure as it requires additional steps from the user, as opposed to having an open mint function. More information can be found [here](https://docs.gaming.chainsafe.io/v2/minting-with-voucher).
+ChainSafe Gaming's web3.unity SDK provides a voucher minting implementation for minting an NFT via WebGL or WebWallet. Voucher minting can be more secure as it requires additional steps from the user, as opposed to having an open mint function. More information can be found [here](https://docs.gaming.chainsafe.io/v2/minting-with-voucher).
