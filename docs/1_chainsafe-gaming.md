@@ -54,3 +54,13 @@ If you are new to web3.unity and blockchain-enabled gaming, we recommend that yo
   * [Web3GL Builds](https://www.youtube.com/playlist?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS)
   * [Legacy tutorials](https://www.youtube.com/playlist?list=PLPn3rQCo3XrOQkC3v55Ou8NMPgn8pb7O5)
   * [Gaming Community Calls](https://www.youtube.com/playlist?list=PLPn3rQCo3XrPW_HOF6QyKUgLiaARDp2wx)
+
+## Contribute
+
+All contributions are welcomed! The web3.unity docs is intended to be a living document and requires the contributions of many to be maintained.
+
+Please use GitHub Issues to propose any large changes and to facilitate discussion and questions regarding content and structure.
+
+It is recommended you review the [Docusaurus docs](https://docusaurus.io/docs) to ensure you utilize its features correctly.
+
+After making a PR, you can validate your proposed changes by clicking on the `View deployment` link in the `Checks` section.
