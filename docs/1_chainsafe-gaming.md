@@ -33,11 +33,11 @@ Out-of-the-box, web3.unity comes with Unity prefabs & tooling that will make bui
 
 ## Ready To Get Started?
 
-### Current SDK Builds (v2.x)
+#### Current SDK Builds (v2.x)
 
 [Click here](https://docs.gaming.chainsafe.io/current/getting-started) to open documentation for the latest version of web3.unity.
 
-### Legacy Builds (v1.6.x or lower)
+#### Legacy Builds (v1.6.x or lower)
 
 [Click here](https://docs.gaming.chainsafe.io/legacy/getting-started) to open legacy documentation for web3.unity.
 

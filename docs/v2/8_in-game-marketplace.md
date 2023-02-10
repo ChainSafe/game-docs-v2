@@ -9,13 +9,13 @@ sidebar_label: In Game Marketplace
 
 :::info
 
-Allows for interaction with the web3.unity SDK marketplace endpoints.
+The following section goes through the various web3.unity marketplace endpoints that are available and the types of interactions allowed for games that implement marketplace features.
 
 :::
 
 ## Create Approval Transaction
 
-In order to interact with the marketplace an account must be given approval by the minting interface. This is easily achieved using the web3.unity SDK's **EVM.CreateApproveTransaction** class method. A sample code snippet is provided below and please refer to **CreateApproval.cs** and **CreateApproval** prefabs provided in the SDK.
+In order to interact with the marketplace, an account must be given approval by the minting interface. This is achieved by using the web3.unity SDK's `EVM.CreateApproveTransaction` class method. A sample code snippet is provided below. Please refer to the `CreateApproval.cs` and `CreateApproval` prefabs provided in the SDK.
 
 ```csharp
 using System;
@@ -68,7 +68,7 @@ public class CreateApprovalWebWallet : MonoBehaviour
 
 ## Get Listed NFT's
 
-To get a list of minted market place items. The SDK provides **EVM.GetNftMarket** function. This will return all NFT's that have been minted and have been listed for sale. A sample code snippet is provided please refer to **GetListNFTWebGL.cs** and **GetListedNFTWebWallet.cs** for the full implementation. The source files provided also allow the user to purchase the listed NFT in game.
+To get a list of marketplace NFT's that have been minted through the marketplace, the SDK provides an `EVM.GetNftMarket` function. This method returns all NFT's that have been minted and listed for sale. We have provided a sample code snippet below, but please also refer to the `GetListNFTWebGL.cs` and `GetListedNFTWebWallet.cs` prefabs in the SDK for full implementation details. The source files provided also allow the user to purchase the listed NFT in game.
 
 * chain = ethereum / goerli / avalanche
 * network = testnet / mainnet
@@ -197,9 +197,9 @@ public class GetListedNFTWebWallet : MonoBehaviour
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/ukr3Ozeahr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Purchase NFT
+## Functionality For Purchasing A Marketplace NFT
 
-Now that you received an object of NFT's that have been listed for sale. You can easily purchase these items in game using the **EVM.CreatePurchaseNftTransaction** function provided in **EVM.cs**. We have provided a fully functioning prefab **BuyItemWebGL** and **BuyItemWebWallet** that has this implemented for you in the **GetListedNFTWebGL.cs** and **GetListedNFTWebWallet.cs** files. We have provided a sample code snippet that shows it's implementation.
+Once an NFT has been minted and listed for sale, you can allow the purchase of these items in-game by using the `EVM.CreatePurchaseNftTransaction` function provided in `EVM.cs`. There are also prefabs created for the different builds (`BuyItemWebGL` and `BuyItemWebWallet`) that is implemented in the `GetListedNFTWebGL.cs` and `GetListedNFTWebWallet.cs` files. See below for a code snippet of the implementation:
 
 * chain = ethereum / goerli / avalanche
 * network = testnet / mainnet
@@ -280,7 +280,7 @@ public class GetListedNFTWebWallet : MonoBehaviour
 
 ## &#x20;Listing Minted Asset
 
-The SDK also provides a way to list minted for sale by accessing the **EVM.CreateListNftTransaction** function. The fully functioning prefabs with it's implementation can be found within the SDK and are named **ListItemWebGL** and **ListItemWebWallet.** Here is a code snippet showing it's functionality provided within the SDK.
+To list minted NFT's for sale, the SDK provides an `EVM.CreateListNftTransaction` function. You can find the prefabs and its implementation by searching for the file names `ListItemWebGL` and `ListItemWebWallet`. See below for the code snippet:
 
 * chain = ethereum / goerli / avalanche
 * network = testnet / mainnet
