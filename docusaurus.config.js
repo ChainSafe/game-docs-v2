@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ChainSafe Gaming SDK',
+  title: 'Web3 Unity SDK',
   tagline: '',
   url: 'https://docs.gaming.chainsafe.io/',
   baseUrl: '/',
@@ -56,7 +56,7 @@ themeConfig:
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'ChainSafe Gaming SDK',
+        title: 'Web3 Unity SDK',
         logo: {
           alt: 'ChainSafe Logo',
           src: 'img/logo.png',
