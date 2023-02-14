@@ -35,7 +35,7 @@ Here's NFTPixels to walk you through building out your project to WebGL
 int networkId = Web3GL.Network();
 ```
 
-### Block number {#block-number}
+### Block Number {#block-number}
 
 Get the current latest block number
 
