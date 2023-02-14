@@ -1,11 +1,11 @@
 ---
 slug: /current/erc721-interactions
 sidebar_position: 5
-sidebar_label: ERC721 Interactions
+sidebar_label: ERC-721 Interactions
 ---
 
 
-# ERC721 Interactions
+# ERC-721 Interactions
 
 :::info
 

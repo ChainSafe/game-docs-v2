@@ -1,11 +1,11 @@
 ---
 slug: /current/erc1155-interactions
 sidebar_position: 4
-sidebar_label: ERC1155 Interactions
+sidebar_label: ERC-1155 Interactions
 ---
 
 
-# ERC1155 Interactions
+# ERC-1155 Interactions
 
 :::info
 

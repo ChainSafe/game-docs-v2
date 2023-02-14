@@ -1,11 +1,11 @@
 ---
 slug: /current/erc20-interactions
 sidebar_position: 6
-sidebar_label: ERC20 Interactions
+sidebar_label: ERC-20 Interactions
 ---
 
 
-# ERC20 Interactions
+# ERC-20 Interactions
 
 :::info
 
@@ -13,7 +13,7 @@ A standard interface for native & custom fungible tokens.
 
 :::
 
-### Video Explanation Of ERC20 Prefabs
+### Video Explanation Of ERC-20 Prefabs
 
 Here's a video explanation to help you better understand our new ERC-20 prefabs, with Sneakz:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -148,7 +148,7 @@ public class ERC20TotalSupplyExample : MonoBehaviour
 }
 ```
 
-### Convert WEI to ETH and ETH to WEI {#convert-wei-to-eth-and-eth-to-wei}
+### Convert WEI To ETH And ETH To WEI {#convert-wei-to-eth-and-eth-to-wei}
 
 ```csharp
 using System;

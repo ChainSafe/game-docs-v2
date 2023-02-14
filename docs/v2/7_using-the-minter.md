@@ -5,14 +5,12 @@ sidebar_label: Using The Minter
 ---
 
 
-# Using The Minter
+# Using The NFT Minter
 
 :::info
 
 
-  Our minter is currently working on both EVM testnet and mainnet. A full list
-  of supported chains will be added upon request from other chains and our wider
-  gaming community.
+  Our NFT minter prefab currently supports most major EVM mainnets and testnets. Support for more chains will be added upon request from other ecosystem teams and our wider gaming community.
 
 :::
 
@@ -35,7 +33,7 @@ sidebar_label: Using The Minter
 
 ### Minting An NFT In-game
 
-This video shows users how to mint an asset using our in-game minting features:
+This video shows users how to mint an asset using our in-game minting feature:
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/GsaNTvxE1I0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
