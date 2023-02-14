@@ -20,7 +20,7 @@ Here's a video explanation to help you better understand our new ERC-20 prefabs,
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
-Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns the native token's balance for the chain. If you'd like to get the balance a custom ERC-20 token, you can see a balance of example [here](https://docs.gaming.chainsafe.io/v2/erc20/).
+Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance a native ERC-20 token you can use the second code snippet below.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -64,6 +64,24 @@ public class ERC20BalanceOfExample : MonoBehaviour
 
         BigInteger balanceOf = await ERC20.BalanceOf(contract, account);
         Debug.Log("Balance Of: " + balanceOf);
+    }
+}
+```
+
+If you need the chain's native token balance you can fetch it using the native balance of prefab:
+
+```csharp
+using UnityEngine;
+using Web3Unity.Scripts.Library.Ethers.Providers;
+
+public class ERC20NativeBalanceOfExample : MonoBehaviour
+{
+    async void Start()
+    {
+        string account = "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2";
+        var provider = new JsonRpcProvider("YOUR_NODE_HERE");
+        var getBalance = await provider.GetBalance(account);
+        Debug.Log("Account Balance: " + getBalance); // balance is returned in wei
     }
 }
 ```
