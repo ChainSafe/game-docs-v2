@@ -84,7 +84,7 @@ public class ERC721OwnerOfBatchExample : MonoBehaviour
 }
 ```
 
-### URI {#uri_1"}
+### URI {#uri"}
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
