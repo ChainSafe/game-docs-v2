@@ -48,7 +48,7 @@ public class ERC20CustomTokenBalance : MonoBehaviour
 
 ### Balance Of {#balance-of}
 
-Returns the balance of a standard or custom ERC-20 token, e.g. "xdai"
+Returns the balance of a custom ERC-20 token, e.g. "xdai"
 
 ```csharp
 using System.Numerics;
