@@ -20,7 +20,7 @@ Here's a video explanation to help you better understand our new ERC-20 prefabs,
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
-Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance a native ERC-20 token you can use the second code snippet below.
+Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance of a native ERC-20 token you can use the second code snippet below.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
