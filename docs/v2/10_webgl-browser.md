@@ -6,7 +6,7 @@ sidebar_label: WebGL Browser
 
 :::info
 
-The WebGL build option allows game developers to run Unity games in a web browser. web3.unity's WebGL build uses our Web3GL component and contains various WebGL prefabs & scripts.
+The WebGL build option allows game developers to run Unity games in a web browser. web3.unity's WebGL build uses our [Web3GL](https://github.com/ChainSafe/game-web3gl) component and contains various WebGL prefabs & scripts.
 
 :::
 
@@ -18,6 +18,8 @@ How to start a WebGL build with web3.unity:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/3u3ka8k3o08?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Start A Web3GL Build With web3.unity v2 (For Browsers!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Get User's Network {#get-users-network}
+
+Returns the `networkId` of the user's connected network. If the `networkId` is different from the game's, the wallet will prompt the user to change networks.
 
 ```csharp
 /*
@@ -252,9 +254,9 @@ public class WebGLSignVerifyExample : MonoBehaviour
 
 Call will execute a smart contract method without altering the smart contract state.
 
-<!--Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/) THIS NEEDS TO BE FIXED-->
+See [Reading A Value From  A Solidity Contract](#reading-a-value-from-a-solidity-contract) for a working example.
 
-See below for a video tutorial on how to make read/write interactions to custom smart contracts using Web3GL:
+Here's a video tutorial on how to make read/write interactions to custom smart contracts using Web3GL:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/-AzyBq9jj6o?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Make Read+Write Interactions Custom Contracts Using Web3GL On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
