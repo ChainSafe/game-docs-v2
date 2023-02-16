@@ -1,4 +1,10 @@
-on: [push]
+name: publish
+on:
+  workflow_run:
+    workflows:
+      - check
+    types:
+      - completed
 
 jobs:
   publish:
