@@ -6,18 +6,20 @@ sidebar_label: WebGL Browser
 
 :::info
 
-WebGL or browser builds are built using the WebGL prefabs & scripts.
+The WebGL build option allows game developers to run Unity games in a web browser. web3.unity's WebGL build uses our [Web3GL](https://github.com/ChainSafe/game-web3gl) component and contains various WebGL prefabs & scripts.
 
 :::
 
 # WebGL
 
-### Building To WebGL ###
+### Building To WebGL
 
-Here's NFTPixels to walk you through building out your project to WebGL
+How to start a WebGL build with web3.unity: 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/3u3ka8k3o08?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Start A Web3GL Build With web3.unity v2 (For Browsers!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Get User's Network {#get-users-network}
+
+Returns the `networkId` of the user's connected network. If the `networkId` is different from the game's, the wallet will prompt the user to change networks.
 
 ```csharp
 /*
@@ -37,7 +39,7 @@ int networkId = Web3GL.Network();
 
 ### Block Number {#block-number}
 
-Get the current latest block number
+Get the current (i.e. latest) block number.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -55,7 +57,7 @@ public class WebGLGetBlockNumber : MonoBehaviour
 
 ### Gas Price {#block-number}
 
-Get the current gas price for a transaction based on chain / network and rpc.
+Get the current gas price for a transaction based on chain / network and RPC.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -73,7 +75,7 @@ public class WebGLGetGasPrice : MonoBehaviour
 
 ### Gas Limit {#block-number}
 
-Get the current gas limit for a transaction based on chain / network and rpc.
+Get the current gas limit for a transaction based on chain / network and RPC.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -95,6 +97,7 @@ public class WebGLGetGasLimit : MonoBehaviour
 ```
 
 ### Transaction Status {#transaction-status}
+
 ```csharp
 using Nethereum.Hex.HexTypes;
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -178,9 +181,9 @@ public class WebGLSendTransactionExample : MonoBehaviour
 #endif
 ```
 
-### SHA3 through WebGL
+### Secure Hash Algorithm 3 (SHA-3) Through WebGL
 
-Will calculate the sha3 of the input.&#x20;
+Calculates the SHA-3 of the input.&#x20;
 
 ```csharp
 using System;
@@ -208,7 +211,7 @@ public class WebGLSha3Example : MonoBehaviour
 
 ### Verify WebGL {#verify}
 
-Verify a signed message WebGL.
+Verify a signed message in WebGL.
 
 ```csharp
 using System;
@@ -251,9 +254,9 @@ public class WebGLSignVerifyExample : MonoBehaviour
 
 Call will execute a smart contract method without altering the smart contract state.
 
-Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/)
+See [Reading A Value From  A Solidity Contract](#reading-a-value-from-a-solidity-contract) for a working example.
 
-NFTPixels will walk you through making read and write calls to the blockchain using WebGL
+Here's a video tutorial on how to make read/write interactions to custom smart contracts using Web3GL:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/-AzyBq9jj6o?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Make Read+Write Interactions Custom Contracts Using Web3GL On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
@@ -271,7 +274,7 @@ contract AddTotal {
 }
 ```
 
-### Reading a value from a solidity contract
+### Reading A Value From A Solidity Contract
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -305,7 +308,7 @@ public class WebGLContractRead : MonoBehaviour
 #endif
 ```
 
-### Reading an array from a solidity contract
+### Reading An Array From A Solidity Contract
 
 ```csharp
 using Newtonsoft.Json;
@@ -344,7 +347,7 @@ public class WebGLGetArray : MonoBehaviour
 #endif
 ```
 
-### Writing a value to a solidity contract (WebGL Builds)
+### Writing A Value To A Solidity Contract
 
 ```csharp
 using Newtonsoft.Json;
@@ -371,7 +374,7 @@ public class WebGLContractSend : MonoBehaviour
 #endif
 ```
 
-### Writing an array to a solidity contract (WebGL Builds)
+### Writing An Array To A Solidity Contract 
 
 ```csharp
 using UnityEngine;
