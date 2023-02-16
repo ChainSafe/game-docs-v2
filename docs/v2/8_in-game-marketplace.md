@@ -9,7 +9,7 @@ sidebar_label: In Game Marketplace
 
 :::info
 
-The following section goes through the various web3.unity marketplace endpoints that are available and the types of interactions allowed for games that implement marketplace features.
+web3.unity provides prefabs for integrating an in-game marketplace. A web UI via the [ChainSafe Gaming Marketplace](https://marketplace.chainsafe.io) is also available. To access and interact with the marketplace, various endpoints are available to games implementing this feature.
 
 :::
 
