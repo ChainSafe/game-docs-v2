@@ -203,7 +203,7 @@ To add additional customizations (such as page design & colors) to the web page,
 
 :::info
 
-Note: if the code for the page's functionalities are altered, it may cause unforeseen issues which we may habe trouble assisting with.
+Note: if the code for the sign page's functionalities are altered, it may cause unforeseen issues which we may have trouble assisting with.
 
 ::: 
 
