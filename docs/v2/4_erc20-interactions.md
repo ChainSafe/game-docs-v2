@@ -1,6 +1,6 @@
 ---
 slug: /current/erc20-interactions
-sidebar_position: 6
+sidebar_position: 4
 sidebar_label: ERC-20 Interactions
 ---
 
@@ -15,7 +15,7 @@ A standard interface for native & custom fungible tokens.
 
 ### Video Explanation Of ERC-20 Prefabs
 
-Here's a video explanation to help you better understand our new ERC-20 prefabs, with Sneakz:
+Here's a video explanation to help you better understand our new ERC-20 prefabs:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
