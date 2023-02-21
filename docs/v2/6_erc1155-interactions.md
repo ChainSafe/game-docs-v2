@@ -1,6 +1,6 @@
 ---
 slug: /current/erc1155-interactions
-sidebar_position: 4
+sidebar_position: 6
 sidebar_label: ERC-1155 Interactions
 ---
 
@@ -17,7 +17,7 @@ sidebar_label: ERC-1155 Interactions
 
 ### Video Explanation Of ERC-1155 Prefabs
 
-Here's a video explanation to help you better understand the new prefabs in web3.unity's latest release, with Sneakz:
+Here's a video explanation to help you better understand the new prefabs in web3.unity's latest release:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/35GdxYaEjlM?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-1155 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Balance Of {#balance-of}
