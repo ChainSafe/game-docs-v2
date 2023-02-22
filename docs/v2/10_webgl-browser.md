@@ -107,17 +107,40 @@ using UnityEngine;
 
 public class WebGLGetTxStatus : MonoBehaviour
 {
-    public async void TransactionStatus()
+    async public void SendTransaction()
     {
-        var provider = new JsonRpcProvider("YOUR_NODE");
-        var signer = new JsonRpcSigner(provider, 0);
-        var tx = await signer.SendTransaction(new TransactionRequest
-        {
-            To = await signer.GetAddress(),
-            Value = new HexBigInteger(100000)
-        });
-        var txReceipt = await tx.Wait();
-        Debug.Log("Transaction receipt: " + txReceipt.Confirmations);
+        // account to send to
+        string to = "0x428066dd8A212104Bc9240dCe3cdeA3D3A0f7979";
+        // amount in wei to send
+        string value = "12300000000000000";
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // connects to user's browser wallet (metamask) to send a transaction
+        try {
+            string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
+
+            Debug.Log("Attempting to check TX Status");
+
+            // Check the Transction adn return a transaction code
+            var Transaction = await provider.GetTransactionReceipt(response.ToString());
+
+            // Debug Transaction code
+            Debug.Log("Transaction Code: " + Transaction.Status);
+
+            // Conditional Statement to check Transaction Status
+            if (Transaction.Status.ToString() == "0")
+            {
+                Debug.Log("Transaction has failed");
+            }
+            else if (Transaction.Status.ToString() == "1")
+            {
+                Debug.Log("Transaction has been successful");
+            }
+        } catch (Exception e) {
+            Debug.LogException(e, this);
+        }
     }
 }
 ```

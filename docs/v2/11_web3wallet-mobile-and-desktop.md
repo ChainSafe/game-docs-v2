@@ -89,15 +89,49 @@ public class Web3WalletGetTxStatus : MonoBehaviour
 {
     public async void TransactionStatus()
     {
-        var provider = new JsonRpcProvider("YOUR_NODE");
-        var signer = new JsonRpcSigner(provider, 0);
-        var tx = await signer.SendTransaction(new TransactionRequest
+        // https://chainlist.org/
+        string chainId = "5"; // goerli
+        // contract to interact with 
+        string contract = "0xc778417e063141139fce010982780140aa0cd5ab";
+        // value in wei
+        string value = "0";
+        // abi in json format
+        string abi = ABI.ERC_20;
+        // smart contract method to call
+        string method = ETH_METHOD.Transfer;
+        // account to send erc20 to
+        string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+        // amount of erc20 tokens to send
+        string amount = "1000000000000000";
+        // create data to interact with smart contract
+        var contractData = new Contract(abi, contract);
+        var data = contractData.Calldata(method, new object[]
         {
-            To = await signer.GetAddress(),
-            Value = new HexBigInteger(100000)
+            toAccount,
+            amount
         });
-        var txReceipt = await tx.Wait();
-        Debug.Log("Transaction receipt: " + txReceipt.Confirmations);
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // send transaction
+        string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice)
+
+        // Check the Transction adn return a transaction code
+        var Transaction = await provider.GetTransactionReceipt(response.ToString());
+
+        // Debug Transaction code
+        Debug.Log("Transaction Code: " + Transaction.Status);
+
+        // Conditional Statement to check Transaction Status
+        if (Transaction.Status.ToString() == "0")
+        {
+            Debug.Log("Transaction has failed");
+        }
+        else if (Transaction.Status.ToString() == "1")
+        {
+            Debug.Log("Transaction has been successful");
+        }
     }
 }
 ```
