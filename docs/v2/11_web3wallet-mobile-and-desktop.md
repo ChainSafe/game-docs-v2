@@ -35,7 +35,7 @@ public class Web3WalletGetBlockNumber : MonoBehaviour
 }
 ```
 
-### Gas Price {#block-number}
+### Gas Price {#gas-price}
 
 Get the current gas price for a transaction based on chain / network and rpc.
 
@@ -53,7 +53,7 @@ public class Web3WalletGetGasPrice : MonoBehaviour
 }
 ```
 
-### Gas Limit {#block-number}
+### Gas Limit {#gas-limit}
 
 Get the current gas limit for a transaction based on chain / network and rpc.
 

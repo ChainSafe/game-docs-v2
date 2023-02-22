@@ -55,7 +55,7 @@ public class WebGLGetBlockNumber : MonoBehaviour
 }
 ```
 
-### Gas Price {#block-number}
+### Gas Price {#gas-price}
 
 Get the current gas price for a transaction based on chain / network and RPC.
 
@@ -73,7 +73,7 @@ public class WebGLGetGasPrice : MonoBehaviour
 }
 ```
 
-### Gas Limit {#block-number}
+### Gas Limit {#gas-limit}
 
 Get the current gas limit for a transaction based on chain / network and RPC.
 

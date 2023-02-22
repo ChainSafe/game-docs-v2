@@ -60,7 +60,7 @@ public class ERC721OwnerOfExample : MonoBehaviour
 }
 ```
 
-### Owner Of Batch {#owner-of}
+### Owner Of Batch {#owner-of-batch}
 
 ```csharp
 using System.Collections.Generic;
