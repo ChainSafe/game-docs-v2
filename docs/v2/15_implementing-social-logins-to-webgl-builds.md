@@ -15,7 +15,7 @@ How to import and use social logins with WebGL builds.
 
 ## Why Should We Use Social Logins
 
-Some developers feel that having social logins (e.g. Google, Facebook, Twitter, GitHub, Discord, etc.) would be a much better entrance system for users getting into the blockchain space. Some users tend to feel more comfortable having a wallet tied to a social account they already own. This helps to speed up onboarding and reduces friction when it comes to gaining new users. With a click of a button they can authorize an account and be on their way!
+Some developers feel that having social logins (e.g. Google, Facebook, Twitter, GitHub, Discord) would be a much better entrance system for users getting into the blockchain space. Some users tend to feel more comfortable having a wallet tied to a social account they already own. This helps to speed up onboarding and reduces friction when it comes to gaining new users. With a click of a button they can authorize an account and be on their way!
 
 ## What Is The Torus Wallet?
 
