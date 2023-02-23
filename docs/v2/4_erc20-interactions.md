@@ -46,9 +46,15 @@ public class ERC20CustomTokenBalance : MonoBehaviour
 }
 ```
 
+:::info
+
+In the following code snippet examples, we will use [Circle's USDC](https://developers.circle.com/developer/docs/usdc-on-testnet) ERC-20 token contract as found on the Goerli testnet for demonstration purposes.
+
+:::
+
 ### Balance Of {#balance-of}
 
-Returns the balance of a custom ERC-20 token, e.g. "xdai"
+Returns the balance of an ERC-20 token for a specific Ethereum account (e.g. "USDC").
 
 ```csharp
 using System.Numerics;
@@ -59,7 +65,7 @@ public class ERC20BalanceOfExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         string account = "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2";
 
         BigInteger balanceOf = await ERC20.BalanceOf(contract, account);
@@ -88,7 +94,7 @@ public class ERC20NativeBalanceOfExample : MonoBehaviour
 
 ### Name {#name}
 
-Returns the name of the token, e.g. "USD Coin"
+Returns the name of an ERC-20 token associated with a specified contract address (e.g. "USD Coin").
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -98,7 +104,7 @@ public class ERC20NameExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         string name = await ERC20.Name(contract);
         print(name);
     }
@@ -107,7 +113,7 @@ public class ERC20NameExample : MonoBehaviour
 
 ### Symbol {#symbol}
 
-Returns the symbol of the token, e.g. "USDC".
+Returns the symbol of an ERC-20 token associated with a specified contract address, e.g. "USDC".
 
 ```csharp
 using UnityEngine;
@@ -117,7 +123,7 @@ public class ERC20SymbolExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
 
         string symbol = await ERC20.Symbol(contract);
         print(symbol);
@@ -127,7 +133,7 @@ public class ERC20SymbolExample : MonoBehaviour
 
 ### Decimals {#decimals}
 
-Returns the number of decimals the token uses, e.g. 6, which means to divide the token amount by 1000000 to get its human readable representation.
+Returns the number of decimal places a specified ERC-20 token uses (e.g. 6 for USDC), which means to divide the token amount by 1000000 to get its human readable representation.
 
 ```csharp
 using System.Numerics;
@@ -138,7 +144,7 @@ public class ERC20DecimalsExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
 
         BigInteger decimals = await ERC20.Decimals(contract);
         print(decimals);
@@ -148,7 +154,7 @@ public class ERC20DecimalsExample : MonoBehaviour
 
 ### Total Supply {#total-supply}
 
-Returns the total token supply.
+Returns the total token supply of an ERC-20 token associated with a specified contract address.
 
 ```csharp
 using System.Numerics;
@@ -167,6 +173,12 @@ public class ERC20TotalSupplyExample : MonoBehaviour
 ```
 
 ### Convert WEI To ETH And ETH To WEI {#convert-wei-to-eth-and-eth-to-wei}
+
+The `ConversionExamples` class provides two methods to convert values between Ethereum's smallest unit (wei) and its largest unit (ether). The first method, `ConvertToDecimals()`, takes a string value representing an amount of wei and converts it to ether by dividing the wei value by 10^18. The result is then printed as a decimal string using the `Convert.ToDecimal()` method.
+
+The second method, `ConvertToWei()`, takes a string value representing an amount of ether and converts it to wei by multiplying the ether value by 10^18. The result is then printed as a decimal string using the `Convert.ToDecimal()` method.
+
+These conversion methods are useful for working with Ethereum amounts in code. By converting values between wei and ether, developers can manage Ethereum amounts with greater precision and accuracy.
 
 ```csharp
 using System;
