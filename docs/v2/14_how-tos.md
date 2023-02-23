@@ -1,11 +1,11 @@
 ---
 slug: /current/how-tos
 sidebar_position: 14
-sidebar_label: How To's
+sidebar_label: How To Video Tutorials
 ---
 
 
-# How-To's
+# How-To Video Tutorials
 
 :::info
 
@@ -34,6 +34,6 @@ In this tutorial, we demonstrate how to create an ERC-20 token contract in Remix
 
 ## Display MetaMask Account Information In-game
 
-In this tutorial, we demonstrate how to wire up a game to display MetaMask account information in-game:
+In this tutorial, we demonstrate how to display MetaMask account information in-game:
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/opZLTGrF3WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
