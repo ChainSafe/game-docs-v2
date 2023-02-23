@@ -9,31 +9,27 @@ sidebar_label: Installation
 
 :::info
 
-In this section, we will go through the steps necessary to install the web3.unity SDK into the Unity3D game engine.
+In this section, we will go through the steps necessary for installing the web3.unity SDK into the Unity3D game engine. We will follow the installation with an example of how to implement a sample web3 login screen.
 
 :::
 
+## Installing web3.unity
+
 ### Install MetaMask
 
-You will need to have MetaMask installed in order to make web3-enabled games. If you already have MetaMask installed, you can skip this section and navigate to the [Downloading SDK](#downloading-the-sdk) section. If you have not installed a web3 wallet, please visit [MetaMask](https://t.co/8UNUrkShG6) for installation instructions.&#x20;
+You will need to have MetaMask & the appropriate browser extension installed in order to make web3-enabled games. If you already have MetaMask installed, you can skip this section and navigate to the [Downloading The SDK](#downloading-the-sdk) section. If you have not installed a web3 wallet, please visit [MetaMask](https://t.co/8UNUrkShG6) for installation instructions.&#x20;
 
 ### Downloading The SDK
 
-You will first need to download the web3.unity SDK from our GitHub repository. This can be found by looking for the web3.unity repo by following [this link](https://github.com/chainsafe).&#x20;
+In order to install web3.unity into the Unity3D game engine, you must download the `web3.unitypackage` file to your computer.
 
-![](v2Assets/step1.png)
-
-After clicking on the web3.unity link, find the **Releases** section. 
-
-![](v2Assets/step2.png)
-
-Here, you will be able to download the **web3.unitypackage** to your computer, which you will use to install into the Unity3D game engine.
+You can download the SDK with this `web3.unitypackage` [direct link](https://github.com/ChainSafe/web3.unity/releases/latest/download/web3.unitypackage), or visit our GitHub to view web3.unity's [latest release](https://github.com/ChainSafe/web3.unity/releases).
 
 ![](v2Assets/step3.png)
 
 ### Creating A New Unity3D Project
 
-Once you have downloaded the web3.unitypackage, you will need to create a new Unity3D project. In this example, we will create an empty 3D project. The SDK / Unity plugin supports all Unity project types. In this example, we will use a 3D scene.
+Once you have downloaded the `web3.unitypackage` file to your computer, you will need to create a new Unity3D project. In the following example, we will create an empty 3D project with a 3D scene. However, the web3.unity plugin supports all Unity project types. 
 
 &#x20;
 
@@ -45,9 +41,11 @@ Now that we have created a new project and have a clean interface to work with, 
 
 ### Importing The web3.unity SDK
 
-Now that we have a new Unity3D project, we are ready to install the web3.unity SDK package. Dragging the package into the `Assets` directory will bring up the dialogue shown on the screen below:
+Now that we have a new Unity3D project, we are ready to install the web3.unity SDK package. Dragging the `web3.unitypackage` into the `Assets` directory will bring up the dialogue shown on the screen below. Press the `Import` button.
 
 ![](v2Assets/step5.png)
+
+## Building A web3 Login
 
 ### Building A WebGL Project
 
@@ -57,7 +55,7 @@ Next, we are going to build out our game scene. We will only add the necessary c
 
 ### Building Out Our Sample Scene
 
-The web3.unity SDK is multi-chain. This means that our SDK can connect to many different versions of the Ethereum Virtual Machine (EVM) on various blockchains. This is an important step that is often missed when deploying your project. To adjust the chain your game connects to, you will need to update a `network.js` file, which can be found in the file path: `WebGL Templates` -> `Web3GL` -> `2020x` -> `network.js`. Replace the value with the `ChainId` of the EVM blockchain you wish to connect to. The SDK will also detect the network your web3 wallet has selected and will change without you having to configure it.
+The web3.unity SDK is multi-chain. This means that our SDK can connect to many different versions of the Ethereum Virtual Machine (EVM) on various blockchains. This is an important step that is often missed when deploying your project. To adjust the chain your game connects to, you will need to update a `network.js` file, which can be found in the file path: `WebGL Templates` -> `Web3GL-2020x` -> `network.js`. Replace the value with the `ChainId` of the EVM blockchain you wish to connect to. The SDK will also detect the network your web3 wallet has selected and will change without you having to configure it.
 
 &#x20;
 
@@ -67,13 +65,13 @@ Now, we are ready to build out our sample project. We will use the `WebLogin` sc
 
 ![](v2Assets/WebLogin.png)
 
-Make sure it is in the first index followed by the sample scene found in the scenes folder provided by Unity3D. We are also going to need to change our platform to WebGL.
+Make sure the `WebLogin` scene is in the first index followed by the `SampleScene` found in the scenes folder provided by Unity3D. At this point, we are also going to need to change our platform to WebGL within `Build Settings`. Select `WebGL` and then press `Switch Platform`.
 
 ![](v2Assets/step8.png)
 
-### Connecting the ChainSafe WebGL Template
+### Connecting The ChainSafe WebGL Template
 
-In order to connect the web3.unity SDK to web3, we are going to need to select the custom template provided by the SDK.  On selecting the `Player Settings` and navigating to `Player` -> `Resolution and Presentation`, select the `Web4GL-2020x` template.&#x20;
+In order to connect the web3.unity SDK to web3, we are going to need to select the custom template provided by the SDK.  On selecting the `Project Settings` and navigating to `Player` -> `Resolution and Presentation`, select the `Web3GL-2020x` template.&#x20;
 
 ![](v2Assets/step9.png)
 
@@ -83,11 +81,11 @@ Now, we are ready to build out our project and test it in the browser. This will
 
 ### Viewing The Project In The Browser
 
-Unity provides a built-in webserver for our Web3GL-enabled games. On selecting the `build and run` option, Unity will create a built-out project and launch it in your browser. Selecting the login button will prompt MetaMask to open.&#x20;
+Unity provides a built-in webserver for our Web3GL-enabled games. On selecting the `build and run` option, Unity will create a built-out project and launch it in your browser. Selecting the login button will prompt the MetaMask wallet extension to open.&#x20;
 
 ![](v2Assets/sign_in_metamask.png)
 
-After entering your password and selecting an account, the SDK will automatically navigate you to the SampleScene we added to the build index.
+After entering your password and selecting an account, the SDK will automatically navigate you to the `SampleScene` we added to the build index.
 
 ![](v2Assets/empty_login_scene.png)
 
@@ -97,6 +95,6 @@ You have successfully installed the web3.unity SDK. We look forward to seeing wh
 
 ### How To Install The ChainSafe Gaming web3.unity SDK Video Tutorial
 
-Here's a tutorial by NFTPixels on the complete web3.unity installation process: 
+Here's a tutorial on the complete web3.unity installation flow: 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/9QtcXo_6izw?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N" title="How To Install The ChainSafe Gaming web3.unity SDK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
