@@ -29,7 +29,7 @@ Fetch the latest bundled asset release (web3.unitypackage) via this [direct down
 
 ### Creating A New Unity3D Project
 
-Once you have downloaded the `web3.unitypackage` file to your computer, you will need to create a new Unity3D project. In the following example, we will create an empty 3D project with a 3D scene. However, the web3.unity plugin supports all Unity project types. 
+Once you have downloaded the `web3.unitypackage` bundle to your computer, you will need to create a new Unity3D project. In the following example, we will create an empty 3D project with a 3D scene. However, the web3.unity plugin supports all Unity project types. 
 
 &#x20;
 
