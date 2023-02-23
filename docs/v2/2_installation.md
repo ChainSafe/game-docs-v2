@@ -17,13 +17,13 @@ In this section, we will go through the steps necessary for installing the web3.
 
 ### Install MetaMask
 
-You will need to have MetaMask & the appropriate browser extension installed in order to make web3-enabled games. If you already have MetaMask installed, you can skip this section and navigate to the [Downloading The SDK](#downloading-the-sdk) section. If you have not installed a web3 wallet, please visit [MetaMask](https://t.co/8UNUrkShG6) for installation instructions.&#x20;
+You will need to have MetaMask installed in order to make web3-enabled games. If you already have MetaMask installed, you can skip this section and navigate to the [Downloading The SDK](#downloading-the-sdk) section. If you have not installed a web3 wallet, please visit [MetaMask](https://t.co/8UNUrkShG6) for installation instructions.&#x20;
 
 ### Downloading The SDK
 
 In order to install web3.unity into the Unity3D game engine, you must download the `web3.unitypackage` file to your computer.
 
-You can download the SDK with this `web3.unitypackage` [direct link](https://github.com/ChainSafe/web3.unity/releases/latest/download/web3.unitypackage), or visit our GitHub to view web3.unity's [latest release](https://github.com/ChainSafe/web3.unity/releases).
+Fetch the latest bundled asset release (web3.unitypackage) via this [direct download link](https://github.com/ChainSafe/web3.unity/releases/latest/download/web3.unitypackage).  Alternatively, visit the [web3.unity release page](https://github.com/ChainSafe/web3.unity/releases) to locate specific versions, read changelogs, etc.
 
 ![](v2Assets/step3.png)
 
