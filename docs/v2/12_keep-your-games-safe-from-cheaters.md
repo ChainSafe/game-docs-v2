@@ -13,7 +13,7 @@ It's worth noting that gamers with specialized tooling have near absolute contro
 
 Here is a video from [ChainSafe Solutions](https://solutions.chainsafe.io) explaining how simple it is to hack a WebAssembly (wasm) game with a tool called Cetus, effectively demonstrating why private keys should never be embedded within the game logic, no matter how attractive it might seem for player UX:
 
-<iframe width="800" height="450" src="https://www.youtube.com/watch?v=iMx-JfFz3ck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/iMx-JfFz3ck" title="Hacking WebAssembly (Wasm) games w/ Cetus, &amp; why private keys must never go into a game binary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Here is another tutorial showcasing how easy it is for hackers to use specialized tooling to hack in-game memory:
 
