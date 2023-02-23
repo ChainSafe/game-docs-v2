@@ -204,4 +204,8 @@ tokenId
 mainnets
 testnets
 SHA-3
+gamers
+WebAssembly
+Goerli's
+goerliETH
 customizations
