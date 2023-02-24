@@ -9,7 +9,7 @@ sidebar_label: ERC-721 Interactions
 
 :::info
 
-A standard interface for non-fungible tokens.
+A standard interface for non-fungible tokens, or NFTs.
 
 :::
 
@@ -18,9 +18,15 @@ A standard interface for non-fungible tokens.
 Here's a video explanation to help you better understand our new ERC-721 prefabs:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/lfPCldSqaq4?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-721 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+:::info
+
+In the following code snippet examples, we will use an ERC-721 token contract, as found on the Goerli testnet, called "Chain721 (C721)" for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
+
+:::
+
 ### Balance Of {#balance-of}
 
-Counts all NFTs assigned to an owner
+Fetches and counts the balance of a specific ERC-721 NFT token for a specific Ethereum account.
 
 ```csharp
 using System.Numerics;
@@ -42,7 +48,7 @@ public class ERC721BalanceOfExample : MonoBehaviour
 
 ### Owner Of {#owner-of}
 
-Find the owner of an NFT
+Fetches the owner of a specific ERC-721 NFT token for a specific Ethereum account.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -52,8 +58,8 @@ public class ERC721OwnerOfExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x06dc21f89f01409e7ed0e4c80eae1430962ae52c";
-        string tokenId = "0x01559ae4021a565d5cc4740f1cefa95de8c1fb193949ecd32c337b03047da501";
+        string contract = "0x9123541E259125657F03D7AD2A7D1a8Ec79375BA";
+        string tokenId = "1";
         string ownerOf = await ERC721.OwnerOf(contract, tokenId);
         print(ownerOf);
     }
@@ -61,6 +67,8 @@ public class ERC721OwnerOfExample : MonoBehaviour
 ```
 
 ### Owner Of Batch {#owner-of-batch}
+
+Returns a list of addresses representing the owners of the specified `tokenIds` passed in the `tokenIds` array.
 
 ```csharp
 using System.Collections.Generic;
@@ -86,6 +94,8 @@ public class ERC721OwnerOfBatchExample : MonoBehaviour
 
 ### URI {#uri"}
 
+Returns the Uniform Resource Identifier (URI) associated with the specified ERC-721 NFT token. The URI may contain metadata about the NFT, such as its name, description, and image.
+
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
 using UnityEngine;
@@ -94,8 +104,8 @@ public class ERC721URIExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x06dc21f89f01409e7ed0e4c80eae1430962ae52c";
-        string tokenId = "0x01559ae4021a565d5cc4740f1cefa95de8c1fb193949ecd32c337b03047da501";
+        string contract = "0x9123541E259125657F03D7AD2A7D1a8Ec79375BA";
+        string tokenId = "1";
 
         string uri = await ERC721.URI(contract, tokenId);
         print(uri);
@@ -104,6 +114,8 @@ public class ERC721URIExample : MonoBehaviour
 ```
 
 ### All 721's {#all-721s"}
+
+Searches through a specified number of `tokenIds` for each NFT contract in the `nftContracts` array, and logs the tokenIds and URIs of the tokens owned by the account.
 
 ```csharp
 using UnityEngine;

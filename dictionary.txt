@@ -212,3 +212,7 @@ customizations
 changelogs
 Ethereum's
 wei
+CRO
+Chain721
+tokenIds
+URIs
