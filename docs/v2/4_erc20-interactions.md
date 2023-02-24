@@ -113,7 +113,7 @@ public class ERC20NameExample : MonoBehaviour
 
 ### Symbol {#symbol}
 
-Returns the symbol of an ERC-20 token associated with a specified contract address, e.g. "USDC".
+Returns the symbol of an ERC-20 token associated with a specified contract address (e.g. "USDC").
 
 ```csharp
 using UnityEngine;
