@@ -9,7 +9,7 @@ sidebar_label: ERC-20 Interactions
 
 :::info
 
-A standard interface for native & custom fungible tokens.
+A standard interface for native & custom fungible tokens. A native token is specifically designed to be used as a currency, medium of exchange, or gas token within that blockchain (e.g. ETH, MATIC, BNB, CRO). A custom token, on the other hand, is built on an existing blockchain platform, such as Ethereum, using a smart contract standard like the ERC-20 fungible token standard.
 
 :::
 
@@ -20,7 +20,7 @@ Here's a video explanation to help you better understand our new ERC-20 prefabs:
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
-Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance of a native ERC-20 token you can use the second code snippet below.
+Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance of a native ERC-20 token, see [Balance of Native Token](#balance-of-native).
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -48,11 +48,11 @@ public class ERC20CustomTokenBalance : MonoBehaviour
 
 :::info
 
-In the following code snippet examples, we will use [Circle's USDC](https://developers.circle.com/developer/docs/usdc-on-testnet) ERC-20 token contract as found on the Goerli testnet for demonstration purposes.
+In the following code snippet examples, we will use [Circle's USDC](https://developers.circle.com/developer/docs/usdc-on-testnet) ERC-20 token contract as found on the Goerli testnet for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
 
 :::
 
-### Balance Of {#balance-of}
+### Balance Of Custom Token {#balance-of-custom}
 
 Returns the balance of an ERC-20 token for a specific Ethereum account (e.g. "USDC").
 
@@ -73,8 +73,9 @@ public class ERC20BalanceOfExample : MonoBehaviour
     }
 }
 ```
+### Balance Of Native Token {#balance-of-native}
 
-If you need the chain's native token balance you can fetch it using the native balance of prefab:
+Returns the balance of a native token for a specific Ethereum account (e.g. "ETH").
 
 ```csharp
 using UnityEngine;
@@ -165,7 +166,7 @@ public class ERC20TotalSupplyExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         BigInteger totalSupply = await ERC20.TotalSupply(contract);
         print(totalSupply);
     }
