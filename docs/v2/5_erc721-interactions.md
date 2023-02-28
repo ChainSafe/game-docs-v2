@@ -20,7 +20,7 @@ Here's a video explanation to help you better understand our new ERC-721 prefabs
 
 :::info
 
-In the following code snippet examples, we will use an ERC-721 token contract, as found on the Goerli testnet, called "Chain721 (C721)" for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
+In the following code snippet examples, we will use an ERC-721 NFT token contract, as found on the Goerli testnet, called "Chain721 (C721)" for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
 
 :::
 
@@ -115,7 +115,7 @@ public class ERC721URIExample : MonoBehaviour
 
 ### All 721's {#all-721s"}
 
-Searches through a specified number of `tokenIds` for each NFT contract in the `nftContracts` array, and logs the tokenIds and URIs of the tokens owned by the account.
+Searches through a specified number of `tokenIds` for each contract in the `nftContracts` array, and logs the tokenIds and URIs of the tokens owned by the account.
 
 ```csharp
 using UnityEngine;

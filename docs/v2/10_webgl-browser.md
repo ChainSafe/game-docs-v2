@@ -39,7 +39,7 @@ int networkId = Web3GL.Network();
 
 ### Block Number {#block-number}
 
-Get the current (i.e. latest) block number.
+Get the current (i.e. latest) block number from a specified node using the `JsonRpcProvider` variable.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -57,7 +57,7 @@ public class WebGLGetBlockNumber : MonoBehaviour
 
 ### Gas Price {#gas-price}
 
-Get the current gas price for a transaction based on chain / network and RPC.
+Get the **current gas price** for a transaction based on chain / network and RPC. Used to estimate the transaction fees required to execute certain actions on the Ethereum blockchain within the game, such as transfering assets between players or minting new in-game NFTs. For more on gas prices, see [What is gas?](https://ethereum.org/en/developers/docs/gas/#what-is-gas)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -75,7 +75,7 @@ public class WebGLGetGasPrice : MonoBehaviour
 
 ### Gas Limit {#gas-limit}
 
-Get the current gas limit for a transaction based on chain / network and RPC.
+Get the **current gas limit** for a transaction based on chain / network and RPC. Used in combination with the gas price of Ethereum to estimate the transaction fees required to execute certain actions on the Ethereum blockchain within the game, such as transfering assets between players or minting new in-game NFTs. For more on gas limits, see [What is gas limit?](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -97,6 +97,8 @@ public class WebGLGetGasLimit : MonoBehaviour
 ```
 
 ### Transaction Status {#transaction-status}
+
+Allows the user to send a transaction to a specified Ethereum account using the `Web3GL` library. The transaction includes the recipient address, `value` (in wei), `gasLimit`, and `gasPrice`. Once the transaction is sent, the script checks the status of the transaction by calling the `GetTransactionReceipt` function. If the transaction was successful, the script logs a message indicating success, otherwise it logs a message indicating failure. If an exception is thrown during the transaction process, the script logs the exception.
 
 ```csharp
 using Nethereum.Hex.HexTypes;
