@@ -39,7 +39,7 @@ int networkId = Web3GL.Network();
 
 ### Block Number {#block-number}
 
-Get the current (i.e. latest) block number from a specified node using the `JsonRpcProvider` variable.
+Get the current (i.e. latest) block number.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -98,7 +98,7 @@ public class WebGLGetGasLimit : MonoBehaviour
 
 ### Transaction Status {#transaction-status}
 
-Allows the user to send a transaction to a specified Ethereum account using the `Web3GL` library. The transaction includes the recipient address, `value` (in wei), `gasLimit`, and `gasPrice`. Once the transaction is sent, the script checks the status of the transaction by calling the `GetTransactionReceipt` function. If the transaction was successful, the script logs a message indicating success, otherwise it logs a message indicating failure. If an exception is thrown during the transaction process, the script logs the exception.
+The `GetTransactionReceipt` method can be used to await the status of a submitted transaction.
 
 ```csharp
 using Nethereum.Hex.HexTypes;

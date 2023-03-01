@@ -20,13 +20,13 @@ Here's a video explanation to help you better understand our new ERC-721 prefabs
 
 :::info
 
-In the following code snippet examples, we will use an ERC-721 NFT token contract, as found on the Goerli testnet, called "Chain721 (C721)" for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
+In the following code snippet examples, we will use an ERC-721 token contract, as found on the Goerli testnet, called "Chain721 (C721)" for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
 
 :::
 
 ### Balance Of {#balance-of}
 
-Fetches and counts the balance of a specific ERC-721 NFT token for a specific Ethereum account.
+Fetches and counts the balance of a specific ERC-721 token for a specific Ethereum account.
 
 ```csharp
 using System.Numerics;
@@ -48,7 +48,7 @@ public class ERC721BalanceOfExample : MonoBehaviour
 
 ### Owner Of {#owner-of}
 
-Fetches the owner of a specific ERC-721 NFT token for a specific Ethereum account.
+Fetches the owner of a specific ERC-721 token for a specific Ethereum account.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -94,7 +94,7 @@ public class ERC721OwnerOfBatchExample : MonoBehaviour
 
 ### URI {#uri"}
 
-Returns the Uniform Resource Identifier (URI) associated with the specified ERC-721 NFT token. The URI may contain metadata about the NFT, such as its name, description, and image.
+Returns the Uniform Resource Identifier (URI) associated with the specified ERC-721 token. The URI may contain metadata about the NFT, such as its name, description, and image.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;

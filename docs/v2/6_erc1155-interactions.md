@@ -22,7 +22,7 @@ Here's a video explanation to help you better understand the new prefabs in web3
 
 :::info
 
- In the following code snippet examples, we will use two separate ERC-1155 NFT token contracts for demonstration purposes. Both can be found on the Goerli testnet, with one collection titled "ERC1155", and the other titled "beautiful collection - 1155".
+ In the following code snippet examples, we will use two separate ERC-1155 token contracts for demonstration purposes. Both can be found on the Goerli testnet, with one collection titled "ERC1155", and the other titled "beautiful collection - 1155".
 :::
 
 ### Balance Of {#balance-of}
@@ -81,7 +81,7 @@ public class ERC1155BalanceOfBatchExample : MonoBehaviour
 
 ### URI {#uri}
 
-Returns the Uniform Resource Identifier (URI) associated with the specified ERC-1155 NFT token. The URI may contain metadata about the NFT, such as its name, description, and image.
+Returns the Uniform Resource Identifier (URI) associated with the specified ERC-1155 token. The URI may contain metadata about the NFT, such as its name, description, and image.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
