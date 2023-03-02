@@ -26,7 +26,7 @@ In the following code snippet examples, we will use an ERC-721 token contract, a
 
 ### Balance Of {#balance-of}
 
-Fetches and counts the balance of a specific ERC-721 NFT token for a specific Ethereum account.
+Fetches and counts the balance of a specific ERC-721 token for a specific Ethereum account.
 
 ```csharp
 using System.Numerics;
@@ -48,7 +48,7 @@ public class ERC721BalanceOfExample : MonoBehaviour
 
 ### Owner Of {#owner-of}
 
-Fetches the owner of a specific ERC-721 NFT token for a specific Ethereum account.
+Fetches the owner of a specific ERC-721 token for a specific Ethereum account.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -94,7 +94,7 @@ public class ERC721OwnerOfBatchExample : MonoBehaviour
 
 ### URI {#uri"}
 
-Returns the Uniform Resource Identifier (URI) associated with the specified ERC-721 NFT token. The URI may contain metadata about the NFT, such as its name, description, and image.
+Returns the Uniform Resource Identifier (URI) associated with the specified ERC-721 token. The URI may contain metadata about the NFT, such as its name, description, and image.
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -115,7 +115,7 @@ public class ERC721URIExample : MonoBehaviour
 
 ### All 721's {#all-721s"}
 
-Searches through a specified number of `tokenIds` for each NFT contract in the `nftContracts` array, and logs the tokenIds and URIs of the tokens owned by the account.
+Searches through a specified number of `tokenIds` for each contract in the `nftContracts` array, and logs the tokenIds and URIs of the tokens owned by the account.
 
 ```csharp
 using UnityEngine;
