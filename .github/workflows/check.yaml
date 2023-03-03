@@ -1,4 +1,4 @@
-name: check
+name: Check and Deploy
 on: 
   push:
     branches:
@@ -7,9 +7,13 @@ on:
     branches:
       - '**'
 
+permissions:
+      contents: read
+      deployments: write
+
 jobs:
   check:
-    name: Check
+    name: Check and Deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -20,4 +24,21 @@ jobs:
     - run: yarn install --frozen-lockfile
     - run: yarn typecheck
     - run: yarn spellcheck
+    - name: Check for uppercase section links
+      run: |
+        found="$(grep -rE '\(#.*[A-Z].*\)?' ./docs || echo '')"
+        if [ "$found" = "" ]; then
+          exit 0
+        fi
+        echo -e "Found problematic uppercase section links:\n$found"
+        exit 1
     - run: yarn build
+    - name: Publish to Cloudflare Pages
+      uses: cloudflare/pages-action@1
+      if: '! github.event.pull_request.draft'
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: 2238a825c5aca59233eab1f221f7aefb
+        projectName: engineering-handbook
+        directory: ./build
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
