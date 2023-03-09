@@ -55,7 +55,7 @@ Next, we are going to build out our game scene. We will only add the necessary c
 
 ### Building Out Our Sample Scene
 
-The web3.unity SDK is multi-chain. This means that our SDK can connect to many different versions of the Ethereum Virtual Machine (EVM) on various blockchains. This is an important step that is often missed when deploying your project. To adjust the chain your game connects to, you will need to update a `network.js` file, which can be found in the file path: `WebGL Templates` -> `Web3GL-2020x` -> `network.js`. Replace the values below with the `web3ChainId`, `id`, `label`, `token` & `rpcUrl` of the EVM blockchain you wish to connect to. You can gather this information from [chainlist](https://chainlist.org) as needed. The SDK will also detect the network your web3 wallet has selected and will change without you having to configure it.
+The web3.unity SDK is multi-chain. This means that our SDK can connect to many different versions of the Ethereum Virtual Machine (EVM) on various blockchains. This is an important step that is often missed when deploying your project. To adjust the chain your game connects to, you will need to update a `network.js` file, which can be found in the file path: `WebGL Templates` -> `Web3GL-2020x` -> `network.js`. Replace the values below with the `web3ChainId`, `id`, `label`, `token` & `rpcUrl` of the EVM blockchain you wish to connect to. You can gather this information from [Chainlist](https://chainlist.org) as needed. The SDK will also detect the network your web3 wallet has selected and will change without you having to configure it.
 
 &#x20;
 

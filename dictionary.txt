@@ -29,6 +29,7 @@ ChainId
 chainsafe
 ChainSafe
 Chainstack
+Chainlist
 Cloudflare
 config
 contract-abi-to-json-format
