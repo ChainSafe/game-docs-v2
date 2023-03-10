@@ -8,8 +8,9 @@ on:
       - '**'
 
 permissions:
-      contents: read
-      deployments: write
+  contents: read
+  deployments: write
+  pull-requests: write
 
 jobs:
   check:
@@ -42,3 +43,4 @@ jobs:
         projectName: game-docs-v2
         directory: ./build
         gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref || github.ref_name }}
