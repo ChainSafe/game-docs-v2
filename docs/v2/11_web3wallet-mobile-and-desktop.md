@@ -1,25 +1,25 @@
 ---
 slug: /current/web3wallet-mobile-and-desktop
 sidebar_position: 11
-sidebar_label: Web3Wallet Mobile & Desktop
+sidebar_label: Web3Wallet Builds
 ---
+
+# Web3Wallet Builds For Mobile & Desktop Games
 
 :::info
 
-Mobile & desktop builds are built using the Web3Wallet prefabs & scripts.
+The Web3Wallet build option allows game developers to build Unity games for desktop and mobile (iOS/Android). This build uses our [Web3Wallet](https://github.com/ChainSafe/game-web3wallet) component and contains various prefabs & scripts.
 
 :::
 
-# Mobile & Desktop
-
 ### Building To Web3Wallet ###
 
-Here's NFTPixels to walk you through building out your project to Web3Wallet for mobile and desktop
+Here's a video tutorial on how to start a Web3Wallet build with the SDK: 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/ZD65bofy-zk?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr" title="How To Start A Web3Wallet Build With web3.unity v2 (For Desktop And Mobile!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-### Block number {#block-number}
+### Block Number {#block-number}
 
-Get the current latest block number
+Get the current (i.e. latest) block number.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -35,7 +35,7 @@ public class Web3WalletGetBlockNumber : MonoBehaviour
 }
 ```
 
-### Gas Price {#block-number}
+### Gas Price {#gas-price}
 
 Get the current gas price for a transaction based on chain / network and rpc.
 
@@ -53,7 +53,7 @@ public class Web3WalletGetGasPrice : MonoBehaviour
 }
 ```
 
-### Gas Limit {#block-number}
+### Gas Limit {#gas-limit}
 
 Get the current gas limit for a transaction based on chain / network and rpc.
 
@@ -77,6 +77,7 @@ public class Web3WalletGetGasLimit : MonoBehaviour
 ```
 
 ### Transaction Status {#transaction-status}
+
 ```csharp
 using Nethereum.Hex.HexTypes;
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -88,15 +89,49 @@ public class Web3WalletGetTxStatus : MonoBehaviour
 {
     public async void TransactionStatus()
     {
-        var provider = new JsonRpcProvider("YOUR_NODE");
-        var signer = new JsonRpcSigner(provider, 0);
-        var tx = await signer.SendTransaction(new TransactionRequest
+        // https://chainlist.org/
+        string chainId = "5"; // goerli
+        // contract to interact with 
+        string contract = "0xc778417e063141139fce010982780140aa0cd5ab";
+        // value in wei
+        string value = "0";
+        // abi in json format
+        string abi = ABI.ERC_20;
+        // smart contract method to call
+        string method = ETH_METHOD.Transfer;
+        // account to send erc20 to
+        string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+        // amount of erc20 tokens to send
+        string amount = "1000000000000000";
+        // create data to interact with smart contract
+        var contractData = new Contract(abi, contract);
+        var data = contractData.Calldata(method, new object[]
         {
-            To = await signer.GetAddress(),
-            Value = new HexBigInteger(100000)
+            toAccount,
+            amount
         });
-        var txReceipt = await tx.Wait();
-        Debug.Log("Transaction receipt: " + txReceipt.Confirmations);
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // send transaction
+        string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice)
+
+        // Check the Transction adn return a transaction code
+        var Transaction = await provider.GetTransactionReceipt(response.ToString());
+
+        // Debug Transaction code
+        Debug.Log("Transaction Code: " + Transaction.Status);
+
+        // Conditional Statement to check Transaction Status
+        if (Transaction.Status.ToString() == "0")
+        {
+            Debug.Log("Transaction has failed");
+        }
+        else if (Transaction.Status.ToString() == "1")
+        {
+            Debug.Log("Transaction has been successful");
+        }
     }
 }
 ```
@@ -127,7 +162,7 @@ public class Web3WalletGetNonce : MonoBehaviour
 }
 ```
 
-### Sign through Mobile and Desktop {#sign-through-mobile-and-desktop}
+### Sign Transaction Through Mobile and Desktop {#sign-through-mobile-and-desktop}
 
 ```csharp
 string response = await Web3Wallet.Sign("hello");
@@ -136,7 +171,7 @@ print(response);
 
 ### Verify Web Wallet {#verify}
 
-Verify a signed message Web Wallet.
+Verify a signed message via a Web Wallet.
 
 ```csharp
 using System.Text;
@@ -172,39 +207,43 @@ public class Web3WalletSignVerify : MonoBehaviour
 
 ### Hosting Your Own Sign Page {#hosting-your-own-sign-page}
 
-You can find the Web3Wallet repo here [https://github.com/ChainSafe/game-web3wallet](https://github.com/ChainSafe/game-web3wallet) you can download and host this on git for free. This instantiates web3 in webpage to allow MetaMask to connect & make transactions. We'll guide you through this process below.
+You can find the Web3Wallet repo [here](https://github.com/ChainSafe/game-web3wallet). You can download and host this on git for free. This instantiates web3 in a webpage to allow MetaMask to connect & make transactions. We'll guide you through this process below.
 
-Step 1: Create a GitHub account [https://github.com/join](https://github.com/join)\
+Step 1: [Create a GitHub account](https://github.com/join).
 
-
-Step 2: Clone the web3wallet repo using GitHub Desktop
+Step 2: Clone the [Web3Wallet](https://github.com/ChainSafe/game-web3wallet) repo using GitHub Desktop. Press `Add`, `Clone Repository...`, and then paste in the following URL: `https://github.com/ChainSafe/game-web3wallet`.
 
 ![](<v2Assets/image (14).png>)
 
-Step 3: If it doesn't ask you automatically, in the top left, press add, then press clone repository and paste in the URL [https://github.com/ChainSafe/game-web3wallet](https://github.com/ChainSafe/game-web3wallet)
-
 ![](<v2Assets/image (12).png>)
 
-Step 4: GitHub desktop will ask you if you want to fork the repo. When prompted select "For My Own Purposes". This will create a fork that you can push to your own repository.
+Step 3: GitHub Desktop will ask you if you want to fork the repo. When prompted, select `For My Own Purposes`. This will create a fork, where you can push to your own repository.
 
 ![](<v2Assets/image (5).png>)
 
-Step 5: You will need to edit the package.json file to confirm to the directory where the signer will be found run & the yarn install/build process [https://github.com/ChainSafe/game-web3wallet](https://github.com/ChainSafe/game-web3wallet) Once you are happy with you changes, you can press Ctrl + P or the blue button here to push your repository to GitHub. This stores these files online and makes them accessible!\
-
+Step 4: You will need to edit the `package.json` file to confirm to the directory where the signer will be found. Run the yarn install/build process for [Web3Wallet](https://github.com/ChainSafe/game-web3wallet). Once you are happy with your changes, press `Ctrl + P`, or the blue button below, to push your repository to GitHub. This stores these files online and makes them readily accessible!
 
 ![](v2Assets/image.png)
 
-Step 6: Navigate to your GitHub repository settings page and find the pages section. From here select deploy from branch, set your branch to main and the folder as root. (Some users have reported that selecting "gh-page" branch has worked over main so please try this instead if you're experiencing errors) Press save and give that a minute to build. This creates a webpage with a public URL that we can access.
+Step 5: Navigate to your GitHub repository settings page and find the `Pages` section. From here, select `Deploy from a branch`, set your branch to `main` and the folder as `root` (Some users have reported that selecting `gh-page` branch has worked over `main` so please try this instead if you're experiencing errors). Press `Save` and wait for the repo to build. This creates a webpage with a public URL that we can access.
 
 ![](<v2Assets/image (4).png>)
 
-Step 7: The last thing to do is to update the Web3Wallet.cs file in the web3unity folder in unity. All you need to do here is update the URL to point to the one we just created. This new URL will be displayed for you just above the build and deployment settings once it's ready in the image above.
+Step 6: Lastly, update the `Web3Wallet.cs` file in the `web3unity` folder in Unity. Update the URL to point to the one created in the previous step. Once ready, the new URL will be displayed above the `Build and deployment` settings (seen in the image above).
 
 ![](<v2Assets/image (8).png>)
 
-If you want more customization you can open the repository up in VSCode and play with the index.js & styles.css files to make alterations to the pages design & colors before pushing. Just please don't play with the functionality or we won't be able to assist you if something breaks. Happy coding!
+To add additional customizations (such as page design & colors) to the web page, you can open the repository in VSCode to parameterize the `index.js` & `styles.css` files. 
 
-### Hash Message (SHA3)
+:::info
+
+Note: if the code for the sign page's functionalities are altered, it may cause unforeseen issues which we may have trouble assisting with.
+
+::: 
+
+### Secure Hash Algorithm 3 (SHA-3) Through Web3Wallet
+
+Calculates the SHA-3 of the input.
 
 ```csharp
 using Web3Unity.Scripts.Library.Web3Wallet;
@@ -222,7 +261,7 @@ public class Web3WalletSha3Example : MonoBehaviour
 }
 ```
 
-### Transfer ERC-20 Token through Mobile and Desktop {#transfer-erc-20-token-through-mobile-and-desktop}
+### Transfer ERC-20 Token Through Mobile and Desktop {#transfer-erc-20-token-through-mobile-and-desktop}
 
 ```csharp
 using UnityEngine;
@@ -265,7 +304,7 @@ public class Web3WalletTransfer20Example : MonoBehaviour
     }
 }
 ```
-### Transfer ERC-721 NFT Token through Mobile and Desktop {#transfer-erc-721-nft-token-through-mobile-and-desktop}
+### Transfer ERC-721 NFT Token Through Mobile and Desktop {#transfer-erc-721-nft-token-through-mobile-and-desktop}
 
 ```csharp
 using UnityEngine;
@@ -365,9 +404,9 @@ public class Web3WalletTransfer1155Example : MonoBehaviour
 
 Call will execute a smart contract method without altering the smart contract state.
 
-Working example: [https://chainsafe.github.io/game-sendContract-example/](https://chainsafe.github.io/game-sendContract-example/)
+See [Reading A Value From A Solidity Contract (Web3Wallet Builds)](https://docs.gaming.chainsafe.io/current/web3wallet-mobile-and-desktop#reading-a-value-from-a-solidity-contract) for a working example.
 
-NFTPixels will walk you through making read and write calls to the blockchain using Web3Wallet
+Here's a video tutorial on how to make read/write interactions to custom smart contracts using Web3Wallet: 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/VZ1EBVXoZ9E?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr" title="How To Make Read+Write Interactions With Custom Smart Contracts Using Web3Wallet On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
@@ -385,7 +424,7 @@ contract AddTotal {
 }
 ```
 
-### Reading a value from a solidity contract
+### Reading A Value From A Solidity Contract (Web3Wallet Builds)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -417,7 +456,7 @@ public class Web3WalletContractRead : MonoBehaviour
 }
 ```
 
-### Reading an array from a solidity contract
+### Reading An Array From A Solidity Contract (Web3Wallet Builds)
 
 ```csharp
 using Newtonsoft.Json;
@@ -449,7 +488,7 @@ public class Web3WalletGetArray : MonoBehaviour
 }
 ```
 
-### Writing a value to a solidity contract (Web Wallet Builds)
+### Writing A Value To A Solidity Contract (Web3Wallet Builds)
 
 ```csharp
 using Newtonsoft.Json;
@@ -483,7 +522,7 @@ public class Web3WalletContractSend : MonoBehaviour
 }
 ```
 
-### Writing an array to a solidity contract (Web Wallet Builds)
+### Writing An Array To A Solidity Contract (Web3Wallet Builds)
 
 ```csharp
 using UnityEngine;

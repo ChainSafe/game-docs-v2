@@ -29,6 +29,7 @@ ChainId
 chainsafe
 ChainSafe
 Chainstack
+Chainlist
 Cloudflare
 config
 contract-abi-to-json-format
@@ -204,3 +205,15 @@ tokenId
 mainnets
 testnets
 SHA-3
+gamers
+WebAssembly
+Goerli's
+goerliETH
+customizations
+changelogs
+Ethereum's
+wei
+CRO
+Chain721
+tokenIds
+URIs

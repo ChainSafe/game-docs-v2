@@ -1,6 +1,6 @@
 ---
 slug: /current/erc20-interactions
-sidebar_position: 6
+sidebar_position: 4
 sidebar_label: ERC-20 Interactions
 ---
 
@@ -9,18 +9,18 @@ sidebar_label: ERC-20 Interactions
 
 :::info
 
-A standard interface for native & custom fungible tokens.
+A standard interface for native & custom fungible tokens. A native token is specifically designed to be used as a currency, medium of exchange, or gas token within that blockchain (e.g. ETH, MATIC, BNB, CRO). A custom token, on the other hand, is built on an existing blockchain platform, such as Ethereum, using a smart contract standard like the ERC-20 fungible token standard.
 
 :::
 
 ### Video Explanation Of ERC-20 Prefabs
 
-Here's a video explanation to help you better understand our new ERC-20 prefabs, with Sneakz:
+Here's a video explanation to help you better understand our new ERC-20 prefabs:
 <iframe width="800" height="450" src="https://www.youtube.com/embed/2ysoDRCru4c?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW" title="Interacting With ERC-20 Prefabs On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Call Custom Blockchain Tokens {#call-custom-blockchain-tokens}
 
-Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance of a native ERC-20 token you can use the second code snippet below.
+Connect to any EVM-compatible blockchain by providing an RPC. All methods have an optional field to add an RPC URL. This returns a custom ERC-20 token's balance. If you'd like to get the balance of a native ERC-20 token, see [Balance of Native Token](#balance-of-native).
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -46,9 +46,15 @@ public class ERC20CustomTokenBalance : MonoBehaviour
 }
 ```
 
-### Balance Of {#balance-of}
+:::info
 
-Returns the balance of a custom ERC-20 token, e.g. "xdai"
+In the following code snippet examples, we will use [Circle's USDC](https://developers.circle.com/developer/docs/usdc-on-testnet) ERC-20 token contract as found on the Goerli testnet for demonstration purposes. We use "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2" as the example address to fetch from.
+
+:::
+
+### Balance Of Custom Token {#balance-of-custom}
+
+Returns the balance of an ERC-20 token for a specific Ethereum account (e.g. "USDC").
 
 ```csharp
 using System.Numerics;
@@ -59,7 +65,7 @@ public class ERC20BalanceOfExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         string account = "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2";
 
         BigInteger balanceOf = await ERC20.BalanceOf(contract, account);
@@ -67,8 +73,9 @@ public class ERC20BalanceOfExample : MonoBehaviour
     }
 }
 ```
+### Balance Of Native Token {#balance-of-native}
 
-If you need the chain's native token balance you can fetch it using the native balance of prefab:
+Returns the balance of a native token for a specific Ethereum account (e.g. "ETH").
 
 ```csharp
 using UnityEngine;
@@ -88,7 +95,7 @@ public class ERC20NativeBalanceOfExample : MonoBehaviour
 
 ### Name {#name}
 
-Returns the name of the token, e.g. "USD Coin"
+Returns the name of an ERC-20 token associated with a specified contract address (e.g. "USD Coin").
 
 ```csharp
 using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
@@ -98,7 +105,7 @@ public class ERC20NameExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         string name = await ERC20.Name(contract);
         print(name);
     }
@@ -107,7 +114,7 @@ public class ERC20NameExample : MonoBehaviour
 
 ### Symbol {#symbol}
 
-Returns the symbol of the token, e.g. "USDC".
+Returns the symbol of an ERC-20 token associated with a specified contract address (e.g. "USDC").
 
 ```csharp
 using UnityEngine;
@@ -117,7 +124,7 @@ public class ERC20SymbolExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
 
         string symbol = await ERC20.Symbol(contract);
         print(symbol);
@@ -127,7 +134,7 @@ public class ERC20SymbolExample : MonoBehaviour
 
 ### Decimals {#decimals}
 
-Returns the number of decimals the token uses, e.g. 6, which means to divide the token amount by 1000000 to get its human readable representation.
+Returns the number of decimal places a specified ERC-20 token uses (e.g. 6 for USDC), which means to divide the token amount by 1000000 to get its human readable representation.
 
 ```csharp
 using System.Numerics;
@@ -138,7 +145,7 @@ public class ERC20DecimalsExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
 
         BigInteger decimals = await ERC20.Decimals(contract);
         print(decimals);
@@ -148,7 +155,7 @@ public class ERC20DecimalsExample : MonoBehaviour
 
 ### Total Supply {#total-supply}
 
-Returns the total token supply.
+Returns the total token supply of an ERC-20 token associated with a specified contract address.
 
 ```csharp
 using System.Numerics;
@@ -159,7 +166,7 @@ public class ERC20TotalSupplyExample : MonoBehaviour
 {
     async void Start()
     {
-        string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
+        string contract = "0x07865c6E87B9F70255377e024ace6630C1Eaa37F";
         BigInteger totalSupply = await ERC20.TotalSupply(contract);
         print(totalSupply);
     }
@@ -167,6 +174,12 @@ public class ERC20TotalSupplyExample : MonoBehaviour
 ```
 
 ### Convert WEI To ETH And ETH To WEI {#convert-wei-to-eth-and-eth-to-wei}
+
+The `ConversionExamples` class provides two methods to convert values between Ethereum's smallest unit (wei) and its largest unit (ether). The first method, `ConvertToDecimals()`, takes a string value representing an amount of wei and converts it to ether by dividing the wei value by 10^18. The result is then printed as a decimal string using the `Convert.ToDecimal()` method.
+
+The second method, `ConvertToWei()`, takes a string value representing an amount of ether and converts it to wei by multiplying the ether value by 10^18. The result is then printed as a decimal string using the `Convert.ToDecimal()` method.
+
+These conversion methods are useful for working with Ethereum amounts in code. By converting values between wei and ether, developers can manage Ethereum amounts with greater precision and accuracy.
 
 ```csharp
 using System;

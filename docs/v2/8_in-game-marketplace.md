@@ -1,11 +1,10 @@
 ---
 slug: /current/in-game-marketplace
 sidebar_position: 8
-sidebar_label: In Game Marketplace
+sidebar_label: In-game NFT Marketplace
 ---
 
-
-# In-game Marketplace
+# In-game NFT Marketplace
 
 :::info
 
