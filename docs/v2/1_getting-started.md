@@ -35,7 +35,7 @@ Delete the Web3Unity & WebGLTemplates and Plugins -> Nethereum folders from your
 
 ### Importing The Latest Version {#importing-version-2}
 
-Download & import the latest version of the SDK package from our [GitHub](https://github.com/ChainSafe/Gaming_SDK_V2/releases/)
+Download & import the latest version of the SDK package from our [GitHub](https://github.com/ChainSafe/web3.unity/releases/)
 
 ![](v2Assets/v2installv2unitypackage.png)
 
