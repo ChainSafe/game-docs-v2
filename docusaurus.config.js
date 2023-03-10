@@ -39,7 +39,7 @@ const config = {
           editUrl: 'https://github.com/ChainSafe/game-docs-v2/tree/main'
         },
         blog: false,
-        debug: true,
+        debug: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
