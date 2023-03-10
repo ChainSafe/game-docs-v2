@@ -1,4 +1,4 @@
-name: Check and Deploy
+name: Check and Publish
 on: 
   push:
     branches:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   check:
-    name: Check and Deploy
+    name: Check
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
