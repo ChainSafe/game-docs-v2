@@ -57,7 +57,7 @@ public class WebGLGetBlockNumber : MonoBehaviour
 
 ### Gas Price {#gas-price}
 
-Get the **current gas price** for a transaction based on chain / network and RPC. Used to estimate the transaction fees required to execute certain actions on the Ethereum blockchain within the game, such as transferring assets between players or minting new in-game NFTs. For more on gas prices, see [What is gas?](https://ethereum.org/en/developers/docs/gas/#what-is-gas)
+Get the **current gas price** for a transaction based on chain / network and RPC. Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the Ethereum network, such as transferring assets between players or minting new in-game NFTs. Since each Ethereum transaction requires computational resources to execute, each transaction requires a fee. Gas refers to the fee required to execute a transaction on Ethereum, regardless of transaction success or failure. For more on gas prices, see [What is gas?](https://ethereum.org/en/developers/docs/gas/#what-is-gas)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -75,7 +75,7 @@ public class WebGLGetGasPrice : MonoBehaviour
 
 ### Gas Limit {#gas-limit}
 
-Get the **current gas limit** for a transaction based on chain / network and RPC. Used in combination with the gas price of Ethereum to estimate the transaction fees required to execute certain actions on the Ethereum blockchain within the game, such as transferring assets between players or minting new in-game NFTs. For more on gas limits, see [What is gas limit?](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
+Get the **current gas limit** for a transaction based on chain / network and RPC. Gas limit refers to the maximum amount of gas you are willing to consume on a transaction. More complicated in-game transactions involving smart contracts require more computational work, so they require a higher gas limit than a simple payment. For more on gas limits, see [What is gas limit?](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
