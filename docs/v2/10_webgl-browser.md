@@ -8,7 +8,7 @@ sidebar_label: WebGL Builds
 
 :::info
 
-The WebGL build option allows game developers to run Unity games in a web browser. web3.unity's WebGL build uses our [Web3GL](https://github.com/ChainSafe/game-web3gl) component and contains various WebGL prefabs & scripts.
+The WebGL build option allows game developers to build Unity games that run in a web browser. web3.unity's WebGL build uses our [Web3GL](https://github.com/ChainSafe/game-web3gl) component and contains various WebGL prefabs & scripts.
 
 :::
 
@@ -96,58 +96,15 @@ public class WebGLGetGasLimit : MonoBehaviour
 }
 ```
 
-### Transaction Status {#transaction-status}
+:::info
 
-The `GetTransactionReceipt` method can be used to await the status of a submitted transaction.
+In some instances, game developers may want to specify the gas price and gas limit for a transaction. However, if the gas parameters are left blank, the gas will default to the estimates given by MetaMask.
 
-```csharp
-using Nethereum.Hex.HexTypes;
-using Web3Unity.Scripts.Library.Ethers.Providers;
-using Web3Unity.Scripts.Library.Ethers.Signers;
-using Web3Unity.Scripts.Library.Ethers.Transactions;
-using UnityEngine;
-
-public class WebGLGetTxStatus : MonoBehaviour
-{
-    async public void SendTransaction()
-    {
-        // account to send to
-        string to = "0x428066dd8A212104Bc9240dCe3cdeA3D3A0f7979";
-        // amount in wei to send
-        string value = "12300000000000000";
-        // gas limit OPTIONAL
-        string gasLimit = "";
-        // gas price OPTIONAL
-        string gasPrice = "";
-        // connects to user's browser wallet (metamask) to send a transaction
-        try {
-            string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
-
-            Debug.Log("Attempting to check TX Status");
-
-            // Check the Transction adn return a transaction code
-            var Transaction = await provider.GetTransactionReceipt(response.ToString());
-
-            // Debug Transaction code
-            Debug.Log("Transaction Code: " + Transaction.Status);
-
-            // Conditional Statement to check Transaction Status
-            if (Transaction.Status.ToString() == "0")
-            {
-                Debug.Log("Transaction has failed");
-            }
-            else if (Transaction.Status.ToString() == "1")
-            {
-                Debug.Log("Transaction has been successful");
-            }
-        } catch (Exception e) {
-            Debug.LogException(e, this);
-        }
-    }
-}
-```
+:::
 
 ### Nonce {#nonce}
+
+Fetches the nonce of an Ethereum account.
 
 ```csharp
 using Nethereum.Hex.HexTypes;
@@ -174,6 +131,8 @@ public class WebGLGetNonce : MonoBehaviour
 ```
 
 ### Send Transaction Through WebGL {#send-transaction-through-webgl}
+
+An example of how to send a transaction through a Unity WebGL game. This code snippet passes in the receipient address, amount (in wei) to send, and optional gas limit and price.
 
 ```csharp
 using System;
@@ -204,6 +163,56 @@ public class WebGLSendTransactionExample : MonoBehaviour
     }
 }
 #endif
+```
+### Transaction Status {#transaction-status}
+
+The `GetTransactionReceipt` method can be used to await the status of a submitted transaction. We take the code snippet from [Send Transaction Through WebGL](#send-transaction-through-webgl) and pass in additional logs to check for the status of the transaction.
+
+```csharp
+using Nethereum.Hex.HexTypes;
+using Web3Unity.Scripts.Library.Ethers.Providers;
+using Web3Unity.Scripts.Library.Ethers.Signers;
+using Web3Unity.Scripts.Library.Ethers.Transactions;
+using UnityEngine;
+
+public class WebGLGetTxStatus : MonoBehaviour
+{
+    async public void SendTransaction()
+    {
+        // account to send to
+        string to = "0x428066dd8A212104Bc9240dCe3cdeA3D3A0f7979";
+        // amount in wei to send
+        string value = "12300000000000000";
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // connects to user's browser wallet (metamask) to send a transaction
+        try {
+            string response = await Web3GL.SendTransaction(to, value, gasLimit, gasPrice);
+
+            Debug.Log("Attempting to check TX Status");
+
+            // Check the Transction and return a transaction code
+            var Transaction = await provider.GetTransactionReceipt(response.ToString());
+
+            // Debug Transaction code
+            Debug.Log("Transaction Code: " + Transaction.Status);
+
+            // Conditional Statement to check Transaction Status
+            if (Transaction.Status.ToString() == "0")
+            {
+                Debug.Log("Transaction has failed");
+            }
+            else if (Transaction.Status.ToString() == "1")
+            {
+                Debug.Log("Transaction has been successful");
+            }
+        } catch (Exception e) {
+            Debug.LogException(e, this);
+        }
+    }
+}
 ```
 
 ### Secure Hash Algorithm 3 (SHA-3) Through WebGL
@@ -277,7 +286,7 @@ public class WebGLSignVerifyExample : MonoBehaviour
 
 ### Call Custom Contracts {#call-custom-contracts}
 
-Call will execute a smart contract method without altering the smart contract state.
+Calls will execute a smart contract method without altering the smart contract state.
 
 See [Reading A Value From  A Solidity Contract (WebGL Builds)](#reading-a-value-from-a-solidity-contract) for a working example.
 
@@ -285,6 +294,8 @@ Here's a video tutorial on how to make read/write interactions to custom smart c
 <iframe width="800" height="450" src="https://www.youtube.com/embed/-AzyBq9jj6o?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS" title="How To Make Read+Write Interactions Custom Contracts Using Web3GL On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
+
+This code snippet defines a simple smart contract example where the `myTotal` variable (initialized at 0) is added to (by the input value `_myArg`) and updated to a new total. 
 
 ```csharp
 // SPDX-License-Identifier: MIT
@@ -300,6 +311,8 @@ contract AddTotal {
 ```
 
 ### Reading A Value From A Solidity Contract (WebGL Builds)
+
+Retrieves the value of a specified variable (`myTotal`) from a smart contract.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -334,6 +347,8 @@ public class WebGLContractRead : MonoBehaviour
 ```
 
 ### Reading An Array From A Solidity Contract (WebGL Builds)
+
+Retrieves the array of addresses stored in a smart contract.
 
 ```csharp
 using Newtonsoft.Json;
@@ -374,6 +389,8 @@ public class WebGLGetArray : MonoBehaviour
 
 ### Writing A Value To A Solidity Contract (WebGL Builds)
 
+Sends a transaction (using the `addTotal` method) to update a smart contract's state.
+
 ```csharp
 using Newtonsoft.Json;
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -400,6 +417,8 @@ public class WebGLContractSend : MonoBehaviour
 ```
 
 ### Writing An Array To A Solidity Contract (WebGL Builds)
+
+Writes to an array of addresses stored in a smart contract.
 
 ```csharp
 using UnityEngine;
