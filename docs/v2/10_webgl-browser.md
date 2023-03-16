@@ -132,7 +132,7 @@ public class WebGLGetNonce : MonoBehaviour
 
 ### Send Transaction Through WebGL {#send-transaction-through-webgl}
 
-An example of how to send a transaction through a Unity WebGL game. This code snippet passes in the receipient address, amount (in wei) to send, and optional gas limit and price.
+An example of how to send a transaction through a Unity WebGL game. This code snippet passes in the recipient address, amount (in wei) to send, and optional gas limit and price.
 
 ```csharp
 using System;
