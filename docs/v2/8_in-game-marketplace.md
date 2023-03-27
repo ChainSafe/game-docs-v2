@@ -434,3 +434,14 @@ namespace Web3Unity.Scripts.Prefabs.Minter
 ```
 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/Twm3crRgHVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Using the collections prefabs
+In addition the the above we have a feaure called collections. This allow developers to create a collection of NFTs for their game using our [marketplace](https://marketplace.chainsafe.io/collections). You can assign as many NFTs as you'd like to a collection and then use that in game.
+
+![](v2Assets/v2Collections.png)
+
+Once you've created a collection and assigned some NFTs, find your collectionID along with the prefabs found in Prefabs -> Minter -> WebGl/Web3Wallet folders. These prefabs will allow you to only show the nfts that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
+
+![](v2Assets/v2CollectionIdAdd.png)
+
+Being able to set the collection ID means you can use the prefabs to allow exclusive buying & selling of only your NFTs via our marketplace in game. Pretty cool hey! The prefab currently only has space for 3 nfts per collection but you can just increase the amount of objects easily to any size you'd like.
