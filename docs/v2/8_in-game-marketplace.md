@@ -440,7 +440,7 @@ In addition to the above we have a feature called collections. This allow develo
 
 ![](v2Assets/v2Collections.png)
 
-Once you've created a collection and assigned some NFTs, find your collection ID along with the prefabs found in Prefabs -> Minter -> Webgl/Web3Wallet folders. These prefabs will allow you to only show the nft objects that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
+Once you've created a collection and assigned some NFTs, find your collection ID along with the prefabs found in prefabs -> minter -> webgl/web3Wallet folders. These prefabs will allow you to only show the NFTs that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
 
 ![](v2Assets/v2CollectionIdAdd.png)
 
