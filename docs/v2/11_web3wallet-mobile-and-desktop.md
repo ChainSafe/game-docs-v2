@@ -8,7 +8,7 @@ sidebar_label: Web3Wallet Builds
 
 :::info
 
-The Web3Wallet build option allows game developers to build Unity games for desktop and mobile (iOS/Android). This build uses our [Web3Wallet](https://github.com/ChainSafe/game-web3wallet) component and contains various prefabs & scripts.
+The Web3Wallet build option allows game developers to build Unity games that run on desktop and mobile (iOS/Android). This build uses our [Web3Wallet](https://github.com/ChainSafe/game-web3wallet) component and contains various prefabs & scripts.
 
 :::
 
@@ -37,7 +37,7 @@ public class Web3WalletGetBlockNumber : MonoBehaviour
 
 ### Gas Price {#gas-price}
 
-Get the current gas price for a transaction based on chain / network and rpc.
+Get the **current gas price** for a transaction based on chain / network and RPC. Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the Ethereum network, such as transferring assets between players or minting new in-game NFTs. Since each Ethereum transaction requires computational resources to execute, each transaction requires a fee. Gas refers to the fee required to execute a transaction on Ethereum, regardless of transaction success or failure. For more on gas prices, see [What is gas?](https://ethereum.org/en/developers/docs/gas/#what-is-gas)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Providers;
@@ -55,7 +55,7 @@ public class Web3WalletGetGasPrice : MonoBehaviour
 
 ### Gas Limit {#gas-limit}
 
-Get the current gas limit for a transaction based on chain / network and rpc.
+Get the **current gas limit** for a transaction based on chain / network and RPC. Gas limit refers to the maximum amount of gas you are willing to consume on a transaction. More complicated in-game transactions involving smart contracts require more computational work, so they require a higher gas limit than a simple payment. For more on gas limits, see [What is gas limit?](https://ethereum.org/en/developers/docs/gas/#what-is-gas-limit)
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -76,7 +76,188 @@ public class Web3WalletGetGasLimit : MonoBehaviour
 }
 ```
 
+:::info
+
+In some instances, game developers may want to specify the gas price and gas limit for a transaction. However, if the gas parameters are left blank, the gas will default to the estimates given by MetaMask.
+
+:::
+
+### Nonce {#nonce}
+
+Fetches the nonce of an Ethereum account.
+
+```csharp
+using Nethereum.Hex.HexTypes;
+using Web3Unity.Scripts.Library.Ethers.Providers;
+using Web3Unity.Scripts.Library.Ethers.Signers;
+using Web3Unity.Scripts.Library.Ethers.Transactions;
+using UnityEngine;
+
+public class Web3WalletGetNonce : MonoBehaviour
+{
+    public async void Nonce()
+    {
+        var provider = new JsonRpcProvider("YOUR_NODE");
+        var signer = new JsonRpcSigner(provider, 0);
+        var tx = await signer.SendTransaction(new TransactionRequest
+        {
+            To = await signer.GetAddress(),
+            Value = new HexBigInteger(100000)
+        });
+        var nonce = tx.Nonce;
+        Debug.Log("Nonce: " + nonce);
+    }
+}
+```
+
+### Transfer ERC-20 Token Through Mobile and Desktop {#transfer-erc-20-token-through-mobile-and-desktop}
+
+Send an ERC-20 token transfer through a Unity desktop/mobile game.
+
+```csharp
+using UnityEngine;
+using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
+using Web3Unity.Scripts.Library.Ethers.Contracts;
+using Web3Unity.Scripts.Library.Web3Wallet;
+
+public class Web3WalletTransfer20Example : MonoBehaviour
+{
+    async public void OnTransfer20()
+    {
+        // https://chainlist.org/
+        string chainId = "5"; // goerli
+        // contract to interact with 
+        string contract = "0xc778417e063141139fce010982780140aa0cd5ab";
+        // value in wei
+        string value = "0";
+        // abi in json format
+        string abi = ABI.ERC_20;
+        // smart contract method to call
+        string method = ETH_METHOD.Transfer;
+        // account to send erc20 to
+        string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+        // amount of erc20 tokens to send
+        string amount = "1000000000000000";
+        // create data to interact with smart contract
+        var contractData = new Contract(abi, contract);
+        var data = contractData.Calldata(method, new object[]
+        {
+            toAccount,
+            amount
+        });
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // send transaction
+        string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
+        print(response);
+    }
+}
+```
+### Transfer ERC-721 NFT Token Through Mobile and Desktop {#transfer-erc-721-nft-token-through-mobile-and-desktop}
+
+Send an ERC-721 token transfer through a Unity desktop/mobile game.
+
+```csharp
+using UnityEngine;
+using Web3Unity.Scripts.Library.Ethers.Contracts;
+using Web3Unity.Scripts.Library.Web3Wallet;
+
+public class Web3WalletTransfer721 : MonoBehaviour
+{
+    async public void OnTransfer721()
+    {
+        // https://chainlist.org/
+        string chainId = "503129905"; // nebula
+        // contract to interact with 
+        string contractAddress = "0x0B102638532be8A1b3d0ed1fcE6eC603Bec37848";
+        // value in wei
+        string value = "0";
+        // abi in json format
+        string battle_axe_abi = "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"name\":\"safeMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINTER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]";
+        // smart contract method to call
+        string method = "safeMint";
+        // account to send erc721 to
+        string toAccount = PlayerPrefs.GetString("Account");
+        // gas limit OPTIONAL
+        string gasLimit = "";
+        // gas price OPTIONAL
+        string gasPrice = "";
+        // uri
+        string uri = "ipfs://QmNn5EaGR26kU7aAMH7LhkNsAGcmcyJgun3Wia4MftVicW/1.json";
+        var contract = new Contract(battle_axe_abi, contractAddress);
+        Debug.Log("Contract: " + contract);
+        var calldata = contract.Calldata(method, new object[]
+        {
+            toAccount,
+            uri
+        });
+        Debug.Log("Contract Data: " + calldata);
+        // send transaction
+        string response = await Web3Wallet.SendTransaction(chainId, contractAddress, value, calldata, gasLimit, gasPrice);
+        print(response);
+
+    }
+}
+```
+
+### Transfer ERC-1155 NFT Token through Mobile and Desktop {#transfer-erc-1155-nft-token-through-mobile-and-desktop}
+
+Send an ERC-1155 token transfer through a Unity desktop/mobile game.
+
+```csharp
+using UnityEngine;
+using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
+using Web3Unity.Scripts.Library.Ethers.Contracts;
+using Web3Unity.Scripts.Library.Web3Wallet;
+
+public class Web3WalletTransfer1155Example : MonoBehaviour
+{
+    public async void OnTransfer1155()
+    {
+        // https://chainlist.org/
+        var chainId = "5"; // goerli
+        // contract to interact with 
+        var contract = "0xae283E79a5361CF1077bf2638a1A953c872AD973";
+        // value in wei
+        var value = "0";
+        // abi in json format
+        var abi = ABI.ERC_1155;
+        // smart contract method to call
+        var method = "safeTransferFrom";
+        // account to sent tokens to
+        var toAccount = PlayerPrefs.GetString("Account");
+        // token id to send
+        var tokenId = 0;
+        // amount of tokens to send
+        var amount = 1;
+        // bytes
+        byte[] dataObject = { };
+        // array of arguments for contract
+        var contractData = new Contract(abi, contract);
+        var data = contractData.Calldata(method, new object[]
+        {
+            PlayerPrefs.GetString("Account"),
+            toAccount,
+            tokenId,
+            amount,
+            dataObject
+        });
+        // gas limit OPTIONAL
+        var gasLimit = "";
+        // gas price OPTIONAL
+        var gasPrice = "";
+        // send transaction
+        var response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
+        print(response);
+    }
+}
+```
+
 ### Transaction Status {#transaction-status}
+
+The `GetTransactionReceipt` method can be used to await the status of a submitted transaction. We take the code snippet from [Transfer ERC-20 Token Through Mobile and Desktop](#transfer-erc-20-token-through-mobile-and-desktop) and pass in additional logs to check for the status of the transaction.
 
 ```csharp
 using Nethereum.Hex.HexTypes;
@@ -136,33 +317,9 @@ public class Web3WalletGetTxStatus : MonoBehaviour
 }
 ```
 
-### Nonce {#nonce}
-
-```csharp
-using Nethereum.Hex.HexTypes;
-using Web3Unity.Scripts.Library.Ethers.Providers;
-using Web3Unity.Scripts.Library.Ethers.Signers;
-using Web3Unity.Scripts.Library.Ethers.Transactions;
-using UnityEngine;
-
-public class Web3WalletGetNonce : MonoBehaviour
-{
-    public async void Nonce()
-    {
-        var provider = new JsonRpcProvider("YOUR_NODE");
-        var signer = new JsonRpcSigner(provider, 0);
-        var tx = await signer.SendTransaction(new TransactionRequest
-        {
-            To = await signer.GetAddress(),
-            Value = new HexBigInteger(100000)
-        });
-        var nonce = tx.Nonce;
-        Debug.Log("Nonce: " + nonce);
-    }
-}
-```
-
 ### Sign Transaction Through Mobile and Desktop {#sign-through-mobile-and-desktop}
+
+Generates a cryptographic signature for a given string or message.
 
 ```csharp
 string response = await Web3Wallet.Sign("hello");
@@ -261,145 +418,6 @@ public class Web3WalletSha3Example : MonoBehaviour
 }
 ```
 
-### Transfer ERC-20 Token Through Mobile and Desktop {#transfer-erc-20-token-through-mobile-and-desktop}
-
-```csharp
-using UnityEngine;
-using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
-using Web3Unity.Scripts.Library.Ethers.Contracts;
-using Web3Unity.Scripts.Library.Web3Wallet;
-
-public class Web3WalletTransfer20Example : MonoBehaviour
-{
-    async public void OnTransfer20()
-    {
-        // https://chainlist.org/
-        string chainId = "5"; // goerli
-        // contract to interact with 
-        string contract = "0xc778417e063141139fce010982780140aa0cd5ab";
-        // value in wei
-        string value = "0";
-        // abi in json format
-        string abi = ABI.ERC_20;
-        // smart contract method to call
-        string method = ETH_METHOD.Transfer;
-        // account to send erc20 to
-        string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
-        // amount of erc20 tokens to send
-        string amount = "1000000000000000";
-        // create data to interact with smart contract
-        var contractData = new Contract(abi, contract);
-        var data = contractData.Calldata(method, new object[]
-        {
-            toAccount,
-            amount
-        });
-        // gas limit OPTIONAL
-        string gasLimit = "";
-        // gas price OPTIONAL
-        string gasPrice = "";
-        // send transaction
-        string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
-        print(response);
-    }
-}
-```
-### Transfer ERC-721 NFT Token Through Mobile and Desktop {#transfer-erc-721-nft-token-through-mobile-and-desktop}
-
-```csharp
-using UnityEngine;
-using Web3Unity.Scripts.Library.Ethers.Contracts;
-using Web3Unity.Scripts.Library.Web3Wallet;
-
-public class Web3WalletTransfer721 : MonoBehaviour
-{
-    async public void OnTransfer721()
-    {
-        // https://chainlist.org/
-        string chainId = "503129905"; // nebula
-        // contract to interact with 
-        string contractAddress = "0x0B102638532be8A1b3d0ed1fcE6eC603Bec37848";
-        // value in wei
-        string value = "0";
-        // abi in json format
-        string battle_axe_abi = "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"name\":\"safeMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINTER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]";
-        // smart contract method to call
-        string method = "safeMint";
-        // account to send erc721 to
-        string toAccount = PlayerPrefs.GetString("Account");
-        // gas limit OPTIONAL
-        string gasLimit = "";
-        // gas price OPTIONAL
-        string gasPrice = "";
-        // uri
-        string uri = "ipfs://QmNn5EaGR26kU7aAMH7LhkNsAGcmcyJgun3Wia4MftVicW/1.json";
-        var contract = new Contract(battle_axe_abi, contractAddress);
-        Debug.Log("Contract: " + contract);
-        var calldata = contract.Calldata(method, new object[]
-        {
-            toAccount,
-            uri
-        });
-        Debug.Log("Contract Data: " + calldata);
-        // send transaction
-        string response = await Web3Wallet.SendTransaction(chainId, contractAddress, value, calldata, gasLimit, gasPrice);
-        print(response);
-
-    }
-}
-```
-
-### Transfer ERC-1155 NFT Token through Mobile and Desktop {#transfer-erc-1155-nft-token-through-mobile-and-desktop}
-
-```csharp
-using UnityEngine;
-using Web3Unity.Scripts.Library.ETHEREUEM.EIP;
-using Web3Unity.Scripts.Library.Ethers.Contracts;
-using Web3Unity.Scripts.Library.Web3Wallet;
-
-public class Web3WalletTransfer1155Example : MonoBehaviour
-{
-    public async void OnTransfer1155()
-    {
-        // https://chainlist.org/
-        var chainId = "5"; // goerli
-        // contract to interact with 
-        var contract = "0xae283E79a5361CF1077bf2638a1A953c872AD973";
-        // value in wei
-        var value = "0";
-        // abi in json format
-        var abi = ABI.ERC_1155;
-        // smart contract method to call
-        var method = "safeTransferFrom";
-        // account to sent tokens to
-        var toAccount = PlayerPrefs.GetString("Account");
-        // token id to send
-        var tokenId = 0;
-        // amount of tokens to send
-        var amount = 1;
-        // bytes
-        byte[] dataObject = { };
-        // array of arguments for contract
-        var contractData = new Contract(abi, contract);
-        var data = contractData.Calldata(method, new object[]
-        {
-            PlayerPrefs.GetString("Account"),
-            toAccount,
-            tokenId,
-            amount,
-            dataObject
-        });
-        // gas limit OPTIONAL
-        var gasLimit = "";
-        // gas price OPTIONAL
-        var gasPrice = "";
-        // send transaction
-        var response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice);
-        print(response);
-    }
-}
-```
-
 ### Call Custom Contracts {#call-custom-contracts}
 
 Call will execute a smart contract method without altering the smart contract state.
@@ -410,6 +428,8 @@ Here's a video tutorial on how to make read/write interactions to custom smart c
 <iframe width="800" height="450" src="https://www.youtube.com/embed/VZ1EBVXoZ9E?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr" title="How To Make Read+Write Interactions With Custom Smart Contracts Using Web3Wallet On web3.unity v2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Solidity Contract Example
+
+This code snippet defines a simple smart contract example where the `myTotal` variable (initialized at 0) is added to (by the input value `_myArg`) and updated to a new total. 
 
 ```csharp
 // SPDX-License-Identifier: MIT
@@ -425,6 +445,8 @@ contract AddTotal {
 ```
 
 ### Reading A Value From A Solidity Contract (Web3Wallet Builds)
+
+Retrieves the value of a specified variable (`myTotal`) from a smart contract.
 
 ```csharp
 using Web3Unity.Scripts.Library.Ethers.Contracts;
@@ -458,6 +480,8 @@ public class Web3WalletContractRead : MonoBehaviour
 
 ### Reading An Array From A Solidity Contract (Web3Wallet Builds)
 
+Retrieves the array of addresses stored in a smart contract.
+
 ```csharp
 using Newtonsoft.Json;
 using UnityEngine;
@@ -489,6 +513,8 @@ public class Web3WalletGetArray : MonoBehaviour
 ```
 
 ### Writing A Value To A Solidity Contract (Web3Wallet Builds)
+
+Sends a transaction (using the `addTotal` method) to update a smart contract's state.
 
 ```csharp
 using Newtonsoft.Json;
@@ -523,6 +549,8 @@ public class Web3WalletContractSend : MonoBehaviour
 ```
 
 ### Writing An Array To A Solidity Contract (Web3Wallet Builds)
+
+Writes to an array of addresses stored in a smart contract.
 
 ```csharp
 using UnityEngine;
