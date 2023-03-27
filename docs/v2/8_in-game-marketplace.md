@@ -442,6 +442,6 @@ In addition to the above we have a feature called collections. This allow develo
 
 Once you've created a collection and assigned some NFTs, find your collection ID along with the prefabs found in prefabs -> minter -> webgl/web3wallet folders. These prefabs will allow you to only show the NFTs that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
 
-![](v2Assets/v2CollectionAdd.png)
+![](v2Assets/v2CollectionIdAdd.png)
 
 Being able to set the collection ID means you can use the prefabs to allow exclusive buying & selling of only your NFTs via our marketplace in game. Pretty cool hey! The prefab currently only has space for 3 objects per collection but you can just increase the amount of objects easily to any size you'd like.
