@@ -436,11 +436,15 @@ namespace Web3Unity.Scripts.Prefabs.Minter
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/Twm3crRgHVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Using the collections prefabs
-In addition to the above we have a feature called collections. This allow developers to create a collection of NFTs for their game using our [marketplace](https://marketplace.chainsafe.io/collections). You can assign as many NFTs as you'd like to a collection and then use that in game.
+In addition to the above we have a feature called collections. This allow developers to create a collection of NFTs for their game using our [marketplace](https://marketplace.chainsafe.io/collections).
 
 ![](v2Assets/v2Collections.png)
 
-Once you've created a collection and assigned some NFTs, find your collection ID along with the prefabs found in prefabs -> minter -> webgl/web3wallet folders. These prefabs will allow you to only show the NFTs that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
+Once you've created a collection you'll notice that you can assign or remove NFTs from this collection. You can assign as many NFTs as you'd like to a collection and then use that in game. Pretty cool hey!
+
+![](v2Assets/v2CollectionNfts.png)
+
+Go ahead and find your collection ID along with the prefabs found in prefabs -> minter -> webgl/web3wallet folders. These prefabs will allow you to only show the NFTs that belong to the collection given. Don't forget to add this ID to the collections prefab values in the inspector.
 
 ![](v2Assets/v2CollectionIdAdd.png)
 
