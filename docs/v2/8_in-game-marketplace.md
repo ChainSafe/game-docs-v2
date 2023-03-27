@@ -436,7 +436,7 @@ namespace Web3Unity.Scripts.Prefabs.Minter
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/Twm3crRgHVg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Using the collections prefabs
-There is also a Collections feature for the [Chainsafe Marketplace](https://marketplace.chainsafe.io/collections). This allows the creation of an NFT collection page that makes it easier to group and display NFTs for a specific game using our marketplace. For example, if you have a collection of swords, shields, and armors all under the same collection, you can setup an in-game marketplace using our marketplace prefab and ensure only your collection NFTs are displayed within Unity.
+There is also a Collections feature for the [Marketplace](https://marketplace.chainsafe.io/collections). This allows the creation of an NFT collection page that makes it easier to group and display NFTs for a specific game using our marketplace. For example, if you have a collection of swords, shields, and armors all under the same collection, you can setup an in-game marketplace using our marketplace prefab and ensure only your collection NFTs are displayed within Unity.
 
 ![](v2Assets/v2Collections.png)
 
