@@ -440,14 +440,14 @@ There is also a Collections feature for the [Marketplace](https://marketplace.ch
 
 ![](v2Assets/v2Collections.png)
 
-Once you've created a collection, you will be able to assign or remove NFTs from this collection as long as you are the collection owner/admin. You can assign as many NFTs as you'd like to a collection and then use that in-game. Take note of the collection id or slug on this page.
+Once you've created a collection, you will be able to assign or remove NFTs from this collection as long as you are the collection owner/admin. You can assign as many NFTs as you'd like to a collection and then use that in-game. Take note of the collection slug on this page which is the last bit of the URL you see above after "collections/".
 
 ![](v2Assets/v2CollectionNfts.png)
 
-Locate the prefabs found in prefabs -> minter -> webgl/web3wallet folders. You can configure the parameters of the prefabs to ensure only approved NFTs are visible in the collection. Don't forget to add your ID or slug to the Collections Id field in the inspector.
+Locate the prefabs found in prefabs -> minter -> webgl/web3wallet folders. You can configure the parameters of the prefabs to ensure only approved NFTs are visible in the collection. Don't forget to add your slug to the Collections Slug field in the inspector.
 
 ![](v2Assets/v2CollectionIdAdd.png)
 
-Being able to set the Collection Id means you can use the prefab to parameterize exclusive buying & selling of only your NFTs via our marketplace in-game. The prefab currently only has space for 3 objects per collection, but you can increase the amount of objects to any size you'd like for purchase or sale.
+Being able to set the Collection Slug means you can use the prefab to parameterize exclusive buying & selling of only your NFTs via our marketplace in-game. The prefab currently only has space for 3 objects per collection, but you can increase the amount of objects to any size you'd like for purchase or sale.
 
 ![](v2Assets/v2CollectionsBuy.png)
