@@ -440,11 +440,11 @@ There is also a Collections feature for the [Marketplace](https://marketplace.ch
 
 ![](v2Assets/v2Collections.png)
 
-Once you've created a collection, you will be able to assign or remove NFTs from this collection as long as you are the collection owner/admin. You can assign as many NFTs as you'd like to a collection and then use that in-game.
+Once you've created a collection, you will be able to assign or remove NFTs from this collection as long as you are the collection owner/admin. You can assign as many NFTs as you'd like to a collection and then use that in-game. Take note of the collection id or slug on this page.
 
 ![](v2Assets/v2CollectionNfts.png)
 
-You can find your collection ID along with the prefabs found in prefabs -> minter -> webgl/web3wallet folders. You can configure the parameters of the prefabs to ensure only approved NFTs are visible in the collection. Don't forget to add this ID to the Collections Id field in the inspector.
+Locate the prefabs found in prefabs -> minter -> webgl/web3wallet folders. You can configure the parameters of the prefabs to ensure only approved NFTs are visible in the collection. Don't forget to add your ID or slug to the Collections Id field in the inspector.
 
 ![](v2Assets/v2CollectionIdAdd.png)
 
