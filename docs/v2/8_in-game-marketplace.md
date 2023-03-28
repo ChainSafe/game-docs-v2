@@ -448,4 +448,6 @@ You can find your collection ID along with the prefabs found in prefabs -> minte
 
 ![](v2Assets/v2CollectionIdAdd.png)
 
-Being able to set the Collection Id means you can use the prefab to parameterize exclusive buying & selling of only your NFTs via our marketplace in-game. The prefab currently only has space for 3 objects per collection, but you can increase the amount of objects to any size you'd like.
+Being able to set the Collection Id means you can use the prefab to parameterize exclusive buying & selling of only your NFTs via our marketplace in-game. The prefab currently only has space for 3 objects per collection, but you can increase the amount of objects to any size you'd like for purchase or sale.
+
+![](v2Assets/v2CollectionsBuy.png)
