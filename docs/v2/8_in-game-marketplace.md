@@ -451,3 +451,7 @@ Locate the prefabs found in prefabs -> minter -> webgl/web3wallet folders. You c
 Being able to set the Collection Slug means you can use the prefab to parameterize exclusive buying & selling of only your NFTs via our marketplace in-game. The prefab currently only has space for 3 objects per collection, but you can increase the amount of objects to any size you'd like for purchase or sale.
 
 ![](v2Assets/v2CollectionsBuy.png)
+
+We have Sneakz here to walk you through collections and how they can be used with the new fileterable marketplace prefabs.
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/huywhyOYk1Q" title="Introducing &quot;Collections&quot; For web3.unity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
