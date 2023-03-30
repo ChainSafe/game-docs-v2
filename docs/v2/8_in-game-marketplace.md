@@ -452,6 +452,6 @@ Being able to set the Collection Slug means you can use the prefab to parameteri
 
 ![](v2Assets/v2CollectionsBuy.png)
 
-We have Sneakz here to walk you through collections and how they can be used with the new filterable marketplace prefabs.
+Here's a tutorial explaining collections and how they can be used with the new filterable marketplace prefabs.
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/huywhyOYk1Q" title="Introducing &quot;Collections&quot; For web3.unity" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
