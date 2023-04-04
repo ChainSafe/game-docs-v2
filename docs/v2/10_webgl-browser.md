@@ -193,8 +193,18 @@ public class WebGLGetTxStatus : MonoBehaviour
 
             Debug.Log("Attempting to check TX Status");
 
-            // Check the Transction and return a transaction code
+            // Check the Transaction and return a transaction code
             var Transaction = await provider.GetTransactionReceipt(response.ToString());
+
+            // null check while loop
+            while (Transaction.Status == null)
+                {
+                    await new WaitForSeconds(1f);
+                    Debug.Log("Waiting For TX Status");
+                    // Check the Transaction and return a transaction code
+                    var TransactionRecheck = await RPC.GetInstance.Provider().GetTransactionReceipt(response.ToString());
+                    Transaction = TransactionRecheck;
+                }
 
             // Debug Transaction code
             Debug.Log("Transaction Code: " + Transaction.Status);

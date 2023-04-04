@@ -298,7 +298,7 @@ public class Web3WalletGetTxStatus : MonoBehaviour
         // send transaction
         string response = await Web3Wallet.SendTransaction(chainId, contract, value, data, gasLimit, gasPrice)
 
-        // Check the Transction adn return a transaction code
+        // Check the Transaction adn return a transaction code
         var Transaction = await provider.GetTransactionReceipt(response.ToString());
 
         // Debug Transaction code
