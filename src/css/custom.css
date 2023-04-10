@@ -1,31 +1,31 @@
 .menu__link--active {
-  color: #FFEC3D;
+  color: #B4FF68;
 }
 :root {
-  --ifm-color-primary-dark: #FFEC3D;
-  --ifm-color-primary: #FFEC3D;
-  --ifm-menu-color-active: #FFEC3D;
-  --aa-primary-color-rgb: #FFEC3D !important;
-  --aa-text-color-rgb: #FFEC3D !important;
-  --aa-text-color-rgb: #FFEC3D !important;
+  --ifm-color-primary-dark: #B4FF68;
+  --ifm-color-primary: #B4FF68;
+  --ifm-menu-color-active: #B4FF68;
+  --aa-primary-color-rgb: #B4FF68 !important;
+  --aa-text-color-rgb: #B4FF68 !important;
+  --aa-text-color-rgb: #B4FF68 !important;
 }
 
 
 a {
-  color: #FFEC3D;
+  color: #B4FF68;
 }
 
 a:hover {
-  color: #FFEC3D;
+  color: #B4FF68;
 }
 
 .breadcrumbs__item--active .breadcrumbs__link {
-  color: #FFEC3D;
+  color: #B4FF68;
 }
 
 .aa-DetachedSearchButton {
-  color: #FFEC3D !important;
+  color: #B4FF68 !important;
 }
 .aa-DetachedSearchButtonIcon {
-  color: #FFEC3D !important;
+  color: #B4FF68 !important;
 }
