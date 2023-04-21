@@ -1,6 +1,6 @@
 ---
 slug: /current/installation
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Installation
 ---
 
@@ -9,7 +9,7 @@ sidebar_label: Installation
 
 :::info
 
-In this section, we will go through the steps necessary for installing the web3.unity SDK into the Unity3D game engine. We will follow the installation with an example of how to implement a sample web3 login screen.
+Once you have registered your project with ChainSafe Gaming and setup an RPC node, you can now begin the process for installing the web3.unity SDK into the Unity3D game engine. We will follow the installation with an example of how to implement a sample web3 login screen.
 
 :::
 
@@ -44,6 +44,12 @@ Now that we have created a new project and have a clean interface to work with, 
 Now that we have a new Unity3D project, we are ready to install the web3.unity SDK package. Dragging the `web3.unitypackage` into the `Assets` directory will bring up the dialogue shown on the screen below. Press the `Import` button.
 
 ![](v2Assets/step5.png)
+
+:::info
+
+If you have followed all of the previous steps to [register your project ID](https://docs.gaming.chainsafe.io/current/project-id-registration) and [setup your RPC node](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node), you will now be prompted with a dialogue in the Unity engine to enter in the appropriate details.
+
+:::
 
 ## Building A web3 Login
 

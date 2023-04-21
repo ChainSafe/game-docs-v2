@@ -1,11 +1,11 @@
 ---
-slug: /current/getting-started
-sidebar_position: 1
-sidebar_label: Getting Started
+slug: /current/migration
+sidebar_position: 16
+sidebar_label: Migrating From v1.x To v2.x
 ---
 
 
-# Getting Started
+# Migrating From web3.unity Legacy v1.x To v2.x
 
 :::info
 
