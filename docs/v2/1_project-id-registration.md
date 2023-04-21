@@ -1,6 +1,6 @@
 ---
 slug: /current/project-id-registration
-sidebar_position: 3
+sidebar_position: 1
 sidebar_label: Project ID Registration
 ---
 
@@ -9,7 +9,8 @@ sidebar_label: Project ID Registration
 
 :::info
 
-This section goes over how to register your projects with ChainSafe Gaming to gain access to various features in the web3.unity SDK.
+In order to configure the web3.unity SDK properly, you must first register your projects with ChainSafe Gaming, and then setup your own RPC node.
+The following section goes over how to register your projects with ChainSafe Gaming to gain access to various features in the web3.unity SDK.
 :::
 
 ### Setting The Context
