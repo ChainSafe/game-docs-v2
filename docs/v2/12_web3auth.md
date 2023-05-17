@@ -8,7 +8,7 @@ sidebar_label: Web3Auth Builds
 
 :::info
 
-The Web3Auth build option allows game developers to build Unity games that run on all platforms. Please note that any other scripts and prefabs you use will be dependant on your chosen platform i.e Web3Wallet or WebGL. A scene that showcases all of the wallets features is avaliable after login in web3unity/prefabs/web3authwallet/walletscene. Additionally you can find the prefabs for the functions below in web3unity/prefabs/web3authwallet.
+The Web3Auth build option allows game developers to build Unity games that run on all platforms. Please note that any other scripts and prefabs you use will be dependent on your chosen platform i.e Web3Wallet or WebGL. A scene that showcases all of the wallets features is available after login in web3unity/prefabs/web3authwallet/walletscene. Additionally you can find the prefabs for the functions below in web3unity/prefabs/web3authwallet.
 
 :::
 
