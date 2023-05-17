@@ -151,12 +151,15 @@ V2
 v2
 VoucherMint
 VSCode
+walletscene
 web3
 Web3
 Web3Auth
+web3auth
 Web3GL
 web3unity
 Web3Unity
+web3authwallet
 web3wallet
 Web3Wallet
 web3wallet-mobile-and-desktop
@@ -223,3 +226,7 @@ Chainstack's
 APIs
 HTTPS
 KPIs
+sign-through-web3auth
+verify-through-web3auth
+transfer-erc-20-token-through-web3auth
+call-custom-contracts-through-web3auth

@@ -1,6 +1,6 @@
 ---
 slug: /current/migration
-sidebar_position: 16
+sidebar_position: 17
 sidebar_label: Migrating From v1.x To v2.x
 ---
 
