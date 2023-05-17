@@ -1,6 +1,6 @@
 ---
 slug: /current/keep-your-games-safe-from-cheaters
-sidebar_position: 12
+sidebar_position: 13
 sidebar_label: Keeping Your Games Safe From Cheaters
 ---
 

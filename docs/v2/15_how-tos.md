@@ -1,6 +1,6 @@
 ---
 slug: /current/how-tos
-sidebar_position: 14
+sidebar_position: 15
 sidebar_label: How To Video Tutorials
 ---
 

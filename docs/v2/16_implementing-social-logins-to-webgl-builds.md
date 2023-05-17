@@ -1,6 +1,6 @@
 ---
 slug: /current/implementing-social-logins-to-webgl-builds
-sidebar_position: 15
+sidebar_position: 16
 sidebar_label: Implementing Social Logins To  WebGL Builds
 ---
 

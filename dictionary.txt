@@ -154,6 +154,7 @@ VSCode
 web3
 Web3
 Web3Auth
+web3auth
 Web3GL
 web3unity
 Web3Unity

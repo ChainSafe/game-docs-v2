@@ -11,7 +11,7 @@ module.exports = {
         {
           type: 'category',
           label: 'SDK Documentation (v2.x)',
-          items: ['v2/project-id-registration', 'v2/setting-up-an-rpc-node', 'v2/installation', 'v2/erc20-interactions', 'v2/erc721-interactions', 'v2/erc1155-interactions', 'v2/using-the-minter', 'v2/in-game-marketplace', 'v2/minting-with-voucher', 'v2/webgl-browser', 'v2/web3wallet-mobile-and-desktop', 'v2/keep-your-games-safe-from-cheaters', 'v2/importing-nfts', 'v2/implementing-social-logins-to-webgl-builds', 'v2/how-tos', 'v2/migration', 'v2/faq', 'v2/media'],
+          items: ['v2/project-id-registration', 'v2/setting-up-an-rpc-node', 'v2/installation', 'v2/erc20-interactions', 'v2/erc721-interactions', 'v2/erc1155-interactions', 'v2/using-the-minter', 'v2/in-game-marketplace', 'v2/minting-with-voucher', 'v2/webgl-browser', 'v2/web3wallet-mobile-and-desktop', 'v2/web3auth', 'v2/keep-your-games-safe-from-cheaters', 'v2/importing-nfts', 'v2/implementing-social-logins-to-webgl-builds', 'v2/how-tos', 'v2/migration', 'v2/faq', 'v2/media'],
         },
         {
           type: 'category',
