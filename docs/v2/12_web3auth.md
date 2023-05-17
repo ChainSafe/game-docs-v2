@@ -14,7 +14,9 @@ The Web3Auth build option allows game developers to build Unity games that run o
 
 ### Building To Web3Auth ###
 
-Web3Auth builds will work alongside both Web3Wallet and WebGL scripts/prefabs. You may select either platform provided any other scripts you're using match the build platform.
+Web3Auth builds will work alongside both Web3Wallet and WebGL scripts/prefabs. You may select either platform provided any other scripts you're using match the build platform. Check out our amazing fully functional in game wallet below!
+
+![](<v2Assets/Web3Auth-Wallet.png>)
 
 ### Sign Web3Auth {#sign-through-web3auth}
 
