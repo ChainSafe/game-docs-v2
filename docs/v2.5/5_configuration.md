@@ -71,7 +71,7 @@ To actually enable a feature you'd have to bind it using the `Configure` method 
 var web3Builder = new Web3Builder(projectConfig)
     .Configure(services =>
     {
-        // bind services here
+        // todo: bind services here
     });
 ```
 
