@@ -60,6 +60,9 @@ If a player enabled the 'Remember Me' toggle, store his public address somewhere
 using `SavedUserAddress` next time when he starts the game. 
 Send null if you want to initiate wallet connection process.
 
+Note: We know this is not the best cross-platform wallet implementation, but that's the only one 
+available at the moment. Don't worry we are already working on a new, better version ;)
+
 ### WebGLWallet
 
 Use WebGLWallet if you're targeting WebGL platform. When a user first connects his account, 
