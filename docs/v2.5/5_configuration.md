@@ -49,8 +49,8 @@ using ChainSafe.Gaming.Configuration;
 
 private class CustomChainConfig : IChainConfig
 {
-    public string ChainId => "42";
-    public string Chain => "snoopdog";
+    public string ChainId => "27";
+    public string Chain => "shiba";
     public string Network => "ethereum";
     public string Rpc => "https://custom.rpc.io";
 }
