@@ -5,7 +5,7 @@
 ```csharp
 async void Start()
 {
-    // Configure & build Web3 object using Web3Builder
+    // Configure & build Web3 client using Web3Builder
     var projectConfig = ProjectConfigUtilities.Load();
     var web3 = await new Web3Builder(projectConfig)
         .Configure(services =>
@@ -41,18 +41,18 @@ async void Start()
             Value = new HexBigInteger(12300000000000000),
         });
     
-    // Build contract objects using ContractFactory
-    var shibaContract = web3.ContractFactory.Build("shiba");
-    var customContract = web3.ContractFactory.Build(
+    // Build contract objects using ContractBuilder
+    var shibaContract = web3.ContractBuilder.Build("shiba"); // preregistered contracts
+    var customContract = web3.ContractBuilder.Build(
         contractAbiJson, 
         address: "0x7286Cf0F6E80014ea75Dbc25F545A3be90F4904F");
     
-    // Read from contracts using Call()
-    await shibaContract.Call(EthMethod.BalanceOf, new object[] { playerAddress });
+    // Read from contracts using Contract.Call()
+    object[] response = await shibaContract.Call(EthMethod.BalanceOf, new object[] { playerAddress });
     
-    // Write to contracts using Send()
-    await customContract.Send(method: "addTotal", new object[] { 1 });
+    // Write to contracts using Contract.Send()
+    object[] response = await customContract.Send(method: "addTotal", new object[] { 1 });
     
-    // todo mint nft??
+    // todo nfts
 }
 ```
