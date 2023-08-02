@@ -65,7 +65,7 @@ The standard supports batch transfers, making it easier to manage multiple token
 This is particularly useful for gaming and virtual asset ecosystems where players can buy, sell, 
 and trade different items efficiently.
 
-Utility class `ERC1155` contains methods like `BalanceOf`, `BalanceOfBatch` and `URI`.
+Utility class `ERC1155` contains methods `BalanceOf`, `BalanceOfBatch` and `URI`.
 
 BalanceOf:
 
