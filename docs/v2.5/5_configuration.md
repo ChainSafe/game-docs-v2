@@ -154,7 +154,7 @@ var transactionResponse = web3.TransactionExecutor.SendTransaction(new Transacti
 
 But first, you have to actually build Web3 object.
 
-## Build Async
+## Building Web3 Client
 
 To build a Web3 object you must call BuildAsync of Web3Builder. 
 As you can see it's an asynchronous operation, 

@@ -15,7 +15,7 @@ var hexBalance = await web3.RpcProvider.GetBalance(address);
 var balance = hexBalance.Value;
 ```
 
-To send eth over the network use the SendTransaction method of TransactionExecutor:
+To send ETH over the network use the SendTransaction method of TransactionExecutor:
 
 ```csharp
 using ChainSafe.Gaming;

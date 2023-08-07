@@ -26,22 +26,26 @@ var address = "0x1d6f31b71e12a1a584ca20853495161c48ba491f";
 var contract = web3.ContractBuilder.Build(abi, address);
 ```
 
-You can also preregister a contract during the initialization phase of your game and then simply create
-a new instance using the contract name:
+You can also preregister a contract during the initialization phase of your game:
 
 ```csharp
-var abi = "%YOUR_ABI_IN_JSON_FORMAT%";
 var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
     .Configure(services =>
     {
         // ...
         services.ConfigureRegisteredContracts(contracts =>
         {
-            contracts.RegisterContract("shiba", abi, "0x1d6f31b71e12a1a584ca20853495161c48ba491f");
+            var abi = "%YOUR_ABI_IN_JSON_FORMAT%";
+            var address = "0x1d6f31b71e12a1a584ca20853495161c48ba491f";
+            contracts.RegisterContract("shiba", abi, address);
         });
     })
     .BuildAsync();
+```
 
+Now you can simply create a new instance of the contract using the contract name:
+
+```csharp
 var contract = web3.ContractBuilder.Build("shiba");
 ```
 
@@ -75,7 +79,7 @@ object[] response = await contract.Send("add", new object[] { 1 });
 BigInteger total = BigInteger.Parse(response[0].ToString());
 ```
 
-You can set gas limit (as well as any other transaction option) by creating an overwriting
+You can set gas limit (as well as any other transaction option) by creating a prototype
 transaction request. Fill only those properties that you wish to override and the contract will
 set all the info that's left:
 

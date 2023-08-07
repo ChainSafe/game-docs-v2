@@ -23,11 +23,6 @@ async void Start()
     // Read from blockchain using RpcProvider
     var ethBalance = await web3.RpcProvider.GetBalance(
         address: "0xaBed4239E4855E120fDA34aDBEABDd2911626BA1");
-    
-    var tokenBalance = await ERC20.BalanceOf(
-        web3,
-        contractAddress: "0x3E0C0447e47d49195fbE329265E330643eB42e6f",
-        account: "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2");
 
     // Read player address & sign messages using Signer
     var playerAddress = await web3.Signer.GetAddress();
@@ -53,6 +48,29 @@ async void Start()
     // Write to contracts using Contract.Send()
     object[] response = await customContract.Send(method: "addTotal", new object[] { 1 });
     
-    // todo nfts
+    // Balance of custom coin ERC-20
+    var tokenBalance = await ERC20.BalanceOf(
+        web3,
+        contractAddress: "0x3E0C0447e47d49195fbE329265E330643eB42e6f",
+        account: "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2");
+    
+    // Balance of NFT ERC-721
+    var contract721 = "0x9123541E259125657F03D7AD2A7D1a8Ec79375BA";
+    var balance = await ERC721.BalanceOf(contract721, playerAddress);
+
+    // Owner of NFT ERC-721
+    var tokenId = "0x01559ae4021a565d5cc4740f1cefa95de8c1fb193949ecd32c337b03047da501";
+    var ownerOf = await ERC721.OwnerOf(contract721, tokenId);
+    
+    // URI of NFT ERC-721
+    var uri = await ERC721.URI(contract721, tokenId);
+    
+    // Balance of NFT ERC-1155
+    var contract1155 = "0x2c1867bc3026178a47a677513746dcc6822a137a";
+    var tokenId = "5";
+    var balanceOf = await ERC1155.BalanceOf(contract1155, playerAddress, tokenId);
+    
+    // URI of NFT ERC-1155
+    var uri = await ERC1155.URI(contract1155, tokenId);
 }
 ```

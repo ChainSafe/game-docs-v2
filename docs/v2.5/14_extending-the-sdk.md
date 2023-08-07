@@ -103,8 +103,8 @@ public class MyXmlRpcProvider : IRpcProvider
 }
 ```
 
-You'd also want to create two new extension methods to keep your Web3 build process clean and simple to
-understand:
+You'd also want to create two new extension methods to keep your Web3 build process 
+clean and easy to use:
 
 ```csharp
 public static class MyXMLRpcProviderExtensions

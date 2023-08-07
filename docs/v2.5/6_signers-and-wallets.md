@@ -4,8 +4,6 @@ As we learned in the previous section wallet is essentially Signer + Transaction
 Meaning it has access to key pairs of the currently active user and it can also send a transaction 
 for execution.
 
-TODO: New name for "Wallet", as built-in wallet will probably only implement ISigner interface.
-
 It's not always the case, but when it is, you should use `Use$Name$Wallet()` to bind the wallet implementation.
 This would bind both Signer & Transaction Executor.
 
@@ -39,7 +37,7 @@ services.UseWebPageWallet(
     new WebPageWalletConfig
     {
         // Build a message that will be shown to user when he's prompted to sign a message
-        ConnectMessageBuilder = expireTime => $"Sign me till {expireTime.ToShortTimeString()}",
+        ConnectMessageBuilder = expireTime => $"Sign me till {expireTime:hh:mm:ss}}",
         
         // Timeout for a wallet connection request
         ConnectRequestExpiresAfter = TimeSpan.FromMinutes(5),
@@ -65,7 +63,7 @@ available at the moment. Don't worry we are already working on a new, better ver
 
 ### WebGLWallet
 
-Use WebGLWallet if you're targeting WebGL platform. When a user first connects his account, 
+Use WebGLWallet if you're targeting WebGL platform. When user first connects his account, 
 he'll be prompted to choose the wallet software. Later on all signing and sending operations 
 will be delegated to this wallet.
 
