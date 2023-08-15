@@ -9,7 +9,7 @@ sidebar_label: Getting Started
 
 ### Install via UPM
 
-![](assets/upm-git.png)
+![](v2Assets/upm-git.png)
 
 1. Open up your project in editor
 2. Go to Windows/Package Manager
