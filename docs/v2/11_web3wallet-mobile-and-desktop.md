@@ -1,5 +1,5 @@
 ---
-slug: /current/web3wallet-mobile-and-desktop
+slug: /2.1.0/web3wallet-mobile-and-desktop
 sidebar_position: 11
 sidebar_label: Web3Wallet Builds
 ---

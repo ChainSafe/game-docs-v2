@@ -1,4 +1,11 @@
-﻿# Interacting with NFTs
+﻿---
+slug: /current/interacting-with-nfts
+sidebar_position: 9
+sidebar_label: Interacting With NFTs
+---
+
+
+# Interacting with NFTs
 
 There are 2 standards available for NFTs. ERC-721 and ERC-1155. Both are supported in the SDK.
 

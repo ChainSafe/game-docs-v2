@@ -1,5 +1,5 @@
 ---
-slug: /current/in-game-marketplace
+slug: /2.1.0/in-game-marketplace
 sidebar_position: 8
 sidebar_label: In-game NFT Marketplace
 ---

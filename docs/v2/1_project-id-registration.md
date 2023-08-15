@@ -1,5 +1,5 @@
 ---
-slug: /current/project-id-registration
+slug: /2.1.0/project-id-registration
 sidebar_position: 1
 sidebar_label: Project ID Registration
 ---

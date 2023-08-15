@@ -1,4 +1,11 @@
-﻿# Extending the SDK
+﻿---
+slug: /current/extending-the-sdk
+sidebar_position: 14
+sidebar_label: Extending The SDK
+---
+
+
+# Extending the SDK
 
 This SDK was designed to be extendable. This was achieved by utilizing the Dependency Injection framework.
 There are different implementations of DI frameworks that you can use in Unity, Zenject being 
@@ -227,4 +234,4 @@ To learn more on how to create a new UPM package [visit this page](https://docs.
 
 ### Fixing Code Stripping Issue
 
-TODO: Have to fix it myself first before writing a manual
+To Do: Have to fix it myself first before writing a manual

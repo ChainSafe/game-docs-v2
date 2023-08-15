@@ -1,3 +1,10 @@
+---
+slug: /current/interacting-with-coins
+sidebar_position: 8
+sidebar_label: Interacting With Coins
+---
+
+
 # Interacting with Coins
 
 You can interact with any EVM coins using our SDK. No matter if it's ETH,

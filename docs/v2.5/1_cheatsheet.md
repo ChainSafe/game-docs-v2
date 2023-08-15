@@ -1,4 +1,11 @@
-﻿# Cheatsheet
+﻿---
+slug: /current/cheatsheet
+sidebar_position: 1
+sidebar_label: CheatSheet
+---
+
+
+# Cheatsheet
 
 [Install the package using UPM](https://docs.gaming.chainsafe.io/current/getting-started#install-upm-package) before you start writing your own code.
 

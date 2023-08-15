@@ -1,3 +1,10 @@
+---
+slug: /current/configuration
+sidebar_position: 5
+sidebar_label: Configuration
+---
+
+
 # Configuration
 
 ## Web3 as the entry point to the SDK 
@@ -11,7 +18,7 @@ This makes Web3 a good candidate to be stored in a singleton of some sort.
 With all that in mind, nobody stops you from creating as many Web3 instances as you need.
 You can think of one instance that's created before user even logged into the game just for blockchain reading purposes.
 Or even 4 instances for each player in a couch-party-game, to load their credits, preferences
-or any other web3-goodness you can think of.
+or any other web3 goodness you can think of.
 
 ## Web3Builder
 
@@ -177,7 +184,7 @@ private async void Start()
 
 Notice we added `await` keyword and replaced `web3Builder` variable with `web3`.
 The reason is that `BuildAsync` returns a Web3 instance when you await it, 
-so we dont need to keep reference to Web3Builder object in this case.
+so we don't need to keep reference to Web3Builder object in this case.
 
 Building web3 instance is an async operation because there is some initialization code,
 that has to be executed before you get access to the Web3 object.

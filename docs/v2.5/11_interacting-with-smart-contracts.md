@@ -1,3 +1,10 @@
+---
+slug: /current/interacting-with-smart-contracts
+sidebar_position: 11
+sidebar_label: Interacting With Smart Contracts
+---
+
+
 # Interacting with Smart Contracts
 
 Smart contracts in Ethereum are like digital agreements that run on the blockchain.

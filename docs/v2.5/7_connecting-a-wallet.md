@@ -1,4 +1,11 @@
-﻿# Connecting a Wallet
+﻿---
+slug: /current/connecting-a-wallet
+sidebar_position: 7
+sidebar_label: Connecting A Wallet
+---
+
+
+# Connecting a Wallet
 
 There is no separate state to connect player wallet. Connection procedure is triggered as part
 of Web3 build process. This is due to the fact that after Web3 build process is completed, your Web3 instance

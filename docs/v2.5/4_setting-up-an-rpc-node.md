@@ -1,7 +1,7 @@
 ---
 slug: /current/setting-up-an-rpc-node
-sidebar_position: 2
-sidebar_label: Setting Up An RPC Node
+sidebar_position: 4
+sidebar_label: Project ID Registration
 ---
 
 

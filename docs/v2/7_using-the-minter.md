@@ -1,5 +1,5 @@
 ---
-slug: /current/using-the-minter
+slug: /2.1.0/using-the-minter
 sidebar_position: 7
 sidebar_label: Using The NFT Minter
 ---

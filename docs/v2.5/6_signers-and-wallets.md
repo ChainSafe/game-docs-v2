@@ -1,4 +1,11 @@
-﻿# Signers and Wallets
+﻿---
+slug: /current/signers-and-wallets
+sidebar_position: 6
+sidebar_label: Signers And Wallets
+---
+
+
+# Signers and Wallets
 
 As we learned in the previous section wallet is essentially Signer + Transaction executor.
 Meaning it has access to key pairs of the currently active user and it can also send a transaction 
@@ -85,7 +92,7 @@ var web3 = await new Web3Builder(projectConfig)
 
 ### Web3AuthSigner
 
-In version 2.5 we've introduced a new type of signer. It provides simple Web2-like authentication
+In version 2.5 we've introduced a new type of signer. It provides simple Web2 like authentication
 user experience for those who are new to ethereum or just don't wanna spend time creating new wallets.
 You can learn what is Web3Auth and how to integrate it into your project using this link.
 (TODO: add link to Web3Auth section)

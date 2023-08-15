@@ -1,4 +1,11 @@
-﻿# Getting Started
+﻿---
+slug: /current/getting-started
+sidebar_position: 2
+sidebar_label: Getting Started
+---
+
+
+# Getting Started
 
 ### Install via UPM
 
@@ -27,9 +34,9 @@ window. Save settings. You should see a message in the console saying your proje
 You should also setup default settings for the RPC node you're going to use.
 
 - Chain ID - search using you chain name here https://chainlist.org, 5 for goerli.
-- Chain name - TODO description
-- Network - TODO description
-- Symbol - TODO description
+- Chain name - To Do description
+- Network - To Do description
+- Symbol - To Do description
 - Rpc - enter URL to your RPC node here. For information on setting up an RPC Node visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
 
 ### Introduction to API
