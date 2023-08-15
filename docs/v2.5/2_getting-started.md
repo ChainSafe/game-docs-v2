@@ -29,7 +29,7 @@ window. Save settings. You should see a message in the console saying your proje
 
 ### Other settings
 
-![](assets/project-settings.png)
+![](v2Assets/project-settings.png)
 
 You should also setup default settings for the RPC node you're going to use.
 
