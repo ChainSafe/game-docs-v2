@@ -74,7 +74,7 @@ Use WebGLWallet if you're targeting WebGL platform. When user first connects his
 he'll be prompted to choose the wallet software. Later on all signing and sending operations 
 will be delegated to this wallet.
 
-![](assets/webgl-available-wallets.png)
+![](v2Assets/webgl-available-wallets.png)
 
 To bind WebGLWallet call `services.UseWebGLWallet()`:
 ```csharp
