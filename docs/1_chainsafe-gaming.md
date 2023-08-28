@@ -41,6 +41,27 @@ Out-of-the-box, web3.unity comes with Unity prefabs & tooling that will make bui
 
 [Click here](https://docs.gaming.chainsafe.io/legacy/getting-started) to open legacy documentation for web3.unity.
 
+## Supported Chains&#x20;
+
+Web3.Unity should work with any EVM based network on the blockchian. Below you'll find a list of tested and approved networks, however you can find a wider range of supported networks on [Chainlist](https://chainlist.org/): 
+
+| Network Name | Type of Chain |  Chain ID   |
+| ------------ | ------------- | ----------- |
+| ETH Mainnet  | Mainnet       | 1           |
+| Polygon      | Mainnet       | 137         |
+| BSC          | Mainnet       | 56          |
+| BSC          | Testnet       | 97          |
+| Avalanche    | Mainnet       | 43114       |
+| Avalanche    | Testnet       | 43113       |
+| Mumbai       | Testnet       | 80001       |
+| Goerli       | Testnet       | 5           |
+| Cronos       | Mainnet       | 25          |
+| Cronos       | Testnet       | 338         |
+| Moonbeam     | Mainnet       | 1284        |
+| Nebula       | Mainnet       | 1482601649  |
+| Nebula       | Testnet       | 503129905   |
+| Chaos        | Testnet       | 1351057110  |
+
 ## Additional Resources
 
 If you are new to web3.unity and blockchain-enabled gaming, we recommend that you read over these docs carefully, starting with [Current SDK Builds (v2.x)](#current-sdk-builds-v2x). If you are new to building with the Unity game engine, the [Unity3D manual](https://docs.unity3d.com/Manual/index.html) is another great place to start.
