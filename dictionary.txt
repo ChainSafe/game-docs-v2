@@ -94,6 +94,7 @@ Nethereum
 networkID
 Newtonsoft
 NewtonSoft
+newtonsoft
 NFT
 NFTPixels
 nft-textures
