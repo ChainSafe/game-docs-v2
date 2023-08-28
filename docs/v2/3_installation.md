@@ -35,7 +35,7 @@ Once you have downloaded the `web3.unitypackage` bundle to your computer, you wi
 
 ![](v2Assets/new_project.png)
 
-Now that we have created a new project and have a clean interface to work with, we can import the SDK into our project.
+Now that we have created a new project and have a clean interface to work with, we can import the SDK into our project. If you see a newtonsoft error you can manually install the package by going to window->package manager->pressing the + button on the top left, pressing add via git url and pasting in "com.unity.nuget.newtonsoft-json@3.0.1".
 
 ![](v2Assets/step4.png)
 
