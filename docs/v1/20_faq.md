@@ -19,7 +19,7 @@ Frequently asked questions about the ChainSafe gaming SDK.
 
 **Q:**  I'm seeing the following error when I install the package. **The type or namespace name 'Newtonsoft' could not be found**
 
-**A:** NewtonSoft is a dependency of the SDK and needs to be installed for the SDK to work. This could be found on the Unity Asset store [JSON.NET](https://assetstore.unity.com/packages/tools/input-management/json-net-for-unity-11347)
+**A:** NewtonSoft is a dependency of the SDK and needs to be installed for the SDK to work. If you see a newtonsoft error you can manually install the package by going to window->package manager->pressing the + button on the top left, pressing add via git url and pasting in "com.unity.nuget.newtonsoft-json@3.0.1".
 
 **Q:** I'm getting the following error when trying to import an NFT texture into the SDK. **Curl error 1: Protocol "ipfs" not supported or disabled in libcurl**
 
