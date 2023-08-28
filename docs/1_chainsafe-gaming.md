@@ -43,7 +43,7 @@ Out-of-the-box, web3.unity comes with Unity prefabs & tooling that will make bui
 
 ## Supported Chains&#x20;
 
-Web3.Unity should work with any EVM based network on the blockchian. Below you'll find a list of tested and approved networks, however you can find a wider range of supported networks on [Chainlist](https://chainlist.org/): 
+Web3.Unity should work with any EVM based network on the blockchain. Below you'll find a list of tested and approved networks, however you can find a wider range of supported networks on [Chainlist](https://chainlist.org/): 
 
 | Network Name | Type of Chain |  Chain ID   |
 | ------------ | ------------- | ----------- |
@@ -61,6 +61,7 @@ Web3.Unity should work with any EVM based network on the blockchian. Below you'l
 | Nebula       | Mainnet       | 1482601649  |
 | Nebula       | Testnet       | 503129905   |
 | Chaos        | Testnet       | 1351057110  |
+| Sepolia      | Testnet       | 11155111    |
 
 ## Additional Resources
 
