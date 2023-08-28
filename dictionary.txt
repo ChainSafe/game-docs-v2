@@ -220,6 +220,7 @@ CRO
 Chain721
 tokenIds
 URIs
+url
 cryptographic
 setting-up-an-rpc-node
 Chainstack's
