@@ -58,9 +58,9 @@ Web3.Unity should work with any EVM based network on the blockchain. Below you'l
 | Cronos       | Mainnet       | 25          |
 | Cronos       | Testnet       | 338         |
 | Moonbeam     | Mainnet       | 1284        |
-| Nebula       | Mainnet       | 1482601649  |
-| Nebula       | Testnet       | 503129905   |
-| Chaos        | Testnet       | 1351057110  |
+| SKALE Nebula | Mainnet       | 1482601649  |
+| SKALE Nebula | Testnet       | 503129905   |
+| SKALE Chaos  | Testnet       | 1351057110  |
 | Sepolia      | Testnet       | 11155111    |
 
 ## Additional Resources
