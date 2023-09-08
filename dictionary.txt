@@ -94,6 +94,7 @@ Nethereum
 networkID
 Newtonsoft
 NewtonSoft
+newtonsoft
 NFT
 NFTPixels
 nft-textures
@@ -112,11 +113,13 @@ Rinkeby
 rpc
 RPC
 SampleScene
+SKALE
 SDK
 SDK.
 SDK's
 send-contract-through-webgl
 send-transaction-through-webgl
+Sepolia
 sha3
 SHA3
 sign-through-webgl
@@ -220,6 +223,7 @@ CRO
 Chain721
 tokenIds
 URIs
+url
 cryptographic
 setting-up-an-rpc-node
 Chainstack's
