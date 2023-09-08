@@ -183,6 +183,7 @@ Sepolia
 sha3
 SHA3
 sign-through-webgl
+SKALE
 Sneakz
 Solana
 src
