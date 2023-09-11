@@ -1,16 +1,16 @@
 ---
-slug: /current/interacting-with-coins
+slug: /current/interacting-with-tokens
 sidebar_position: 8
-sidebar_label: Interacting With Coins
+sidebar_label: Interacting With Tokens
 ---
 
 
-# Interacting with Coins
+# Interacting with Tokens
 
 You can interact with any EVM coins using our SDK. No matter if it's ETH,
 USDT or your custom ERC-20 smart contract for fungible tokens.
 
-### Native tokens
+### Native Tokens
 
 To read balance of ETH for the specified user use:
 
@@ -77,11 +77,11 @@ var response = await contract.Send(method, new object[]
 });
 ```
 
-To learn more about Smart Contract API visit "Interacting with Smart-Contracts" section. (TODO: Add link here)
+To learn more about Smart Contract API visit "Interacting with Smart-Contracts" section [Here](https://docs.gaming.chainsafe.io/interacting-with-smart-contracts/).
 
 ### Decimals and Conversion
 
-All operations with eth or any ERC-20 token expect amount in smallest unit and you might want to convert this
+All operations with eth or any ERC-20 token expect amounts in smallest unit know as wei and you might want to convert this
 number before showing it to a user. Converting units is as simple as dividing or multiplying it by a _10^n_,
 where _n_ - is the number of decimals for the largest unit.
 
@@ -89,7 +89,7 @@ where _n_ - is the number of decimals for the largest unit.
 - For smart contracts use `ERC20.Decimals()` method to obtain
 the number of decimals and cache it somewhere for later use.
 
-Example of converting custom token value from raw to human-readable:
+Example of converting custom token value from wei to eth:
 
 ```csharp
 using ChainSafe.Gaming;
@@ -97,16 +97,16 @@ using ChainSafe.Gaming.UnityPackage.Ethereum.Eip;
 
 var erc20ContractAddress = "0xc778417e063141139fce010982780140aa0cd5ab";
 long decimals = (long) await ERC20.Decimals(erc20ContractAddress); // 10^10
-decimal coinRaw = 1000000000000; // 10^12
-decimal coinHumanReadable = coinRaw / decimals; // 10^2 or 100
+decimal wei = 1000000000000; // 10^12
+decimal eth = wei / decimals; // 10^2 or 100
 ```
 
-From human-readable (think input) to raw:
+From eth to wei:
 
 ```csharp
 var erc20ContractAddress = "0xc778417e063141139fce010982780140aa0cd5ab";
 long decimals = (long) await ERC20.Decimals(erc20ContractAddress); // 10^10
-decimal coinHumanReadable = 100; // 10^2 or 100
-decimal coinRaw = coinHumanReadable * decimals; // 10^12
+decimal eth = 100; // 10^2 or 100
+decimal wei = eth * decimals; // 10^12
 ```
 

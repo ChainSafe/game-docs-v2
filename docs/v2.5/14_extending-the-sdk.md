@@ -231,7 +231,3 @@ extend ChainSafe Gaming SDK. Just put your new services in a separate package an
 reference to `io.chainsafe.web3-unity` in your manifest file.
 
 To learn more on how to create a new UPM package [visit this page](https://docs.unity3d.com/Manual/CustomPackages.html).
-
-### Fixing Code Stripping Issue
-
-To Do: Have to fix it myself first before writing a manual
