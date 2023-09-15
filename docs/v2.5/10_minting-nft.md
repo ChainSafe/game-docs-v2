@@ -5,15 +5,15 @@ sidebar_label: Minting NFT
 ---
 
 
-# Minting Nfts
+# Minting NFTs
 ## Minting an NFT Via The Marketplace
-Nfts can easily be minted via our marketplace [here](https://marketplace.chainsafe.io/) These NFTs follow ERC standards and be used with our all NFT calls without much hassle at all. Simply add your NFT details, an image and away you go!
+NFTs can easily be minted via our marketplace [here](https://marketplace.chainsafe.io/) These NFTs follow ERC standards and be used with our all NFT calls without much hassle at all. Simply add your NFT details, an image and away you go!
 
 ## Minting an NFT In Game Via ECDSA Verification
-We've decided to move away from server voucher minting and replace it with ECDSA verification. This is alot easier to setup and maintain as it's done solidity side and can be controlled solely by the developer for their users. For examples sake we've included an ERC20 private key to show you how it all works. Please do not use this in production. You can generate your own key [here](https://vanity-eth.tk/) to replace the example one. It is entirely up to you how you would like to secure this key, Please do not send an app into production without locking this down properly. As there are many ways to secure this we've decided to leave this up to you as any methods we offer would undoubtedly be reverse engineered.
+We've decided to move away from server voucher minting and replace it with ECDSA verification. This is a lot easier to setup and maintain as it's done solidity side and can be controlled solely by the developer for their users. For examples sake we've included an ERC20 private key to show you how it all works. Please do not use this in production. You can generate your own key [here](https://vanity-eth.tk/) to replace the example one. It is entirely up to you how you would like to secure this key, Please do not send an app into production without locking this down properly. As there are many ways to secure this we've decided to leave this up to you as any methods we offer would undoubtedly be reverse engineered.
 
 ## What Is ECDSA?
-ECDSA stands for ellipictal curve digital signature algorithm. It is the process of reverse engineering a signature to check which wallet it originated from. This way you can place a private key within the game files and make it fire off a signature whenever you need something authorized. This can be anything from allowing a claim to minting NFTs, the possibilities are endless. More information can be found [here](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages)
+ECDSA stands for elliptical curve digital signature algorithm. It is the process of reverse engineering a signature to check which wallet it originated from. This way you can place a private key within the game files and make it fire off a signature whenever you need something authorized. This can be anything from allowing a claim to minting NFTs, the possibilities are endless. More information can be found [here](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages)
 
 ## Using ECDSA With A Private Key In Unity
 The sign with private key methods may be used here to generate a signature from your authorization wallet. This can then passed into a function and read solidity side as bytes. You may then use the functions below solidity side to reverse engineer the signature via ECDSA to check that it has actually originated from your authorization wallet. In the next step we'll show you how this can be checked solidity side.

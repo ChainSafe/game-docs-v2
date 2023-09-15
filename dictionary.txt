@@ -45,6 +45,7 @@ chainID
 ChainId
 chainsafe
 ChainSafe
+ChainSafe's
 Chainstack
 ChainID's
 Chainlist
@@ -64,6 +65,7 @@ Docusaurus
 DApp
 devs
 dev
+ECDSA
 EVM-compatible
 EVM-compatible
 Etherscan
@@ -71,11 +73,13 @@ Ethereum's
 EVM-based
 eg.
 EIP712
+ERC
 ERC-1155
 ERC-20
 ERC-721
 erc1155
 ERC1155
+Erc2771
 erc20
 ERC20
 erc721
@@ -92,8 +96,14 @@ evm-blockchain
 extending-the-sdk
 faq
 fix-namespaces
-gasless-transactions-using-gelato
+fullscreen
+frictionless
+Frictionless
+gasless-transactions-using-Gelato
+gamepad
+gamified
 Gasless
+gasless
 GitHub
 Gelato
 getting-started-v1
@@ -104,6 +114,7 @@ goerli's
 GasLimit
 getter
 gamers
+gameplay
 GitHub
 github
 Goerli's
@@ -130,6 +141,7 @@ LazyMinter
 Lootbox
 lootbox
 LootBoxes
+Lootboxes
 lootboxes
 libcurl
 ListItemWebGL
@@ -171,6 +183,7 @@ rpc
 RPC
 RPCs
 scalable
+scrollable
 SampleScene
 scriptable
 SDK

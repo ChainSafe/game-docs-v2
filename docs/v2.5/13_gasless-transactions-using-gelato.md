@@ -1,20 +1,20 @@
 ﻿---
-slug: /current/gasless-transactions-using-gelato
+slug: /current/gasless-transactions-using-Gelato
 sidebar_position: 13
 sidebar_label: Gasless Transactions Using Gelato
 ---
 
 
 # Gasless Transactions Using The SDK
-We've now integrated Gelato gasless transactions into the SDK to help reduce friction that some users amy face when entering the blockchain world. You simply need a gelato API key which can be obtained [here](https://relay.gelato.network/) We have an example API key for testing purposes but this shoulnd't be used in a production app. Please ensure that you're replacing this with your own key before going to production.
+We've now integrated Gelato gasless transactions into the SDK to help reduce friction that some users any face when entering the blockchain world. You simply need a Gelato API key which can be obtained [here](https://relay.Gelato.network/) We have an example API key for testing purposes but this shouldn't be used in a production app. Please ensure that you're replacing this with your own key before going to production.
 
-## Logging In With gelato
-In order to make use of our gelato functions you need to ensure the chain has gelato capability enabled. You can check this by logging into our sample scene. If the gelato functions are there then you're good to go, if not you will need to wait for gelato to update on their end in order to provide functionality for your chain. Our SDKs sample scene provides a variety of gelato functions for you to to test out.
+## Logging In With Gelato
+In order to make use of our Gelato functions you need to ensure the chain has Gelato capability enabled. You can check this by logging into our sample scene. If the Gelato functions are there then you're good to go, if not you will need to wait for Gelato to update on their end in order to provide functionality for your chain. Our SDKs sample scene provides a variety of Gelato functions for you to test out.
 
-![](v2Assets/gelatogasless.png) 
+![](v2Assets/Gelatogasless.png) 
 
 ## Call With Sync Fee
-Once logged in you can scroll to the gelato area in the cool new scrollable canvas that we've created for example purposes. Here you find our gelato functions, the first being Call with sync fee.
+Once logged in you can scroll to the Gelato area in the cool new scrollable canvas that we've created for example purposes. Here you find our Gelato functions, the first being Call with sync fee.
 
 ```csharp
 public async Task<TaskResult> CallWithSyncFee()
@@ -109,7 +109,7 @@ public async Task<TaskResult> SponsorCall()
 ```
 
 ## Call With Sync Fee Erc2771
-The third function you will find is Call with sync fee erc2771.
+The third function you will find is Call with sync fee Erc2771.
 
 ```csharp
 public async Task<TaskResult> CallWithSyncFeeErc2771()
@@ -155,7 +155,7 @@ public async Task<TaskResult> CallWithSyncFeeErc2771()
 ```
 
 ## Sponsor Call Erc2771
-The last function you will find in the example area is Sponsor call erc2771.
+The last function you will find in the example area is Sponsor call Erc2771.
 
 ```csharp
 public async Task<TaskResult> SponsorCallErc2771()
@@ -198,5 +198,5 @@ public async Task<TaskResult> SponsorCallErc2771()
     }
 ```
 
-## A Frictionless Eperience For Users
-These functions will allow a develoepr to grant acces to games without the user needing to hae gas funds. This will overall provide a frictionless experience for users that are eithe new to the crypto space. It also opens up gameplay for other countries who may not be able to pay for gas themselves.
+## A Frictionless Experience For Users
+These functions will allow a developer to grant access to games without the user needing to have gas funds. This will overall provide a frictionless experience for users that are either new to the crypto space. It also opens up gameplay for other countries who may not be able to pay for gas themselves.

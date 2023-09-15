@@ -71,7 +71,7 @@ This will allow you to make a custom call, we've included 2 examples here. 1 bei
 ```
 
 ## Docs
-Clicking this button will take you to chainsafes documentation [here](https://docs.gaming.chainsafe.io/)
+Clicking this button will take you to ChainSafe's documentation [here](https://docs.gaming.chainsafe.io/)
 
 ![](v2Assets/blockracers8.png)
 
@@ -98,7 +98,7 @@ Clicking this button will take you to the chainsafe dashboard when you can do th
 ```
 
 ## Pause & Controls
-Pressing tab will bring up the pause menu allowing you to either go back to the main menu, select fullscreen or even view the games controls. We have both keyboard and gamepad inputs avaliable.
+Pressing tab will bring up the pause menu allowing you to either go back to the main menu, select fullscreen or even view the games controls. We have both keyboard and gamepad inputs available.
 
 ![](v2Assets/blockracers11.png)
 ![](v2Assets/blockracers12.png)
