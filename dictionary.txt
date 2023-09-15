@@ -5,6 +5,8 @@
 A1
 A2
 ABI
+Addons
+addons
 Algorand
 all-1155s
 all-721s

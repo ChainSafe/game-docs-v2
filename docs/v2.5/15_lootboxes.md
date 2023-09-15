@@ -18,12 +18,54 @@ Lootboxes are a great way to offer your users NFTs, tokens & variety of other th
 ## Solidity Contracts
 The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts)
 
+![](v2Assets/RepoLootbox.png)
+
 ## Explaining Lootboxes Via Our Marketplace
 There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b7654257f0?sid=8b8b9fbb-6bbb-4c2a-bf1f-909f07c64896) Explaining how lootbox functionality works via our marketplace.
 
-# Lootbox Functions
+# Lootbox Dashboard
 
-![](v2Assets/LootBoxConfig.png)
+## Addons Area
+This addons area will be used to grant you access to all of our new features as we implements them. Upon entering you'll see an option to connect a wallet. You'll then be displayed with any lootbox you already have and presented with the option to create a new one.
+
+![](v2Assets/AddonsLootbox.png)
+
+## Deploying a new Lootbox
+New lootboxes can be deployed by press the green deploy button on the top right of the dashboard in the addons area. This will give you a brief explanation on what lootboxes are as well as the requirements needed to use them.
+
+![](v2Assets/DeployLootbox.png)
+
+## Adding Token Contracts To Your Lootbox
+Token contracts for use within your lootboxes may be added here, you can see more of they function in the lootbox rewards area below.
+
+![](v2Assets/AddTokenContractsLootbox.png)
+
+## Granting Depositor Access To Your Lootbox
+These addresses can be nominated as suppliers for your lootbox content.
+
+![](v2Assets/GrantDepositorAccessLootbox.png)
+
+## Sending Loot To A Contract
+This area can be used to send loot to a contract.
+
+![](v2Assets/SendLootToContractLootbox.png)
+
+## Updating Your Lootbox Rewards
+Here you can update all of the various reward amounts that your lootboxes contain as well as any remaining balances from your suppliers.
+
+![](v2Assets/UpdateRewardUnitsLootbox.png)
+
+## Minting & Transferring
+Here you can send some lootboxes with reward amounts out to your friends as they are created.
+
+![](v2Assets/MintAndTransferLootbox.png)
+
+## Review Summary
+This section contains a summary of everything inside your lootboxes.
+
+![](v2Assets/ReviewSummaryLootbox.png)
+
+# Lootbox Functions Within The SDK
 
 ## Get Loot box Types
 This method returns all lootbox type ids registered in the smart-contract. Lootbox type id also represents the number of rewards, that can be claimed by user when he opens the lootbox.
