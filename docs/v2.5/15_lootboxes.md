@@ -9,21 +9,19 @@ sidebar_label: Lootboxes
 
 :::info
 
-This page will walk you through our newest feature, lootboxes. It's a pretty cool concept!.
+This page will walk you through our newest feature, lootboxes. It's a nifty little way to offer in game sales of items with a sense of randomness.
 
 :::
 
-Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way.
+Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way. Many things from cosmetics to in game items can be offered with a sense of randomness to help facilitate anticipation and hopefully a fun way to bring developers some much needed revenue.
 
 ## Solidity Contracts
 The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts)
 
 ![](v2Assets/RepoLootbox.png)
 
-## Explaining Lootboxes Via Our Marketplace
+## Explaining The Lootbox Dashboard
 There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b7654257f0?sid=8b8b9fbb-6bbb-4c2a-bf1f-909f07c64896) Explaining how lootbox functionality works via our marketplace.
-
-# Lootbox Dashboard
 
 ## Addons Area
 This addons area will be used to grant you access to all of our new features as we implements them. Upon entering you'll see an option to connect a wallet. You'll then be displayed with any lootbox you already have and presented with the option to create a new one.
@@ -89,7 +87,7 @@ This method returns all lootbox type ids registered in the smart-contract. Lootb
 ```
 
 ## Balance Of
-This method returns the balance of lootboxes by type or specific user.
+This method returns the balance of lootboxes by type or specific user. Similar to how some games work, this may be used to display lootboxes in an inventory.
 
 ```csharp
     public async Task<uint> BalanceOf(uint lootboxType)
@@ -124,7 +122,7 @@ This method returns the balance of lootboxes by type or specific user.
 ```
 
 ## Calculate Open Price
-Calculates open price for the player.
+Calculates open price for the player. This can be used to display the total cost a user would need to pay for opening X amount of lootboxes.
 
 ```csharp
     public async Task<BigInteger> CalculateOpenPrice(uint lootboxType, uint lootboxCount)
@@ -142,24 +140,8 @@ Calculates open price for the player.
     }
 ```
 
-## Open Lootbox
-This method allows a user to open a lootbox.
-
-```csharp
-    public async Task OpenLootbox(uint lootboxType, uint lootboxCount = 1)
-    {
-        var rewardCount = lootboxType * lootboxCount;
-        var openPrice = await CalculateOpenPrice(lootboxCount, lootboxCount);
-
-        await contract.Send(
-            "open",
-            new object[] { GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
-            new TransactionRequest { Value = new HexBigInteger(openPrice) });
-    }
-```
-
 ## Can Claim Rewards
-This method checks if a user can claim their lootbox rewards.
+This method checks if a user can claim their lootbox rewards. It's a great little security check you can run before claiming.
 
 ```csharp
     public async Task<bool> CanClaimRewards(string account)
@@ -174,7 +156,7 @@ This method checks if a user can claim their lootbox rewards.
 ```
 
 ## Claim Rewards
-This method allows a user to claim their lootbox rewards.
+This method allows a user to claim their lootbox rewards. This can be placed after the call for payment.
 
 ```csharp
     public async Task<LootboxRewards> ClaimRewards(string account)
@@ -243,3 +225,21 @@ This method allows a user to claim their lootbox rewards.
         }
     }
 ```
+
+## Open Lootbox
+This method allows a user to open a lootbox. This should be called last after all of the payment steps have been completed.
+
+```csharp
+    public async Task OpenLootbox(uint lootboxType, uint lootboxCount = 1)
+    {
+        var rewardCount = lootboxType * lootboxCount;
+        var openPrice = await CalculateOpenPrice(lootboxCount, lootboxCount);
+
+        await contract.Send(
+            "open",
+            new object[] { GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
+            new TransactionRequest { Value = new HexBigInteger(openPrice) });
+    }
+```
+
+We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
