@@ -7,6 +7,12 @@ sidebar_label: Signers And Wallets
 
 # Signers and Wallets
 
+:::info
+
+This page explains signers and how we've utilized them within the new SDK.
+
+:::
+
 As we learned in the previous section wallet is essentially Signer + Transaction executor.
 Meaning it has access to key pairs of the currently active user and it can also send a transaction 
 for execution.

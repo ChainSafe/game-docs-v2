@@ -7,6 +7,12 @@ sidebar_label: Interacting With Tokens
 
 # Interacting with Tokens
 
+:::info
+
+This area will explain basic interactions for native and custom tokens with the SDK.
+
+:::
+
 You can interact with any EVM coins using our SDK. No matter if it's ETH,
 USDT or your custom ERC-20 smart contract for fungible tokens.
 

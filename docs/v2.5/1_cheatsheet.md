@@ -7,6 +7,12 @@ sidebar_label: CheatSheet
 
 # Cheatsheet
 
+:::info
+
+This is a Cheatsheet which can be used as a shorthand reference for the new ways of accomplishing tasks with the SDK. Refer to this if you need help with the new code structure.
+
+:::
+
 [Install the package using UPM](https://docs.gaming.chainsafe.io/current/getting-started#install-upm-package) before you start writing your own code.
 
 ```csharp

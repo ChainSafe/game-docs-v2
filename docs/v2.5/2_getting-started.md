@@ -7,6 +7,12 @@ sidebar_label: Getting Started
 
 # Getting Started
 
+:::info
+
+This page will walk you through the process of setting up a project ID and using the new API.
+
+:::
+
 ### Install via UPM
 
 ![](v2Assets/upm-git.png)

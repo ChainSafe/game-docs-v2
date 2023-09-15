@@ -7,6 +7,12 @@ sidebar_label: Configuration
 
 # Configuration
 
+:::info
+
+This page walks you through our new Web3 builder and it's functionality in terms of binding services and using a web3 provider.
+
+:::
+
 ## Web3 as the entry point to the SDK 
 
 To access most features provided by the SDK, you first have to create an instance of Web3 object.

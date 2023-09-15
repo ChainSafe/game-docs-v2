@@ -6,6 +6,13 @@ sidebar_label: Lootboxes
 
 
 # LootBoxes
+
+:::info
+
+This page will walk you through our newest feature, lootboxes. It's a pretty cool concept!.
+
+:::
+
 Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way.
 
 ## Solidity Contracts
@@ -15,6 +22,8 @@ The repo for the lootbox contracts can be found [here](https://github.com/ChainS
 There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b7654257f0?sid=8b8b9fbb-6bbb-4c2a-bf1f-909f07c64896) Explaining how lootbox functionality works via our marketplace.
 
 # Lootbox Functions
+
+![](v2Assets/LootBoxConfig.png)
 
 ## Get Loot box Types
 This method returns all lootbox type ids registered in the smart-contract. Lootbox type id also represents the number of rewards, that can be claimed by user when he opens the lootbox.

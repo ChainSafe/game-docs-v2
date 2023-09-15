@@ -7,6 +7,12 @@ sidebar_label: Extending The SDK
 
 # Extending the SDK
 
+:::info
+
+This area will explain how we've made use of Dependency Injections as well as how the SDK may be extended.
+
+:::
+
 This SDK was designed to be extendable. This was achieved by utilizing the Dependency Injection framework.
 There are different implementations of DI frameworks that you can use in Unity, Zenject being 
 the most popular one. However as this SDK aims to be cross-engine Microsoft's DI framework was chosen

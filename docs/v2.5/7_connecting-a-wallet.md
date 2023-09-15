@@ -7,6 +7,12 @@ sidebar_label: Connecting A Wallet
 
 # Connecting a Wallet
 
+:::info
+
+This page teaches you how to connect a wallet and our how our system is initialized.
+
+:::
+
 There is no separate state to connect player wallet. Connection procedure is triggered as part
 of Web3 build process. This is due to the fact that after Web3 build process is completed, your Web3 instance
 and all of it's components have to have their states fully initialized. Starting from this point you can safely

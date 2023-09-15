@@ -7,6 +7,12 @@ sidebar_label: Interacting With Smart Contracts
 
 # Interacting with Smart Contracts
 
+:::info
+
+This page explains smart contract interactions within the SDK.
+
+:::
+
 Smart contracts in Ethereum are like digital agreements that run on the blockchain.
 They are computer programs that automatically execute and enforce predefined actions
 and rules when certain conditions are fulfilled. Imagine a vending machine: you put

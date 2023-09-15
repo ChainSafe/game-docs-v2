@@ -6,6 +6,13 @@ sidebar_label: Gasless Transactions Using Gelato
 
 
 # Gasless Transactions Using The SDK
+
+:::info
+
+This area will explain basic interactions for using Gelato and gasless transactions with the SDK.
+
+:::
+
 We've now integrated Gelato gasless transactions into the SDK to help reduce friction that some users any face when entering the blockchain world. You simply need a Gelato API key which can be obtained [here](https://relay.Gelato.network/) We have an example API key for testing purposes but this shouldn't be used in a production app. Please ensure that you're replacing this with your own key before going to production.
 
 ## Logging In With Gelato

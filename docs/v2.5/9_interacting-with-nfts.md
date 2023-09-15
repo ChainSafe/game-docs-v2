@@ -7,6 +7,12 @@ sidebar_label: Interacting With NFTs
 
 # Interacting with NFTs
 
+:::info
+
+This area will explain basic interactions for ERC721 and ERC1155 tokens with the SDK.
+
+:::
+
 There are 2 standards available for NFTs. ERC-721 and ERC-1155. Both are supported in the SDK.
 
 ### ERC-721 NFTs

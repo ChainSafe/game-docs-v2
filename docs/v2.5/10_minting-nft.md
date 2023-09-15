@@ -6,6 +6,12 @@ sidebar_label: Minting NFT
 
 
 # Minting NFTs
+
+:::info
+
+This pages explains minting an NFT using ECDSA to authorize transactions with the SDK.
+
+:::
 ## Minting an NFT Via The Marketplace
 NFTs can easily be minted via our marketplace [here](https://marketplace.chainsafe.io/) These NFTs follow ERC standards and be used with our all NFT calls without much hassle at all. Simply add your NFT details, an image and away you go!
 
