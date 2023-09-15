@@ -13,13 +13,17 @@ The Web3Auth build option allows game developers to build Unity games that run o
 
 :::
 
-### Building To Web3Auth ###
+## Building To Web3Auth
 
 Web3Auth builds will work alongside both Web3Wallet and WebGL scripts/prefabs. You may select either platform provided any other scripts you're using match the build platform. Check out our amazing fully functional in game wallet below!
 
-![](<v2Assets/Web3Auth-Wallet.png>)
+![](v2Assets/Web3Auth-Wallet.png)
 
-### Sign Web3Auth {#sign-through-web3auth}
+# Web3Auth Wallet Coming Soon
+
+The code below refers to a work in progress which will be ready for release shortly.
+
+## Sign Web3Auth {#sign-through-web3auth}
 
 Generates a cryptographic signature for a given string or message via Web3Auth.
 
@@ -62,7 +66,7 @@ public class SignW3A : MonoBehaviour
 }
 ```
 
-### Verify Web3Auth {#verify-through-web3auth}
+## Verify Web3Auth {#verify-through-web3auth}
 
 Verify a signed message via Web3Auth.
 
@@ -122,7 +126,7 @@ public class VerifyW3A : MonoBehaviour
 }
 ```
 
-### Transfer ERC-20 Token Through Web3Auth {#transfer-erc-20-token-through-web3auth}
+## Transfer ERC-20 Token Through Web3Auth {#transfer-erc-20-token-through-web3auth}
 
 Send an ERC-20 token transfer through Unity via Web3Auth.
 
@@ -215,11 +219,11 @@ public class TransferW3A: MonoBehaviour
 }
 ```
 
-### Call Custom Contracts Web3Auth {#call-custom-contracts-through-web3auth}
+## Call Custom Contracts Web3Auth {#call-custom-contracts-through-web3auth}
 
 Call will execute a smart contract method without altering the smart contract state via Web3Auth.
 
-### Solidity Contract Example
+## Solidity Contract Example
 
 This code snippet defines a simple smart contract example where the `myTotal` variable (initialized at 0) is added to (by the input value `_myArg`) and updated to a new total. 
 
@@ -236,7 +240,7 @@ contract AddTotal {
 }
 ```
 
-### Reading & Writing A Value From A Solidity Contract Web3Auth
+## Reading & Writing A Value From A Solidity Contract Web3Auth
 
 Retrieves the value of a specified variable (`myTotal`) from a smart contract.
 
@@ -330,3 +334,5 @@ public class ContractCallSignW3A : MonoBehaviour
     }
 }
 ```
+
+We hope you enjoy social logins as it offers a unique way to onboard users to the blockchain without actually requiring a wallet.
