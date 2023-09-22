@@ -186,6 +186,7 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
 
                 switch (rewardType)
                 {
+                    // Erc20 Tokens
                     case RewardType.Erc20:
                         rewards.Erc20Rewards.Add(new Erc20Reward
                         {
@@ -193,6 +194,7 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
                             AmountRaw = eventData.Amount,
                         });
                         break;
+                    // Erc721 NFTs
                     case RewardType.Erc721:
                         rewards.Erc721Rewards.Add(new Erc721Reward
                         {
@@ -200,6 +202,7 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
                             TokenId = eventData.TokenId,
                         });
                         break;
+                    // Erc1155 NFTs
                     case RewardType.Erc1155:
                         rewards.Erc1155Rewards.Add(new Erc1155Reward
                         {
@@ -208,6 +211,7 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
                             Amount = eventData.Amount,
                         });
                         break;
+                    // Single Erc1155 NFT
                     case RewardType.Erc1155Nft:
                         rewards.Erc1155NftRewards.Add(new Erc1155NftReward
                         {
