@@ -15,9 +15,6 @@ This page will walk you through our newest feature, lootboxes. It's a nifty litt
 
 Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way. Many things from cosmetics to in game items can be offered with a sense of randomness to help facilitate anticipation and hopefully a fun way to bring developers some much needed revenue.
 
-## Lootbox Example Scene
-We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to a prefab as well for ease of use.
-
 ## Solidity Contracts
 The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts)
 
@@ -244,5 +241,24 @@ This method allows a user to open a lootbox. This should be called last after al
             new TransactionRequest { Value = new HexBigInteger(openPrice) });
     }
 ```
+
+## Lootbox Example Scene
+We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to an addon for modularization purposes and a prefab for ease of use. For now you can check the example scene by cloning the lootboxes branch of the SDK and opening up Assets/Lootboxes/LootBoxes.scene.
+
+![](v2Assets/LootBoxesScene.png)
+
+# Setting Up A Local Node For Testing With The Example Scene
+Once you've cloned the contracts repo, go ahead and run npm run node to boot up a local chain. 
+
+![](v2Assets/LootBoxesRunNode.png)
+
+After this node is active you can open up another terminal and run npm run hardhat -- devsetup to initialize everything.
+
+![](v2Assets/LootBoxesNpmInitialize.png)
+
+If you check the node widow you can see everything that's happening during this process. Once complete, hit play within unity on the lootbox example scene and you'll be presented with a nice display area to test out. Here you can check different rarity levels of each lootbox and what they may contain as well as some great animations to go along with it.
+
+## Opening LootBoxes & Rarity
+To do: Populate with editor images
 
 We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
