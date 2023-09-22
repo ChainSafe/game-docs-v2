@@ -15,6 +15,9 @@ This page will walk you through our newest feature, lootboxes. It's a nifty litt
 
 Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way. Many things from cosmetics to in game items can be offered with a sense of randomness to help facilitate anticipation and hopefully a fun way to bring developers some much needed revenue.
 
+## Lootbox Example Scene
+We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to a prefab as well for ease of use.
+
 ## Solidity Contracts
 The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts)
 
