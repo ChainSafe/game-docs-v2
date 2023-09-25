@@ -263,6 +263,24 @@ After this node is active you can open up another terminal and run ```npm run ha
 If you check the node window you can see everything that's happening during this process. Once complete, hit play within unity on the lootbox example scene and you'll be presented with a nice display area to test out. Here you can check different rarity levels of each lootbox and what they may contain as well as some great animations to go along with it.
 
 ## Opening LootBoxes & Rarity
-To do: Populate with editor images
+Now in Unity you can click play and interact with the lootboxes.
+You can switch between different lootboxes using the keys "A" and "D" and switch between rarity using "A" and "S"
+
+Once you find your box, select it by pressing "space" key and open it by pressing "enter" key.
+You need to wait a little bit on the Unity scene so the transaction goes through
+
+![](v2Assets/OpeningLootBoxes.png)
+
+Next, in the terminal, run ```npm run hardhat -- fulfill``` to manually open the lootboxes.
+
+![](v2Assets/LootBoxesNpmFulfill.png)
+
+Go back to Unity and the lootboxes will be ready to open
+
+![](v2Assets/ClaimRewardsLootBoxes.png)
+
+Click on the lootbox and you will receive the rewards!
+
+![](v2Assets/RewardsLootBoxes.png)
 
 We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
