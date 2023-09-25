@@ -133,7 +133,7 @@ Calculates open price for the player. This can be used to display the total cost
 
         var response = await contract.Call(
             "calculateOpenPrice",
-            new object[] { GasPerUnit * rewardCount, safeGasPrice, rewardCount, });
+            new object[] { 50000 + GasPerUnit * rewardCount, safeGasPrice, rewardCount, });
         var openPrice = (BigInteger)response[0];
 
         return openPrice;
@@ -241,7 +241,7 @@ This method allows a user to open a lootbox. This should be called last after al
 
         await contract.Send(
             "open",
-            new object[] { GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
+            new object[] { 50000 + GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
             new TransactionRequest { Value = new HexBigInteger(openPrice) });
     }
 ```
