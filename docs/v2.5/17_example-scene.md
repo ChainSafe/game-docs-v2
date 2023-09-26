@@ -24,18 +24,18 @@ Most functions will work with Web3Auth. If your chain is supported by Gelato and
 ## Gelato Functionality
 If you have an API key present with some native tokens set you'll be able to call the Gelato functions.
 
-![](v2Assets/blockracers1.png)
-![](v2Assets/blockracers18.png)
+![](v2Assets/BlockRacers1.png)
+![](v2Assets/BlockRacers18.png)
 
 ## Scene Layout
 Continuing on, there are a bunch of standard functions which we'll go through below.
 
-![](v2Assets/blockracers2.png)
+![](v2Assets/BlockRacers2.png)
 
 ## Signing
 This will generate a unique signature from a user that you may use for authorization purposes.
 
-![](v2Assets/blockracers3.png)
+![](v2Assets/BlockRacers3.png)
 
 ```csharp
 // Csharp here
@@ -44,7 +44,7 @@ This will generate a unique signature from a user that you may use for authoriza
 ## Verify
 This will verify a signature from a wallet to prove its owners address.
 
-![](v2Assets/blockracers4.png)
+![](v2Assets/BlockRacers4.png)
 
 ```csharp
 // Csharp here
@@ -53,7 +53,7 @@ This will verify a signature from a wallet to prove its owners address.
 ## Mint
 This can be used to mint ERC20 Race tokens or even native tokens via the faucet to pay for things within game.
 
-![](v2Assets/blockracers5.png)
+![](v2Assets/BlockRacers5.png)
 
 ```csharp
 // Csharp here
@@ -62,7 +62,7 @@ This can be used to mint ERC20 Race tokens or even native tokens via the faucet 
 ## Transfer
 This will allow you to transfer ERC20 Race tokens between wallets.
 
-![](v2Assets/blockracers6.png)
+![](v2Assets/BlockRacers6.png)
 
 ```csharp
 // Csharp here
@@ -71,7 +71,7 @@ This will allow you to transfer ERC20 Race tokens between wallets.
 ## Custom Call
 This will allow you to make a custom call, we've included 2 examples here. 1 being read which checks a contracts state variable and another being write which adds to the sate variable of a contract. You may read it again after to see changes.
 
-![](v2Assets/blockracers7.png)
+![](v2Assets/BlockRacers7.png)
 
 ```csharp
 // Csharp here
@@ -80,7 +80,7 @@ This will allow you to make a custom call, we've included 2 examples here. 1 bei
 ## Docs
 Clicking this button will take you to ChainSafe's documentation [here](https://docs.gaming.chainsafe.io/)
 
-![](v2Assets/blockracers8.png)
+![](v2Assets/BlockRacers8.png)
 
 ```csharp
 // Csharp here

@@ -26,7 +26,7 @@ There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b
 ## Addons Area
 This addons area will be used to grant you access to all of our new features as we implements them. Upon entering you'll see an option to connect a wallet. You'll then be displayed with any lootbox you already have and presented with the option to create a new one.
 
-![](v2Assets/AddonsLootbox.png)
+![](v2Assets/AddonsLootBox.png)
 
 ## Deploying a new Lootbox
 New lootboxes can be deployed by press the green deploy button on the top right of the dashboard in the addons area. This will give you a brief explanation on what lootboxes are as well as the requirements needed to use them.

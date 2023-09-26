@@ -18,7 +18,7 @@ We've now integrated Gelato gasless transactions into the SDK to help reduce fri
 ## Logging In With Gelato
 In order to make use of our Gelato functions you need to ensure the chain has Gelato capability enabled. You can check this by logging into our sample scene. If the Gelato functions are there then you're good to go, if not you will need to wait for Gelato to update on their end in order to provide functionality for your chain. Our SDKs sample scene provides a variety of Gelato functions for you to test out.
 
-![](v2Assets/Gelatogasless.png) 
+![](v2Assets/GelatoGasless.png) 
 
 ## Call With Sync Fee
 Once logged in you can scroll to the Gelato area in the cool new scrollable canvas that we've created for example purposes. Here you find our Gelato functions, the first being Call with sync fee.
