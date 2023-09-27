@@ -1,5 +1,5 @@
 ---
-slug: /current/webgl-browser
+slug: /2.1.0/webgl-browser
 sidebar_position: 10
 sidebar_label: WebGL Builds
 ---

@@ -1,5 +1,5 @@
 ---
-slug: /current/setting-up-an-rpc-node
+slug: /2.1.0/setting-up-an-rpc-node
 sidebar_position: 2
 sidebar_label: Setting Up An RPC Node
 ---

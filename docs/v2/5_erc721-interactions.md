@@ -1,5 +1,5 @@
 ---
-slug: /current/erc721-interactions
+slug: /2.1.0/erc721-interactions
 sidebar_position: 5
 sidebar_label: ERC-721 Interactions
 ---

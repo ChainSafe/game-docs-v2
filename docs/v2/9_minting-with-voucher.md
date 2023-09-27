@@ -1,5 +1,5 @@
 ---
-slug: /current/minting-with-voucher
+slug: /2.1.0/minting-with-voucher
 sidebar_position: 9
 sidebar_label: Voucher-based NFT Minting
 ---
