@@ -178,6 +178,9 @@ NodeJS
 npm
 onboarding
 OpenSea
+OPM
+openupm-cli
+OpenUPM
 prebuilt
 preconfigured
 Preconfigured

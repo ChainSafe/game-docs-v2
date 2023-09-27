@@ -13,7 +13,7 @@ This page will walk you through the process of setting up a project ID and using
 
 :::
 
-### Install via UPM
+<!-- ### Install via UPM
 
 ![](v2Assets/upm-git.png)
 
@@ -21,12 +21,21 @@ This page will walk you through the process of setting up a project ID and using
 2. Go to Windows/Package Manager
 3. Click on "+", "Add package from git url"
 4. Paste "%GIT_URL_HERE%"
-5. Package will be installed
+5. Package will be installed -->
+
+### Install via Open UPM
+
+1. Open up your project in editor
+2. Follow the OpenUPM guide [here](https://openupm.com/docs/getting-started.html) to install openupm-cli
+3. Navigate to your Unity Project folder and run the commands ```openupm add io.chainsafe.web3-unity``` & ```openupm add io.chainsafe.web3-unity.web3auth```
+4. Import Samples from Package Manager web3.unity Package Page
+![](v2Assets/openupmInstall.png)
+5. Packages will be installed and the SDK will be available to you.
 
 ### Set Project ID
 
 As the package is installed, you'll be prompted with settings window.
-First of all you have to setup your Project ID. You can [get one here](https://dashboard.gaming.chainsafe.io/).
+First of all you have to setup your Project ID. You can get one [here](https://dashboard.gaming.chainsafe.io/).
 
 For more information on Project ID, see [Project ID Registration](https://docs.gaming.chainsafe.io/current/project-id-registration).
 
