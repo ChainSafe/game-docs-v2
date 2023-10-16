@@ -1,5 +1,5 @@
 
-Docs and samples for the entrire package are coming
+Docs and samples for the entire package are coming
 
 ### Ramp Network Android Support
 If you want to support Ramp Network Fiat On/Off Ramp for your Android game in Unity, there are some steps that need to be followed, since it's not as simple as 'import our unity package and it's done' 

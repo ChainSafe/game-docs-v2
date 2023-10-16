@@ -4,6 +4,8 @@
 721s
 A1
 A2
+aar
+AAR
 ABI
 Addons
 addons
@@ -14,6 +16,7 @@ all-721s
 All1155s
 All721s
 analytics
+androidx
 async
 APIs
 AppStore
@@ -123,6 +126,8 @@ GitHub
 github
 Goerli's
 goerliETH
+Gradle
+gradle
 how-tos
 HTTPS
 Infura-enabled
