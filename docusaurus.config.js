@@ -4,9 +4,6 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-
-// <script defer data-domain="docs.gaming.chainsafe.io" src="https://plausible.io/js/script.js">
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Web3 Unity SDK',
