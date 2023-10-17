@@ -17,6 +17,8 @@ analytics
 async
 APIs
 AppStore
+auth
+AUTH
 backend
 BalanceOf
 binance
@@ -210,6 +212,8 @@ Solana
 src
 Rpc
 RpcProvider
+SampleLogin
+sampleLogin
 sign-through-web3auth
 SHA-3
 setting-up-an-rpc-node
