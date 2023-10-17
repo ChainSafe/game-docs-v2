@@ -287,4 +287,6 @@ We hope you enjoy bringing our new feature to life! We've found it's a great way
 
 :::caution Unity Lootbox Demo Scene
 
-* When building the Lootbox Sample Scene, just make it a 0th scene in the build index. If you want to build the auth sample, make SampleLogin 0th index and then build. Since we don't support (yet) running both samples (so auth and Lootboxes) at the same time, and that can cause some unexpected behavior especially on Lootbox scene.
+When building the Lootbox Sample Scene, just make it a 0th scene in the build index. If you want to build the auth sample, make SampleLogin 0th index and then build. Since we don't support (yet) running both samples (so auth and Lootboxes) at the same time, and that can cause some unexpected behavior especially on Lootbox scene.
+
+:::
