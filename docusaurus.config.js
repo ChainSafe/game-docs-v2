@@ -5,6 +5,8 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 
+// <script defer data-domain="docs.gaming.chainsafe.io" src="https://plausible.io/js/script.js">
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Web3 Unity SDK',
@@ -17,7 +19,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
+  organizationName: 'facebook', // Usually your GitHub org/username.
   projectName: 'docusaurus', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -27,6 +29,15 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  scripts: [
+    {
+      src: 'https://plausible.io/js/plausible.js',
+      async: true,
+      defer: true,
+      'data-domain': 'docs.gaming.chainsafe.io'
+    }
+  ],
 
   presets: [
     [
