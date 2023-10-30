@@ -56,11 +56,23 @@ You should also setup default settings for the RPC node you're going to use.
 
 ### Wallet Connect
 
-When you open the login scene you'll see a login object in the hierarchy on the left under the canvas. Select it and you'll see wallet connect configuration inputs in the inspector on the right.
+When you open the login scene you'll see a login object in the hierarchy on the left under the canvas. Select it and you'll see wallet connect configuration inputs in the inspector on the right. Please note that wallet connect webgl is currently not 100% functional for most chains. A fix is coming early next year for this. 
 
 ![](v2Assets/LoginObject.png)
 
-We've already given you some default values for the wallet connect configuration so if you're fine with using the same endpoint as everyone else just leave it as is. Otherwise head on over to the dashboard at [Wallet Connect](https://cloud.walletconnect.com/sign-in) to sign up and get your own details. Just place them in the editor values, press save and you're good to go.
+We've already given you some default values for the wallet connect configuration so if you're fine with using the same endpoint as everyone else just leave it as is. Otherwise head on over to the dashboard at [Wallet Connect](https://cloud.walletconnect.com/sign-in) to sign up and get your own details.
+
+![](v2Assets/WalletConnectDash.png)
+
+Once you're in the Wallet Connect dashboard area, you can press the button on the top right to create a new project, it will ask you to give the project a name.
+
+![](v2Assets/WalletConnectNewProject.png)
+
+Once you've created the project you'll be taken to the settings area. Here you'll find the input details you need, the project name and the project id.
+
+![](v2Assets/WalletConnectProjectId.png)
+
+Just place these into the editor values, press save and you're good to go.
 
 ![](v2Assets/WalletConnectInfo.png)
 
