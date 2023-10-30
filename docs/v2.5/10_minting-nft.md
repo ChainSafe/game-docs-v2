@@ -16,13 +16,67 @@ This pages explains minting an NFT using ECDSA to authorize transactions with th
 NFTs can easily be minted via our marketplace [here](https://marketplace.chainsafe.io/) These NFTs follow ERC standards and be used with our all NFT calls without much hassle at all. Simply add your NFT details, an image and away you go!
 
 ## Minting an NFT In Game Via ECDSA Verification
-We've decided to move away from server voucher minting and replace it with ECDSA verification. This is a lot easier to setup and maintain as it's done solidity side and can be controlled solely by the developer for their users. For examples sake we've included an ERC20 private key to show you how it all works. Please do not use this in production. You can generate your own key [here](https://vanity-eth.tk/) to replace the example one. It is entirely up to you how you would like to secure this key, Please do not send an app into production without locking this down properly. As there are many ways to secure this we've decided to leave this up to you as any methods we offer would undoubtedly be reverse engineered.
+We've decided to move away from server voucher minting and replace it with ECDSA verification. This is a lot easier to setup and maintain as it's done solidity side and can be controlled solely by the developer for their users. For examples sake we've included an ERC20 private key to show you how it all works. Please do not use this in production. You can generate your own key [here](https://vanity-eth.tk/) or you can generate one with metamask to replace the example one. It is entirely up to you how you would like to secure this key, Please do not send an app into production without locking this down properly. As there are many ways to secure this we've decided to leave this up to you as any methods we offer would undoubtedly be reverse engineered.
 
 ## What Is ECDSA?
 ECDSA stands for elliptical curve digital signature algorithm. It is the process of reverse engineering a signature to check which wallet it originated from. This way you can place a private key within the game files and make it fire off a signature whenever you need something authorized. This can be anything from allowing a claim to minting NFTs, the possibilities are endless. More information can be found [here](https://cryptobook.nakov.com/digital-signatures/ecdsa-sign-verify-messages)
 
 ## Using ECDSA With A Private Key In Unity
 The sign with private key methods may be used here to generate a signature from your authorization wallet. This can then passed into a function and read solidity side as bytes. You may then use the functions below solidity side to reverse engineer the signature via ECDSA to check that it has actually originated from your authorization wallet. In the next step we'll show you how this can be checked solidity side.
+
+```csharp
+using UnityEngine;
+using Web3Unity.Scripts.Prefabs;
+using ChainSafe.Gaming.UnityPackage;
+
+/* This prefab script should be copied & placed on the root of an object.
+Change the class name, variables and add any additional changes at the end of the execute function.
+The initialize function should be called by a method of your choosing */
+
+/// <summary>
+/// Signs a message using a private key
+/// </summary>
+public class PrivateKeySign : MonoBehaviour
+{
+    // Variables
+    private string method = "saveScore";
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint8\", \"name\": \"_myArg\", \"type\": \"uint8\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
+    private string contractAddress = "0xC71d13c40B4fE7e2c557eBAa12A0400dd4Df76C9";
+    private int amount = 100;
+    private string privateKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
+    private string message;
+    private UnsortedSample logic;
+    
+    /// <summary>
+    /// Starts the task, you can put this in the start function or call it from a button/event
+    /// </summary>
+    public void InitializeTask()
+    {
+        // Sets the sample behaviour & executes
+        logic = new UnsortedSample(Web3Accessor.Web3);
+        ExecuteSample();
+    }
+    
+    /// <summary>
+    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
+    /// </summary>
+    private async void ExecuteSample()
+    {
+        // Sets and signs a message
+        message = amount.ToString();
+        var signedMessage = logic.PrivateKeySign(privateKey, message);
+        SampleOutputUtil.PrintResult(signedMessage.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.PrivateKeySign));
+        // Sends the signed message to a contract
+        object[] args = {
+            amount,
+            signedMessage
+        };
+        var response = await logic.ContractSend(method, abi, contractAddress, args);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.ContractSend));
+    }
+}
+```
 
 ## Passing The signature Into A Transaction For Verification Purposes In A Solidity Contract
 ```solidity
