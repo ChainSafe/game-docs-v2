@@ -129,7 +129,7 @@ public class MyWeb3Behaviour : MonoBehaviour
 
 ### Example Scene
 
-If you navigate to Window -> Package Manager -> Web3Unity SDK -> Samples, you can import an example package to help you understand the SDK. Press import and let it load into the project. You'll see some new files in your project un samples, these files contain everything we need to get started with the SDK. Have a look around, check out the script and the scene locations.
+If you navigate to Window -> Package Manager -> Web3Unity SDK -> Samples, you can import an example package to help you understand the SDK. Press import and let it load into the project. You'll see some new files in your project under samples, these files contain everything we need to get started with the SDK. Have a look around, check out the script and the scene locations.
 
 ![](v2Assets/ImportingSamples.png)
 
