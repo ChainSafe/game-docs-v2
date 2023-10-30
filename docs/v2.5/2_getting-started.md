@@ -126,3 +126,21 @@ public class MyWeb3Behaviour : MonoBehaviour
     }
 }
 ```
+
+### Example Scene
+
+If you navigate to Window -> Package Manager -> Web3Unity SDK -> Samples, you can import an example package to help you understand the SDK. Press import and let it load into the project. You'll see some new files in your project un samples, these files contain everything we need to get started with the SDK. Have a look around, check out the script and the scene locations.
+
+![](v2Assets/ImportingSamples.png)
+
+You'll notice when you import the samples into the project that some scenes are added to your build configuration. This is to show you a demo of how all the functions in the SDK work. Simply go to the sample log in scene and press play to connect a wallet to get started with some examples.
+
+![](v2Assets/ImportedScenes.png)
+
+Once you've logged in it will take you to the main scene. You can play around in the menus and check out each scripts functionality by pressing the show script button, this will highlight the script in the editor and allow you to inspect it further. If you're an advanced developer you should have enough to work with from the sample scripts in front of you. If you're just beginning we suggest you take a look at our easy to use prefabs below.
+
+![](v2Assets/MainScene.png)
+
+### Prefabs
+
+We've created some easy to use prefabs, think of it as a beginner friendly layer. Feel free to check out the prefabs area of the docs [here](https://docs.gaming.chainsafe.io/current/prefabs), you'll find helpful snippets of code that you can drop in and out of your scenes. Please note that you must have the samples package above installed to use the prefab scripts or they'll be missing some dependencies.
