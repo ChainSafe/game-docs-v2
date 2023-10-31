@@ -11,7 +11,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Current SDK Documentation (v2.5.0+)',
-          items: ['v2.5/cheatsheet', 'v2.5/getting-started', 'v2.5/project-id-registration', 'v2.5/setting-up-an-rpc-node', 'v2.5/configuration', 'v2.5/signers-and-wallets', 'v2.5/connecting-a-wallet', 'v2.5/cheatsheet', 'v2.5/interacting-with-tokens', 'v2.5/interacting-with-nfts', 'v2.5/minting-nft', 'v2.5/interacting-with-smart-contracts', 'v2.5/web2-like-authentication-using-web3auth', 'v2.5/gasless-transactions-using-gelato', 'v2.5/extending-the-sdk', 'v2.5/lootboxes', 'v2.5/block-racers-game', 'v2.5/example-scene'],
+          items: ['v2.5/cheatsheet', 'v2.5/getting-started', 'v2.5/project-id-registration', 'v2.5/setting-up-an-rpc-node', 'v2.5/configuration', 'v2.5/signers-and-wallets', 'v2.5/connecting-a-wallet', 'v2.5/interacting-with-tokens', 'v2.5/interacting-with-nfts', 'v2.5/minting-nft', 'v2.5/interacting-with-smart-contracts', 'v2.5/web2-like-authentication-using-web3auth', 'v2.5/gasless-transactions-using-gelato', 'v2.5/extending-the-sdk', 'v2.5/lootboxes', 'v2.5/block-racers-game', 'v2.5/prefabs', 'v2.5/faq'],
         },
         {
           type: 'category',

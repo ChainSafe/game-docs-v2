@@ -24,38 +24,77 @@ call into a try/catch statement.
 
 ```csharp
 using System.Threading.Tasks;
-using ChainSafe.Gaming;
-using ChainSafe.Gaming.Build;
-using ChainSafe.Gaming.Evm.JsonRpcProvider;
-using ChainSafe.Gaming.Unity.Environment;
-using ChainSafe.Gaming.Wallets.WebGLWallet;
+using ChainSafe.Gaming.Web3.Build;
+using ChainSafe.Gaming.Evm.JsonRpc;
+using ChainSafe.Gaming.UnityPackage;
+using ChainSafe.Gaming.Wallets;
+using ChainSafe.Gaming.Web3;
+using ChainSafe.Gaming.Web3.Unity;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 
-public class ConnectionExample : MonoBehaviour
+/// <summary>
+/// A login script that allows you to connect to metamask
+/// </summary>
+public class Login : MonoBehaviour
 {
+    // Variables
+    private Web3 web3;
     private Web3Builder builder;
+    private bool useWebPageWallet;
     
-    private void Start()
+    /// <summary>
+    /// Used to initialize connection to a wallet, put this call in the start function or on a button event
+    /// </summary>
+    public async void Connect()
     {
-        builder = new Web3Builder()
+            useWebPageWallet = Application.platform != RuntimePlatform.WebGLPlayer;
+            builder = new Web3Builder(ProjectConfigUtilities.Load())
+            .Configure(ConfigureCommonServices)
             .Configure(services =>
             {
-                services.UseUnityEnvironment();
-                services.UseJsonRpcProvider();
-                services.UseWebGLWallet();
+                if (useWebPageWallet)
+                {
+                    services.UseWebPageWallet();
+                }
+                else
+                {
+                    services.UseWebGLWallet();
+                }
             });
+            await ProcessConnection();
     }
-
-    public async Task Connect()
+    
+    /// <summary>
+    /// Processes the connection and sets the users wallet for later calls
+    /// </summary>
+    private async Task ProcessConnection()
     {
+        Debug.Log("Connecting");
         try
         {
-            GlobalWeb3.Instance = await builder.BuildAsync();
+            web3 = await builder.BuildAsync();
+            Web3Accessor.Set(web3);
+            PlayerPrefs.SetString("PlayerAccount", await Web3Accessor.Web3.Signer.GetAddress());
+            Debug.Log("Connected!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         catch (Web3Exception e)
         {
-            Debug.Log("Connection failed. Try again.");
+            Debug.Log(e + "Connection failed. Try again.");
             throw;
         }
+    }
+    
+    /// <summary>
+    /// Standard configuration needed
+    /// </summary>
+    /// <param name="services"></param>
+    private void ConfigureCommonServices(IWeb3ServiceCollection services)
+    {
+        services
+            .UseUnityEnvironment()
+            .UseRpcProvider();
     }
 }
 ```
