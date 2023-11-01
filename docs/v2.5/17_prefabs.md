@@ -560,7 +560,7 @@ public class Erc721BalanceOf : MonoBehaviour
 }
 ```
 
-### Mint721
+### Mint 721
 Mints a 721 NFT to an account.
 
 ``` csharp
@@ -606,7 +606,7 @@ public class Erc721Mint : MonoBehaviour
 }
 ```
 
-### Mint1155
+### Mint 1155
 Mints a 1155 NFT to an account.
 
 ``` csharp
