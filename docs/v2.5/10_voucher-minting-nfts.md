@@ -1,15 +1,15 @@
 ﻿---
-slug: /current/minting-nft
+slug: /current/voucher-minting-nfts
 sidebar_position: 10
-sidebar_label: Minting NFT
+sidebar_label: Voucher Minting NFTs
 ---
 
 
-# Minting NFTs
+# Voucher Minting NFTs
 
 :::info
 
-This pages explains minting an NFT using ECDSA to authorize transactions with the SDK.
+This pages explains minting an NFT using ECDSA with solidity as a voucher to authorize transactions with the SDK.
 
 :::
 ## Minting an NFT Via The Marketplace
