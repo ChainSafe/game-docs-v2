@@ -13,10 +13,14 @@ This page will walk you through our newest feature, lootboxes. It's a nifty litt
 
 :::
 
-Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way. Many things from cosmetics to in game items can be offered with a sense of randomness to help facilitate anticipation and hopefully a fun way to bring developers some much needed revenue.
+## What Are Lootboxes?
+Lootboxes are a great way to offer your users NFTs, tokens & variety of other things in a gamified way. Many things from cosmetics to in game items can be offered with a sense of randomness via the Chainlink VRF to help facilitate anticipation and hopefully a fun way to bring developers some much needed revenue.
+
+## What is Chainlink VRF?
+VRF stands for Verifiable Random Function, the team over at [Chainlink](https://chain.link/) have created this number generator. It generates random numbers along with verification on chain before any consuming applications can get their hands on it. This amazing number generator is built for blockchains, it provides cryptographically secure randomness for your contract functions. To find out more about Chainlink VRF you can check out the documentation [here](https://docs.chain.link/vrf).
 
 ## Solidity Contracts
-The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts)
+The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts).
 
 ![](v2Assets/RepoLootbox.png)
 
