@@ -100,5 +100,4 @@ var web3 = await new Web3Builder(projectConfig)
 
 In version 2.5 we've introduced a new type of signer. It provides simple Web2 like authentication
 user experience for those who are new to ethereum or just don't wanna spend time creating new wallets.
-You can learn what is Web3Auth and how to integrate it into your project using this link.
-(TODO: add link to Web3Auth section)
+You can learn what is Web3Auth and how to integrate it into your project using this link [here](https://docs.gaming.chainsafe.io/current/web2-like-authentication-using-web3auth).
