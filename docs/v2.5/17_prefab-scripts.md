@@ -10,7 +10,7 @@ sidebar_label: Prefab Scripts
 
 In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started). 
 
-The sample package lets you use the Web3Accessor instance, this provides a convenient way to access your web3 data which is set when you login. If for some reason you don't want to use the sample package, you're' free to build your web3 object before each call and pass that into the function instead.
+The sample package lets you use the Web3Accessor instance, this provides a convenient way to access your web3 data which is set when you login. If for some reason you don't want to import the sample package, you're' free to build your web3 object before each call and pass that into the function instead.
 
 :::
 
@@ -635,6 +635,7 @@ public class Erc1155Uri : MonoBehaviour
     {
         var response = await Erc1155.Uri(Web3Accessor.Web3, contractAddress, tokenId);
         Debug.Log($"Uri: {response}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -734,24 +735,11 @@ public class IpfsUpload : MonoBehaviour
     private string bucketId = "BUCKET_ID";
     private string path = "/PATH";
     private string filename = "FILENAME.EXT";
-    private IpfsSample logic;
 
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void IPFSUpload()
     {
-        // Sets the sample behaviour & executes
-        logic = new IpfsSample();
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var cid = await logic.Upload(new IpfsUploadRequest
+        var cid = await Evm.Upload(new IpfsUploadRequest
         {
             ApiKey = apiKey,
             Data = data,
@@ -759,7 +747,8 @@ public class IpfsUpload : MonoBehaviour
             Path = path,
             Filename = filename
         });
-        SampleOutputUtil.PrintResult(cid, nameof(IpfsSample), nameof(IpfsSample.Upload));
+        Debug.Log($"Cid: {cid}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -783,31 +772,21 @@ The scripts function should be called by a method of your choosing - button, fun
 public class ContractCall : MonoBehaviour
 {
     // Variables
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
+    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "myTotal";
-    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint8\", \"name\": \"_myArg\", \"type\": \"uint8\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
-    private string contractAddress = "0xC71d13c40B4fE7e2c557eBAa12A0400dd4Df76C9";
 
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void ContractCall()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        object[] args = {};
-        var response = await logic.ContractCall(method, abi, contractAddress, args);
-        var output = SampleOutputUtil.BuildOutputValue(response);
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.ContractCall));
+        object[] args =
+        {
+            await Web3Accessor.Web3.Signer.GetAddress()
+        };
+        var response = await Evm.ContractCall(Web3Accessor.Web3, method, abi, contractAddress, args);
+        var result = SampleOutputUtil.BuildOutputValue(response);
+        Debug.Log($"Output: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -831,35 +810,22 @@ The scripts function should be called by a method of your choosing - button, fun
 public class ContractSend : MonoBehaviour
 {
     // Variables
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
+    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "addTotal";
-    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint8\", \"name\": \"_myArg\", \"type\": \"uint8\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
-    private string contractAddress = "0xC71d13c40B4fE7e2c557eBAa12A0400dd4Df76C9";
     private int increaseAmount = 1;
 
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
-    {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
+    // Function
+    public async void ContractSend()
     {
         object[] args =
         {
             increaseAmount
         };
-        var response = await logic.ContractSend(method, abi, contractAddress, args);
-        var output = SampleOutputUtil.BuildOutputValue(response);
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.ContractSend));
+        var response = await Evm.ContractSend(Web3Accessor.Web3, method, abi, contractAddress, args);
+        var result = SampleOutputUtil.BuildOutputValue(response);
+        Debug.Log($"TX: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -885,29 +851,17 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetArray : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x5244d0453A727EDa96299384370359f4A2B5b20a";
-    private string abi = "[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_addresses\",\"type\":\"address[]\"}],\"name\":\"setStore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"bought\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStore\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]";
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
+    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "getStore";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    
+    // Function
+    public async void GetArray()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var response = await logic.GetArray(method, abi, contractAddress);
-        var responseString = string.Join(",\n", response.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
-        SampleOutputUtil.PrintResult(responseString, nameof(UnsortedSample), nameof(UnsortedSample.GetArray));
+        var response = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, methodArrayGet);
+        var result = string.Join(",\n", response.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
+        Debug.Log($"Result: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -931,34 +885,22 @@ The scripts function should be called by a method of your choosing - button, fun
 public class SendArray : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x5244d0453A727EDa96299384370359f4A2B5b20a";
-    private string abi = "[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_addresses\",\"type\":\"address[]\"}],\"name\":\"setStore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"bought\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStore\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]";
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
+    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "setStore";
     private string[] stringArray =
     {
         "0xFb3aECf08940785D4fB3Ad87cDC6e1Ceb20e9aac",
         "0x92d4040e4f3591e60644aaa483821d1bd87001e3"
     };
-    private UnsortedSample logic;
 
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void SendArray()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var response = await logic.SendArray(method, abi, contractAddress, stringArray);
-        var output = SampleOutputUtil.BuildOutputValue(response);
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.SendArray));
+        var response = await Evm.SendArray(Web3Accessor.Web3, methodArraySend, ABI.ArrayTotal, Contracts.ArrayTotal, stringArraySend);
+        var result = SampleOutputUtil.BuildOutputValue(response);
+        Debug.Log($"Result: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -981,26 +923,12 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GetBlockNumber : MonoBehaviour
 {
-    // Variables
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void GetBlockNumber()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var blockNumber = await logic.GetBlockNumber();
-        SampleOutputUtil.PrintResult(blockNumber.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.GetBlockNumber));
+        var result = await Evm.GetBlockNumber(Web3Accessor.Web3);
+        Debug.Log($"Block Number: {result.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1024,27 +952,20 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetGasLimit : MonoBehaviour
 {
     // Variables
-    private string contractAbi = "[ { \"inputs\": [ { \"internalType\": \"uint8\", \"name\": \"_myArg\", \"type\": \"uint8\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x7286Cf0F6E80014ea75Dbc25F545A3be90F4904F";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
+    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string method = "addTotal";
+    private int increaseAmount = 1;
+    
+    public async void GetGasLimit()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var gasLimit = await logic.GetGasLimit(contractAbi, contractAddress);
-        SampleOutputUtil.PrintResult(gasLimit.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.GetGasLimit));
+        object[] args =
+        {
+            increaseAmount
+        };
+        var result = await Evm.GetGasLimit(Web3Accessor.Web3, abi, contractAddress, method, args);
+        Debug.Log($"Gas Limit: {result.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1067,26 +988,12 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GetGasPrice : MonoBehaviour
 {
-    // Variables
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void GetGasPrice()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var gasPrice = await logic.GetGasPrice();
-        SampleOutputUtil.PrintResult(gasPrice.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.GetGasPrice));
+        var result = await Evm.GetGasPrice(Web3Accessor.Web3);
+        Debug.Log($"Gas Price: {result.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1109,26 +1016,12 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GetNonce : MonoBehaviour
 {
-    // Variables
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void GetNonce()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var nonce = await logic.GetNonce();
-        SampleOutputUtil.PrintResult(nonce.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.GetNonce));
+        var nonce = await Evm.GetNonce(Web3Accessor.Web3);
+        Debug.Log($"Nonce: {nonce}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1152,25 +1045,13 @@ public class Sha3 : MonoBehaviour
 {
     // Variables
     private string message = "It’s dangerous to go alone, take this!";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public void InitializeTask()
+    
+    // Function
+    public void Sha3Call()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private void ExecuteTask()
-    {
-        var hash = logic.Sha3(message);
-        SampleOutputUtil.PrintResult(hash, nameof(UnsortedSample), nameof(UnsortedSample.Sha3));
+        var result = Evm.Sha3(message);
+        Debug.Log($"Sha3 Hash: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1195,25 +1076,13 @@ public class SignMessage : MonoBehaviour
 {
     // Variables
     private string message = "The right man in the wrong place can make all the difference in the world.";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    
+    // Function
+    public async void SignMessageCall()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var signedMessage = await logic.SignMessage(message);
-        SampleOutputUtil.PrintResult(signedMessage, nameof(UnsortedSample), nameof(UnsortedSample.SignMessage));
+        var result = await Evm.SignMessage(Web3Accessor.Web3, message);
+        Debug.Log($"Signed Message: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1238,26 +1107,14 @@ public class SignVerify : MonoBehaviour
 {
     // Variables
     private string message = "A man chooses, a slave obeys.";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    
+    // Function
+    public async void SignVerifyCall()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var signatureVerified = await logic.SignVerify(message);
-        var output = signatureVerified ? "Verified" : "Failed to verify";
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.SignVerify));
+        var signatureVerified = await Evm.SignVerify(Web3Accessor.Web3, message);
+        var result = signatureVerified ? "Verified" : "Failed to verify";
+        Debug.Log($"Verified: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1283,25 +1140,13 @@ public class SendTransaction : MonoBehaviour
 {
     // Variables
     private string to = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    
+    //Function
+    public async void SendTransactionCall()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var transactionHash = await logic.SendTransaction(to);
-        SampleOutputUtil.PrintResult(transactionHash, nameof(UnsortedSample), nameof(UnsortedSample.SendTransaction));
+        var result = await Evm.SendTransaction(Web3Accessor.Web3, to);
+        Debug.Log($"TX: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1324,29 +1169,15 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GetTransactionStatus : MonoBehaviour
 {
-    // Variables
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void GetTransactionStatus()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var receipt = await logic.GetTransactionStatus();
-        var output = $"Confirmations: {receipt.Confirmations}," +
+        var receipt = await Evm.GetTransactionStatus(Web3Accessor.Web3);
+        var result = $"Confirmations: {receipt.Confirmations}," +
                      $" Block Number: {receipt.BlockNumber}," +
                      $" Status {receipt.Status}";
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.GetTransactionStatus));
+        Debug.Log($"Transation Status: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1369,33 +1200,50 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class RegisteredContract : MonoBehaviour
 {
-    // Variables
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void RegisteredContractCall()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var balance = await logic.UseRegisteredContract();
-        SampleOutputUtil.PrintResult(balance.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.UseRegisteredContract));
+        var result = await Evm.UseRegisteredContract(Web3Accessor.Web3, registeredContractName, EthMethod.BalanceOf);
+        Debug.Log($"Balance Of: {result.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
 
-## Private Key
+### ECDSA Sign Transaction
+Signs a transaction with an ECDSA key
 
-### Get Address
+``` csharp
+using UnityEngine;
+using Web3Unity.Scripts.Prefabs;
+using ChainSafe.Gaming.UnityPackage;
+
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
+
+/// <summary>
+/// Gets the public address the private key belongs to.
+/// </summary>
+public class EcdsaGetAddress : MonoBehaviour
+{
+    // Variables
+    // Variables
+    private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
+    private string chainId ="11155111";
+    private string transactionHash = "0x123456789";
+    
+    // Function
+    public void EcdsaSignTransaction()
+    {
+        var response = Evm.EcdsaSignTransaction(ecdsaKey, transactionHash, chainId);
+        Debug.Log($"TX: {response}");
+        // You can make additional changes after this line
+    }
+}
+```
+
+### ECDSA Get Address
 Gets the public address the private key belongs to.
 
 ``` csharp
@@ -1410,33 +1258,22 @@ The scripts function should be called by a method of your choosing - button, fun
 /// <summary>
 /// Gets the public address the private key belongs to.
 /// </summary>
-public class PrivateKeyGetAddress : MonoBehaviour
+public class EcdsaGetAddress : MonoBehaviour
 {
-    private string privateKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
-    private UnsortedSample logic;
+    // Variables
+    private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public void InitializeTask()
+    // Function
+    public void EcdsaGetAddress()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        ExecuteSample();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private void ExecuteSample()
-    {
-        var result = logic.PrivateKeyGetAddress(privateKey);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.PrivateKeyGetAddress));
+        var response = Evm.EcdsaGetAddress(ecdsaKey);
+        Debug.Log($"Address: {response}");
+        // You can make additional changes after this line
     }
 }
 ```
 
-### Sign Message
+### ECDSA Sign Message
 Signs a message using a private key.
 
 ``` csharp
@@ -1451,28 +1288,17 @@ The scripts function should be called by a method of your choosing - button, fun
 /// <summary>
 /// Signs a message using a private key
 /// </summary>
-public class PrivateKeyGetAddress : MonoBehaviour
+public class EcdsaSignMessage : MonoBehaviour
 {
-    private string privateKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
-    private UnsortedSample logic;
+    // Variables
+    private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public void InitializeTask()
+    // Function
+    public void EcdsaSignMessage()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        ExecuteSample();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private void ExecuteSample()
-    {
-        var result = logic.PrivateKeyGetAddress(privateKey);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(UnsortedSample), nameof(UnsortedSample.PrivateKeyGetAddress));
+        var response = Evm.EcdsaSignMessage(ecdsaKey, ecdsaMessage);
+        Debug.Log($"Signed Message: {response}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -1496,28 +1322,15 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GelatoCallWithSyncFee : MonoBehaviour
 {
-    // Variables
-    private GelatoSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void CallWithSyncFee()
     {
-        logic = new GelatoSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.CallWithSyncFee();
+        gelato = new GelatoSample(Web3Accessor.Web3);
+        var result = await gelato.CallWithSyncFee();
         SampleOutputUtil.PrintResult(
             $"Task complete. Final status of {result.TaskId}: {result.Status.TaskState}. " +
             $"Transaction hash: {result.Status.TransactionHash}",
             nameof(GelatoSample), nameof(GelatoSample.CallWithSyncFee));
+            // You can make additional changes after this line
     }
 }
 ```
@@ -1539,28 +1352,15 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GelatoCallWithSyncFeeErc2771 : MonoBehaviour
 {
-    // Variables
-    private GelatoSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void CallWithSyncFeeErc2771()
     {
-        logic = new GelatoSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.SponsorCallErc2771();
+        gelato = new GelatoSample(Web3Accessor.Web3);
+        var result = await gelato.CallWithSyncFeeErc2771();
         SampleOutputUtil.PrintResult(
             $"Task complete. Final status of {result.TaskId}: {result.Status.TaskState}. " +
             $"Transaction hash: {result.Status.TransactionHash}",
-            nameof(GelatoSample), nameof(GelatoSample.SponsorCallErc2771));
+            nameof(GelatoSample), nameof(GelatoSample.CallWithSyncFeeErc2771));
+            // You can make additional changes after this line
     }
 }
 ```
@@ -1582,28 +1382,15 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GelatoSponsorCall : MonoBehaviour
 {
-    // Variables
-    private GelatoSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void SponsorCall()
     {
-        logic = new GelatoSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.SponsorCall();
+        gelato = new GelatoSample(Web3Accessor.Web3);
+        var result = await gelato.SponsorCall();
         SampleOutputUtil.PrintResult(
             $"Task complete. Final status of {result.TaskId}: {result.Status.TaskState}. " +
             $"Transaction hash: {result.Status.TransactionHash}",
             nameof(GelatoSample), nameof(GelatoSample.SponsorCall));
+            // You can make additional changes after this line
     }
 }
 ```
@@ -1625,28 +1412,15 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class GelatoSponsorCallErc2771 : MonoBehaviour
 {
-    // Variables
-    private GelatoSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void SponsorCallErc2771()
     {
-        logic = new GelatoSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.SponsorCallErc2771();
+        gelato = new GelatoSample(Web3Accessor.Web3);
+        var result = await gelato.SponsorCallErc2771();
         SampleOutputUtil.PrintResult(
             $"Task complete. Final status of {result.TaskId}: {result.Status.TaskState}. " +
             $"Transaction hash: {result.Status.TransactionHash}",
             nameof(GelatoSample), nameof(GelatoSample.SponsorCallErc2771));
+            // You can make additional changes after this line
     }
 }
 ```
