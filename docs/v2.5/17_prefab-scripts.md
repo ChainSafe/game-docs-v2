@@ -23,8 +23,8 @@ If you right click in the unity explorer you can create a c# script. For example
 Fetches the name of an ERC20 contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -53,8 +53,8 @@ public class Erc20NameOf : MonoBehaviour
 Fetches the symbol of an ERC20 contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -83,8 +83,8 @@ public class Erc20Symbol : MonoBehaviour
 Fetches the decimals of an ERC20 contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -97,7 +97,7 @@ The scripts function should be called by a method of your choosing - button, fun
 public class Erc20Decimals : MonoBehaviour
 {
     // Variables
-    private string contract = "0x358969310231363CBEcFEFe47323139569D8a88b";
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     
     // Function
     public async void Decimals()
@@ -113,8 +113,8 @@ public class Erc20Decimals : MonoBehaviour
 Fetches the total supply of an ERC20 token.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -143,8 +143,8 @@ public class Erc20TotalSupply : MonoBehaviour
 Fetches the balance of an ERC20 token from an account.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -164,8 +164,8 @@ public class Erc20BalanceOf : MonoBehaviour
     {
         // Sets the account to be queried, you can change this to be any address
         string account = PlayerPrefs.GetString("PlayerAccount");
-        var response = await Erc20.BalanceOf(Web3Accessor.Web3, contractAddress, accountBalanceOf);
-        Debug.Log($"Balance Of: {response.ToString()}")
+        var response = await Erc20.BalanceOf(Web3Accessor.Web3, contractAddress, account);
+        Debug.Log($"Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -175,8 +175,8 @@ public class Erc20BalanceOf : MonoBehaviour
 Fetches the balance of a custom ERC20 token from an account.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -195,7 +195,7 @@ public class Erc20CustomTokenBalanceOf : MonoBehaviour
     public async void CustomTokenBalanceOf()
     {
         var response = await Erc20.CustomTokenBalance(Web3Accessor.Web3, contractAbi, contractAddress);
-        Debug.Log($"Custom Balance Of: {response.ToString()}")
+        Debug.Log($"Custom Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -207,6 +207,7 @@ Fetches the native balance of an ERC20 token from an account.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
@@ -223,7 +224,7 @@ public class Erc20NativeBalanceOf : MonoBehaviour
         // Sets the account to be queried, you can change this to be any address
         string account = PlayerPrefs.GetString("PlayerAccount");
         var response = await Erc20.NativeBalanceOf(Web3Accessor.Web3, account);
-        Debug.Log($"Native Balance Of: {response.ToString()}")
+        Debug.Log($"Native Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -233,23 +234,23 @@ public class Erc20NativeBalanceOf : MonoBehaviour
 Mints ERC20 tokens to an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
-/// Transfers ERC20 tokens to an account
+/// Mints ERC20 tokens to an account
 /// </summary>
 public class Erc20Mint : MonoBehaviour
 {
     // Variables
     private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
-    private string amount = "1";
+    private BigInteger amount = 1;
     
     // Function
     public async void MintErc20()
@@ -268,10 +269,10 @@ public class Erc20Mint : MonoBehaviour
 Transfers ERC20 tokens to an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -285,7 +286,7 @@ public class Erc20Transfer : MonoBehaviour
     // Variables
     private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     private string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
-    private string amount = "1000000000000000";
+    private BigInteger amount = 1000000000000000;
     
     // Function
     public async void TransferErc20()
@@ -304,10 +305,9 @@ public class Erc20Transfer : MonoBehaviour
 Fetches the balance of ERC721 NFTs from an account
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -337,10 +337,10 @@ public class Erc721BalanceOf : MonoBehaviour
 Fetches the owner of an ERC721 token id.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -358,7 +358,7 @@ public class Erc721OwnerOf : MonoBehaviour
     // Function
     public async void OwnerOf()
     {
-        var response = tokenIdOwnerOf.StartsWith("0x") ? 
+        var response = tokenId.StartsWith("0x") ? 
             await Erc721.OwnerOf(Web3Accessor.Web3, contractAddress, tokenId) 
             : await Erc721.OwnerOf(Web3Accessor.Web3, contractAddress, BigInteger.Parse(tokenId));
         Debug.Log($"Owner: {response}");
@@ -371,11 +371,9 @@ public class Erc721OwnerOf : MonoBehaviour
 Fetches the owners of ERC721 token ids.
 
 ``` csharp
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -405,10 +403,9 @@ public class Erc721OwnerOfBatch : MonoBehaviour
 Fetches the URI from an ERC721 NFT.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -420,13 +417,13 @@ The scripts function should be called by a method of your choosing - button, fun
 public class Erc721Uri : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x06dc21f89f01409e7ed0e4c80eae1430962ae52c";
-    private string tokenId = "0x01559ae4021a565d5cc4740f1cefa95de8c1fb193949ecd32c337b03047da501";
+    private string contractAddress = "QmfUHuFj3YL2JMZkyXNtGRV8e9aLJgQ6gcSrqbfjWFvbqQ";
+    private string tokenId = "1";
     
     // Function
     public async void Uri()
     {
-        var response = await Erc721.Uri(Web3Accessor.Web3, Contracts.Erc721, tokenIdUri);
+        var response = await Erc721.Uri(Web3Accessor.Web3, Contracts.Erc721, tokenId);
         Debug.Log($"Uri: {response}");
         // You can make additional changes after this line
     }
@@ -437,10 +434,9 @@ public class Erc721Uri : MonoBehaviour
 Mints a 721 NFT to an account.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -471,10 +467,10 @@ public class Erc721Mint : MonoBehaviour
 Transfers an ERC721 token to an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -488,7 +484,7 @@ public class Erc721Transfer : MonoBehaviour
     // Variables
     private string contractAddress = "0x4f75BB7bdd6f7A0fD32f1b3A94dfF409F5a3F1CC";
     private string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
-    private int tokenId = 1;
+    private BigInteger tokenId = 1;
 
     // Function
     public async void TransferErc721()
@@ -507,10 +503,10 @@ public class Erc721Transfer : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -528,9 +524,11 @@ public class Erc1155BalanceOf : MonoBehaviour
     // Function
     public async void BalanceOf()
     {
-        var response = tokenIdBalanceOf.StartsWith("0x") ? 
-            await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, accountBalanceOf, tokenIdBalanceOf)
-            : await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, accountBalanceOf, BigInteger.Parse(tokenIdBalanceOf));
+        // Sets the account to be queried, you can change this to be any address
+        string account = PlayerPrefs.GetString("PlayerAccount");
+        var response = tokenId.StartsWith("0x") ? 
+            await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, account, tokenId)
+            : await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, account, BigInteger.Parse(tokenId));
         Debug.Log($"Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
@@ -541,10 +539,9 @@ public class Erc1155BalanceOf : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from multiple accounts.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -562,7 +559,7 @@ public class Erc1155BalanceOfBatch : MonoBehaviour
 
     public async void BalanceOfBatch()
     {
-        var data = await Erc1155.BalanceOfBatch(Web3Accessor.Web3, Contracts.Erc1155, accountsBalanceOfBatch, tokenIdsBalanceOfBatch);
+        var data = await Erc1155.BalanceOfBatch(Web3Accessor.Web3, Contracts.Erc1155, accounts, tokenIds);
         var response = string.Join(", ", data);
         Debug.Log($"Balance Of Batch: {response}");
         // You can make additional changes after this line
@@ -574,11 +571,10 @@ public class Erc1155BalanceOfBatch : MonoBehaviour
 Fetches the texture of an ERC1155 NFT and displays it to a raw image.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
+using Scripts.EVM.Token;
 using UnityEngine.UI;
-using Web3Unity.Scripts.Prefabs;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -609,10 +605,9 @@ public class Erc1155ImportTexture : MonoBehaviour
 Fetches the URI from an ERC1155 NFT.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -641,10 +636,10 @@ public class Erc1155Uri : MonoBehaviour
 Mints a 1155 NFT to an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -676,10 +671,10 @@ public class Erc1155Mint : MonoBehaviour
 Transfer ERC1155 tokens to an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
 using UnityEngine;
-using Web3Unity.Scripts.Prefabs;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -699,7 +694,7 @@ public class Erc1155Transfer : MonoBehaviour
     // Function
     public async void TransferErc1155()
     {
-        var data = await Erc1155.TransferErc1155(Web3Accessor.Web3, Contracts.Erc1155, tokenIdTransfer, amountTransfer, toAccountTransfer);
+        var data = await Erc1155.TransferErc1155(Web3Accessor.Web3, Contracts.Erc1155, tokenId, amount, toAccount);
         var response = SampleOutputUtil.BuildOutputValue(data);
         Debug.Log($"TX: {response}");
         // You can make additional changes after this line
@@ -714,8 +709,9 @@ Uploads to IPFS.
 
 ``` csharp
 using System.Threading.Tasks;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -756,8 +752,9 @@ Makes a read call to a contract.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -794,8 +791,9 @@ Makes a write call to a contract.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -835,8 +833,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -869,8 +868,9 @@ Sends an array to a contract.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -908,8 +908,9 @@ Gets the current block number.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -936,8 +937,9 @@ Gets the current gas limit.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -973,8 +975,9 @@ Gets the current gas price.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1001,8 +1004,9 @@ Gets the current nonce for an account.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1028,8 +1032,9 @@ Encrypts a message with SHA3.
 
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1059,8 +1064,9 @@ Signs a message, the response is unique for each user.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1090,8 +1096,9 @@ Verifies a users account via message sign.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1123,8 +1130,9 @@ Sends a transaction.
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using Nethereum.Hex.HexTypes;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1154,8 +1162,9 @@ Gets the status of a transaction.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1185,8 +1194,9 @@ Allows a contract to be registered for easy calling.
 ``` csharp
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1211,9 +1221,10 @@ public class RegisteredContract : MonoBehaviour
 Signs a transaction with an ECDSA key
 
 ``` csharp
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1244,9 +1255,10 @@ public class EcdsaSignTransaction : MonoBehaviour
 Gets the public address the private key belongs to.
 
 ``` csharp
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1274,9 +1286,10 @@ public class EcdsaGetAddress : MonoBehaviour
 Signs a message using a private key.
 
 ``` csharp
-using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 using ChainSafe.Gaming.UnityPackage;
+using Scripts.EVM.Token;
+using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
