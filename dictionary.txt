@@ -208,6 +208,7 @@ SDK's
 SendTransaction
 send-contract-through-webgl
 send-transaction-through-webgl
+sepolia
 Sepolia
 sha3
 SHA3
