@@ -8,10 +8,7 @@ sidebar_label: Prefab Scripts
 
 :::info
 
-In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started). 
-
-The sample package lets you use the Web3Accessor instance, this provides a convenient way to access your web3 data which is set when you login. If for some reason you don't want to import the sample package, you're' free to build your web3 object before each call and pass that into the function instead.
-
+In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started).
 :::
 
 ### The login scene
@@ -45,8 +42,8 @@ public class Erc20NameOf : MonoBehaviour
     // Function
     public async void Name()
     {
-        var result = await Erc20.Name(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Balace: {result}");
+        var response = await Erc20.Name(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Balace: {response}");
         // You can make additional changes after this line
     }
 }
@@ -75,8 +72,8 @@ public class Erc20Symbol : MonoBehaviour
     // Function
     public async void Symbol()
     {
-        var result = await Erc20.Symbol(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Symbol: {result}");
+        var response = await Erc20.Symbol(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Symbol: {response}");
         // You can make additional changes after this line
     }
 }
@@ -531,10 +528,10 @@ public class Erc1155BalanceOf : MonoBehaviour
     // Function
     public async void BalanceOf()
     {
-        var result = tokenIdBalanceOf.StartsWith("0x") ? 
+        var response = tokenIdBalanceOf.StartsWith("0x") ? 
             await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, accountBalanceOf, tokenIdBalanceOf)
             : await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, accountBalanceOf, BigInteger.Parse(tokenIdBalanceOf));
-        Debug.Log($"Balance Of: {result.ToString()}");
+        Debug.Log($"Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -601,8 +598,8 @@ public class Erc1155ImportTexture : MonoBehaviour
     // Function
     public async void ImportNftTexture1155()
     {
-        var textureRequest = await Erc1155.ImportNftTexture1155(Web3Accessor.Web3, contractAddress, tokenId);
-        rawImage.texture = textureRequest;
+        var response = await Erc1155.ImportNftTexture1155(Web3Accessor.Web3, contractAddress, tokenId);
+        rawImage.texture = response;
         // You can make additional changes after this line
     }
 }
@@ -783,9 +780,9 @@ public class ContractCall : MonoBehaviour
         {
             await Web3Accessor.Web3.Signer.GetAddress()
         };
-        var response = await Evm.ContractCall(Web3Accessor.Web3, method, abi, contractAddress, args);
-        var result = SampleOutputUtil.BuildOutputValue(response);
-        Debug.Log($"Output: {result}");
+        var data = await Evm.ContractCall(Web3Accessor.Web3, method, abi, contractAddress, args);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"Output: {response}");
         // You can make additional changes after this line
     }
 }
@@ -822,9 +819,9 @@ public class ContractSend : MonoBehaviour
         {
             increaseAmount
         };
-        var response = await Evm.ContractSend(Web3Accessor.Web3, method, abi, contractAddress, args);
-        var result = SampleOutputUtil.BuildOutputValue(response);
-        Debug.Log($"TX: {result}");
+        var data = await Evm.ContractSend(Web3Accessor.Web3, method, abi, contractAddress, args);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
         // You can make additional changes after this line
     }
 }
@@ -858,9 +855,9 @@ public class GetArray : MonoBehaviour
     // Function
     public async void GetArray()
     {
-        var response = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, methodArrayGet);
-        var result = string.Join(",\n", response.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
-        Debug.Log($"Result: {result}");
+        var data = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, methodArrayGet);
+        var response = string.Join(",\n", data.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
+        Debug.Log($"Result: {response}");
         // You can make additional changes after this line
     }
 }
@@ -897,9 +894,9 @@ public class SendArray : MonoBehaviour
     // Function
     public async void SendArray()
     {
-        var response = await Evm.SendArray(Web3Accessor.Web3, methodArraySend, ABI.ArrayTotal, Contracts.ArrayTotal, stringArraySend);
-        var result = SampleOutputUtil.BuildOutputValue(response);
-        Debug.Log($"Result: {result}");
+        var data = await Evm.SendArray(Web3Accessor.Web3, methodArraySend, ABI.ArrayTotal, Contracts.ArrayTotal, stringArraySend);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"Result: {response}");
         // You can make additional changes after this line
     }
 }
@@ -926,8 +923,8 @@ public class GetBlockNumber : MonoBehaviour
     // Function
     public async void GetBlockNumber()
     {
-        var result = await Evm.GetBlockNumber(Web3Accessor.Web3);
-        Debug.Log($"Block Number: {result.ToString()}");
+        var response = await Evm.GetBlockNumber(Web3Accessor.Web3);
+        Debug.Log($"Block Number: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -963,8 +960,8 @@ public class GetGasLimit : MonoBehaviour
         {
             increaseAmount
         };
-        var result = await Evm.GetGasLimit(Web3Accessor.Web3, abi, contractAddress, method, args);
-        Debug.Log($"Gas Limit: {result.ToString()}");
+        var response = await Evm.GetGasLimit(Web3Accessor.Web3, abi, contractAddress, method, args);
+        Debug.Log($"Gas Limit: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -991,8 +988,8 @@ public class GetGasPrice : MonoBehaviour
     // Function
     public async void GetGasPrice()
     {
-        var result = await Evm.GetGasPrice(Web3Accessor.Web3);
-        Debug.Log($"Gas Price: {result.ToString()}");
+        var response = await Evm.GetGasPrice(Web3Accessor.Web3);
+        Debug.Log($"Gas Price: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -1019,8 +1016,8 @@ public class GetNonce : MonoBehaviour
     // Function
     public async void GetNonce()
     {
-        var nonce = await Evm.GetNonce(Web3Accessor.Web3);
-        Debug.Log($"Nonce: {nonce}");
+        var response = await Evm.GetNonce(Web3Accessor.Web3);
+        Debug.Log($"Nonce: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1049,8 +1046,8 @@ public class Sha3 : MonoBehaviour
     // Function
     public void Sha3Call()
     {
-        var result = Evm.Sha3(message);
-        Debug.Log($"Sha3 Hash: {result}");
+        var response = Evm.Sha3(message);
+        Debug.Log($"Sha3 Hash: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1080,8 +1077,8 @@ public class SignMessage : MonoBehaviour
     // Function
     public async void SignMessageCall()
     {
-        var result = await Evm.SignMessage(Web3Accessor.Web3, message);
-        Debug.Log($"Signed Message: {result}");
+        var response = await Evm.SignMessage(Web3Accessor.Web3, message);
+        Debug.Log($"Signed Message: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1111,9 +1108,9 @@ public class SignVerify : MonoBehaviour
     // Function
     public async void SignVerifyCall()
     {
-        var signatureVerified = await Evm.SignVerify(Web3Accessor.Web3, message);
-        var result = signatureVerified ? "Verified" : "Failed to verify";
-        Debug.Log($"Verified: {result}");
+        var data = await Evm.SignVerify(Web3Accessor.Web3, message);
+        var response = data ? "Verified" : "Failed to verify";
+        Debug.Log($"Verified: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1144,8 +1141,8 @@ public class SendTransaction : MonoBehaviour
     //Function
     public async void SendTransactionCall()
     {
-        var result = await Evm.SendTransaction(Web3Accessor.Web3, to);
-        Debug.Log($"TX: {result}");
+        var response = await Evm.SendTransaction(Web3Accessor.Web3, to);
+        Debug.Log($"TX: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1173,10 +1170,10 @@ public class GetTransactionStatus : MonoBehaviour
     public async void GetTransactionStatus()
     {
         var receipt = await Evm.GetTransactionStatus(Web3Accessor.Web3);
-        var result = $"Confirmations: {receipt.Confirmations}," +
+        var response = $"Confirmations: {receipt.Confirmations}," +
                      $" Block Number: {receipt.BlockNumber}," +
                      $" Status {receipt.Status}";
-        Debug.Log($"Transation Status: {result}");
+        Debug.Log($"Transation Status: {response}");
         // You can make additional changes after this line
     }
 }
@@ -1203,8 +1200,8 @@ public class RegisteredContract : MonoBehaviour
     // Function
     public async void RegisteredContractCall()
     {
-        var result = await Evm.UseRegisteredContract(Web3Accessor.Web3, registeredContractName, EthMethod.BalanceOf);
-        Debug.Log($"Balance Of: {result.ToString()}");
+        var response = await Evm.UseRegisteredContract(Web3Accessor.Web3, registeredContractName, EthMethod.BalanceOf);
+        Debug.Log($"Balance Of: {response.ToString()}");
         // You can make additional changes after this line
     }
 }
@@ -1223,9 +1220,9 @@ Change the class name, variables and add any additional changes at the end of th
 The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
-/// Gets the public address the private key belongs to.
+/// Signs a transaction with an ECDSA key.
 /// </summary>
-public class EcdsaGetAddress : MonoBehaviour
+public class EcdsaSignTransaction : MonoBehaviour
 {
     // Variables
     // Variables
@@ -1234,7 +1231,7 @@ public class EcdsaGetAddress : MonoBehaviour
     private string transactionHash = "0x123456789";
     
     // Function
-    public void EcdsaSignTransaction()
+    public void EcdsaSignTransactionCall()
     {
         var response = Evm.EcdsaSignTransaction(ecdsaKey, transactionHash, chainId);
         Debug.Log($"TX: {response}");
@@ -1264,7 +1261,7 @@ public class EcdsaGetAddress : MonoBehaviour
     private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
     
     // Function
-    public void EcdsaGetAddress()
+    public void EcdsaGetAddressCall()
     {
         var response = Evm.EcdsaGetAddress(ecdsaKey);
         Debug.Log($"Address: {response}");
@@ -1292,11 +1289,12 @@ public class EcdsaSignMessage : MonoBehaviour
 {
     // Variables
     private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
+    private string message = "secretmessage";
     
     // Function
-    public void EcdsaSignMessage()
+    public void EcdsaSignMessageCall()
     {
-        var response = Evm.EcdsaSignMessage(ecdsaKey, ecdsaMessage);
+        var response = Evm.EcdsaSignMessage(ecdsaKey, message);
         Debug.Log($"Signed Message: {response}");
         // You can make additional changes after this line
     }
