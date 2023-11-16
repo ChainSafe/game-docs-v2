@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/getting-started
-sidebar_position: 2
+sidebar_position: 1
 sidebar_label: Getting Started
 ---
 
@@ -90,9 +90,9 @@ Once you've logged in it will take you to the main scene. You can play around in
 
 ![](v2Assets/MainScene.png)
 
-### Prefabs
+### Prefab Scripts
 
-We've created some easy to use prefabs, think of it as a beginner friendly layer. Feel free to check out the prefabs area of the docs [here](https://docs.gaming.chainsafe.io/current/prefabs), you'll find helpful snippets of code that you can drop in and out of your scenes. Please note that you must have the samples package above installed to use the prefab scripts or they'll be missing some dependencies.
+We've created some easy to use prefab scripts, think of it as a beginner friendly layer. Feel free to check out the prefab scripts area of the docs [here](https://docs.gaming.chainsafe.io/current/prefab-scripts), you'll find helpful snippets of code that you can drop in and out of your scenes. Please note that you must have the samples package above installed to use the prefab scripts or they'll be missing some dependencies.
 
 ### Introduction to API
 
