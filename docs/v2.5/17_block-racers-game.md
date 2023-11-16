@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/block-racers-game
-sidebar_position: 16
+sidebar_position: 17
 sidebar_label: Block Racers Game
 ---
 
@@ -38,9 +38,7 @@ This will generate a unique signature from a user that you may use for authoriza
 ![](v2Assets/BlockRacers3.png)
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -72,9 +70,7 @@ This will verify a signature from a wallet to prove its owners address.
 ![](v2Assets/BlockRacers4.png)
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -107,9 +103,8 @@ This can be used to mint ERC20 Race tokens or even native tokens via the faucet 
 ![](v2Assets/BlockRacers5.png)
 
 ``` csharp
-using System.Threading.Tasks;
+using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -145,9 +140,7 @@ This will allow you to transfer ERC20 Race tokens between wallets.
 ![](v2Assets/BlockRacers6.png)
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -182,9 +175,7 @@ This will allow you to make a custom call, we've included 2 examples here. 1 bei
 ![](v2Assets/BlockRacers7.png)
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -203,7 +194,7 @@ public class ContractCall : MonoBehaviour
     private string method = "myTotal";
 
     // Function
-    public async void ContractCall()
+    public async void CallContract()
     {
         object[] args =
         {
@@ -218,9 +209,7 @@ public class ContractCall : MonoBehaviour
 ```
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -240,7 +229,7 @@ public class ContractSend : MonoBehaviour
     private int increaseAmount = 1;
 
     // Function
-    public async void ContractSend()
+    public async void SendContract()
     {
         object[] args =
         {
@@ -265,8 +254,6 @@ This will generate a unique voucher via ECDSA which can be used for things like 
 ![](v2Assets/BlockRacers9.png)
 
 ``` csharp
-using Web3Unity.Scripts.Prefabs;
-using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 using UnityEngine;
 

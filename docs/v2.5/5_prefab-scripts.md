@@ -1,6 +1,6 @@
 ---
 slug: /current/prefab-scripts
-sidebar_position: 17
+sidebar_position: 5
 sidebar_label: Prefab Scripts
 ---
 
@@ -708,7 +708,6 @@ public class Erc1155Transfer : MonoBehaviour
 Uploads to IPFS.
 
 ``` csharp
-using System.Threading.Tasks;
 using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
@@ -750,9 +749,7 @@ public class IpfsUpload : MonoBehaviour
 Makes a read call to a contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -763,7 +760,7 @@ The scripts function should be called by a method of your choosing - button, fun
 /// <summary>
 /// Makes a read call to a contract
 /// </summary>
-public class ContractCall : MonoBehaviour
+public class CallContract : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
@@ -789,9 +786,7 @@ public class ContractCall : MonoBehaviour
 Makes a write call to a contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -802,7 +797,7 @@ The scripts function should be called by a method of your choosing - button, fun
 /// <summary>
 /// Makes a write call to a contract
 /// </summary>
-public class ContractSend : MonoBehaviour
+public class SendContract : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
@@ -831,9 +826,7 @@ Gets an array response from a contract.
 ``` csharp
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -852,9 +845,9 @@ public class GetArray : MonoBehaviour
     private string method = "getStore";
     
     // Function
-    public async void GetArray()
+    public async void GetArrayCall()
     {
-        var data = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, methodArrayGet);
+        var data = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, method);
         var response = string.Join(",\n", data.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
         Debug.Log($"Result: {response}");
         // You can make additional changes after this line
@@ -866,9 +859,7 @@ public class GetArray : MonoBehaviour
 Sends an array to a contract.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -892,9 +883,9 @@ public class SendArray : MonoBehaviour
     };
 
     // Function
-    public async void SendArray()
+    public async void SendArrayCall()
     {
-        var data = await Evm.SendArray(Web3Accessor.Web3, methodArraySend, ABI.ArrayTotal, Contracts.ArrayTotal, stringArraySend);
+        var data = await Evm.SendArray(Web3Accessor.Web3, method, ABI.ArrayTotal, Contracts.ArrayTotal, stringArray);
         var response = SampleOutputUtil.BuildOutputValue(data);
         Debug.Log($"Result: {response}");
         // You can make additional changes after this line
@@ -906,9 +897,7 @@ public class SendArray : MonoBehaviour
 Gets the current block number.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -922,7 +911,7 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetBlockNumber : MonoBehaviour
 {
     // Function
-    public async void GetBlockNumber()
+    public async void GetBlockNumberCall()
     {
         var response = await Evm.GetBlockNumber(Web3Accessor.Web3);
         Debug.Log($"Block Number: {response.ToString()}");
@@ -935,9 +924,7 @@ public class GetBlockNumber : MonoBehaviour
 Gets the current gas limit.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -956,7 +943,7 @@ public class GetGasLimit : MonoBehaviour
     private string method = "addTotal";
     private int increaseAmount = 1;
     
-    public async void GetGasLimit()
+    public async void GetGasLimitCall()
     {
         object[] args =
         {
@@ -973,9 +960,7 @@ public class GetGasLimit : MonoBehaviour
 Gets the current gas price.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -989,7 +974,7 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetGasPrice : MonoBehaviour
 {
     // Function
-    public async void GetGasPrice()
+    public async void GetGasPriceCall()
     {
         var response = await Evm.GetGasPrice(Web3Accessor.Web3);
         Debug.Log($"Gas Price: {response.ToString()}");
@@ -1002,9 +987,7 @@ public class GetGasPrice : MonoBehaviour
 Gets the current nonce for an account.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1018,7 +1001,7 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetNonce : MonoBehaviour
 {
     // Function
-    public async void GetNonce()
+    public async void GetNonceCall()
     {
         var response = await Evm.GetNonce(Web3Accessor.Web3);
         Debug.Log($"Nonce: {response}");
@@ -1031,8 +1014,6 @@ public class GetNonce : MonoBehaviour
 Encrypts a message with SHA3.
 
 ``` csharp
-using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1062,9 +1043,7 @@ public class Sha3 : MonoBehaviour
 Signs a message, the response is unique for each user.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1094,9 +1073,7 @@ public class SignMessage : MonoBehaviour
 Verifies a users account via message sign.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1127,10 +1104,7 @@ public class SignVerify : MonoBehaviour
 Sends a transaction.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Nethereum.Hex.HexTypes;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1160,9 +1134,7 @@ public class SendTransaction : MonoBehaviour
 Gets the status of a transaction.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1176,12 +1148,12 @@ The scripts function should be called by a method of your choosing - button, fun
 public class GetTransactionStatus : MonoBehaviour
 {
     // Function
-    public async void GetTransactionStatus()
+    public async void GetTransactionStatusCall()
     {
         var receipt = await Evm.GetTransactionStatus(Web3Accessor.Web3);
         var response = $"Confirmations: {receipt.Confirmations}," +
-                     $" Block Number: {receipt.BlockNumber}," +
-                     $" Status {receipt.Status}";
+                       $" Block Number: {receipt.BlockNumber}," +
+                       $" Status {receipt.Status}";
         Debug.Log($"Transation Status: {response}");
         // You can make additional changes after this line
     }
@@ -1192,9 +1164,7 @@ public class GetTransactionStatus : MonoBehaviour
 Allows a contract to be registered for easy calling.
 
 ``` csharp
-using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using Web3Unity.Scripts.Prefabs;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1207,6 +1177,8 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class RegisteredContract : MonoBehaviour
 {
+    // Variables
+    private string registeredContractName = "CsTestErc20";
     // Function
     public async void RegisteredContractCall()
     {
@@ -1221,8 +1193,6 @@ public class RegisteredContract : MonoBehaviour
 Signs a transaction with an ECDSA key
 
 ``` csharp
-using Web3Unity.Scripts.Prefabs;
-using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1255,8 +1225,6 @@ public class EcdsaSignTransaction : MonoBehaviour
 Gets the public address the private key belongs to.
 
 ``` csharp
-using Web3Unity.Scripts.Prefabs;
-using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 using UnityEngine;
 
@@ -1286,8 +1254,6 @@ public class EcdsaGetAddress : MonoBehaviour
 Signs a message using a private key.
 
 ``` csharp
-using Web3Unity.Scripts.Prefabs;
-using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 using UnityEngine;
 

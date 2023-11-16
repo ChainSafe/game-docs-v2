@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/web2-like-authentication-using-web3auth
-sidebar_position: 12
+sidebar_position: 13
 sidebar_label: Web2-Like Authentication Using Web3Auth
 ---
 
