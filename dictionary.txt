@@ -74,6 +74,7 @@ devs
 dev
 devsetup
 ECDSA
+erc20NameOf
 EVM-compatible
 EVM-compatible
 Etherscan
