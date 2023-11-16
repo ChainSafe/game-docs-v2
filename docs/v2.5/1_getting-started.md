@@ -48,10 +48,10 @@ window. Save settings. You should see a message in the console saying your proje
 
 You should also setup default settings for the RPC node you're going to use.
 
-- Chain ID - search using you chain name here https://chainlist.org, 5 for goerli.
-- Chain name - To Do description
-- Network - To Do description
-- Symbol - To Do description
+- Chain ID - search using you chain name here https://chainlist.org, 11155111 for sepolia.
+- Chain name - i.e Sepolia
+- Network - i.e Ethereum
+- Symbol - i.e SETH
 - Rpc - enter URL to your RPC node here. For information on setting up an RPC Node visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
 
 ### Wallet Connect
