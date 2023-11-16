@@ -8,97 +8,17 @@ sidebar_label: Prefabs
 
 :::info
 
-In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started).
+In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started). 
+
+The sample package lets you use the Web3Accessor instance, this provides a convenient way to access your web3 data which is set when you login. If for some reason you don't want to use the sample package, you're' free to build your web3 object before each call and pass that into the function instead.
 
 :::
 
 ### The login scene
 You'll notice when you import the samples into the project that some scenes are added to your build configuration. You'll want to keep the login scene as the first scene as it's needed to initialize web3 to create a wallet connection. You can remove the rest and add a blank scene as your 2nd scene in build settings. We'll use this 2nd scene to drop scripts in and out of for testing purposes. Make sure your 2nd scene has an event system present in the hierarchy or the scripts won't work. You can right click in the object hierarchy on the left and go to UI -> Event system to add one if it isn't there.
 
-### Altering sample code
-You may need to alter the code of a sample example in order to use the results, don't worry it's easy, we'll walk you through it all. First you need to find the sample script in the example scene area, we're going to use a balance of prefab. If you're just using the script for testing, drop it onto a button and the inherited behaviour will make the call fire off automatically once the button the script is on is clicked. We want to do something with the result so we're going to modify it slightly.
-
-Original Balance Of script in the example scene.
-
-```csharp
-using System.Threading.Tasks;
-
-namespace Samples.Behaviours
-{
-    public class Erc20BalanceOfBehaviour : SampleBehaviour
-    {
-        public string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-        public string account = "0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2";
-
-        private Erc20Sample logic;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            logic = new Erc20Sample(Web3);
-        }
-
-        protected override async Task ExecuteSample()
-        {
-            var balance = await logic.BalanceOf(contractAddress, account);
-            SampleOutputUtil.PrintResult(balance.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.BalanceOf));
-        }
-    }
-}
-```
-
-Modified Balance Of script so we can call it as we please and use the results.
-
-```csharp
-using System.Threading.Tasks;
-using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
-
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
-
-/// <summary>
-/// Fetches the balance of an ERC20 token from an account
-/// </summary>
-public class Erc20BalanceOf : MonoBehaviour
-{
-    // Variables
-    private string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private string account;
-    private Erc20Sample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
-    {
-        // Sets our account to be default if nothing has been entered
-        if (string.IsNullOrEmpty(account))
-        {
-            account = PlayerPrefs.GetString("PlayerAccount");
-        }
-
-        // Sets the sample behaviour & executes
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.BalanceOf(contractAddress, account);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.BalanceOf));
-    }
-}
-```
-
-As you can see we've replaced the sample behaviour with MonoBehaviour. We've also allowed the prefab to be initialized whenever we please, we can assign this to something like a button, an event or even an external function call. We can also save the result into a variable, this is great for displaying things on screen like balances or if you wanted to amend information in a data manager of your choosing.
-
-### What should i do?
-If you just want to quickly test results, dragging the sample prefabs in and changing the editor values will be faster for your development process. alternatively If you need to do specific things like alter variables or display something on screen: Simply copy the examples below into a new script, change the class name, alter the input variables and use the results as needed.
+### Adding a script to a scene for testing
+If you right click in unitys explorer you can create a c# script. For example we're going to test erc20NameOf to get the name of an ERC20 token from chain data. Right click in the editor file explorer and create a new script, attach this script to an empty object in the scene next to the editor system. Name the script erc20NameOf, place the code below into it and press save. Once saved you can go back to the editor, create a button and assign the scipts public function to a button press event on the right. You can do this by finding the objects properties on the right, scrolling down to button and adding an event. Just drag the object with the script into the button event area and choose the starting fucntion of the script.
 
 ## ERC20 Prefabs
 
@@ -110,9 +30,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the name of an ERC20 contract
@@ -120,25 +40,14 @@ The initialize function should be called by a method of your choosing */
 public class Erc20NameOf : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private Erc20Sample logic;
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void Name()
     {
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.Name(contractAddress);
-        SampleOutputUtil.PrintResult(result, nameof(Erc20Sample), nameof(Erc20Sample.Name));
+        var result = await Erc20.Name(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Balace: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -151,9 +60,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the symbol of an ERC20 contract
@@ -161,25 +70,14 @@ The initialize function should be called by a method of your choosing */
 public class Erc20Symbol : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private Erc20Sample logic;
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void Symbol()
     {
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.Symbol(contractAddress);
-        SampleOutputUtil.PrintResult(result, nameof(Erc20Sample), nameof(Erc20Sample.Symbol));
+        var result = await Erc20.Symbol(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Symbol: {result}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -192,9 +90,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the decimals of an ERC20 contract
@@ -202,25 +100,14 @@ The initialize function should be called by a method of your choosing */
 public class Erc20Decimals : MonoBehaviour
 {
     // Variables
-    private string contract = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private Erc20Sample logic;
+    private string contract = "0x358969310231363CBEcFEFe47323139569D8a88b";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void Decimals()
     {
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var decimals = await logic.Decimals(contract);
-        SampleOutputUtil.PrintResult(decimals.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.Decimals));
+        var decimals = await Erc20.Decimals(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Decimals: {decimals.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -233,9 +120,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the total supply of an ERC20 contract
@@ -243,25 +130,14 @@ The initialize function should be called by a method of your choosing */
 public class Erc20TotalSupply : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private Erc20Sample logic;
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void TotalSupply()
     {
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.Name(contractAddress);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.TotalSupply));
+        var result = await Erc20.TotalSupply(Web3Accessor.Web3, contractAddress);
+        Debug.Log($"Total Supply: {result.ToString()}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -274,9 +150,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the balance of an ERC20 token from an account
@@ -284,33 +160,16 @@ The initialize function should be called by a method of your choosing */
 public class Erc20BalanceOf : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x3E0C0447e47d49195fbE329265E330643eB42e6f";
-    private string account;
-    private Erc20Sample logic;
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
 
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    // Function
+    public async void BalanceOf()
     {
-        // Sets our account to be default if nothing has been entered
-        if (string.IsNullOrEmpty(account))
-        {
-            account = PlayerPrefs.GetString("PlayerAccount");
-        }
-
-        // Sets the sample behaviour & executes
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.BalanceOf(contractAddress, account);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.BalanceOf));
+        // Sets the account to be queried, you can change this to be any address
+        string account = PlayerPrefs.GetString("PlayerAccount");
+        var balance = await Erc20.BalanceOf(Web3Accessor.Web3, contractAddress, accountBalanceOf);
+        Debug.Log($"Balance Of: {balance.ToString()}")
+        // You can make additional changes after this line
     }
 }
 ```
@@ -323,9 +182,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the balance of a custom ERC20 token from an account
@@ -333,27 +192,14 @@ The initialize function should be called by a method of your choosing */
 public class Erc20CustomTokenBalanceOf : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0x99D555E4dAf4f7e103893AD075CFC605fB8e3544";
-    private string contractAbi = "[ { \"inputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"Approval\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"approve\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"success\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"decreaseAllowance\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"DecreaseAllowance\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"decreaseMapping\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"DecreaseMapping\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"increaseAllowance\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"IncreaseAllowance\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"increaseMapping\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"IncreaseMapping\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"mint\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"success\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"Mint\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"transfer\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"success\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"Transfer\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_value\", \"type\": \"uint256\" } ], \"name\": \"transferFrom\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"success\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"_decimal\", \"outputs\": [ { \"internalType\": \"uint8\", \"name\": \"\", \"type\": \"uint8\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"_name\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"_symbol\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"_totalSupply\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"_spender\", \"type\": \"address\" } ], \"name\": \"allowance\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"remaining\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_owner\", \"type\": \"address\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"balance\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"decimals\", \"outputs\": [ { \"internalType\": \"uint8\", \"name\": \"\", \"type\": \"uint8\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"earnSupply\", \"outputs\": [ { \"internalType\": \"int256\", \"name\": \"\", \"type\": \"int256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"name\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"symbol\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"totalSupply\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"uintMapping\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
-    private Erc20Sample logic;
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
+    private string contractAbi = "[ { \"inputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"allowance\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"needed\", \"type\": \"uint256\" } ], \"name\": \"ERC20InsufficientAllowance\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"balance\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"needed\", \"type\": \"uint256\" } ], \"name\": \"ERC20InsufficientBalance\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"approver\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidApprover\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"receiver\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidReceiver\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidSender\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidSpender\", \"type\": \"error\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"Approval\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"Transfer\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" } ], \"name\": \"allowance\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"approve\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"decimals\", \"outputs\": [ { \"internalType\": \"uint8\", \"name\": \"\", \"type\": \"uint8\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_amount\", \"type\": \"uint256\" } ], \"name\": \"mint\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"name\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"symbol\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"totalSupply\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"transfer\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"transferFrom\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
 
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void CustomTokenBalanceOf()
     {
-        // Sets the sample behaviour & executes
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-    
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var result = await logic.CustomTokenBalance(contractAbi, contractAddress);
-        SampleOutputUtil.PrintResult(result, nameof(Erc20Sample), nameof(Erc20Sample.CustomTokenBalance));
+        var result = await Erc20.CustomTokenBalance(Web3Accessor.Web3, contractAbi, contractAddress);
+        Debug.Log($"Custom Balance Of: {result.ToString()}")
+        // You can make additional changes after this line
     }
 }
 ```
@@ -366,41 +212,57 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the native balance of an ERC20 token from an account.
 /// </summary>
 public class Erc20NativeBalanceOf : MonoBehaviour
 {
-    // Variables
-    private string account;
-    private Erc20Sample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    public async void NativeBalanceOf()
     {
-        // Sets our account to be default if nothing has been entered
-        if (string.IsNullOrEmpty(account))
-        {
-            account = PlayerPrefs.GetString("PlayerAccount");
-        }
-        // Sets the sample behaviour & executes
-        logic = new Erc20Sample(Web3Accessor.Web3);
-        await ExecuteTask();
+        // Sets the account to be queried, you can change this to be any address
+        string account = PlayerPrefs.GetString("PlayerAccount");
+        var result = await Erc20.NativeBalanceOf(Web3Accessor.Web3, account);
+        Debug.Log($"Native Balance Of: {result.ToString()}")
+        // You can make additional changes after this line
     }
+}
+```
+
+### Mint
+Mints ERC20 tokens to an account.
+
+``` csharp
+using System.Threading.Tasks;
+using ChainSafe.Gaming.UnityPackage;
+using UnityEngine;
+using Web3Unity.Scripts.Prefabs;
+
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
+
+/// <summary>
+/// Transfers ERC20 tokens to an account
+/// </summary>
+public class Erc20Mint : MonoBehaviour
+{
+    // Variables
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
+    private string amount = "1";
     
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
+    // Function
+    public async void MintErc20()
     {
-        var result = await logic.NativeBalanceOf(account);
-        SampleOutputUtil.PrintResult(result.ToString(), nameof(Erc20Sample), nameof(Erc20Sample.NativeBalanceOf));
+        // Sets the account to mint to, you can change this to be any address
+        string toAccount = await Web3Accessor.Web3.Signer.GetAddress();
+        var response = await Erc20.MintErc20(Web3Accessor.Web3, contractAddress, toAccount, amount);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        Debug.Log($"TX: {response}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -414,9 +276,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Transfers ERC20 tokens to an account
@@ -424,29 +286,17 @@ The initialize function should be called by a method of your choosing */
 public class Erc20Transfer : MonoBehaviour
 {
     // Variables
-    private string contractAddress = "0xc778417e063141139fce010982780140aa0cd5ab";
+    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
     private string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
     private string amount = "1000000000000000";
-    private UnsortedSample logic;
-
-    /// <summary>
-    /// Starts the task, you can put this in the start function or call it from a button/event
-    /// </summary>
-    public async void InitializeTask()
+    
+    // Function
+    public async void TransferErc20()
     {
-        // Sets the sample behaviour & executes
-        logic = new UnsortedSample(Web3Accessor.Web3);
-        await ExecuteTask();
-    }
-
-    /// <summary>
-    /// Executes the prefab task and sends the result to the console, you can also save this into a variable for later use
-    /// </summary>
-    private async Task ExecuteTask()
-    {
-        var response = await logic.TransferErc20(contractAddress, toAccount, amount);
+        var response = await Erc20.TransferErc20(Web3Accessor.Web3, contractAddress, toAccount, amount);
         var output = SampleOutputUtil.BuildOutputValue(response);
-        SampleOutputUtil.PrintResult(output, nameof(UnsortedSample), nameof(UnsortedSample.TransferErc20));
+        Debug.Log($"TX: {response}");
+        // You can make additional changes after this line
     }
 }
 ```
@@ -463,9 +313,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches all ERC721 NFTs from an account
@@ -519,9 +369,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the balance of ERC721 NFTs from an account
@@ -569,9 +419,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Mints a 721 NFT to an account
@@ -615,9 +465,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Mints a 1155 NFT to an account
@@ -662,9 +512,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the owner of an ERC721 token id
@@ -707,9 +557,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the owners of ERC721 token ids
@@ -754,9 +604,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the URI from an ERC721 NFT
@@ -798,9 +648,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Transfers an ERC721 token to an account
@@ -847,9 +697,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches all ERC1155 NFTs from an account
@@ -903,9 +753,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the balance of ERC1155 NFTs from an account
@@ -954,9 +804,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the balance of ERC1155 NFTs from multiple accounts
@@ -1007,9 +857,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the texture of an ERC1155 NFT and displays it to a raw image
@@ -1055,9 +905,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Fetches the URI from an ERC1155 NFT
@@ -1099,9 +949,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Transfer ERC1155 tokens to an account
@@ -1147,9 +997,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Uploads to IPFS
@@ -1201,9 +1051,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Makes a read call to a contract
@@ -1249,9 +1099,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Makes a write call to a contract
@@ -1303,9 +1153,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets an array response from a contract
@@ -1349,9 +1199,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Sends an array to a contract
@@ -1400,9 +1250,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the current block number
@@ -1442,9 +1292,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the current gas limit
@@ -1486,9 +1336,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the current gas price
@@ -1528,9 +1378,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the current nonce for an account
@@ -1569,9 +1419,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Encrypts a message with SHA3
@@ -1612,9 +1462,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Signs a message, the response is unique for each user
@@ -1655,9 +1505,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Verifies a users account via message sign
@@ -1700,9 +1550,9 @@ using Nethereum.Hex.HexTypes;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Sends a transaction
@@ -1743,9 +1593,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the status of a transaction
@@ -1788,9 +1638,9 @@ using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Allows a contract to be registered for easy calling
@@ -1831,9 +1681,9 @@ using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Gets the public address the private key belongs to.
@@ -1872,9 +1722,9 @@ using UnityEngine;
 using Web3Unity.Scripts.Prefabs;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Signs a message using a private key
@@ -1915,9 +1765,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Allows sponsor calling to Gelato with sync fee
@@ -1958,9 +1808,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Allows sponsor calling to Gelato with sync fee for ERC2771
@@ -2001,9 +1851,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Allows sponsor calling to Gelato
@@ -2044,9 +1894,9 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object.
-Change the class name, variables and add any additional changes at the end of the execute function.
-The initialize function should be called by a method of your choosing */
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
 
 /// <summary>
 /// Allows sponsor calling to Gelato for ERC2771
