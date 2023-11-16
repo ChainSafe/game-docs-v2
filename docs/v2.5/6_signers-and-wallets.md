@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/signers-and-wallets
-sidebar_position: 7
+sidebar_position: 6
 sidebar_label: Signers And Wallets
 ---
 
