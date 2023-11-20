@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: ChainSafe Marketplace API
+  contact:
+    email: info@chainsafe.io
+    name: ChainSafe
+    url: storage.chainsafe.io
+  version: 1.19.2
+externalDocs:
+  description: Find out more about ChainSafe
+  url: "https://doc.chainsafe.io"
+tags:
+  - name: marketplace
+    description: Operations about user
+paths:
+  /v1/projects/:projectID/items:
+    $ref: 'paths/get_project_items.yaml'

@@ -1,0 +1,6 @@
+type: string
+enum:
+  - invalid
+  - sold
+  - listed
+  - canceled

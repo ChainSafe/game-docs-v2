@@ -1,0 +1,59 @@
+get:
+  tags:
+    - marketplace
+  summary: Get Project Items
+  description: Get all the items for a project. You can provide various filters to get the items you want.
+  operationId: getProjectItems
+  parameters:
+    - name: projectID
+      in: path
+      description: Project ID
+      required: true
+      schema:
+          type: string
+    - name: status
+      in: query
+      description: Status of the item
+      required: false
+      schema:
+        $ref: ../components/item_status.yaml
+    - name: sortBy
+      in: query
+      description: Sort by
+      required: false
+      schema:
+        $ref: ../components/item_sort_by.yaml
+    - name: sortOrder
+      in: query
+      description: Sort order
+      required: false
+      schema:
+          $ref: ../components/item_sort_order.yaml
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+          type: string
+
+  responses:
+    '200':
+      description: List Of Project Items
+      content:
+        application/json:
+          schema:
+            allof:
+              - $ref: ../components/paginated_list.yaml
+              - $ref: ../components/item_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml

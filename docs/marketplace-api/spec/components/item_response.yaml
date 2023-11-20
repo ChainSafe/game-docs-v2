@@ -1,0 +1,29 @@
+type: object
+properties:
+  - id:
+      type: string
+      description: Item ID
+  - token:
+      type: string
+      description: Item token
+  - marketplace_contract_address:
+      type: string
+      description: Marketplace contract address
+  - seller:
+      type: string
+      description: Seller address
+  - buyer:
+      type: string
+      description: Buyer address
+  - price:
+      type: string
+      description: Price of the item
+  - payment_token:
+      type: string
+      description: Payment token
+  - listed_at:
+      type: int64
+      description: Listed at epoch time
+  - status:
+      $ref: ./item_status.yaml
+
