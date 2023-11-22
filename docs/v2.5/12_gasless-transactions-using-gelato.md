@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/gasless-transactions-using-Gelato
-sidebar_position: 13
+sidebar_position: 12
 sidebar_label: Gasless Transactions Using Gelato
 ---
 

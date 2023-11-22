@@ -32,6 +32,9 @@ This page will walk you through the process of setting up a project ID and using
 ![](v2Assets/openupmInstall.png)
 5. Packages will be installed and the SDK will be available to you.
 
+### Updating via The Package Manager
+Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
+
 ### Set Project ID
 
 As the package is installed, you'll be prompted with settings window.
