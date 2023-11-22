@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/lootboxes
-sidebar_position: 15
+sidebar_position: 14
 sidebar_label: Lootboxes
 ---
 

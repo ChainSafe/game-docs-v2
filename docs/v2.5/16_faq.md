@@ -1,6 +1,6 @@
 ---
 slug: /current/faq
-sidebar_position: 17
+sidebar_position: 16
 sidebar_label: FAQ
 ---
 
