@@ -34,7 +34,7 @@ Name: package.openupm.com
 URL: https://package.openupm.com
 Scope: io.chainsafe.web3-unity
 ```
-4. Add a new package by name by pressing the + icon on the top left, enter ```io.chainsafe.web3-unity``` and press add.
+4. Add a new package by name by pressing + -> Add package by name & entering ```io.chainsafe.web3-unity```.
 5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
 ![](v2Assets/openupmInstall.png)
 
