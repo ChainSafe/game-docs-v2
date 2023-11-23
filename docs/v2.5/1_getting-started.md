@@ -25,12 +25,22 @@ This page will walk you through the process of setting up a project ID and using
 
 ### Install via Open UPM
 
-1. Open up your project in editor
-2. Follow the OpenUPM guide [here](https://openupm.com/docs/getting-started.html) to install openupm-cli
-3. Navigate to your Unity Project folder and run the commands ```openupm add io.chainsafe.web3-unity``` & ```openupm add io.chainsafe.web3-unity.web3auth```
-4. Import Samples from Package Manager web3.unity Package Page
+1. Navigate to Window/PackageManager on the top bar in unity.
+2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
+3. Save the following details to the scope:
+```csharp
+Name: package.openupm.com
+URL: https://package.openupm.com
+Scope: io.chainsafe.web3-unity
+```
+4. Add a new package by name by pressing the + icon on the top left, enter ```io.chainsafe.web3-unity``` and press add.
+5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
 ![](v2Assets/openupmInstall.png)
-5. Packages will be installed and the SDK will be available to you.
+6. Packages will be installed and the SDK will be available to you.
+
+### Install via tool
+
+Alterantively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
 
 ### Updating via The Package Manager
 Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
