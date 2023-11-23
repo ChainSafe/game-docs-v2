@@ -25,7 +25,7 @@ This page will walk you through the process of setting up a project ID and using
 
 ### Install via Open UPM
 
-1. Navigate to Window/PackageManager on the top bar in unity.
+1. Navigate to Window/Package Manager on the top bar in unity.
 2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
 3. Save the following details to the scope:
 ```csharp
@@ -40,7 +40,7 @@ Scope: io.chainsafe.web3-unity
 
 ### Install via Tool
 
-Alterantively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
+Alternatively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
 
 ### Updating via The Package Manager
 Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
