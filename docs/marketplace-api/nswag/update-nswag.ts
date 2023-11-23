@@ -1,8 +1,8 @@
 const fs = require("fs");
 const bundler = require("./spec-bundler");
-const nswagFileName = "./nswag/marketplace-api-client.nswag";
+const nswagFileName = "./docs/marketplace-api/nswag/marketplace-api-client.nswag";
 
-bundler.mergeSpec().then(function (bundle) {
+bundler.mergeSpec().then((bundle) => {
     let nswagFileContent = fs.readFileSync(nswagFileName);
     const nswagFile = JSON.parse(nswagFileContent.toString());
 

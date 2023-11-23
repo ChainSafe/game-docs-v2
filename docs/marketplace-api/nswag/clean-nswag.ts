@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const nswagFileName = "./nswag/marketplace-api-client.nswag";
+const nswagFileName = "./docs/marketplace-api/nswag/marketplace-api-client.nswag";
 let nswagFileContent = fs.readFileSync(nswagFileName);
 const nswagFile = JSON.parse(nswagFileContent);
 

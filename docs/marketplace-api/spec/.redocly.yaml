@@ -1,0 +1,10 @@
+lint:
+# the lint options
+
+referenceDocs:
+# the API reference docs options, including theme options.
+
+registry:
+# the API registry options
+
+# future products may be configured by extending this file

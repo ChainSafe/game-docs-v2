@@ -11,7 +11,7 @@
   },
   "codeGenerators": {
     "openApiToTypeScriptClient": {
-      "className": "FilesApiClient",
+      "className": "MarketplaceApiClient",
       "moduleName": "",
       "namespace": "",
       "typeScriptVersion": 3.8,
@@ -67,7 +67,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "../api-client-src/FilesApiClient.ts",
+      "output": "../api-client-src/MarketplaceApiClient.ts",
       "newLineBehavior": "Auto"
     }
   }

@@ -13,5 +13,9 @@ tags:
   - name: marketplace
     description: Operations about user
 paths:
-  /v1/projects/:projectID/items:
+  /v1/projects/{projectID}/items:
     $ref: 'paths/get_project_items.yaml'
+  /v1/projects/{projectID}/{marketplaceID}/items:
+    $ref: 'paths/get_project_marketplace_items.yaml'
+  /v1/projects/{projectID}/{marketplaceID}/items/{itemID}:
+    $ref: 'paths/get_project_marketplace_item.yaml'
