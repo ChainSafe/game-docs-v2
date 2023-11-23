@@ -38,7 +38,7 @@ Scope: io.chainsafe.web3-unity
 ![](v2Assets/openupmInstall.png)
 6. Packages will be installed and the SDK will be available to you.
 
-### Install via tool
+### Install via Tool
 
 Alterantively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
 
