@@ -42,7 +42,7 @@ Scope: io.chainsafe.web3-unity
 
 1. Open up your project in editor
 2. Follow the OpenUPM guide here to install openupm-cli
-3. Navigate to your Unity Project folder and run the commands openupm add io.chainsafe.web3-unity & openupm add io.chainsafe.web3-unity.web3auth
+3. Navigate to your Unity Project folder and run the commands ```openupm add io.chainsafe.web3-unity``` & ```openupm add io.chainsafe.web3-unity.web3auth```
 4. Follow step 5 above to install the sample packages and explore the SDK.
 
 ### Install via Tool

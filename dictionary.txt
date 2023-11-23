@@ -57,6 +57,7 @@ Chainstack
 ChainID's
 Chainlist
 cheatsheet
+CLI
 Cloudflare
 config
 contract-abi-to-json-format
