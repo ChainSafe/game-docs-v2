@@ -25,7 +25,7 @@ This page will walk you through the process of setting up a project ID and using
 
 ### Install via Open UPM
 
-1. Navigate to Window/Package Manager on the top bar in unity.
+1. On the top bar in unity, navigate to Window ->Package Manager-> Gear icon -> Advanced Settings.
 2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
 3. Save the following details to the scope:
 ```csharp
