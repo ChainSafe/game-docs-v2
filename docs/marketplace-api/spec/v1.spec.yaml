@@ -9,6 +9,11 @@ info:
 externalDocs:
   description: Find out more about ChainSafe
   url: "https://doc.chainsafe.io"
+servers:
+  - url: "https://stage.api.chainsafe.site"
+    description: STAGING
+  - url: "https://api.chainsafe.io"
+    description: PRODUCTION
 tags:
   - name: marketplace
     description: Operations about user

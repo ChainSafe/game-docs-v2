@@ -1,29 +1,42 @@
 type: object
 properties:
-  - id:
+  id:
       type: string
       description: Item ID
-  - token:
+  token:
       type: string
       description: Item token
-  - marketplace_contract_address:
+  marketplace_contract_address:
       type: string
       description: Marketplace contract address
-  - seller:
+  seller:
       type: string
       description: Seller address
-  - buyer:
+  buyer:
       type: string
       description: Buyer address
-  - price:
+  price:
       type: string
       description: Price of the item
-  - payment_token:
+  payment_token:
       type: string
       description: Payment token
-  - listed_at:
-      type: int64
+  listed_at:
+      type: integer
       description: Listed at epoch time
-  - status:
+  status:
       $ref: ./item_status.yaml
+  page_number:
+      type: integer
+      description: Page number
+  page_size:
+      type: integer
+      description: Page size
+  total:
+      type: integer
+      description: Total number of items
+  cursor:
+      type: string
+      description: Pagination cursor, if empty no more items to return
+
 

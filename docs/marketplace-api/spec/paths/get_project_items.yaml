@@ -4,6 +4,7 @@ get:
   summary: Get Project Items
   description: Get all the items for a project. You can provide various filters to get the items you want.
   operationId: getProjectItems
+  security: []
   parameters:
     - name: projectID
       in: path
@@ -42,9 +43,9 @@ get:
       content:
         application/json:
           schema:
-            allof:
-              - $ref: ../components/paginated_list.yaml
-              - $ref: ../components/item_response.yaml
+            type: array
+            items:
+              $ref: ../components/item_response.yaml
     '400':
       description: Bad Request
       content:

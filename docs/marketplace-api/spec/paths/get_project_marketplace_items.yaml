@@ -4,6 +4,7 @@ get:
   summary: Get Marketplace Items
   description: Get all the items for a project under a marketplace.
   operationId: getItems
+  security: []
   parameters:
     - name: projectID
       in: path
@@ -48,9 +49,7 @@ get:
       content:
         application/json:
           schema:
-            allof:
-              - $ref: ../components/paginated_list.yaml
-              - $ref: ../components/item_response.yaml
+            $ref: ../components/item_response.yaml
     '400':
       description: Bad Request
       content:
