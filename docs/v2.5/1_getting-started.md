@@ -111,6 +111,11 @@ Once you've logged in it will take you to the main scene. You can play around in
 
 ![](v2Assets/MainScene.png)
 
+### Altering Login Scene Transition
+If you would like to have the login screen go to a custom scene after authorization, you can alter the inspector value on the login object in the scenes hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+
+![](v2Assets/login-scene.png)
+
 ### Prefab Scripts
 
 We've created some easy to use prefab scripts, think of it as a beginner friendly layer. Feel free to check out the prefab scripts area of the docs [here](https://docs.gaming.chainsafe.io/current/prefab-scripts), you'll find helpful snippets of code that you can drop in and out of your scenes. Please note that you must have the samples package above installed to use the prefab scripts or they'll be missing some dependencies.
