@@ -138,6 +138,7 @@ Infura-enabled
 IChainConfig
 Integrable
 IRpcProvider
+IOS
 IDE
 implementing-social-logins-to-webgl-builds
 importing-nfts
