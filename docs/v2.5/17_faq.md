@@ -1,6 +1,6 @@
 ---
 slug: /current/faq
-sidebar_position: 16
+sidebar_position: 17
 sidebar_label: FAQ
 ---
 
@@ -142,6 +142,9 @@ if (imageUri.StartsWith("ipfs://"))
      imageUri = imageUri.Replace("ipfs://", "https://ipfs.io/ipfs/");
 C#// Some code
 ```
+
+### I'm having issues building to Android/IOS
+Code stripping needs to be changed depending on your unity version. Go to Edit -> Project settings -> Player and scroll down until you see the code stripping settings. Older unity versions will need to set this to false. Newer unity versions will need to set the managed stripping level to minimal.
 
 ### I'm getting the following error `Cannot read properties of undefined reading connect` when clicking the login button. What am I doing wrong?
 
