@@ -16,7 +16,7 @@
     "spellcheck": "spellchecker -f \"./docs/**/*.md\" \"./*.md\" -l en-US -q  -d ./dictionary.txt",
     "update-nswag-file": "ts-node ./docs/marketplace-api/nswag/update-nswag",
     "clean-nswag-file": "ts-node ./docs/marketplace-api/nswag/clean-nswag",
-    "generate-api-client": "yarn update-nswag-file && nswag run './docs/marketplace-api/nswag/marketplace-api-client.nswag' && yarn clean-nswag-file && yarn patch-api-client",
+    "generate-api-client": "yarn update-nswag-file && nswag run './docs/marketplace-api/nswag/marketplace-api-client.nswag' && yarn clean-nswag-file",
     "build-client": "yarn generate-api-client && tsc"
   },
   "dependencies": {
