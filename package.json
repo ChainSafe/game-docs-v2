@@ -35,6 +35,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.2.0",
     "@tsconfig/docusaurus": "^1.0.5",
+    "nswag": "^13.20.0",
     "spellchecker-cli": "^4.8.1"
   },
   "browserslist": {
