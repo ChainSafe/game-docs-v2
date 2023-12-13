@@ -185,6 +185,7 @@ private async void Start()
             services.UseWebPageWallet();
         })
         .BuildAsync();
+        Web3Acessor.Set(web3);
 }
 ```
 
