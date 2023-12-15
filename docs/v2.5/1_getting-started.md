@@ -29,12 +29,11 @@ This page will walk you through the process of setting up a project ID and using
 ![](v2Assets/AddPackageGearIcon.png)
 2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
 3. Save the following details to the scope:
-```csharp
-Name: package.openupm.com
-URL: https://package.openupm.com
-Scope: io.chainsafe.web3-unity
-```
-4. Add a new package by name by pressing + -> Add package by name & entering ```io.chainsafe.web3-unity```.
+- Name: package.openupm.com
+- URL: https://package.openupm.com
+- Scope: io.chainsafe.web3-unity
+
+4. Add a new package by name by pressing + -> Add package by name ```io.chainsafe.web3-unity``` & ```io.chainsafe.web3-unity.web3auth```.
 5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
 ![](v2Assets/openupmInstall.png)
 
@@ -110,6 +109,11 @@ You'll notice when you import the samples into the project that some scenes are 
 Once you've logged in it will take you to the main scene. You can play around in the menus and check out each scripts functionality by pressing the show script button, this will highlight the script in the editor and allow you to inspect it further. If you're an advanced developer you should have enough to work with from the sample scripts in front of you. If you're just beginning we suggest you take a look at our easy to use prefabs below.
 
 ![](v2Assets/MainScene.png)
+
+### Altering Login Scene Transition
+If you would like to have the login screen go to a custom scene after authorization, you can alter the inspector value on the login object in the scenes hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+
+![](v2Assets/login-scene.png)
 
 ### Prefab Scripts
 

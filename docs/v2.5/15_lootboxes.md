@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/lootboxes
-sidebar_position: 14
+sidebar_position: 15
 sidebar_label: Lootboxes
 ---
 
@@ -68,6 +68,11 @@ This section contains a summary of everything inside your lootboxes.
 ![](v2Assets/ReviewSummaryLootbox.png)
 
 # Lootbox Functions Within The SDK
+
+## Altering Login Scene Transition
+To use the lootbox example scene with the login scene you'll need to alter the inspector value on the login object in the login scene hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+
+![](v2Assets/login-scene.png)
 
 ## Get Loot box Types
 This method returns all lootbox type ids registered in the smart-contract. Lootbox type id also represents the number of rewards, that can be claimed by user when he opens the lootbox.
