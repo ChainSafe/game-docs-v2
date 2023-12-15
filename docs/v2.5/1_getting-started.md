@@ -29,12 +29,11 @@ This page will walk you through the process of setting up a project ID and using
 ![](v2Assets/AddPackageGearIcon.png)
 2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
 3. Save the following details to the scope:
-```csharp
-Name: package.openupm.com
-URL: https://package.openupm.com
-Scope: io.chainsafe.web3-unity
-```
-4. Add a new package by name by pressing + -> Add package by name & entering ```io.chainsafe.web3-unity```.
+- Name: package.openupm.com
+- URL: https://package.openupm.com
+- Scope: io.chainsafe.web3-unity
+
+4. Add a new package by name by pressing + -> Add package by name ```io.chainsafe.web3-unity``` & ```io.chainsafe.web3-unity.web3auth```.
 5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
 ![](v2Assets/openupmInstall.png)
 
