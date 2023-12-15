@@ -131,8 +131,8 @@ Yes, the SDK will remain free to use.
 
 NewtonSoft is a dependency of the SDK and needs to be installed for the SDK to work. If you see a newtonsoft error you can manually install the package by going to window->package manager->pressing the + button on the top left, pressing add via git url and pasting in "com.unity.nuget.newtonsoft-json@3.0.1".
 
-### I'm having issues building to Android/IOS
-Code stripping needs to be changed depending on your unity version. Go to Edit -> Project settings -> Player and scroll down until you see the code stripping settings. Older unity versions will need to set this to false. Newer unity versions will need to set the managed stripping level to minimal.
+### I'm having issues building to Android/IOS/WebGL
+Code stripping needs to be changed depending on your unity version. Go to Edit -> Project settings -> Player and scroll down until you see the code stripping settings. Older unity versions will need to set this to false. Newer unity versions will need to set the managed stripping level to low.
 
 ### I'm getting the following error when trying to import an NFT texture into the SDK. `Curl error 1: Protocol "ipfs" not supported or disabled in libcurl`
 
