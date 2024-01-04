@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/connecting-a-wallet
-sidebar_position: 6
+sidebar_position: 7
 sidebar_label: Connecting A Wallet
 ---
 
