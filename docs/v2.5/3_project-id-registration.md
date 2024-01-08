@@ -1,6 +1,6 @@
 ---
 slug: /current/project-id-registration
-sidebar_position: 2
+sidebar_position: 3
 sidebar_label: Project ID Registration
 ---
 

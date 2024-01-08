@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/getting-started
-sidebar_position: 1
+sidebar_position: 2
 sidebar_label: Getting Started
 ---
 
@@ -23,14 +23,34 @@ This page will walk you through the process of setting up a project ID and using
 4. Paste "%GIT_URL_HERE%"
 5. Package will be installed -->
 
-### Install via Open UPM
+### Install via Package Manager With Open UPM
+
+1. On the top bar in unity, navigate to Window -> Package Manager -> Gear icon -> Advanced Project Settings.
+![](v2Assets/AddPackageGearIcon.png)
+2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
+3. Save the following details to the scope:
+- Name: package.openupm.com
+- URL: https://package.openupm.com
+- Scope: io.chainsafe.web3-unity
+
+4. Add a new package by name by pressing + -> Add package by name ```io.chainsafe.web3-unity``` & ```io.chainsafe.web3-unity.web3auth```.
+5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
+![](v2Assets/openupmInstall.png)
+
+### Install via Open UPM CLI
 
 1. Open up your project in editor
-2. Follow the OpenUPM guide [here](https://openupm.com/docs/getting-started.html) to install openupm-cli
+2. Follow the OpenUPM guide here to install openupm-cli
 3. Navigate to your Unity Project folder and run the commands ```openupm add io.chainsafe.web3-unity``` & ```openupm add io.chainsafe.web3-unity.web3auth```
-4. Import Samples from Package Manager web3.unity Package Page
-![](v2Assets/openupmInstall.png)
-5. Packages will be installed and the SDK will be available to you.
+4. Follow step 5 above to install the sample packages and explore the SDK.
+
+### Install via Tool
+
+Alternatively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
+
+### Updating via The Package Manager
+
+Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
 
 ### Set Project ID
 
@@ -90,79 +110,11 @@ Once you've logged in it will take you to the main scene. You can play around in
 
 ![](v2Assets/MainScene.png)
 
+### Altering Login Scene Transition
+If you would like to have the login screen go to a custom scene after authorization, you can alter the inspector value on the login object in the scenes hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+
+![](v2Assets/login-scene.png)
+
 ### Prefab Scripts
 
 We've created some easy to use prefab scripts, think of it as a beginner friendly layer. Feel free to check out the prefab scripts area of the docs [here](https://docs.gaming.chainsafe.io/current/prefab-scripts), you'll find helpful snippets of code that you can drop in and out of your scenes. Please note that you must have the samples package above installed to use the prefab scripts or they'll be missing some dependencies.
-
-### Introduction to API
-
-Now let's create a script that will access user's eth balance with the account address provided.
-Create new MonoBehaviour class. Use "Start" method to initialize your web3 instance.
-
-```csharp
-public class MyWeb3Behaviour : MonoBehaviour
-{
-    private async void Start()
-    {
-        var projectConfig = ProjectConfigUtilities.Load();
-        var web3 = await new Web3Builder(projectConfig)
-            .Configure(services => { })
-            .BuildAsync();
-    }
-}
-```
-
-Notice that Start method is marked as `async` to be able to build web3 instance 
-as it is an asynchronous operation.
-
-Next let's configure our web3 instance for our specific purposes. 
-We would need to bind a UnityEnvironment and a JsonRpcProvider services to be able
-to do basic read operations.
-
-```csharp
-var web3 = await new Web3Builder(projectConfig)
-    .Configure(services =>
-    {
-        services.UseUnityEnvironment();
-        services.UseJsonRpcProvider();
-    })
-    .BuildAsync();
-```
-
-Configuration complete. Now let's get eth balance for the provided account address.
-
-```csharp
-var address = "0xaBed4239E4855E120fDA34aDBEABDd2911626BA1";
-var ethBalance = await web3.RpcProvider.GetBalance(address);
-```
-
-That's how you configure a web3 instance and get balance using ChainSafe Gaming SDK.
-You can find more cool features with examples in this documentation.
-
-Complete script file for this section:
-
-```csharp
-using ChainSafe.Gaming.Build;
-using ChainSafe.Gaming.Evm.JsonRpcProvider;
-using ChainSafe.Gaming.Unity.Environment;
-using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
-
-public class MyWeb3Behaviour : MonoBehaviour
-{
-    private async void Start()
-    {
-        var projectConfig = ProjectConfigUtilities.Load();
-        var web3 = await new Web3Builder(projectConfig)
-            .Configure(services =>
-            {
-                services.UseUnityEnvironment();
-                services.UseJsonRpcProvider();
-            })
-            .BuildAsync();
-
-        var address = "0xaBed4239E4855E120fDA34aDBEABDd2911626BA1";
-        var ethBalance = await web3.RpcProvider.GetBalance(address);
-    }
-}
-```

@@ -1,6 +1,6 @@
 ---
 slug: /current/configuration
-sidebar_position: 5
+sidebar_position: 6
 sidebar_label: Configuration
 ---
 
@@ -185,6 +185,7 @@ private async void Start()
             services.UseWebPageWallet();
         })
         .BuildAsync();
+        Web3Acessor.Set(web3);
 }
 ```
 
