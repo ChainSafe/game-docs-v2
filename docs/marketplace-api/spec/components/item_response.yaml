@@ -26,17 +26,5 @@ properties:
       description: Listed at epoch time
   status:
       $ref: ./item_status.yaml
-  page_number:
-      type: integer
-      description: Page number
-  page_size:
-      type: integer
-      description: Page size
-  total:
-      type: integer
-      description: Total number of items
-  cursor:
-      type: string
-      description: Pagination cursor, if empty no more items to return
 
 

@@ -49,7 +49,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/item_response.yaml
+            $ref: ../components/items_response.yaml
     '400':
       description: Bad Request
       content:
