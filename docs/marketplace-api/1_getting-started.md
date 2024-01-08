@@ -10,7 +10,7 @@ sidebar_label: Getting Started
 This Marketplace doc contains the set of public marketplace APIs which user
 can use to interact with its marketplace.
 
-# Prerequites
+# Prerequisites
 
 - You need to have created a project on chainsafe marketplace.
 
