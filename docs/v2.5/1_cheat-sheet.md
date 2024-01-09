@@ -20,18 +20,26 @@ async void Start()
 {
     // Configure & build Web3 client using Web3Builder
     var projectConfig = ProjectConfigUtilities.Load();
-    var web3 = await new Web3Builder(projectConfig)
-        .Configure(services =>
+    var web3 = await new Web3Builder(projectConfig).Configure(services =>
         {
             services.UseUnityEnvironment();
-            services.UseJsonRpcProvider();
+            services.UseRpcProvider();
 
-            if (Application.platform == RuntimePlatform.WebGLPlayer)
-                services.UseWebGLWallet();
-            else
-                services.UseWebPageWallet();
-        })
-        .BuildAsync();
+            var config = new WalletConnectConfig
+            {
+                // Set wallet to testing
+                Testing = true,
+                TestWalletAddress = "YOUR_WALLET_ADDRESS",
+            };
+
+            services.UseWalletConnect(config);
+            services.UseWalletConnectSigner();
+            services.UseWalletConnectTransactionExecutor();
+
+            // Add any contracts we would want to use
+            services.ConfigureRegisteredContracts(contracts =>
+                contracts.RegisterContract("CsTestErc20", ABI.Erc20, Contracts.Erc20));
+        }).LaunchAsync();
 
     // Read from blockchain using RpcProvider
     var ethBalance = await web3.RpcProvider.GetBalance(
