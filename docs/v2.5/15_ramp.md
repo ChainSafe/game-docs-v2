@@ -156,4 +156,4 @@ By selecting the ramp object you're able to customize the logo (currently we're 
 
 ![](v2Assets/RampLogo.png)
 
-We hope you enjoy our new ramp service & the functionality it provides in terms of easing user onboarding. Happy coding!
+We hope you enjoy our new Ramp service & the functionality it provides in terms of easing user onboarding. Happy coding!
