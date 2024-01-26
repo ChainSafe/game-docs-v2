@@ -9,7 +9,7 @@ sidebar_label: Ramp
 
 :::info
 
-This page explains what ramp is & how to use it.
+This page explains what Ramp is & how to use it.
 
 :::
 
