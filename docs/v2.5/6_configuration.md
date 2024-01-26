@@ -184,7 +184,7 @@ private async void Start()
             services.UseJsonRpcProvider();
             services.UseWebPageWallet();
         })
-        .BuildAsync();
+        .LaunchAsync();
         Web3Acessor.Set(web3);
 }
 ```

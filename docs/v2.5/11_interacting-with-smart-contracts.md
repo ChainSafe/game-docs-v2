@@ -53,7 +53,7 @@ var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
             contracts.RegisterContract("shiba", abi, address);
         });
     })
-    .BuildAsync();
+    .LaunchAsync();
 ```
 
 Now you can simply create a new instance of the contract using the contract name:

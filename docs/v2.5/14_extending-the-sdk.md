@@ -73,7 +73,7 @@ var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
     {
         services.UseMyXmlProvider();
     })
-    .BuildAsync();
+    .LaunchAsync();
 ```
 
 Now when you request `Web3.RpcProvider` your new and shiny `IRpcProvider` implementation is returned.
@@ -91,7 +91,7 @@ var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
             { RpcNodeUrl = "letsplayvideogamesallday.org/json-rpc" }
         );
     })
-    .BuildAsync();
+    .LaunchAsync();
 ```
 
 Basically, you just have to create a new class for the configuration data and add a dependency 
@@ -204,7 +204,7 @@ var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
     {
         services.UseNotReallyTrueRandom();
     })
-    .BuildAsync();
+    .LaunchAsync();
 
 var myRandomValue = web3.TrueRandom().GetRandomValue();
 ```
