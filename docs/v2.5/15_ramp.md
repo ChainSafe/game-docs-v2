@@ -19,7 +19,7 @@ Ramp is a quick and easy way to purchase crypto with Fiat currency if your count
 
 ## Why would you choose this over an exchange?
 
-Utilizing ramp will ease the onboarding process for your users as many exchanges have a lengthy sign up process before anyone can purchase native tokens which are needed for gas or even to make a purchase of custom tokens. Instead of having to walk your users through this process you can simply point your users at this service and get them into your game sooner.
+Utilizing ramp will ease the onboarding process for your users as many exchanges have a lengthy signup process before anyone can purchase native tokens, which are needed for gas or even to purchase custom tokens. Instead of having to walk your users through this process, you can simply point your users at this service and get them into your game sooner.
 
 ## Ramp video explanation
 
