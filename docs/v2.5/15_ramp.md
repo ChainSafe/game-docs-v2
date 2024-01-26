@@ -37,7 +37,7 @@ After loading up the login scene and selecting the login object, you'll be able 
 
 ![](v2Assets/RampObject.png)
 
-This object contains all the configuration you'll need to begin testing out ramp in your project. You can also see that we've utilized an interface here for ease of use. Feel free to explore around and see what you can do.
+This object contains all the configuration you'll need to begin testing out Ramp in your project. You can also see that we've utilized an interface here for ease of use. Feel free to explore around and see what you can do.
 
 ## Initializing the ramp service
 
