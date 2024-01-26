@@ -84,7 +84,7 @@ private async void OnRampPressed()
 }
 ```
 
-### Off ramp
+### Off-ramp
 
 This will allow your users to sell crypto currency for Fiat through your app.
 
