@@ -31,7 +31,7 @@ This video will show you how to initialize Ramp as well as how to use it. Below 
 
 ![](v2Assets/RampLogin.png)
 
-After loading up the login scene and selecting the login object, you'll be able to see the ramp config property in the hierarchy on the right of the editor in the inspector. Please select this script to see the ramp object.
+After loading up the login scene and selecting the login object, you'll be able to see the Ramp config property in the hierarchy on the right of the editor in the inspector. Please select this script to see the Ramp object.
 
 ## The ramp scriptable object
 
