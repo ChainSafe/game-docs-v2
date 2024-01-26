@@ -57,7 +57,7 @@ Once logged in you'll be presented with our famous sample scene page, which you'
 
 As you can see from the functions here in ramp.cs, we're providing 3 different types of ramp functionality for use with your project. This can be accessed through the Web3 object as needed. You can also check out the ramp configuration docs [here](https://docs.ramp.network/configuration) if you would like to add additional settings or use other tokens besides sepolia eth.
 
-### On ramp
+### On-ramp
 
 This will allow your users to purchase crypto currency with Fiat through your app.
 
