@@ -13,7 +13,7 @@ This page explains what ramp is & how to use it.
 
 :::
 
-## What is ramp?
+## What is Ramp?
 
 Ramp is a quick and easy way to purchase crypto with Fiat currency if your country supports it.
 
