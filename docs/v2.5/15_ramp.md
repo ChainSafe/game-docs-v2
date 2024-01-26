@@ -47,7 +47,7 @@ In the login.cs script, you can see the scriptable object above being initialize
 
 ## Ramp sample scene
 
-Once logged in you'll be presented with our famous sample scene page which you'll notice has a new area to showcase ramp functionality. As these are testnet tokens please feel free to click around to see the functionality of the 3 functions mentioned above.
+Once logged in you'll be presented with our famous sample scene page, which you'll notice has a new area to showcase Ramp functionality. As these are testnet tokens please feel free to click around to see the functionality of the 3 functions mentioned above.
 
 ![](v2Assets/RampSample.png)
 
