@@ -43,7 +43,7 @@ This object contains all the configuration you'll need to begin testing out ramp
 
 ![](v2Assets/RampInitializeService.png)
 
-In the login.cs script, you can see the scriptable object above being initialized, you can add this to your custom login scene also and initialize the service as you see here. For testing purposes we've included it in the login script so you don't have to worry about any of this.
+In the login.cs script, you can see the scriptable object above being initialized, you can add this to your custom login scene also and initialize the service as you see here. For testing purposes, we've included it in the login script so you don't have to worry about any of this.
 
 ## Ramp sample scene
 
