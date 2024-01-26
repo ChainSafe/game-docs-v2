@@ -27,7 +27,7 @@ This video will show you how to initialize Ramp as well as how to use it. Below 
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/FDZXrlusmi4?si=xQ5P4oKAy8rdJhvO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Accessing ramp from the login scene
+## Accessing Ramp from the login scene
 
 ![](v2Assets/RampLogin.png)
 
