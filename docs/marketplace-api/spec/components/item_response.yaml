@@ -3,6 +3,15 @@ properties:
   id:
       type: string
       description: Item ID
+  chain_id:
+      type: string
+      description: Chain ID
+  project_id:
+      type: string
+      description: Project ID
+  marketplace_id:
+      type: string
+      description: Marketplace ID
   token:
       type: string
       description: Item token
@@ -18,9 +27,6 @@ properties:
   price:
       type: string
       description: Price of the item
-  payment_token:
-      type: string
-      description: Payment token
   listed_at:
       type: integer
       description: Listed at epoch time
