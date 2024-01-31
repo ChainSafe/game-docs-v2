@@ -13,8 +13,7 @@ properties:
       type: string
       description: Marketplace ID
   token:
-      type: string
-      description: Item token
+     $ref: './item_token.yaml'
   marketplace_contract_address:
       type: string
       description: Marketplace contract address
