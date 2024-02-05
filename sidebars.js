@@ -11,7 +11,7 @@ module.exports = {
         {
           type: 'category',
           label: 'NFT Launchpad',
-          items: ['launchpad/introduction', "launchpad/tutorial"],
+          items: ['nft_launchpad/introduction', "nft_launchpad/tutorial"],
         },
         {
           type: 'category',

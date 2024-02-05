@@ -1,9 +1,7 @@
 ---
-#spell-check-ignore-start
 slug: /launchpad/tutorial
 sidebar_position: 2
 sidebar_label: Tutorial
-#spell-check-ignore-end
 ---
 
 # NFT Launchpad Tutorial
