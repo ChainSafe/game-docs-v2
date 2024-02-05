@@ -201,6 +201,7 @@ Rinkeby
 rpc
 RPC
 RPCs
+SampleLoginMetamask
 scalable
 scrollable
 SampleScene
