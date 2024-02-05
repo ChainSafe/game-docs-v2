@@ -804,6 +804,9 @@ public class SendContract : MonoBehaviour
     private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "addTotal";
     private int increaseAmount = 1;
+    // Value for sending native tokens with a transaction for payable functions
+    // To use just add "value" as the last parameter of evm.ContractSend
+    // private HexBigInteger value = new HexBigInteger(1000000000000000);
 
     // Function
     public async void ContractSend()
