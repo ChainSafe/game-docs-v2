@@ -1,7 +1,9 @@
 ---
-slug: /nft_launchpad/tutorial
+#spell-check-ignore-start
+slug: /launchpad/tutorial
 sidebar_position: 2
 sidebar_label: Tutorial
+#spell-check-ignore-end
 ---
 
 # NFT Launchpad Tutorial
@@ -65,5 +67,5 @@ Once you have created a collection, you can mint NFTs for that collection.
 ## Step 3: Launch Your NFT Project
 
 - Once you have minted NFTs for your collection, you can access your collection and NFTs directly into your game using the
-    GraphQL API for that collection.
+    `GraphQL` API for that project.
 - You can also list your NFTs in your game and let users buy, sell and trade your NFTs.

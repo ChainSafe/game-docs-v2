@@ -1,7 +1,9 @@
 ---
-slug: /nft_launchpad/introduction
+#spell-check-ignore-start
+slug: /launchpad/introduction
 sidebar_position: 1
 sidebar_label: NFT Launchpad
+#spell-check-ignore-end
 ---
 
 # Introducing NFT Launchpad
