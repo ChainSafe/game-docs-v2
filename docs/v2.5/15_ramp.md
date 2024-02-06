@@ -34,7 +34,7 @@ This video will show you how to initialize Ramp as well as how to use it. Below 
 ## Initializing Ramp
 
 ![](v2Assets/RampLogin.png)
-As you can see, there is a `RampServiceAdapter` attached to the game object that is responsible for loging in your user. We highly encourage to attach all the necessary services you want to add to the login object itself, because we're retrieveing the `IWeb3BuilderServiceAdapter` from the object that implements the `ILoginProvider`, in this case, that's `Web3AuthLoginProvider`.
+As you can see, there is a `RampServiceAdapter` attached to the game object that is responsible for logging in your user. We highly encourage to attach all the necessary services you want to add to the login object itself, because we're retrieving the `IWeb3BuilderServiceAdapter` from the object that implements the `ILoginProvider`, in this case, that's `Web3AuthLoginProvider`.
 
 As you can see, the `RampServiceAdapter`has one field, and that's the ramp scriptable object. We're providing the Scriptable Object as part of the Ramp Package sample.
 
