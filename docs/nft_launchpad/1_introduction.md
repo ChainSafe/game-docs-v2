@@ -12,22 +12,9 @@ sidebar_label: NFT Launchpad
 
 NFT Launchpad is an offering by chainsafe gaming to help game developers to mint NFTs and create collections of those NFTs and link them to their games. The users of the 
 game can then buy, sell and trade these NFTs inside of the game itself giving them smooth and seamless experience. 
-You can create collections for each of your project and for different chains and then mint NFTs for each of these collections. 
+Game Developers can create, manage and visualize NFTs through the dashboard without any knowledge of Solidity contracts.
+NFTs are organized by projects and collections.
 
-## Supported Chains&#x20;
-
-You can create collections and mint NFTs for the following chains:
-
-| Network Name   | Type of Chain | Chain ID |
-|----------------|---------------|----------|
-| ETH Mainnet    | Mainnet       | 1        |
-| ETH Sepolia    | Testnet       | 11155111 |
-| Polygon        | Mainnet       | 137      |
-| Polygon Mumbai | Testnet       | 80001    |
-| BSC            | Mainnet       | 56       |
-| BSC            | Testnet       | 97       |
-| Avalanche      | Mainnet       | 43114    |
-| Avalanche      | Testnet       | 43113    |
 
 ## Ready To Get Started?
 
