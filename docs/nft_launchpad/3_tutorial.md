@@ -25,10 +25,10 @@ Before you begin, ensure you have the following:
 
 - Click on the `New Collection` button on top right
 
-![](./assets/new_collection_button.png)
-
-
 - Fill in the details for your collection and click on `Create Collection` button.
+
+![](./assets/create_collection.gif)
+
 
 ### Collection Details
 
