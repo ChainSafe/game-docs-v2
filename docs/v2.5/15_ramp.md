@@ -21,17 +21,22 @@ Ramp is a quick and easy way to purchase crypto with Fiat currency if your count
 
 Utilizing ramp will ease the onboarding process for your users as many exchanges have a lengthy sign up process before anyone can purchase native tokens, which are needed for gas or even to purchase custom tokens. Instead of having to walk your users through this process, you can simply point your users at this service and get them into your game sooner.
 
+## Acquiring Ramps API Key
+Before you can utilize Ramp, you will need the API key. Currently, the only possible way to do that is to go trough ramp.network and register there. After the KYB process, you should get your key.
+More straightforward process is coming soon to our dashboard, where you'd be able to acquire the API key trough our own dashboard.
+
 ## Ramp video explanation
 
 This video will show you how to initialize Ramp as well as how to use it. Below we will dissect this video into steps but if you prefer a visual approach please feel free to follow the video here.
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/FDZXrlusmi4?si=xQ5P4oKAy8rdJhvO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/oOxc52AIRkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Accessing Ramp from the login scene
+## Initializing Ramp
 
 ![](v2Assets/RampLogin.png)
+As you can see, there is a `RampServiceAdapter` attached to the game object that is responsible for logging in your user. We highly encourage to attach all the necessary services you want to add to the login object itself, because we're retrieving the `IWeb3BuilderServiceAdapter` from the object that implements the `ILoginProvider`, in this case, that's `Web3AuthLoginProvider`.
 
-After loading up the login scene and selecting the login object, you'll be able to see the Ramp config property in the hierarchy on the right of the editor in the inspector. Please select this script to see the Ramp object.
+As you can see, the `RampServiceAdapter`has one field, and that's the ramp scriptable object. We're providing the Scriptable Object as part of the Ramp Package sample.
 
 ## The Ramp scriptable object
 
@@ -39,13 +44,14 @@ After loading up the login scene and selecting the login object, you'll be able 
 
 This object contains all the configuration you'll need to begin testing out Ramp in your project. You can also see that we've utilized an interface here for ease of use. Feel free to explore around and see what you can do.
 
-## Initializing the Ramp service
+## Changing the company logo, app name & API key
 
-![](v2Assets/RampInitializeService.png)
+By selecting the ramp scriptable object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration) as needed.
 
-In the login.cs script, you can see the scriptable object above being initialized, you can add this to your custom login scene also and initialize the service as you see here. For testing purposes, we've included it in the login script so you don't have to worry about any of this.
+![](v2Assets/RampLogo.png)
 
-## Ramp sample scene
+
+## Accessing Ramp Trough Sample Scene
 
 Once logged in you'll be presented with our famous sample scene page, which you'll notice has a new area to showcase Ramp functionality. As these are testnet tokens please feel free to click around to see the functionality of the 3 functions mentioned above.
 
@@ -139,21 +145,15 @@ private async void OnRampOffRampPressed()
 
 As some projects will only want to facilitate purchases, others will want sales and some will want to use both. We've provided all the necessary functionality to do so. All of these functions are set up asynchronously and are being passed through event systems which you can subscribe to as needed.
 
+## Subscribing To Events
+Our Ramp integration comes with two events `OnRampPurchaseCreated` and `OffRampSaleCreated` which happen when your user buys or sells crypto.
+
 ```csharp
-if (rampConfig != null)
-{
-    
-    Web3Accessor.Web3.RampExchanger().OnRampPurchaseCreated += data 
-        => Debug.Log($"On-Ramp purchase created {data.CryptoAmount} {data.Asset.Name}");
-    Web3Accessor.Web3.RampExchanger().OffRampSaleCreated += data
-        => Debug.Log($"Off-Ramp sale created {data.Fiat.Amount:C} {data.Fiat.CurrencySymbol}");
-}
+
+Web3Accessor.Web3.RampExchanger().OnRampPurchaseCreated += data 
+    => Debug.Log($"On-Ramp purchase created {data.CryptoAmount} {data.Asset.Name}");
+Web3Accessor.Web3.RampExchanger().OffRampSaleCreated += data
+    => Debug.Log($"Off-Ramp sale created {data.Fiat.Amount:C} {data.Fiat.CurrencySymbol}");
 ```
-
-## Changing the company logo, app name & API key
-
-By selecting the ramp object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration) as needed.
-
-![](v2Assets/RampLogo.png)
 
 We hope you enjoy our new Ramp service & the functionality it provides in terms of easing user onboarding. Happy coding!
