@@ -18,6 +18,10 @@ Before you begin, ensure you have the following:
 
 ## 1. Create Project
 
+:::info
+You can skip this step if you already have a project created for your game.
+:::
+
 - Go to the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/dashboard) and click on the `+` button on the top right.
 
 - Fill in the details for your project and click on `Create Project` button.
