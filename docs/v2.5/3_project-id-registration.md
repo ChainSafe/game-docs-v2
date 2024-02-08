@@ -64,7 +64,7 @@ Upon installing the newest release, you'll be presented with a debug error that 
 
 ### Saving Your Project ID Within Unity
 
-In the menu bar near the top, you can press `Window` -> `ChainSafe Server Settings`, which will prompt a pop-up. From here, you can enter your Project ID along with chain information associated with your game. Once complete, press save, and that's it! You're ready to start building with web3.unity!
+In the menu bar near the top, you can press `Window` -> `ChainSafe SDK` -> `Server Settings`, which will prompt a pop-up. From here, you can enter your Project ID along with chain information associated with your game. Once complete, press save, and that's it! You're ready to start building with web3.unity!
 
 ![](v2Assets/savesettings.png)
 

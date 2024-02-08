@@ -87,7 +87,7 @@ You might want to make your new service configurable during Web3 build time, lik
 var web3 = await new Web3Builder(ProjectConfigUtilities.Load())
     .Configure(services =>
     {
-        services.UseJsonRpcProvider(new JsonRpcProviderConfig 
+        services.UseRpcProvider(new JsonRpcProviderConfig 
             { RpcNodeUrl = "letsplayvideogamesallday.org/json-rpc" }
         );
     })
