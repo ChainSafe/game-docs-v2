@@ -34,6 +34,8 @@ You can also add custom images to your NFTs.
 
 you can utilize NFTs data through standardized APIs, seamlessly. You can list your NFTs in your game and let users buy, sell and trade your NFTs in the game itself.
 
+We store the metadata of the NFTs on [ChainSafe Storage](https://storage.chainsafe.io/) which is powered by IPFS. We store the IPFS CID 
+of the metadata on-chain. The metadata is stored in a JSON format and can be accessed using the IPFS CID via any public IPFS gateway.
 
 ### Supported Chains&#x20;
 
