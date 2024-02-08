@@ -74,7 +74,7 @@ Once you have created a collection, you can mint NFTs for that collection.
 - **Name**: The name of your NFT.
 - **Description**: A brief description of your NFT.
 - **Token Type**: The type of token you want to mint. You can choose from `ERC721`, `ERC1155`
-- **Supply**: The number of NFTs you want to mint.
+- **Supply**: The supply of your NFT. This option is only available for `ERC1155` tokens.
 - **Additional Media**: 
   - **Additional Files**: You can also add custom images to your NFTs. You can instead specify the CID of the image on IPFS as well. This is an optional field. 
   - **Custom Attributes**: You can add custom attributes to your NFTs which can be utilized in the game. For example, you can add attributes like `power`, `speed`, `health` to a character NFT.
