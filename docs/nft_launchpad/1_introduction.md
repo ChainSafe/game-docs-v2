@@ -4,10 +4,6 @@ sidebar_position: 1
 sidebar_label: Introduction
 ---
 
-# Introducing NFT Launchpad
-
-[ChainSafe Gaming](https://gaming.chainsafe.io/) is introducing NFT Launchpad, your one stop shop for creating collections, minting NFTs, and launching your NFT project.
-
 ## Launchpad, A Tool To Bridge NFT Assets To Your Game
 
 NFT Launchpad is an offering by chainsafe gaming to help game developers to mint NFTs and create collections of those NFTs and link them to their games. The users of the 
