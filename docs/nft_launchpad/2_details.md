@@ -11,8 +11,9 @@ of the section, you will have a clear understanding of the NFT Launchpad hierarc
 
 ### Project
 
-A project can be considered as a game. When you create a new game, you create a project for that game on chainsafe gaming dashboard.
-A project in the first level of hierarchy in the NFT Launchpad. A project can have multiple collections and a collection can have multiple NFTs.
+A project can be considered as a game. When you create a new game, you create a project for that game on chainsafe [Gaming Dashboard](https://gaming-dashboard-stage.pages.dev/dashboard). 
+A project in the first level of hierarchy in the chainsafe gaming ecosystem. Anything you will create in gaming ecosystem will be under a project.
+You can create multiple collections, mint NFTs under a project.
 
 ### Collection
 
