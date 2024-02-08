@@ -1,6 +1,6 @@
 get:
   tags:
-    - items
+    - Items
   summary: Get Item
   description: Get specific Item for a project under a marketplace.
   operationId: getItem

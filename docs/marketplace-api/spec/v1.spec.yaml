@@ -4,19 +4,19 @@ info:
   contact:
     email: info@chainsafe.io
     name: ChainSafe
-    url: storage.chainsafe.io
+    url: https://dashboard.gaming.chainsafe.io/
   version: 1.19.2
 externalDocs:
   description: Find out more about ChainSafe
   url: "https://doc.chainsafe.io"
 servers:
-  - url: "https://stage.api.chainsafe.site"
+  - url: "https://game-api-stg.chainsafe.io"
     description: STAGING
-  - url: "https://api.chainsafe.io"
+  - url: "https://api.gaming.chainsafe.io"
     description: PRODUCTION
 tags:
-  - name: items
-    description: Operations about user
+  - name: Items
+    description: This section lists all the APIs related to marketplace items.
 paths:
   /v1/projects/{projectID}/items:
     $ref: 'paths/get_project_items.yaml'
