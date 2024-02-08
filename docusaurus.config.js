@@ -3,6 +3,28 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const path = require("path");
+
+const redocusaurus = [
+  "redocusaurus",
+  {
+    config: path.join(__dirname, "redocly.yaml"),
+    specs: [
+      {
+        id: "marketplace-api",
+        spec: "./docs/marketplace-api/spec/v1.spec.yaml",
+        route: "/api/v1",
+      },
+    ],
+    theme: {
+      /**
+       * Highlight color for docs
+       */
+      primaryColor: "#1890ff",
+    },
+  },
+];
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -53,6 +75,7 @@ const config = {
         },
       }),
     ],
+    redocusaurus,
   ],
 
 themeConfig:

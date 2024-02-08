@@ -1,6 +1,6 @@
 get:
   tags:
-    - marketplace
+    - items
   summary: Get Project Items
   description: Get all the items for a project. You can provide various filters to get the items you want.
   operationId: getProjectItems

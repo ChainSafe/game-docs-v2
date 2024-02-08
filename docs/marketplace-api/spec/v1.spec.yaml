@@ -15,7 +15,7 @@ servers:
   - url: "https://api.chainsafe.io"
     description: PRODUCTION
 tags:
-  - name: marketplace
+  - name: items
     description: Operations about user
 paths:
   /v1/projects/{projectID}/items:
