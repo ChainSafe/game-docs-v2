@@ -1,0 +1,45 @@
+get:
+  tags:
+    - items
+  summary: Get Item
+  description: Get specific Item for a project under a marketplace.
+  operationId: getItem
+  security: []
+  parameters:
+    - name: projectID
+      in: path
+      description: Project ID
+      required: true
+      schema:
+        type: string
+    - name: marketplaceID
+      in: path
+      description: Marketplace ID
+      required: true
+      schema:
+        type: string
+    - name: itemID
+      in: path
+      description: Item ID
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: List Of Marketplace Items
+      content:
+        application/json:
+          schema:
+            $ref: ../components/item_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
