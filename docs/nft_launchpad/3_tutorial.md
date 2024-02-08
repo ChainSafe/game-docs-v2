@@ -61,12 +61,8 @@ Once you have created a collection, you can mint NFTs for that collection.
 - **Token Type**: The type of token you want to mint. You can choose from `ERC721`, `ERC1155`
 - **Supply**: The number of NFTs you want to mint.
 - **Additional Media**: You can add custom attributes to your NFTs which can be utilized in the game. For example, you can add attributes like `power`, `speed`, `health` to a character NFT.
-- **Upload Files**: You can upload files for your NFT. This is an optional field.
-
-#### NFT Metadata
-
-Adding Metadata to a token enables games to import detailed information and showcase your token's data.
-Usually, digital assets are identified just by its Token ID. Metadata adds extra details to these assets, giving them properties such as a title, a narrative, and visuals.
+                        You can also add custom images to your NFTs.
+- **Upload File**: You need to upload the image for your NFT. This is a mandatory field.
 
 
 
