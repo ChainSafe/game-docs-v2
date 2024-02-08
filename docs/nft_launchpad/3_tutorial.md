@@ -49,7 +49,7 @@ Once you have created a collection, you can mint NFTs for that collection.
 
 - Click on the `Mint New NFT` button on top right in the collection you want to mint NFTs for.
 
-- - Fill in the details for your NFT and click on `Mint NFT` button.
+- Fill in the details for your NFT and click on `Mint NFT` button.
 
 ![](./assets/mint_nft.gif)
 
