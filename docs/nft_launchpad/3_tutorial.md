@@ -13,17 +13,27 @@ This tutorial will guide you through the process of creating a collection, minti
 Before you begin, ensure you have the following:
 
 - A project created for your game. If you don't have one, you can create one [here](https://dashboard.gaming.chainsafe.io/dashboard).
+
 - Connect your wallet to the ChainSafe Gaming Dashboard. You can connect your wallet by clicking on the `Connect Wallet` button on the top right corner of the dashboard.
 
-## Step 1: Create a Collection
+## 1. Create Project
+
+- Go to the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/dashboard) and click on the `+` button on the top right.
+
+- Fill in the details for your project and click on `Create Project` button.
+
+![](./assets/create_project.gif)
+
+## 2. Create a Collection
 
 - Head over to `NFT Launchpad` tab in the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/nfts/entry).
 
 
-- select the project you want to create a collection for.
+- Select the project you want to create a collection for.
 
 
 - Click on the `New Collection` button on top right
+
 
 - Fill in the details for your collection and click on `Create Collection` button.
 
@@ -40,7 +50,7 @@ Before you begin, ensure you have the following:
 - **Banner Image**: The banner for your collection. This is an optional field.
 
 
-## Step 2: Mint NFT
+## 3. Mint NFT
 
 Once you have created a collection, you can mint NFTs for that collection.
 
@@ -48,6 +58,7 @@ Once you have created a collection, you can mint NFTs for that collection.
 
 
 - Click on the `Mint New NFT` button on top right in the collection you want to mint NFTs for.
+
 
 - Fill in the details for your NFT and click on `Mint NFT` button.
 
@@ -68,7 +79,7 @@ Once you have created a collection, you can mint NFTs for that collection.
 
 
 
-## Step 3: Launch Your NFT Project
+## 4. Launch Your NFT Project
 
 - Once you have minted NFTs for your collection, you can access your collection and NFTs directly into your game using the
     `GraphQL` API for that project.
