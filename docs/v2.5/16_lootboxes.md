@@ -273,7 +273,7 @@ If you check the node window you can see everything that's happening during this
 
 ## Opening LootBoxes & Rarity
 Now in Unity you can click play and interact with the lootboxes.
-You can switch between different lootboxes using the keys "A" and "D" and switch between rarity using "A" and "S"
+You can switch between different lootboxes using the keys "A" and "D" and switch between rarity using "W" and "S"
 
 Once you find your box, select it by pressing "space" key and open it by pressing "enter" key.
 You need to wait a little bit on the Unity scene so the transaction goes through
