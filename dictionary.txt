@@ -151,6 +151,7 @@ javascript
 JSON
 JsonRpcProvider
 KPIs
+KYB
 Kwame
 LazyMinter
 Lootbox
@@ -201,10 +202,12 @@ Rinkeby
 rpc
 RPC
 RPCs
+SampleLoginMetamask
 scalable
 scrollable
 SampleScene
 scriptable
+Scriptable
 SDK
 SDK.
 SDK's

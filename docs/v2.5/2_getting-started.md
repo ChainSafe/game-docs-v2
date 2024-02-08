@@ -37,6 +37,8 @@ This page will walk you through the process of setting up a project ID and using
 5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
 ![](v2Assets/openupmInstall.png)
 
+Please note that unity versions 2021 and below may require a restart if you experience assembly errors.
+
 ### Install via Open UPM CLI
 
 1. Open up your project in editor
@@ -74,7 +76,26 @@ You should also setup default settings for the RPC node you're going to use.
 - Symbol - i.e SETH
 - Rpc - enter URL to your RPC node here. For information on setting up an RPC Node visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
 
-### Wallet Connect
+### Example Scene
+
+If you navigate to Window -> Package Manager -> Web3Unity SDK -> Samples, you can import an example package to help you understand the SDK. Press import and let it load into the project. You'll see some new files in your project under samples, these files contain everything we need to get started with the SDK. Have a look around, check out the script and the scene locations.
+
+![](v2Assets/ImportingSamples.png)
+
+You'll notice when you import the samples into the project that some scenes are added to your build configuration. This is to show you a demo of how all the functions in the SDK work. Simply go to the sample log in scene and press play to connect a wallet to get started with some examples.
+
+![](v2Assets/ImportedScenes.png)
+
+Once you've logged in it will take you to the main scene. You can play around in the menus and check out each scripts functionality by pressing the show script button, this will highlight the script in the editor and allow you to inspect it further. If you're an advanced developer you should have enough to work with from the sample scripts in front of you. If you're just beginning we suggest you take a look at our easy to use prefabs below.
+
+![](v2Assets/MainScene.png)
+
+### Altering Login Scene Transition
+If you would like to have the login screen go to a custom scene after authorization, you can alter the inspector value on the login object in the scenes hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+
+![](v2Assets/login-scene.png)
+
+### Logging In With Wallet Connect
 
 When you open the login scene you'll see a login object in the hierarchy on the left under the canvas. Select it and you'll see wallet connect configuration inputs in the inspector on the right. Please note that wallet connect webgl is currently not 100% functional for most chains. A fix is coming early next year for this. 
 
@@ -96,24 +117,22 @@ Just place these into the editor values, press save and you're good to go.
 
 ![](v2Assets/WalletConnectInfo.png)
 
-### Example Scene
+### Logging In With MetaMask
 
-If you navigate to Window -> Package Manager -> Web3Unity SDK -> Samples, you can import an example package to help you understand the SDK. Press import and let it load into the project. You'll see some new files in your project under samples, these files contain everything we need to get started with the SDK. Have a look around, check out the script and the scene locations.
+Once you've installed the sample package, navigate to Assets -> Samples -> Web3.UnitySDk -> 2.5.0 -> Web3.UnitySamples -> Scenes, here you'll find a scene called SampleLoginMetamask. When you open this scene you'll be able to configure the transition scene to load next by selecting the login object in the hierarchy and viewing the details in the inspector. You can also configure addition settings such as the Web3Auth client id and redirect url.
 
-![](v2Assets/ImportingSamples.png)
+Please remember that this will only work with webgl builds that are either built locally with control + b or hosted on a server. The game needs a browser to interact with the metamask extension so unfortunately running this is the editor wont work the same way the wallet connect login does.
+![](v2Assets/MetaMaskLogin.png)
 
-You'll notice when you import the samples into the project that some scenes are added to your build configuration. This is to show you a demo of how all the functions in the SDK work. Simply go to the sample log in scene and press play to connect a wallet to get started with some examples.
+### Logging In With Web3Auth
 
-![](v2Assets/ImportedScenes.png)
+We've also provided the option to log in via Web3Auth, you may need to download the web3auth samples from the package manager if you don't have them installed. Navigate to Assets -> Samples -> Web3.unitySDKWeb3Auth -> 2.5.1 -> Web3.UnityWeb3AuthSamples -> Scenes and select Sample Login. When you open this scene you'll be able to configure the transition scene to load next by selecting the login object in the hierarchy and viewing the details in the inspector. You can also configure additional settings such as the web3auth client id and redirect url. You may also test this within the editor, press play on the login scene and press the login button to get started.
+![](v2Assets/Web3AuthLogin.png)
 
-Once you've logged in it will take you to the main scene. You can play around in the menus and check out each scripts functionality by pressing the show script button, this will highlight the script in the editor and allow you to inspect it further. If you're an advanced developer you should have enough to work with from the sample scripts in front of you. If you're just beginning we suggest you take a look at our easy to use prefabs below.
 
-![](v2Assets/MainScene.png)
+### Web3Builder, Signers & Executors
 
-### Altering Login Scene Transition
-If you would like to have the login screen go to a custom scene after authorization, you can alter the inspector value on the login object in the scenes hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
-
-![](v2Assets/login-scene.png)
+To dive a little deeper into the SDK functionality in terms of signers, executors, binding services and using a web3 provider. Please refer to the configuration part of our SDK [here](https://docs.gaming.chainsafe.io/current/configuration)
 
 ### Prefab Scripts
 
