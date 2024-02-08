@@ -40,7 +40,7 @@ Before you begin, ensure you have the following:
 - **Banner Image**: The banner for your collection. This is an optional field.
 
 
-## Step 2: Mint NFTs
+## Step 2: Mint NFT
 
 Once you have created a collection, you can mint NFTs for that collection.
 
