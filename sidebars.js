@@ -11,7 +11,11 @@ module.exports = {
         {
           type: 'category',
           label: 'NFT Launchpad',
-          items: ['nft_launchpad/introduction', "nft_launchpad/details", "nft_launchpad/tutorial"],
+          items: [
+              "nft_launchpad/introduction",
+              "nft_launchpad/details",
+              "nft_launchpad/tutorial",
+          ],
         },
         {
           type: 'category',
@@ -31,7 +35,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Marketplace API Specification',
-          items: ['marketplace-api/getting_started', "marketplace-api/marketplaceapi"],
+          items: ['marketplace-api/docs/getting_started', "marketplace-api/docs/marketplaceapi"],
         },
       ],
     },
