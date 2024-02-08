@@ -5,3 +5,5 @@ sidebar_label: Getting Started
 ---
 
 # Getting Started
+
+Welcome to the ChainSafe Marketplace API documentation. This guide will help you get started with the ChainSafe Marketplace API.
