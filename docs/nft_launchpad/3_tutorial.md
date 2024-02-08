@@ -49,9 +49,10 @@ Once you have created a collection, you can mint NFTs for that collection.
 
 - Click on the `Mint New NFT` button on top right in the collection you want to mint NFTs for.
 
-![](./assets/mint_nft_button.png)
+- - Fill in the details for your NFT and click on `Mint NFT` button.
 
-- Fill in the details for your NFT and click on `Mint NFT` button.
+![](./assets/mint_nft.gif)
+
 
 ### Mint NFT Details
 
@@ -59,8 +60,15 @@ Once you have created a collection, you can mint NFTs for that collection.
 - **Description**: A brief description of your NFT.
 - **Token Type**: The type of token you want to mint. You can choose from `ERC721`, `ERC1155`
 - **Supply**: The number of NFTs you want to mint.
-- **Additional Media**: You can add additional media for your NFT. This is an optional field.
+- **Additional Media**: You can add custom attributes to your NFTs which can be utilized in the game. For example, you can add attributes like `power`, `speed`, `health` to a character NFT.
 - **Upload Files**: You can upload files for your NFT. This is an optional field.
+
+#### NFT Metadata
+
+Adding Metadata to a token enables games to import detailed information and showcase your token's data.
+Usually, digital assets are identified just by its Token ID. Metadata adds extra details to these assets, giving them properties such as a title, a narrative, and visuals.
+
+
 
 ## Step 3: Launch Your NFT Project
 
