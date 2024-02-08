@@ -25,7 +25,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Marketplace API Documentation',
+          label: 'Marketplace API Specification',
           items: ['marketplace-api/getting_started', "marketplace-api/marketplaceapi"],
         },
       ],
