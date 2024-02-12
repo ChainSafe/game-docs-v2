@@ -28,7 +28,7 @@ const redocusaurus = [
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Web3 Unity SDK',
+  title: "Chainsafe Gaming Docs",
   tagline: '',
   url: 'https://docs.gaming.chainsafe.io/',
   baseUrl: '/',
@@ -87,7 +87,7 @@ themeConfig:
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'Web3 Unity SDK',
+        title: 'ChainSafe Gaming Docs',
         logo: {
           alt: 'ChainSafe Logo',
           src: 'img/logo.png',
