@@ -1,0 +1,48 @@
+get:
+  tags:
+    - Tokens
+  summary: Get Contract Tokens
+  description: Get all the tokens of a contract
+  operationId: getTokensByContract
+  security: []
+  parameters:
+    - name: chain_id
+      in: param
+      description: Chain ID
+      required: true
+      schema:
+          type: string
+    - name: contractAddress
+      in: param
+      description: Token Contract Address
+      required: true
+      schema:
+          type: string
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+          type: string
+
+  responses:
+    '200':
+      description: List Of Contract Tokens
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/nfts_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml

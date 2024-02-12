@@ -1,6 +1,6 @@
 const fs = require("fs");
 const bundler = require("./spec-bundler");
-const nswagFileName = "./docs/marketplace-api/nswag/marketplace-api-client.nswag";
+const nswagFileName = "./docs/token-api/nswag/token-api-client.nswag";
 
 bundler.mergeSpec().then((bundle) => {
     let nswagFileContent = fs.readFileSync(nswagFileName);

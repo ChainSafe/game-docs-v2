@@ -35,7 +35,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Marketplace API Specification',
-          items: ['marketplace-api/docs/getting_started', "marketplace-api/docs/marketplaceapi"],
+          items: ['token-api/docs/getting_started', "token-api/docs/tokenapi"],
         },
       ],
     },

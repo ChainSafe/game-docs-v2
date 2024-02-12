@@ -1,0 +1,21 @@
+type: object
+properties:
+  token_id:
+      type: string
+      description: Token ID
+  token_type:
+      type: string
+      description: token type
+  project_id:
+      type: string
+      description: Project ID
+  contract_address:
+      type: string
+      description: contract address
+  supply:
+      type: string
+      description: Total supply of the token
+  metadata:
+      type: object
+      description: Metadata of the token
+

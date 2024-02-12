@@ -1,10 +1,10 @@
 const openapiCore = require('@redocly/openapi-core');
 const utils = require("util")
-const pathToEntryPoint = './docs/marketplace-api/spec/v1.spec.yaml';
+const pathToEntryPoint = './docs/token-api/spec/v1.spec.yaml';
 
 exports.mergeSpec = function (): Promise<{ spec }> {
     return new Promise<{ spec }>(async (resolve, reject) => {
-        openapiCore.loadConfig('./docs/marketplace-api/spec/.redocly.yaml').then(async (config) => {
+        openapiCore.loadConfig('./docs/token-api/spec/.redocly.yaml').then(async (config) => {
             // Lint spec before bundling
             const lintResults = await openapiCore.lint({ ref: pathToEntryPoint, config });
             if (lintResults.length !== 0) {

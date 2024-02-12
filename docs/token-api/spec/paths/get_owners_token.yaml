@@ -1,0 +1,45 @@
+get:
+  tags:
+    - Tokens
+  summary: Get Owner's Token
+  description: Get all the tokens of a owner
+  operationId: getTokensByOwner
+  security: []
+  parameters:
+    - name: chain_id
+      in: path
+      description: Chain ID
+      required: true
+      schema:
+        type: string
+    - name: account_id
+      in: path
+      description: Owner address
+      required: true
+      schema:
+        type: string
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+        type: string
+  responses:
+    '200':
+      description: List Of Tokens By Owner
+      content:
+        application/json:
+          schema:
+            $ref: ../components/nfts_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml

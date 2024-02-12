@@ -11,9 +11,9 @@ const redocusaurus = [
     config: path.join(__dirname, "redocly.yaml"),
     specs: [
       {
-        id: "marketplace-api",
-        spec: "./docs/marketplace-api/spec/v1.spec.yaml",
-        route: "/api/v1",
+        id: "token-api",
+        spec: "./docs/token-api/spec/v1.spec.yaml",
+        route: "/v1",
       },
     ],
     theme: {

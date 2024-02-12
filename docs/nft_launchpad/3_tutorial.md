@@ -86,5 +86,5 @@ Once you have created a collection, you can mint NFTs for that collection.
 ## 4. Launch Your NFT Project
 
 Once you have minted NFTs for your collection, you can access your collection and NFTs directly into your game using the
-set of APIs provided by the ChainSafe. Head over to the [Marketplace API Specification](./../marketplace-api/docs/1_getting_started.md) to know more about how to interact with the NFTs and collections via APIs. 
+set of APIs provided by the ChainSafe. Head over to the [Tokens API Specification](./../token-api/docs/1_getting_started.md) to know more about how to interact with the NFTs and collections via APIs. 
 
