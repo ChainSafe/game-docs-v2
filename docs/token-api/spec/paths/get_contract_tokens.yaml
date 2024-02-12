@@ -7,13 +7,13 @@ get:
   security: []
   parameters:
     - name: chain_id
-      in: param
-      description: Chain ID
+      in: path
+      description: chain ID
       required: true
       schema:
-          type: string
+        type: string
     - name: contractAddress
-      in: param
+      in: path
       description: Token Contract Address
       required: true
       schema:
