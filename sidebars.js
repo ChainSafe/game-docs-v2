@@ -15,9 +15,7 @@ module.exports = {
               "nft_launchpad/introduction",
               "nft_launchpad/details",
               "nft_launchpad/tutorial",
-              {
-                "API Spec": ['token-api/docs/getting_started', "token-api/docs/tokenapi"],
-              },
+              "token-api/docs/tokenapi",
           ],
         },
         {
