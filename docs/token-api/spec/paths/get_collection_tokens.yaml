@@ -1,21 +1,27 @@
 get:
   tags:
     - Tokens
-  summary: Get Owner's Token
-  description: Get all the tokens of a owner
-  operationId: getTokensByOwner
+  summary: Get Collection Tokens
+  description: Get the tokens for the collection.
+  operationId: getCollectionTokens
   security: []
   parameters:
-    - name: chain_id
+    - name: projectID
       in: path
-      description: Chain ID
+      description: project ID
       required: true
       schema:
         type: string
-    - name: account_id
+    - name: collectionID
       in: path
-      description: Owner address
+      description: Collection ID
       required: true
+      schema:
+          type: string
+    - name: account
+      in: query
+      description: Owner address
+      required: false
       schema:
         type: string
     - name: cursor
@@ -23,10 +29,11 @@ get:
       description: pagination cursor
       required: false
       schema:
-        type: string
+          type: string
+
   responses:
     '200':
-      description: List Of Tokens By Owner
+      description: List Of Collection Tokens
       content:
         application/json:
           schema:

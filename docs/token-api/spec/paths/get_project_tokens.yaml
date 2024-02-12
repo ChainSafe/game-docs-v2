@@ -1,20 +1,26 @@
 get:
   tags:
     - Tokens
-  summary: Get Contract Tokens
-  description: Get all the tokens of a contract
-  operationId: getTokensByContract
+  summary: Get Project Tokens
+  description: Get all the tokens of a project
+  operationId: getProjectTokens
   security: []
   parameters:
-    - name: chain_id
+    - name: projectID
       in: path
-      description: chain ID
+      description: Project ID
       required: true
       schema:
         type: string
-    - name: contractAddress
-      in: path
-      description: Token Contract Address
+    - name: account
+      in: query
+      description: Owner address
+      required: false
+      schema:
+          type: string
+    - name: chainId
+      in: query
+      description: Chain ID
       required: true
       schema:
           type: string
@@ -27,7 +33,7 @@ get:
 
   responses:
     '200':
-      description: List Of Contract Tokens
+      description: List Of Project Tokens
       content:
         application/json:
           schema:

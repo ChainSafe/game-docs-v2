@@ -18,11 +18,11 @@ tags:
   - name: Tokens
     description: This section lists all the APIs related to NFT tokens.
 paths:
-  /v1/nft/networks/{chain_id}/contracts/{contractAddress}/tokens:
-    $ref: 'paths/get_contract_tokens.yaml'
-  /v1/nft/networks/{chain_id}/contracts/{contractAddress}/tokens/{tokenID}:
-    $ref: 'paths/get_contract_token.yaml'
-  /v1/nft/networks/{chain_id}/contracts/{contractAddress}/tokens/{tokenID}/owners:
+  /v1/projects/{projectID}/tokens:
+    $ref: 'paths/get_project_tokens.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens:
+    $ref: 'paths/get_collection_tokens.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens/:tokenID:
+    $ref: 'paths/get_colelction_token.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens/{tokenID}/owners:
     $ref: 'paths/get_token_owners.yaml'
-  /v1/nft/networks/{chain_id}/accounts/{accountId}/tokens:
-    $ref: 'paths/get_owners_token.yaml'

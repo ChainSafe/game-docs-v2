@@ -1,20 +1,20 @@
 get:
   tags:
     - Tokens
-  summary: Get Token Owners
+  summary: Get token owners
   description: Get all the owners of a token
   operationId: getTokenOwners
   security: []
   parameters:
-    - name: chain_id
+    - name: projectID
       in: path
-      description: Chain ID
+      description: Project ID
       required: true
       schema:
-        type: string
-    - name: contractAddress
+          type: string
+    - name: collectionID
       in: path
-      description: Token Contract Address
+      description: Collection ID
       required: true
       schema:
         type: string
@@ -24,9 +24,15 @@ get:
       required: true
       schema:
         type: string
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+        type: string
   responses:
     '200':
-      description: List Of Token Owners
+      description: List Of Tokens By Owner
       content:
         application/json:
           schema:
