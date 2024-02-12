@@ -1,7 +1,7 @@
 get:
   tags:
     - Tokens
-  summary: Get token owners
+  summary: Get Token Owners
   description: Get all the owners of a token
   operationId: getTokenOwners
   security: []

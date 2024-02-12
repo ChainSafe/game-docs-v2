@@ -23,6 +23,6 @@ paths:
   /v1/projects/{projectID}/collections/{collectionID}/tokens:
     $ref: 'paths/get_collection_tokens.yaml'
   /v1/projects/{projectID}/collections/{collectionID}/tokens/:tokenID:
-    $ref: 'paths/get_colelction_token.yaml'
+    $ref: 'paths/get_collection_token.yaml'
   /v1/projects/{projectID}/collections/{collectionID}/tokens/{tokenID}/owners:
     $ref: 'paths/get_token_owners.yaml'
