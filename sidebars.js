@@ -15,6 +15,9 @@ module.exports = {
               "nft_launchpad/introduction",
               "nft_launchpad/details",
               "nft_launchpad/tutorial",
+              {
+                "API Spec": ['token-api/docs/getting_started', "token-api/docs/tokenapi"],
+              },
           ],
         },
         {
@@ -31,11 +34,6 @@ module.exports = {
           type: 'category',
           label: 'Legacy API Documentation (v1.6.3)',
           items: ['v1/getting-started', 'v1/tutorial', 'v1/installation', 'v1/project-id-registration', 'v1/evm-blockchain', 'v1/erc1155', 'v1/erc721', 'v1/erc20', 'v1/custom-interactions', 'v1/minter-evm', 'v1/in-game-marketplace', 'v1/minting-with-voucher', 'v1/webgl', 'v1/mobile-and-desktop', 'v1/keep-your-games-safe-from-cheaters', 'v1/importing-nfts', 'v1/implementing-social-logins-to-webgl-builds', 'v1/how-tos', 'v1/media', 'v1/faq',],
-        },
-        {
-          type: 'category',
-          label: 'Marketplace API Specification',
-          items: ['token-api/docs/getting_started', "token-api/docs/tokenapi"],
         },
       ],
     },
