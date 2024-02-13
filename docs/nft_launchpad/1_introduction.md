@@ -3,6 +3,7 @@ slug: /launchpad/introduction
 sidebar_position: 1
 sidebar_label: Introduction
 ---
+# Introduction
 
 ## Launchpad, A Tool To Bridge NFT Assets To Your Game
 
