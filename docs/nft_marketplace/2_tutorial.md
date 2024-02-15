@@ -31,7 +31,7 @@ Before you begin, ensure you have the following:
 
 - Fill in the details for your marketplace and click on `Create Marketplace` button.
 
-:::note
+:::info
 Please wait for few seconds, it will take some time to deploy the marketplace on the blockchain.
 :::
 
@@ -44,13 +44,13 @@ Please wait for few seconds, it will take some time to deploy the marketplace on
 - **Description**: A brief description of your marketplace.
 - **Network**: The chain for which you want to create the marketplace.
 
-:::note
+:::info
 Make sure you have minted the NFTs for the same network inside of NFT Launchpad.
 :::
 - **Logo Image**: The logo for your marketplace.
 
 
-## 3. List NFTs For Sale
+## 3. List NFT For Sale
 
 Once you have created a marketplace, its time to list some NFTs for sale in the marketplace.
 

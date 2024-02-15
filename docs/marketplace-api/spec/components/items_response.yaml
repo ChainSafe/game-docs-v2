@@ -8,12 +8,12 @@ properties:
     description: Page size
   total:
     type: integer
-    description: Total number of tokens
+    description: Total number of items
   cursor:
     type: string
-    description: Pagination cursor, if empty no more items to return\
-  owners:
+    description: Pagination cursor, if empty no more items to return
+  items:
     type: array
     items:
-      $ref: ./owner_response.yaml
-    description: Token owner
+      $ref: ./item_response.yaml
+    description: List of items

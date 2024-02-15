@@ -1,36 +1,36 @@
 get:
   tags:
-    - Tokens
-  summary: Get Collection Token
-  description: Get the token for the collection.
-  operationId: getToken
+    - Items
+  summary: Get Item
+  description: Get specific Item for a project under a marketplace.
+  operationId: getItem
   security: []
   parameters:
     - name: projectID
       in: path
-      description: project ID
+      description: Project ID
       required: true
       schema:
         type: string
-    - name: collectionID
+    - name: marketplaceID
       in: path
-      description: Collection ID
+      description: Marketplace ID
       required: true
       schema:
         type: string
-    - name: tokenID
+    - name: itemID
       in: path
-      description: Token ID
+      description: Item ID
       required: true
       schema:
         type: string
   responses:
     '200':
-      description: Token
+      description: List Of Marketplace Items
       content:
         application/json:
           schema:
-            $ref: ../components/token_response.yaml
+            $ref: ../components/item_response.yaml
     '400':
       description: Bad Request
       content:
