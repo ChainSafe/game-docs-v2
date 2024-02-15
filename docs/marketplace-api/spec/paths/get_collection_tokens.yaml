@@ -1,0 +1,52 @@
+get:
+  tags:
+    - Tokens
+  summary: Get Collection Tokens
+  description: Get the tokens for the collection.
+  operationId: getCollectionTokens
+  security: []
+  parameters:
+    - name: projectID
+      in: path
+      description: project ID
+      required: true
+      schema:
+        type: string
+    - name: collectionID
+      in: path
+      description: Collection ID
+      required: true
+      schema:
+          type: string
+    - name: account
+      in: query
+      description: Owner address
+      required: false
+      schema:
+        type: string
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+          type: string
+
+  responses:
+    '200':
+      description: List Of Collection Tokens
+      content:
+        application/json:
+          schema:
+            $ref: ../components/nfts_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
