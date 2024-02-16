@@ -66,7 +66,7 @@ Once you have created a marketplace, its time to list some NFTs for sale in the 
 
 
 
-## 4. Launch Your NFT Project
+## 4. Launch Your Marketplace
 
 Once you have list NFTs for your marketplace, you can access your marketplace items via RESTful set of APIs provided by the ChainSafe.
 Head over to the [Marketplace API Specification](./../marketplace-api/docs/marketplaceapi.mdx) to know more about how to interact with the marketplace items. 
