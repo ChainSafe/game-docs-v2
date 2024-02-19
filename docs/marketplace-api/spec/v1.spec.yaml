@@ -20,7 +20,7 @@ tags:
 paths:
   /v1/projects/{projectID}/items:
     $ref: 'paths/get_project_items.yaml'
-  /v1/projects/{projectID}/{marketplaceID}/items:
+  /v1/projects/{projectID}/marketplaces/{marketplaceID}/items:
     $ref: 'paths/get_project_marketplace_items.yaml'
-  /v1/projects/{projectID}/{marketplaceID}/items/{itemID}:
+  /v1/projects/{projectID}/marketplaces/{marketplaceID}/items/{itemID}:
     $ref: 'paths/get_project_marketplace_item.yaml'
