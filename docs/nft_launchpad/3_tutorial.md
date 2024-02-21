@@ -81,7 +81,12 @@ Once you have created a collection, you can mint NFTs for that collection.
                           
 - **Upload File**: You need to upload the image for your NFT. This is a mandatory field.
 
+### Contract ABIs
 
+You can download minter contract ABIs:
+
+- [721 minter contract ABI](./assets/721_minter_contract_abi.json)
+- [1155 minter contract ABI](./assets/1155_minter_contract_abi.json)
 
 ## 4. Launch Your NFT Project
 
