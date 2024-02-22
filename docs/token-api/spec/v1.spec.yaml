@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: ChainSafe Token API
+  contact:
+    email: info@chainsafe.io
+    name: ChainSafe
+    url: https://dashboard.gaming.chainsafe.io/
+  version: 1.19.2
+externalDocs:
+  description: Find out more about ChainSafe
+  url: "https://doc.chainsafe.io"
+servers:
+  - url: "https://game-api-stg.chainsafe.io"
+    description: STAGING
+  - url: "https://api.gaming.chainsafe.io"
+    description: PRODUCTION
+tags:
+  - name: Tokens
+    description: This section lists all the APIs related to NFT tokens.
+paths:
+  /v1/projects/{projectID}/tokens:
+    $ref: 'paths/get_project_tokens.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens:
+    $ref: 'paths/get_collection_tokens.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens/:tokenID:
+    $ref: 'paths/get_collection_token.yaml'
+  /v1/projects/{projectID}/collections/{collectionID}/tokens/{tokenID}/owners:
+    $ref: 'paths/get_token_owners.yaml'
