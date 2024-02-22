@@ -46,10 +46,6 @@ Please note that unity versions 2021 and below may require a restart if you expe
 3. Navigate to your Unity Project folder and run the commands ```openupm add io.chainsafe.web3-unity``` & ```openupm add io.chainsafe.web3-unity.web3auth```
 4. Follow step 5 above to install the sample packages and explore the SDK.
 
-### Install via Tool
-
-Alternatively if you'd like an easier install process you can check out the repo from NFTPixels [here](https://github.com/nftpixels/Web3-Unity-Package-Downloader/releases). Simply install the package into your project, then go to Tools -> Web3.Unity Package Manager and press download. After installation you can follow step 5 above to install the sample packages and explore the SDK.
-
 ### Updating via The Package Manager
 
 Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.

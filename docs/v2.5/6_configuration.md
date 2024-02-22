@@ -107,7 +107,7 @@ var web3Builder = new Web3Builder(projectConfig)
 ### Rpc Provider
 
 RpcProvider is another required service. It enables reading from blockchain.
-This one binds via `UseJsonRpcProvider` extension method:
+This one binds via `UseRpcProvider` extension method:
 
 ```csharp
 using ChainSafe.Gaming.Evm.JsonRpcProvider;
@@ -116,11 +116,11 @@ var web3Builder = new Web3Builder(projectConfig)
     .Configure(services =>
     {
         services.UseUnityEnvironment();
-        services.UseJsonRpcProvider();
+        services.UseRpcProvider();
     });
 ```
 
-It's worth noting you can pass a configuration object to `UseJsonRpcProvider` method to
+It's worth noting you can pass a configuration object to `UseRpcProvider` method to
 provide custom settings for this instance of `JsonRpcProvider`.
 
 Most of `Use$Service$()` methods support custom configuration objects, 
@@ -153,7 +153,7 @@ var web3Builder = new Web3Builder(projectConfig)
     .Configure(services =>
     {
         services.UseUnityEnvironment();
-        services.UseJsonRpcProvider();
+        services.UseRpcProvider();
         services.UseWebPageWallet();
     });
 ```
@@ -181,7 +181,7 @@ private async void Start()
         .Configure(services =>
         {
             services.UseUnityEnvironment();
-            services.UseJsonRpcProvider();
+            services.UseRpcProvider();
             services.UseWebPageWallet();
         })
         .LaunchAsync();
