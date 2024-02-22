@@ -51,7 +51,7 @@ Make sure you have minted the NFTs for the same network inside of NFT Launchpad.
 
 ### Marketplace ABI
 
-Remeber marketplace is an on chain contract, so you will need the ABI to interact with the marketplace contract. Below you can find the ABI of
+Remember marketplace is an on chain contract, so you will need the ABI to interact with the marketplace contract. Below you can find the ABI of
 marketplace contract.
 
 [Marketplace ABI](./assets/marketplace_abi.json)
