@@ -20,6 +20,15 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'Marketplace',
+          items: [
+            "nft_marketplace/introduction",
+            "nft_marketplace/tutorial",
+            "marketplace-api/docs/marketplaceapi",
+          ],
+        },
+        {
+          type: 'category',
           label: 'SDK Documentation',
           items: [
             {

@@ -15,6 +15,11 @@ const redocusaurus = [
         spec: "./docs/token-api/spec/v1.spec.yaml",
         route: "/v1",
       },
+      {
+        id: "marketplace-api",
+        spec: "./docs/marketplace-api/spec/v1.spec.yaml",
+        route: "/v1",
+      },
     ],
     theme: {
       /**
