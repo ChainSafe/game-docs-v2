@@ -1,0 +1,19 @@
+type: object
+properties:
+  page_number:
+    type: integer
+    description: Page number
+  page_size:
+    type: integer
+    description: Page size
+  total:
+    type: integer
+    description: Total number of tokens
+  cursor:
+    type: string
+    description: Pagination cursor, if empty no more items to return
+  tokens:
+    type: array
+    items:
+      $ref: ./token_response.yaml
+    description: List of tokens

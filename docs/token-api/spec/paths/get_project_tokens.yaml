@@ -1,0 +1,54 @@
+get:
+  tags:
+    - Tokens
+  summary: Get Project Tokens
+  description: Get all the tokens of a project
+  operationId: getProjectTokens
+  security: []
+  parameters:
+    - name: projectID
+      in: path
+      description: Project ID
+      required: true
+      schema:
+        type: string
+    - name: account
+      in: query
+      description: Owner address
+      required: false
+      schema:
+          type: string
+    - name: chainId
+      in: query
+      description: Chain ID
+      required: true
+      schema:
+          type: string
+    - name: cursor
+      in: query
+      description: pagination cursor
+      required: false
+      schema:
+          type: string
+
+  responses:
+    '200':
+      description: List Of Project Tokens
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/nfts_response.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml
+    default:
+      description: server error
+      content:
+        application/json:
+          schema:
+            $ref: ./../error.yaml

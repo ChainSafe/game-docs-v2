@@ -3,10 +3,37 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const path = require("path");
+
+const redocusaurus = [
+  "redocusaurus",
+  {
+    config: path.join(__dirname, "redocly.yaml"),
+    specs: [
+      {
+        id: "token-api",
+        spec: "./docs/token-api/spec/v1.spec.yaml",
+        route: "/v1",
+      },
+      {
+        id: "marketplace-api",
+        spec: "./docs/marketplace-api/spec/v1.spec.yaml",
+        route: "/v1",
+      },
+    ],
+    theme: {
+      /**
+       * Highlight color for docs
+       */
+      primaryColor: "#1890ff",
+    },
+  },
+];
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Web3 Unity SDK',
+  title: "Chainsafe Gaming Docs",
   tagline: '',
   url: 'https://docs.gaming.chainsafe.io/',
   baseUrl: '/',
@@ -53,6 +80,7 @@ const config = {
         },
       }),
     ],
+    redocusaurus,
   ],
 
 themeConfig:
@@ -64,7 +92,7 @@ themeConfig:
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'Web3 Unity SDK',
+        title: 'ChainSafe Gaming Docs',
         logo: {
           alt: 'ChainSafe Logo',
           src: 'img/logo.png',
