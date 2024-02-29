@@ -35,6 +35,7 @@ This page will walk you through the process of setting up a project ID and using
 
 4. Add a new package by name by pressing + -> Add package by name ```io.chainsafe.web3-unity``` & ```io.chainsafe.web3-unity.web3auth```.
 5. Next go to the web3.unity SDK package and install the examples by going the samples tab and pressing import.
+
 ![](v2Assets/openupmInstall.png)
 
 Please note that unity versions 2021 and below may require a restart if you experience assembly errors.
