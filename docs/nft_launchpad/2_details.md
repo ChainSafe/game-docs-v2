@@ -11,8 +11,8 @@ of the section, you will have a clear understanding of the NFT Launchpad hierarc
 
 ### Project
 
-A project can be considered as a game. When you create a new game, you create a project for that game on chainsafe [Gaming Dashboard](https://gaming-dashboard-stage.pages.dev/dashboard). 
-A project in the first level of hierarchy in the chainsafe gaming ecosystem. Anything you will create in the gaming ecosystem will be under a project.
+A project can be considered as a game. When you create a new game, you create a project for that game on chainsafe [Gaming Dashboard](https://dashboard.gaming.chainsafe.io/dashboard). 
+A project is the first level of hierarchy in the chainsafe gaming ecosystem. Anything you will create in the gaming ecosystem will be under a project.
 You can create multiple collections and mint NFTs under a project.
 
 ### Collection
@@ -24,13 +24,13 @@ characters, weapons, or skins for a game.
 
 ### NFTs
 
-NFTs are the assets that are minted for a collection. You can mint NFTs for a collection and link them to your game.
-An NFT is a third level of hierarchy in the NFT Launchpad. A collection can have multiple NFTs under the collection. NFT can
-be anything from a character, weapon, skin, or any other asset you want to link to your game. The game users can trade, sell, or buy
-NFTs in the game.
+NFTs are the assets that are minted for a collection. 
+You can mint NFTs for a collection and link them to your game. An NFT is a third level of hierarchy in the NFT Launchpad.
+A collection can have multiple NFTs under the collection. An NFT can be a character, weapon, skin, or any other asset you want to link to your game.
+Gamers can trade, sell, or buy NFTs in the game.
 
 Currently, we are supporting ERC721 and ERC1155 token standards. NFT metadata is uploaded to [ChainSafe Storage](https://storage.chainsafe.io/) powered by IPFS.
-You can add custom attributes to your NFTs, which can be utilized in the game. For example, you can add attributes like `power`, `speed`, `health` to a character NFT.
+You can add custom attributes to your NFTs, which can be utilized in your game. For example, you can add attributes like `power`, `speed` and `health` to a character NFT.
 You can also add custom images to your NFTs. 
 
 You can utilize NFT data seamlessly through standardized APIs. You can list your NFTs in your game and let users buy, sell, and trade them in the game itself.
@@ -40,7 +40,7 @@ You can utilize NFT data seamlessly through standardized APIs. You can list your
 Adding Metadata to a token enables games to import detailed information and showcase your token's data.
 Usually, digital assets are identified just by their Token ID. Metadata adds extra details to these assets, giving them properties such as a title, a narrative, and visuals.
 
-You can add custom attributes to your NFTs, which can be utilized in the game. For example, you can add attributes like `power`, `speed`, `health` to a character NFT.
+You can add custom attributes to your NFTs, which can be utilized in the game. For example, you can add attributes like `power`, `speed` and `health` to a character NFT as metadata fields.
 
 We store the metadata of the NFTs on [ChainSafe Storage](https://storage.chainsafe.io/) which is powered by IPFS. We store the IPFS CID 
 of the metadata on-chain. The metadata is stored in a JSON format and can be accessed using the IPFS CID via any public IPFS gateway.
