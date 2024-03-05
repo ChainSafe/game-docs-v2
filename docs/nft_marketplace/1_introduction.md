@@ -14,11 +14,12 @@ Game Developers can create, manage, and visualize NFTs through the dashboard wit
 
 ![](./assets/introduction.png)
 
-You can have multiple marketplaces for a project and list NFTs for sale in any of the marketplaces. You can only list a single NFT
-in a single marketplace at a time. You can have multiple NFTs listed in a single marketplace. 
-
-We offer on chain marketplace, meaning a marketplace is actually a smart contract that is deployed on the blockchain. 
+We offer on chain marketplace, meaning a marketplace is actually a smart contract that is deployed on the blockchain.
 The marketplace smart contract is responsible for managing the NFTs that are listed for sale. It also handles the buying and selling of the NFTs.
+
+You can create multiple marketplaces for a project and list NFTs for sale in those marketplaces . You can only list a single NFT
+in a single marketplace at a time. Though You can have multiple NFTs listed in a single marketplace. 
+
 
 ### Ready To Get Started?
 
