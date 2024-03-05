@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "spellcheck": "spellchecker --ignore ^ABI.*\\|NFT.*\\|token\\-api\\|nfts$ -f \"./docs/**/*.md\" \"./*.md\" -l en-US -q  -d ./dictionary.txt",
+    "spellcheck": "spellchecker --ignore ^Gamer.*\\|ABI.*\\|NFT.*\\|token\\-api\\|nfts$ -f \"./docs/**/*.md\" \"./*.md\" -l en-US -q  -d ./dictionary.txt",
     "update-nswag-file": "ts-node ./docs/marketplace-api/nswag/update-nswag",
     "clean-nswag-file": "ts-node ./docs/marketplace-api/nswag/clean-nswag",
     "generate-api-client": "yarn update-nswag-file && nswag run './docs/marketplace-api/nswag/marketplace-api-client.nswag' && yarn clean-nswag-file",
