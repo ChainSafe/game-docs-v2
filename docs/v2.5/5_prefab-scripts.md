@@ -1163,7 +1163,7 @@ public class GetTransactionStatus : MonoBehaviour
 }
 ```
 
-### Get Event Data Via Tx Receipt
+### Get Event Data Via Transaction Receipt
 
 ```csharp
 using System.Linq;
