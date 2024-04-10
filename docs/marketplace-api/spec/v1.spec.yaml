@@ -4,7 +4,7 @@ info:
   contact:
     email: info@chainsafe.io
     name: ChainSafe
-    url: https://dashboard.gaming.chainsafe.io/
+    url: https://api.gaming.chainsafe.io/
   version: 1.19.2
 externalDocs:
   description: Find out more about ChainSafe
