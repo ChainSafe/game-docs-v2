@@ -156,4 +156,19 @@ Web3Accessor.Web3.RampExchanger().OffRampSaleCreated += data
     => Debug.Log($"Off-Ramp sale created {data.Fiat.Amount:C} {data.Fiat.CurrencySymbol}");
 ```
 
+## Ramp on WebGL
+
+Ramp on WebGL Builds on Unity v2022.3 and up throws an error while loading the Ramp Widget, the exact error message is 
+```
+Specify a Cross-Origin Resource Policy to prevent a resource from being blocked
+```
+This is a local/localhost specific error and doesn't happen on real domains during deployment. If you want to test ramp locally follow these steps
+1. Make a WebGL build **NOT** Build And Run, Make sure `Player Settings > WebGL > Compression Format` isn't set to Brotli
+2. Navigate to the build directory and setup a server on port 8000
+   Windows: Navigate to Build directory open terminal and run command `"[Unity Editor Directory]/Editor/Data/MonoBleedingEdge/bin/mono.exe" "[Unity Editor Directory]/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/SimpleWebServer.exe" "[Build Directory]" 8000` [Unity Editor Directory] is usually `C:/Program Files/Unity/Hub/Editor/2022.3.../`
+   Mac/Linux: Install [Python](https://www.python.org/downloads/) and in the Build directory open terminal and run command `py -m http.server`
+3. Run build using [https://localhost:8000](https://localhost:8000)
+
+Now you should be able to test Ramp locally on WebGL!
+
 We hope you enjoy our new Ramp service & the functionality it provides in terms of easing user onboarding. Happy coding!
