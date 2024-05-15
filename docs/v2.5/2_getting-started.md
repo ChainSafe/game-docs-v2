@@ -11,7 +11,7 @@ sidebar_label: Getting Started
 
 This page will walk you through the process of setting up a project ID and using the new API.
 
-Currently wallet connect is having an issue and is awaiting our 2.6 release. In order to get around this you can update directly from the head via unity package manager, + icon and add from git following the getting started area of the docs and enter https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity
+Currently wallet connect is having an issue and is awaiting our 2.6 release. In order to get around this you can update directly from the head via unity package manager, + icon and add from git following the getting started area of the docs entering https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity
 
 :::
 
