@@ -320,3 +320,7 @@ xdai
 XDai
 YourGame
 Zenject
+localhost
+localhost:8000
+https
+Brotli
