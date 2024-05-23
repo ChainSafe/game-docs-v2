@@ -60,7 +60,7 @@ You can do this by editing the WebGLTemplates -> WebGL2020x -> Web3 -> index.js 
 
 web3.unity is currently on v2.
     
-You can download the [latest release](https://github.com/ChainSafe/web3.unity/releases/tag/v1.6.3) and import it into your Unity build. We have an installation tutorial here: [https://docs.gaming.chainsafe.io/](https://docs.gaming.chainsafe.io/)
+You can download the [latest release](https://github.com/ChainSafe/web3.unity/releases/) and import it into your Unity build. We have an installation tutorial here: [https://docs.gaming.chainsafe.io/](https://docs.gaming.chainsafe.io/)
     
 ### What are the benefits of moving to the latest version?
 
@@ -72,24 +72,15 @@ You can download the [latest release](https://github.com/ChainSafe/web3.unity/re
 
 ### Are code changes required when I update to the latest version?
 
-The latest version (v2) will require code changes for games using legacy versions of web3.unity (v1.6.x or lower).
+The latest version (v2.6) will require code changes for games using legacy versions of web3.unity.
 
 Some effort will be required to refactor games that use modified versions of our prefabs, as well as needing to configure an RPC provider for broadcasting transactions to the various networks we support. Without these changes, games will be impacted and players will no longer be able to make and sign transactions. 
     
-### How long will it take to migrate my game from legacy versions (v1.6.x or lower) to the latest version?
+### How long will it take to migrate my game from legacy versions to the latest version?
     
 This largely depends on the amount of affected code you have in your game and the platform that you’re building on; both our team and the community are here to help.
     
 Join our [Discord](https://discord.gg/zxHUgGGTGk) for support or reach out to our team at `bd@chainsafe.io` for consulting engagements, we are happy to assist.
-    
-### My game is currently running legacy versions (v1.6.x or lower). What are the steps I need to take to switch over to the latest version?
-
-1. Register for a project ID (including filling out profile and project info). See [this video](https://www.youtube.com/watch?v=TbDGaySQ1Io) for a tutorial on how project registration works
-2. Sign up for a node provider and get an RPC endpoint (if you aren’t already using one). More on this below.
-3. Update any code in your game that uses modified versions of our prefabs
-4. Test your game to ensure all functions work the same way as before
-    
-Without these changes, people will be unable to make transactions from within existing games. This will require some effort to refactor code based on legacy versions. Users can expect payoffs in the longer term, and we’re here to help make the transition as smooth as possible.
     
 ### What is an RPC and how do I get one?
     
@@ -98,12 +89,6 @@ A Remote Procedure Call or RPC node is a type of computer server that allows us
 ### Why are RPCs required?
     
 The latest decentralized version of the SDK will significantly reduce the involvement our intermediary API servers play which previously was causing developers with intermittent outages and bottlenecks. Instead, we are encouraging users to assess and determine the uptime guarantees needed from infrastructure providers in supplying an RPC node.
-
-### Will I still be able to use legacy versions (v1.6.x or lower) with my game?
-    
-The aim is to move away from supporting the API service once the community has had adequate time to upgrade to the latest version.
-    
-The sunset date for the API is slated for May, 2023.
     
 ### My current build is running just fine, is upgrading compulsory?
     

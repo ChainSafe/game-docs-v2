@@ -10,7 +10,7 @@ sidebar_label: ChainSafe Gaming
 
 The ChainSafe Gaming docs is your portal to learn more about our products and services.
 
-![](v2/v2Assets/IntroImageChainsafe.png)
+![](v2.5/v2Assets/IntroImageChainsafe.png)
 
 # Web3.unity, An SDK To Bridge Unity NFT Games To The Blockchain
 
@@ -36,10 +36,6 @@ Out-of-the-box, web3.unity comes with Unity prefabs & tooling that will make bui
 #### Current SDK Builds (v2.x)
 
 [Click here](https://docs.gaming.chainsafe.io/current/project-id-registration) to open documentation for the latest version of web3.unity.
-
-#### Legacy Builds (v1.6.x or lower)
-
-[Click here](https://docs.gaming.chainsafe.io/legacy/getting-started) to open legacy documentation for web3.unity.
 
 ## Supported Chains&#x20;
 
