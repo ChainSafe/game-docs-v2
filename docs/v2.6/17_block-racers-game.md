@@ -24,18 +24,18 @@ The Block Racers game demo can be found [here](https://chainsafe.github.io/Block
 ## Booting Up The Game & Connecting Your Wallet
 Once the game has booted up, simply connect your wallet and have a look around through the menus.
 
-![](v2Assets/BlockRacers1.png)
-![](v2Assets/BlockRacers18.png)
+![](Assets/BlockRacers1.png)
+![](Assets/BlockRacers18.png)
 
 ## Tutorial Examples
 There is a tutorial area which will take you through some of the SDKs basic functions, drive up to one of the floating texts to bring up an example menu.
 
-![](v2Assets/BlockRacers2.png)
+![](Assets/BlockRacers2.png)
 
 ## Signing A Message
 This will generate a unique signature from a user that you may use for authorization purposes.
 
-![](v2Assets/BlockRacers3.png)
+![](Assets/BlockRacers3.png)
 
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
@@ -67,7 +67,7 @@ public class SignMessage : MonoBehaviour
 ## Sign Verify
 This will verify a signature from a wallet to prove its owners address.
 
-![](v2Assets/BlockRacers4.png)
+![](Assets/BlockRacers4.png)
 
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
@@ -100,7 +100,7 @@ public class SignVerify : MonoBehaviour
 ## Mint
 This can be used to mint ERC20 Race tokens or even native tokens via the faucet to pay for things within game.
 
-![](v2Assets/BlockRacers5.png)
+![](Assets/BlockRacers5.png)
 
 ``` csharp
 using System.Numerics;
@@ -137,7 +137,7 @@ public class Erc1155Mint : MonoBehaviour
 ## Transfer
 This will allow you to transfer ERC20 Race tokens between wallets.
 
-![](v2Assets/BlockRacers6.png)
+![](Assets/BlockRacers6.png)
 
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
@@ -172,7 +172,7 @@ public class Erc20Transfer : MonoBehaviour
 ## Custom Call
 This will allow you to make a custom call, we've included 2 examples here. 1 being read which checks a contracts state variable and another being write which adds to the sate variable of a contract. You may read it again after to see changes.
 
-![](v2Assets/BlockRacers7.png)
+![](Assets/BlockRacers7.png)
 
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
@@ -246,12 +246,12 @@ public class ContractSend : MonoBehaviour
 ## Docs
 Clicking this button will take you to ChainSafe's documentation [here](https://docs.gaming.chainsafe.io/)
 
-![](v2Assets/BlockRacers8.png)
+![](Assets/BlockRacers8.png)
 
 ## Voucher
 This will generate a unique voucher via ECDSA which can be used for things like claims & minting.
 
-![](v2Assets/BlockRacers9.png)
+![](Assets/BlockRacers9.png)
 
 ``` csharp
 using Scripts.EVM.Token;
@@ -283,41 +283,41 @@ public class EcdsaSignMessage : MonoBehaviour
 ## Dashboard
 Clicking this button will take you to the chainsafe dashboard [here](https://dashboard.gaming.chainsafe.io/) where you can do things like signing up for a project ID and set various other project information.
 
-![](v2Assets/BlockRacers10.png)
+![](Assets/BlockRacers10.png)
 
 ## Pause & Controls
 Pressing tab will bring up the pause menu allowing you to either go back to the main menu, select fullscreen or even view the games controls. We have both keyboard and gamepad inputs available.
 
-![](v2Assets/BlockRacers11.png)
-![](v2Assets/BlockRacers12.png)
+![](Assets/BlockRacers11.png)
+![](Assets/BlockRacers12.png)
 
 ## The Garage
 The garage will let you change cars which are actually NFTs which is pretty cool.
 
-![](v2Assets/BlockRacers13.png)
+![](Assets/BlockRacers13.png)
 
 ## Choosing Your Car
 By pressing change car you'll be presented with options to change your model, colour, stats and even the NFT displayed on the back of your car.
 
-![](v2Assets/BlockRacers14.png)
+![](Assets/BlockRacers14.png)
 
 ## Upgrades
 In the upgrade area of the garage you may use tokens to upgrade things like your engine, handling and nos levels as the NFTs are also dynamic.
 
-![](v2Assets/BlockRacers15.png)
+![](Assets/BlockRacers15.png)
 
 ## All NFT Call
 To show off our new all NFT call, we're giving you the ability to call any NFT you own and display it as your cars back window too.
 
-![](v2Assets/BlockRacers16.png)
+![](Assets/BlockRacers16.png)
 
 ## Marketplace
 This are will show off our marketplace functionality.
 
-![](v2Assets/BlockRacers17.png)
+![](Assets/BlockRacers17.png)
 
 ## Ready, Set, Race!
 Once you're set and happy with your car feel free to enter the race area, set your region for a lag free experience and search for a multiplayer match!
 
-![](v2Assets/BlockRacers19.png)
-![](v2Assets/BlockRacers20.png)
+![](Assets/BlockRacers19.png)
+![](Assets/BlockRacers20.png)

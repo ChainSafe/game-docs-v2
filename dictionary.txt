@@ -134,6 +134,8 @@ Goerli's
 goerliETH
 how-tos
 HTTPS
+HyperPlay
+hyperplay
 Infura-enabled
 IChainConfig
 Integrable

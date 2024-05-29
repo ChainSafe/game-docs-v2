@@ -1,6 +1,6 @@
 ---
 slug: /current/project-id-registration
-sidebar_position: 3
+sidebar_position: 2
 sidebar_label: Project ID Registration
 ---
 
@@ -29,29 +29,29 @@ Please sign up via email. You can get to our sign-up dashboard by clicking the l
 
 The email you provide will be used for ChainSafe Gaming feature and security updates, onboarding support, requesting your product feedback, and exploring partnership opportunities with ChainSafe for your game. We will also eventually deploy a developer dashboard as a place to give you visibility on your games’ performance, add details about your game so we can showcase and drive traffic to it, and organize your assets to make building even easier.
 
-![](v2Assets/dashboardsignup.png)
+![](Assets/dashboardsignup.png)
 
 ### Enter The Verification Code Sent To Your Email
 
 Our sign-up process is password-free for security purposes. You will be sent an authorization code to your chosen email. Please enter this verification code during registration to unlock your dashboard. This verification process is implemented in a way that mitigates opportunities for malicious third parties from stealing your data.
 
-![](v2Assets/authcode.png)
+![](Assets/authcode.png)
 
 ### Press The Create Button To Create Your Project
 
-![](v2Assets/createbutton.png)
+![](Assets/createbutton.png)
 
 ### Enter A Project Name
 
 Please enter your game title and press create.
 
-![](v2Assets/createproject.png)
+![](Assets/createproject.png)
 
 ### You Will Be Presented With A Project ID
 
 This is your Project ID. Copy it and please keep it safe! Please don't give it away to other users. We use this to help identify and support you within the blockchain gaming space. You can press the edit or delete buttons to alter your project name or delete the ID as needed.
 
-![](v2Assets/projectID.png)
+![](Assets/projectID.png)
 
 
 Please keep your Project ID handy as you'll need it once you've installed the SDK package from our [GitHub](https://github.com/ChainSafe/web3.unity/releases).
@@ -60,13 +60,13 @@ Please keep your Project ID handy as you'll need it once you've installed the SD
 
 Upon installing the newest release, you'll be presented with a debug error that will stop you from editing or building. This is where you will enter your Project ID to unlock all of web3.unity's build features.
 
-![](v2Assets/notvalid.png)
+![](Assets/notvalid.png)
 
 ### Saving Your Project ID Within Unity
 
-In the menu bar near the top, you can press `Window` -> `ChainSafe SDK` -> `Server Settings`, which will prompt a pop-up. From here, you can enter your Project ID along with chain information associated with your game. Once complete, press save, and that's it! You're ready to start building with web3.unity!
+In the menu bar near the top, you can press `ChainSafe SDK` -> `Server Settings`, which will prompt a pop-up. From here, you can enter your Project ID along with chain information associated with your game. Once complete, press save, and that's it! You're ready to start building with web3.unity!
 
-![](v2Assets/savesettings.png)
+![](Assets/savesettings.png)
 
 ### Additional Support
 
