@@ -35,7 +35,7 @@ Please note that unity versions 2021 and below may require a restart if you expe
 
 Updating the SDK is easy. Simply go to window -> package manager -> select the ChainSafe SDK package & press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
 
-### Set Project ID
+### Set Your Project ID
 
 As the package is installed, you'll be prompted with settings window.
 First of all you have to setup your Project ID. You can get one [here](https://dashboard.gaming.chainsafe.io/).
@@ -45,7 +45,7 @@ For more information on Project ID, see [Project ID Registration](https://docs.g
 After you've completed the registration process, copy your Project ID into the project settings
 window. Save settings. You should see a message in the console saying your project id is valid.
 
-### Other Settings
+### Other Server Settings
 
 ![](Assets/project-settings.png)
 
@@ -111,7 +111,7 @@ We've also provided the option to log in via Web3Auth, you may need to download 
 ![](Assets/Web3AuthLogin.png)
 
 ### Logging In With Hyperplay
-We've also provided the option to log in via HyperPlay, you may need to download the HyperPlay samples from the package manager if you don't have them installed.
+We've also provided the option to log in via HyperPlay, you may need to download the HyperPlay samples from the package manager if you don't have them installed. You will also need to install the HyperPlay client from [here](https://www.hyperplay.xyz/downloads) Once installed, sign in with your metamask or chosen wallet and naviagate to the HyperPlay sample login scene. When making calls to the chain, the hyperplay client will prompt you as needed.
 
 ### Web3Builder, Signers & Executors
 
