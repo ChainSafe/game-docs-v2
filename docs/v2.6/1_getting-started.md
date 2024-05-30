@@ -14,30 +14,40 @@ This page will walk you through the process of installing the Web3 Unity SDK, se
 :::
 
 
-## Install the Web3.Unity SDK via Package Manager With Open UPM
+## Install the Web3.Unity SDK via Github Paths
 
-1. On the top bar in unity, navigate to Window → Package Manager → Three Vertical Dots → Project Settings.
+On the top bar in unity, navigate to Window → Package Manager → Press the plus button on the top left → Add via Git Url.
    
 ![](Assets/install-package.png)
 
-2. Add a new scoped registry or edit the existing OpenUPM entry if it's already there.
-3. Save the following details to the scope then close the window:
-- Name: package.openupm.com
-- URL: [https://package.openupm.com](https://package.openupm.com/)
-- Scope: io.chainsafe.web3-unity
+Core SDK
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity
 
-4. Add a new package by name by pressing + and adding ```io.chainsafe.web3-unity```.
-5. Next go to the web3.unity SDK package and install the examples by going to the samples tab and pressing import.
+Marketplace Package
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace
+
+Lootboxes Package
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes
+
+Ramp Package
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp
+
+Web3Auth Package
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth
+
+HyperPlay Package
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay
 
 ![](Assets/import-samples.png)
 
-Please note that unity versions 2021 and below may require a restart if you experience assembly errors.
+Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORESDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
 
 ### Updating via The Package Manager
 
 Go to window → package manager → select the web3.unity SDK package and press update. The same can be done for any additional packages you have installed, web3auth, lootboxes etc.
 
 ## ChainSafe Server Settings
+
 ### Set Project ID
 
 As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the need to register button in the server settings.
