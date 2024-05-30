@@ -41,11 +41,6 @@ As the package is installed, you'll be prompted with the ChainSafe server settin
 
 ![](assets/getting-started/project-settings.png)
 
-After you've completed the registration process, copy your Project ID into the project settings
-window. Save settings. You should see a message in the console saying your project id is valid.
+After you've completed the registration process, copy your Project ID into the project settings window. Save settings. You should see a message in the console saying your project id is valid. Select the chain you would like to use and the rest of the fields will auto populate. If you would like to set up your own RPC node, visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
 
-### Other Server Settings
-
-Select the chain you would like to use and the rest of the fields will auto populate. If you would like to set up your own RPC node, visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
-
-Once your project is set up you can choose the wallet you want your players to use.
+We'll briefly walk through setting up a project id on the next page which you can enter into the menu above.

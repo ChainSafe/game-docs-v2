@@ -40,14 +40,14 @@ This video will show you how to initialize Ramp as well as how to use it. Below 
 
 ## Initializing Ramp
 
-![](assets/ramp/RampLogin.png)
+![](assets/ramp/ramp-login.png)
 As you can see, there is a `RampServiceAdapter` attached to the game object that is responsible for logging in your user. We highly encourage to attach all the necessary services you want to add to the login object itself, because we're retrieving the `IWeb3BuilderServiceAdapter` from the object that implements the `ILoginProvider`, in this case, that's `Web3AuthLoginProvider`.
 
 As you can see, the `RampServiceAdapter`has one field, and that's the ramp scriptable object. We're providing the Scriptable Object as part of the Ramp Package sample.
 
 ## The Ramp scriptable object
 
-![](assets/ramp/RampObject.png)
+![](assets/ramp/ramp-object.png)
 
 This object contains all the configuration you'll need to begin testing out Ramp in your project. You can also see that we've utilized an interface here for ease of use. Feel free to explore around and see what you can do.
 
@@ -55,18 +55,18 @@ This object contains all the configuration you'll need to begin testing out Ramp
 
 By selecting the ramp scriptable object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration) as needed.
 
-![](assets/ramp/RampLogo.png)
+![](assets/ramp/ramp-logo.png)
 
 
 ## Accessing Ramp Trough Sample Scene
 
 Once logged in you'll be presented with our famous sample scene page, which you'll notice has a new area to showcase Ramp functionality. As these are testnet tokens please feel free to click around to see the functionality of the 3 functions mentioned above.
 
-![](assets/ramp/RampSample.png)
+![](assets/ramp/ramp-sample.png)
 
 ## Ramp functions
 
-![](assets/ramp/RampFunctionality.png)
+![](assets/ramp/ramp-functionality.png)
 
 As you can see from the functions here in ramp.cs, we're providing 3 different types of ramp functionality for use with your project. This can be accessed through the Web3 object as needed. You can also check out the ramp configuration docs [here](https://docs.ramp.network/configuration) if you would like to add additional settings or use other tokens besides sepolia eth.
 
@@ -148,7 +148,7 @@ private async void OnRampOffRampPressed()
 }
 ```
 
-![](assets/ramp/RampBuySell.png)
+![](assets/ramp/ramp-buy-sell.png)
 
 As some projects will only want to facilitate purchases, others will want sales and some will want to use both. We've provided all the necessary functionality to do so. All of these functions are set up asynchronously and are being passed through event systems which you can subscribe to as needed.
 

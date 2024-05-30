@@ -24,19 +24,19 @@ This section walks through the process of setting up an RPC node to be used with
 
 2. Click on “Projects” in the left sidebar, then click on “Create project”.
 
-![](assets/setting-up-an-rpc-node/chainstack_dashboard.png)
+![](assets/setting-up-an-rpc-node/chainstack-dashboard.png)
 
 3. Give your project a name and select “Public chain” for the Type.
 
-![](assets/setting-up-an-rpc-node/chainstack_createprojectname.png)
+![](assets/setting-up-an-rpc-node/chainstack-create-project-name.png)
 
 4. You will appear back on the dashboard. Select your newly created project.
 
-![](assets/setting-up-an-rpc-node/chainstack_newlycreatedproject.png)
+![](assets/setting-up-an-rpc-node/chainstack-newly-created-project.png)
 
 5. Inside the project, choose "Networks" from the ribbon menu, and then click on “Get Started” to begin deploying an RPC node.
 
-![](assets/setting-up-an-rpc-node/chainstack_getstartedbutton.png)
+![](assets/setting-up-an-rpc-node/chainstack-get-started-button.png)
 
 # Deploying an RPC node
 
@@ -44,13 +44,13 @@ This section walks through the process of setting up an RPC node to be used with
 
 2. Depending on which EVM chain you select, you will be prompted to select a network under a given chain. In our example, we have selected Polygon and its Mumbai testnet. Click “Next”.
 
-![](assets/setting-up-an-rpc-node/chainstack_selectingchainandnetwork.png)
+![](assets/setting-up-an-rpc-node/chainstack-selecting-chain-and-network.png)
 
 3. If you are under Chainstack’s Developer plan, you will only be able to select the default options presented in the “Node deployment” step. This means you will choose “Elastic” for node type, “Full” for full node, “Off” for Debug and trace APIs, “Chainstack” for Hosting, and any available provider under the Cloud provider drop-down menu. Finally, name your node and click “Next”.
 
-![](assets/setting-up-an-rpc-node/chainstack_joinnetwork.png)
+![](assets/setting-up-an-rpc-node/chainstack-join-network.png)
 
-![](assets/setting-up-an-rpc-node/chainstack_namingnode.png)
+![](assets/setting-up-an-rpc-node/chainstack-naming-node.png)
 
 :::info
 
@@ -63,7 +63,7 @@ You will appear back in your project dashboard. Your newly created node will tak
 
 5. Once deployed, the node’s status will turn green under a “Running” status. You can now expand the details of your node by clicking on its name. 
 
-![](assets/setting-up-an-rpc-node/chainstack_nodestatus.png)
+![](assets/setting-up-an-rpc-node/chainstack-node-status.png)
 
 # Retrieving your HTTPS endpoint
 
@@ -71,4 +71,4 @@ You will appear back in your project dashboard. Your newly created node will tak
 
 2. From here, take note of the HTTPS endpoint, which will be the RPC URL you will use to configure web3.unity and allow your Unity game to interact with the blockchain. 
 
-![](assets/setting-up-an-rpc-node/chainstack_httpsendpoints.png)
+![](assets/setting-up-an-rpc-node/chainstack-https-endpoints.png)
