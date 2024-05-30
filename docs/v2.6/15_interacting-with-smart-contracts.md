@@ -1,6 +1,6 @@
 ---
 slug: /current/interacting-with-smart-contracts
-sidebar_position: 10
+sidebar_position: 15
 sidebar_label: Interacting With Smart Contracts
 ---
 

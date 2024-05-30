@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/marketplace
-sidebar_position: 15
+sidebar_position: 20
 sidebar_label: Marketplace
 ---
 

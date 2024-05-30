@@ -33,6 +33,7 @@ module.exports = {
         "v2.6/lootboxes",
         "v2.6/marketplace",
         "v2.6/block-racers-game",
+        "v2.6/block-blasterz-game",
         "v2.6/faq"
       ]
     },

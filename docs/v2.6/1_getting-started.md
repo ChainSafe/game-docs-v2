@@ -14,7 +14,7 @@ This page will walk you through the process of installing the Web3 Unity SDK, se
 :::
 
 
-## Install the Web3.Unity SDK via Github Paths
+## Install the Web3.Unity SDK via Unity Package Manager
 
 On the top bar in unity, navigate to Window → Package Manager → Press the plus button on the top left → Add via Git Url.
    
@@ -27,7 +27,7 @@ Core SDK
 
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
 
-![](assets/import-samples.png)
+![](assets/getting-started/import-samples.png)
 
 ### Updating via The Package Manager
 
@@ -39,7 +39,7 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the need to register button in the server settings.
 
-![](assets/project-settings.png)
+![](assets/getting-started/project-settings.png)
 
 After you've completed the registration process, copy your Project ID into the project settings
 window. Save settings. You should see a message in the console saying your project id is valid.
