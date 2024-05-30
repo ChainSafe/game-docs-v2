@@ -10,7 +10,7 @@ sidebar_label: ChainSafe Gaming
 
 The ChainSafe Gaming docs is your portal to learn more about our products and services.
 
-![](v2.6/assets/chainsafe-gaming/IntroImageChainsafe.png)
+![](v2.6/assets/chainsafe-gaming/intro-image-chainsafe.png)
 
 # Web3.unity, An SDK To Bridge Unity NFT Games To The Blockchain
 
