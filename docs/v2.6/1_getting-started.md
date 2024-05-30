@@ -18,29 +18,35 @@ This page will walk you through the process of installing the Web3 Unity SDK, se
 
 On the top bar in unity, navigate to Window → Package Manager → Press the plus button on the top left → Add via Git Url.
    
-![](Assets/install-package.png)
+![](Assets/getting-started/package-manager-add-package.png)
+
+You can add each of these packages below as needed in a modular fashion. This way your project wont bloat out with SDK files & you can have a lean development environment with smaller project sizes when working with teams.
+
+![](Assets/getting-started/package-manager-git-path.png)
+
+Importing each of the paths below will give you access to different part of our SDK as needed. 
 
 Core SDK
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
 
 Marketplace Package
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
 
 Lootboxes Package
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`
 
 Ramp Package
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
 
 Web3Auth Package
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
 
 HyperPlay Package
-https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
 
 ![](Assets/import-samples.png)
 
-Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORESDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
+Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
 
 ### Updating via The Package Manager
 
