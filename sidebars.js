@@ -7,6 +7,17 @@ module.exports = {
       "label": "SDK Documentation",
       "items": [
         "v2.6/getting-started",
+        {
+          type: 'category',
+          label: 'Choose Your Wallet',
+          items: [
+            "v2.6/choose-your-wallet",
+            "v2.6/metamask",
+            "v2.6/wallet-connect",
+            "v2.6/web3auth",
+            "v2.6/hyperplay",
+          ]
+        },
         "v2.6/project-id-registration",
         "v2.6/setting-up-an-rpc-node",
         "v2.6/prefab-scripts",
