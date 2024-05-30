@@ -1,4 +1,4 @@
-﻿Blasterz---
+﻿---
 slug: /current/block-blasterz-game
 sidebar_position: 23
 sidebar_label: Block Blasterz Game
