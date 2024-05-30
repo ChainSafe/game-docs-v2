@@ -680,44 +680,375 @@ public class Erc1155Transfer : MonoBehaviour
 ## EVM Prefabs
 
 ### IPFS Upload
-Uploads to IPFS.
+Uploads to IPFS, you will need to obtain your storage api secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
 
 ``` csharp
-using Web3Unity.Scripts.Prefabs;
-using Scripts.EVM.Token;
+using System.Collections.Generic;
+using ChainSafe.Gaming.UnityPackage.Model;
+using UnityEngine;
+using ChainSafe.Gaming.Marketplace;
+
+public class IPFSCalls : MonoBehaviour
+{
+    #region Fields
+
+    [Header("IPFS VALUES")]
+    [SerializeField] private string apiSecretKey = "Fill In Your API Secret Key From Storage";
+    [SerializeField] private string bucketId = "Fill In Your Bucket ID From Storage";
+    [SerializeField] private string fileNameImage = "Logo.png";
+    [SerializeField] private string fileNameMetaData = "MetaData.json";
+    [SerializeField] private string nftName = "Name of the NFT";
+    [SerializeField] private string description = "An NFT description";
+    [SerializeField] private string externalUrl = "The URL that appears below your assets image";
+    [SerializeField] private List<string> display_types = new List<string> { "Stamina", "Boost Number" };
+    [SerializeField] private List<string> trait_types = new List<string> { "Health", "Thunder Power" };
+    [SerializeField] private List<string> values = new List<string> { "5", "20" };
+    [Header("Required for image only upload")]
+    [SerializeField] private string imageCID = "Enter your image CID from storage or upload call";
+
+    #endregion
+    
+    #region Methods
+    
+    /// <summary>
+    /// Uploads an image selected by the user to IPFS
+    /// </summary>
+    public async void IPFSUploadImage()
+    {
+        var uploadRequest = new IPFSUploadRequestModel
+        {
+            ApiKey = apiSecretKey,
+            BucketId = bucketId,
+            FileNameImage = fileNameImage
+        };
+        var cid = await IPFS.UploadImage(uploadRequest);
+        Debug.Log($"Image uploaded to https://ipfs.chainsafe.io/ipfs/{cid}"); 
+    }
+    
+    /// <summary>
+    /// Uploads metadata to IPFS
+    /// </summary>
+    public async void IPFSUploadMetadata()
+    {
+        var uploadRequest = new IPFSUploadRequestModel
+        {
+            ApiKey = apiSecretKey,
+            BucketId = bucketId,
+            Image = imageCID,
+            FileNameMetaData = fileNameMetaData,
+            Name = nftName,
+            Description = description,
+            External_url = externalUrl,
+            attributes = IPFS.CreateAttributesList(display_types, trait_types, values)
+        };
+        var cid = await IPFS.UploadMetaData(uploadRequest);
+        Debug.Log($"Metadata uploaded to https://ipfs.chainsafe.io/ipfs/{cid}"); 
+    }
+    
+    /// <summary>
+    /// Uploads an image selected by the user including metadata to IPFS
+    /// </summary>
+    public async void IPFSUploadImageAndMetadata()
+    {
+        var uploadRequest = new IPFSUploadRequestModel
+        {
+            ApiKey = apiSecretKey,
+            BucketId = bucketId,
+            FileNameImage = fileNameImage,
+            FileNameMetaData = fileNameMetaData,
+            Name = name,
+            Description = description,
+            External_url = externalUrl,
+            attributes = IPFS.CreateAttributesList(display_types, trait_types, values)
+        };
+        var cid = await IPFS.UploadImageAndMetadata(uploadRequest);
+        Debug.Log($"Image & metadata uploaded to https://ipfs.chainsafe.io/ipfs/{cid}"); 
+    }
+
+    #endregion
+}
+
+```
+
+### Marketplace Calls
+Makes reads and writes to and from ChainSafe's marketplace.
+
+``` csharp
+#if MARKETPLACE_AVAILABLE
+using Scripts.EVM.Marketplace;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
-Change the class name, variables and add any additional changes at the end of the function.
-The scripts function should be called by a method of your choosing - button, function etc */
-
 /// <summary>
-/// Uploads to IPFS
+/// Marketplace sample calls for use with the api documentation.
+/// Marketplace Api: https://docs.gaming.chainsafe.io/marketplace-api/docs/marketplaceapi
+/// Token Api: https://docs.gaming.chainsafe.io/token-api/docs/tokenapi
 /// </summary>
-public class IpfsUpload : MonoBehaviour
+public class MarketplaceCalls : MonoBehaviour
 {
-    // Variables
-    private string apiKey = "YOUR_CHAINSAFE_STORE_API_KEY";
-    private string data = "YOUR_DATA";
-    private string bucketId = "BUCKET_ID";
-    private string path = "/PATH";
-    private string filename = "FILENAME.EXT";
+    #region fields
+    [Header("Change the fields below for testing purposes")]
+    
+    [Header("Bearer token")]
+    [SerializeField] private string bearerToken = "Please set your bearer token from the ChainSafe dashboard";
+    
+    [Header("721 Collection Call")]
+    [SerializeField] private string collectionId721 = "Set 721 collection ID";
+    
+    [Header("1155 Collection Call")]
+    [SerializeField] private string collectionId1155 = "Set 1155 collection ID";
+    
+    [Header("Marketplace Calls")]
+    [SerializeField] private string marketplaceId = "Set marketplace ID";
+    
+    [Header("Token Calls")]
+    [SerializeField] private string tokenId = "Set token ID i.e 1";
+    
+    [Header("Create 721 Collection Call")]
+    [SerializeField] private string collectionName721 = "Set 721 collection name";
+    [SerializeField] private string collectionDescription721 = "Set 721 collection description";
+    [SerializeField] private bool collectionMintingPublic721 = false;
+    
+    [Header("Create 1155 Collection Call")]
+    [SerializeField] private string collectionName1155 = "Set 1155 collection name";
+    [SerializeField] private string collectionDescription1155 = "Set 1155 collection description";
+    [SerializeField] private bool collectionMintingPublic1155 = false;
+    
+    [Header("Delete calls (Can only be used before the item is on chain)")]
+    [SerializeField] private string collectionToDelete = "Set collection to delete";
+    [SerializeField] private string marketplaceToDelete = "Set marketplace to delete";
+    
+    [Header("Mint 721 to collection calls")]
+    [SerializeField] private string collectionContract721 = "Set 721 collection to mint to";
+    [SerializeField] private string uri721 = "Set metadata uri with full path i.e. https://ipfs.chainsafe.io/ipfs/bafyjvzacdj4apx52hvbyjkwyf7i6a7t3pcqd4kw4xxfc67hgvn3a";
+    
+    [Header("Mint 1155 to collection calls")]
+    [SerializeField] private string collectionContract1155 = "Set 1155 collection to mint to";
+    [SerializeField] private string uri1155 = "Set metadata uri with full path i.e. https://ipfs.chainsafe.io/ipfs/bafyjvzacdj4apx52hvbyjkwyf7i6a7t3pcqd4kw4xxfc67hgvn3a";
+    [SerializeField] private string amount1155 = "Set amount of Nfts to mint i.e 1";
+    
+    [Header("Create marketplace call")]
+    [SerializeField] private string marketplaceName = "Set marketplace name";
+    [SerializeField] private string marketplaceDescription = "Set marketplace description";
+    [SerializeField] private bool marketplaceWhitelisting = false;
+    
+    [Header("List to marketplace calls")]
+    [SerializeField] private string tokenIdToList = "Set token ID to list";
+    [SerializeField] private string weiPriceToList = "Set price in wei to list for i.e 100000000000000";
+    [SerializeField] private string marketplaceContractToListTo = "Set marketplace contract to list to";
+    [SerializeField] private string collectionContractToList = "Set collection contract to list from";
+    
+    [Header("List to marketplace calls")]
+    [SerializeField] private string marketplaceContractToBuyFrom = "Set marketplace contract to buy from";
+    [SerializeField] private string tokenIdToBuy = "Set token ID to buy";
+    [SerializeField] private string weiPriceToBuy = "Set price in wei to buy with i.e 100000000000000";
+    
+    #endregion
 
-    // Function
-    public async void IPFSUpload()
+    #region Methods
+    
+    /// <summary>
+    /// Gets all items in a project.
+    /// </summary>
+    public async void GetProjectItems()
     {
-        var cid = await Evm.Upload(new IpfsUploadRequest
+        var response = await Marketplace.GetProjectItems();
+        Debug.Log($"Total: {response.total}");
+        foreach (var item in response.items)
         {
-            ApiKey = apiKey,
-            Data = data,
-            BucketId = bucketId,
-            Path = path,
-            Filename = filename
-        });
-        Debug.Log($"Cid: {cid}");
-        // You can make additional changes after this line
+            Marketplace.PrintObject(item);
+        }
     }
+    
+    /// <summary>
+    /// Gets all items in a marketplace.
+    /// </summary>
+    public async void GetMarketplaceItems()
+    {
+        var response = await Marketplace.GetMarketplaceItems(marketplaceId);
+        Debug.Log($"Total: {response.total}");
+        foreach (var item in response.items)
+        {
+            Marketplace.PrintObject(item);
+        }
+    }
+    
+    /// <summary>
+    /// Gets items listed by token id.
+    /// </summary>
+    public async void GetItem()
+    {
+        var response = await Marketplace.GetItem(marketplaceId, tokenId);
+        Marketplace.PrintObject(response.token);
+    }
+    
+    /// <summary>
+    /// Gets all tokens in a project.
+    /// </summary>
+    public async void GetProjectTokens()
+    {
+        var response = await Marketplace.GetProjectTokens();
+        foreach (var token in response.tokens)
+        {
+            Marketplace.PrintObject(token);
+        }
+    }
+    
+    /// <summary>
+    /// Gets all tokens in a 721 collection.
+    /// </summary>
+    public async void GetCollectionTokens721()
+    {
+        var response = await Marketplace.GetCollectionTokens721(collectionId721);
+        foreach (var token in response.tokens)
+        {
+            Marketplace.PrintObject(token);
+        }
+    }
+    
+    /// <summary>
+    /// Gets all tokens in a 1155 collection.
+    /// </summary>
+    public async void GetCollectionTokens1155()
+    {
+        var response = await Marketplace.GetCollectionTokens1155(collectionId1155);
+        foreach (var token in response.tokens)
+        {
+            Marketplace.PrintObject(token);
+        }
+    }
+    
+    /// <summary>
+    /// Gets the information of a token in a collection via id. Token id is optional.
+    /// </summary>
+    public async void GetCollectionToken()
+    {
+        var response = await Marketplace.GetCollectionToken(collectionId721, tokenId);
+        Marketplace.PrintObject(response);
+    }
+    
+    /// <summary>
+    /// Gets the owners of a token id in a collection.
+    /// </summary>
+    public async void GetTokenOwners()
+    {
+        var response = await Marketplace.GetTokenOwners(collectionId1155, tokenId);
+        foreach (var owner in response.owners)
+        {
+            Marketplace.PrintObject(owner);
+        }
+    }
+    
+    /// <summary>
+    /// Creates a 721 collection
+    /// </summary>
+    public async void Create721Collection()
+    {
+        var data = await Marketplace.Create721Collection(bearerToken, collectionName721, collectionDescription721, collectionMintingPublic721);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Creates a 1155 collection
+    /// </summary>
+    public async void Create1155Collection()
+    {
+        var data = await Marketplace.Create1155Collection(bearerToken, collectionName1155, collectionDescription1155, collectionMintingPublic1155);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Mints an NFT to a 721 collection
+    /// </summary>
+    public async void Mint721CollectionNft()
+    {
+        var data = await Marketplace.Mint721CollectionNft(collectionContract721, uri721);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Mints an NFT to a 1155 collection
+    /// </summary>
+    public async void Mint1155CollectionNft()
+    {
+        var data = await Marketplace.Mint1155CollectionNft(collectionContract1155, uri1155, amount1155);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Deletes a collection that isn't on chain yet
+    /// </summary>
+    public async void DeleteCollection()
+    {
+        var response = await Marketplace.DeleteCollection(bearerToken, collectionToDelete);
+        Debug.Log(response);
+    }
+    
+    /// <summary>
+    /// Creates a marketplace
+    /// </summary>
+    public async void CreateMarketplace()
+    {
+        var data = await Marketplace.CreateMarketplace(bearerToken, marketplaceName, marketplaceDescription, marketplaceWhitelisting);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Deletes a marketplace that isn't on chain yet
+    /// </summary>
+    public async void DeleteMarketplace()
+    {
+        var response = await Marketplace.DeleteMarketplace(bearerToken,marketplaceToDelete);
+        Debug.Log(response);
+    }
+    
+    /// <summary>
+    /// Approves marketplace to list tokens
+    /// </summary>
+    public async void ApproveListNftsToMarketplace()
+    {
+        var data = await Marketplace.SetApprovalMarketplace(collectionContractToList, marketplaceContractToListTo, "1155",true);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Revokes approval from marketplace to list tokens
+    /// </summary>
+    public async void RevokeApprovalListNftsToMarketplace()
+    {
+        var data = await Marketplace.SetApprovalMarketplace(collectionContractToList, marketplaceContractToListTo, "1155",false);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Lists NFTs to the marketplace
+    /// </summary>
+    public async void ListNftsToMarketplace()
+    {
+        var data = await Marketplace.ListNftsToMarketplace(marketplaceContractToListTo,collectionContractToList, tokenIdToList, weiPriceToList);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    /// <summary>
+    /// Purchases an Nft from the marketplace
+    /// </summary>
+    public async void PurchaseNftFromMarketplace()
+    {
+        var data = await Marketplace.PurchaseNft(marketplaceContractToBuyFrom, tokenIdToBuy, weiPriceToBuy);
+        var response = SampleOutputUtil.BuildOutputValue(data);
+        Debug.Log($"TX: {response}");
+    }
+    
+    #endregion
 }
+#endif
 ```
 
 ### Contract Call
@@ -726,7 +1057,6 @@ Makes a read call to a contract.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -739,7 +1069,7 @@ public class CallContract : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string contract = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "myTotal";
 
     // Function
@@ -747,11 +1077,12 @@ public class CallContract : MonoBehaviour
     {
         object[] args =
         {
-            await Web3Accessor.Web3.Signer.GetAddress()
+            Web3Accessor.Web3.Signer.PublicAddress
         };
-        var data = await Evm.ContractCall(Web3Accessor.Web3, method, abi, contractAddress, args);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"Output: {response}");
+        var response = await Evm.ContractCall(Web3Accessor.Web3, method, abi, contract, args);
+        Debug.Log(response);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, nameof(Evm), nameof(Evm.ContractCall));
         // You can make additional changes after this line
     }
 }
@@ -763,7 +1094,6 @@ Makes a write call to a contract.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -776,7 +1106,7 @@ public class SendContract : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string contract = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "addTotal";
     private int increaseAmount = 1;
     // Value for sending native tokens with a transaction for payable functions
@@ -790,9 +1120,9 @@ public class SendContract : MonoBehaviour
         {
             increaseAmount
         };
-        var data = await Evm.ContractSend(Web3Accessor.Web3, method, abi, contractAddress, args);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var response = await Evm.ContractSend(Web3Accessor.Web3, method, abi, contract, args);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, nameof(Evm), nameof(Evm.ContractSend));
         // You can make additional changes after this line
     }
 }
@@ -802,11 +1132,8 @@ public class SendContract : MonoBehaviour
 Gets an array response from a contract.
 
 ``` csharp
-using System.Collections.Generic;
-using System.Linq;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -819,15 +1146,15 @@ public class GetArray : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string contract = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "getStore";
     
     // Function
     public async void GetArrayCall()
     {
-        var data = await Evm.GetArray(Web3Accessor.Web3, Contracts.ArrayTotal, ABI.ArrayTotal, method);
-        var response = string.Join(",\n", data.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
-        Debug.Log($"Result: {response}");
+        var response = await Evm.GetArray<string>(Web3Accessor.Web3, contract, abi, method);
+        var responseString = string.Join(",\n", response.Select((list, i) => $"#{i} {string.Join((string)", ", (IEnumerable<string>)list)}"));
+        SampleOutputUtil.PrintResult(responseString, nameof(Evm), nameof(Evm.GetArray));
         // You can make additional changes after this line
     }
 }
@@ -839,7 +1166,6 @@ Sends an array to a contract.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -852,7 +1178,7 @@ public class SendArray : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string contract = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "setStore";
     private string[] stringArray =
     {
@@ -863,9 +1189,9 @@ public class SendArray : MonoBehaviour
     // Function
     public async void SendArrayCall()
     {
-        var data = await Evm.SendArray(Web3Accessor.Web3, method, ABI.ArrayTotal, Contracts.ArrayTotal, stringArray);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"Result: {response}");
+        var response = await Evm.SendArray(Web3Accessor.Web3, method, abi, contract, stringArray);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, nameof(Evm), nameof(Evm.SendArray));
         // You can make additional changes after this line
     }
 }
@@ -877,7 +1203,6 @@ Gets the current block number.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -891,8 +1216,8 @@ public class GetBlockNumber : MonoBehaviour
     // Function
     public async void GetBlockNumberCall()
     {
-        var response = await Evm.GetBlockNumber(Web3Accessor.Web3);
-        Debug.Log($"Block Number: {response.ToString()}");
+        var blockNumber = await Evm.GetBlockNumber(Web3Accessor.Web3);
+        SampleOutputUtil.PrintResult(blockNumber.ToString(), nameof(Evm), nameof(Evm.GetBlockNumber));
         // You can make additional changes after this line
     }
 }
@@ -904,7 +1229,6 @@ Gets the current gas limit.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -917,7 +1241,7 @@ public class GetGasLimit : MonoBehaviour
 {
     // Variables
     private string abi = "[ { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"_myArg\", \"type\": \"uint256\" } ], \"name\": \"addTotal\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"getStore\", \"outputs\": [ { \"internalType\": \"string[]\", \"name\": \"\", \"type\": \"string[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"name\": \"myTotal\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"string[]\", \"name\": \"_addresses\", \"type\": \"string[]\" } ], \"name\": \"setStore\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-    private string contractAddress = "0x9839293240C535d8009920390b4D3DA256d31177";
+    private string contract = "0x9839293240C535d8009920390b4D3DA256d31177";
     private string method = "addTotal";
     private int increaseAmount = 1;
     
@@ -927,9 +1251,8 @@ public class GetGasLimit : MonoBehaviour
         {
             increaseAmount
         };
-        var response = await Evm.GetGasLimit(Web3Accessor.Web3, abi, contractAddress, method, args);
-        Debug.Log($"Gas Limit: {response.ToString()}");
-        // You can make additional changes after this line
+        var gasLimit = await Evm.GetGasLimit(Web3Accessor.Web3, abi, contract, method, args);
+        SampleOutputUtil.PrintResult(gasLimit.ToString(), nameof(Evm), nameof(Evm.GetGasLimit));
     }
 }
 ```
@@ -940,7 +1263,6 @@ Gets the current gas price.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -954,8 +1276,8 @@ public class GetGasPrice : MonoBehaviour
     // Function
     public async void GetGasPriceCall()
     {
-        var response = await Evm.GetGasPrice(Web3Accessor.Web3);
-        Debug.Log($"Gas Price: {response.ToString()}");
+        var gasPrice = await Evm.GetGasPrice(Web3Accessor.Web3);
+        SampleOutputUtil.PrintResult(gasPrice.ToString(), nameof(Evm), nameof(Evm.GetGasPrice));
         // You can make additional changes after this line
     }
 }
@@ -967,7 +1289,6 @@ Gets the current nonce for an account.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -981,8 +1302,8 @@ public class GetNonce : MonoBehaviour
     // Function
     public async void GetNonceCall()
     {
-        var response = await Evm.GetNonce(Web3Accessor.Web3);
-        Debug.Log($"Nonce: {response}");
+        var nonce = await Evm.GetNonce(Web3Accessor.Web3);
+        SampleOutputUtil.PrintResult(nonce.ToString(), nameof(Evm), nameof(Evm.GetNonce));
         // You can make additional changes after this line
     }
 }
@@ -993,7 +1314,6 @@ Encrypts a message with SHA3.
 
 ``` csharp
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1010,8 +1330,8 @@ public class Sha3 : MonoBehaviour
     // Function
     public void Sha3Call()
     {
-        var response = Evm.Sha3(message);
-        Debug.Log($"Sha3 Hash: {response}");
+        var hash = Evm.Sha3(message);
+        SampleOutputUtil.PrintResult(hash, nameof(Evm), nameof(Evm.Sha3));
         // You can make additional changes after this line
     }
 }
@@ -1023,7 +1343,6 @@ Signs a message, the response is unique for each user.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1040,8 +1359,8 @@ public class SignMessage : MonoBehaviour
     // Function
     public async void SignMessageCall()
     {
-        var response = await Evm.SignMessage(Web3Accessor.Web3, message);
-        Debug.Log($"Signed Message: {response}");
+        var signedMessage = await Evm.SignMessage(Web3Accessor.Web3, message);
+        SampleOutputUtil.PrintResult(signedMessage, nameof(Evm), nameof(Evm.SignMessage));
         // You can make additional changes after this line
     }
 }
@@ -1053,7 +1372,6 @@ Verifies a users account via message sign.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1070,9 +1388,9 @@ public class SignVerify : MonoBehaviour
     // Function
     public async void SignVerifyCall()
     {
-        var data = await Evm.SignVerify(Web3Accessor.Web3, message);
-        var response = data ? "Verified" : "Failed to verify";
-        Debug.Log($"Verified: {response}");
+        var signatureVerified = await Evm.SignVerify(Web3Accessor.Web3, message);
+        var output = signatureVerified ? "Verified" : "Failed to verify";
+        SampleOutputUtil.PrintResult(output, nameof(Evm), nameof(Evm.SignVerify));
         // You can make additional changes after this line
     }
 }
@@ -1084,7 +1402,6 @@ Sends a transaction.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1096,13 +1413,13 @@ The scripts function should be called by a method of your choosing - button, fun
 public class SendTransaction : MonoBehaviour
 {
     // Variables
-    private string to = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
+    private string toAddress = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
     
     //Function
     public async void SendTransactionCall()
     {
-        var response = await Evm.SendTransaction(Web3Accessor.Web3, to);
-        Debug.Log($"TX: {response}");
+        var transactionHash = await Evm.SendTransaction(Web3Accessor.Web3, toAddress);
+        SampleOutputUtil.PrintResult(transactionHash, nameof(Evm), nameof(Evm.SendTransaction));
         // You can make additional changes after this line
     }
 }
@@ -1114,7 +1431,6 @@ Gets the status of a transaction.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1129,10 +1445,11 @@ public class GetTransactionStatus : MonoBehaviour
     public async void GetTransactionStatusCall()
     {
         var receipt = await Evm.GetTransactionStatus(Web3Accessor.Web3);
-        var response = $"Confirmations: {receipt.Confirmations}," +
-                       $" Block Number: {receipt.BlockNumber}," +
-                       $" Status {receipt.Status}";
-        Debug.Log($"Transation Status: {response}");
+        var output = $"Confirmations: {receipt.Confirmations}," +
+                     $" Block Number: {receipt.BlockNumber}," +
+                     $" Status {receipt.Status}";
+
+        SampleOutputUtil.PrintResult(output, nameof(Evm), nameof(Evm.GetTransactionStatus));
         // You can make additional changes after this line
     }
 }
@@ -1173,7 +1490,6 @@ public class GetTxDataFromReceipt : MonoBehaviour
     public async void EventTxData()
     {
         string eventContract = "0x9832B82746a4316E9E3A5e6c7ea02451bdAC4546";
-        // Contract write
         var amount = 1;
         object[] args =
         {
@@ -1212,9 +1528,9 @@ public class GetTxDataFromReceipt : MonoBehaviour
 Allows a contract to be registered for easy calling.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1230,8 +1546,8 @@ public class RegisteredContract : MonoBehaviour
     // Function
     public async void RegisteredContractCall()
     {
-        var response = await Evm.UseRegisteredContract(Web3Accessor.Web3, registeredContractName, EthMethod.BalanceOf);
-        Debug.Log($"Balance Of: {response.ToString()}");
+        var balance = await Evm.UseRegisteredContract(Web3Accessor.Web3, registeredContractName, EthMethods.BalanceOf);
+        SampleOutputUtil.PrintResult(balance.ToString(), nameof(Evm), nameof(Evm.UseRegisteredContract));
         // You can make additional changes after this line
     }
 }
@@ -1242,7 +1558,6 @@ Signs a transaction with an ECDSA key
 
 ``` csharp
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1256,14 +1571,14 @@ public class EcdsaSignTransaction : MonoBehaviour
     // Variables
     // Variables
     private string ecdsaKey = "0x78dae1a22c7507a4ed30c06172e7614eb168d3546c13856340771e63ad3c0081";
-    private string chainId ="11155111";
+    private string chainId = "11155111";
     private string transactionHash = "0x123456789";
     
     // Function
     public void EcdsaSignTransactionCall()
     {
-        var response = Evm.EcdsaSignTransaction(ecdsaKey, transactionHash, chainId);
-        Debug.Log($"TX: {response}");
+        var result = Evm.EcdsaSignTransaction(ecdsaKey, transactionHash, chainId);
+        SampleOutputUtil.PrintResult(result, nameof(Evm), nameof(Evm.EcdsaSignTransaction));
         // You can make additional changes after this line
     }
 }
@@ -1274,7 +1589,6 @@ Gets the public address the private key belongs to.
 
 ``` csharp
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1291,8 +1605,8 @@ public class EcdsaGetAddress : MonoBehaviour
     // Function
     public void EcdsaGetAddressCall()
     {
-        var response = Evm.EcdsaGetAddress(ecdsaKey);
-        Debug.Log($"Address: {response}");
+        var result = Evm.EcdsaGetAddress(ecdsaKey);
+        SampleOutputUtil.PrintResult(result, nameof(Evm), nameof(Evm.EcdsaGetAddress));
         // You can make additional changes after this line
     }
 }
@@ -1303,7 +1617,6 @@ Signs a message using a private key.
 
 ``` csharp
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1321,8 +1634,78 @@ public class EcdsaSignMessage : MonoBehaviour
     // Function
     public void EcdsaSignMessageCall()
     {
-        var response = Evm.EcdsaSignMessage(ecdsaKey, message);
-        Debug.Log($"Signed Message: {response}");
+        var result = Evm.EcdsaSignMessage(ecdsaKey, message);
+        SampleOutputUtil.PrintResult(result, nameof(Evm), nameof(Evm.EcdsaSignMessage));
+        // You can make additional changes after this line
+    }
+}
+```
+
+### Muliticall
+Makes a multicall.
+
+``` csharp
+using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
+using ChainSafe.Gaming.MultiCall;
+using ChainSafe.Gaming.UnityPackage;
+using Nethereum.Contracts.QueryHandlers.MultiCall;
+using Scripts.EVM.Token;
+using UnityEngine;
+
+/* This prefab script should be copied & placed on the root of an object in a scene.
+Change the class name, variables and add any additional changes at the end of the function.
+The scripts function should be called by a method of your choosing - button, function etc */
+
+/// <summary>
+/// Makes a multicall
+/// </summary>
+public class MulticallSample : MonoBehaviour
+{
+    // Function
+    public void MultiSampleCall()
+    {
+        var erc20Contract = Web3Accessor.Web3.ContractBuilder.Build(ABI.Erc20, ChainSafeContracts.Erc20);
+        var erc20BalanceOfCalldata = erc20Contract.Calldata(EthMethods.BalanceOf, new object[]
+        {
+            Erc20Account
+        });
+
+        var erc20TotalSupplyCalldata = erc20Contract.Calldata(EthMethods.TotalSupply, new object[]
+        {
+        });
+
+        var calls = new[]
+        {
+            new Call3Value()
+            {
+                Target = ChainSafeContracts.Erc20,
+                AllowFailure = true,
+                CallData = erc20BalanceOfCalldata.HexToByteArray(),
+            },
+            new Call3Value()
+            {
+                Target = ChainSafeContracts.Erc20,
+                AllowFailure = true,
+                CallData = erc20TotalSupplyCalldata.HexToByteArray(),
+            }
+        };
+
+        var multicallResultResponse = await Web3Accessor.Web3.MultiCall().MultiCallAsync(calls);
+
+        Debug.Log(multicallResultResponse);
+
+        if (multicallResultResponse[0] != null && multicallResultResponse[0].Success)
+        {
+            var decodedBalanceOf = erc20Contract.Decode(EthMethods.BalanceOf, multicallResultResponse[0].ReturnData.ToHex());
+            Debug.Log($"decodedBalanceOf {((BigInteger)decodedBalanceOf[0]).ToString()}");
+        }
+
+        if (multicallResultResponse[1] != null && multicallResultResponse[1].Success)
+        {
+            var decodedTotalSupply = erc20Contract.Decode(EthMethods.TotalSupply, multicallResultResponse[1].ReturnData.ToHex());
+            Debug.Log($"decodedTotalSupply {((BigInteger)decodedTotalSupply[0]).ToString()}");
+        }
         // You can make additional changes after this line
     }
 }
