@@ -17,6 +17,13 @@ This page explains what Ramp is & how to use it.
 
 Ramp is a quick and easy way to purchase crypto with Fiat currency if your country supports it.
 
+1. You can import our Ramp sample scene by navigating to Window → Package Manager.
+2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+3. Once the package is installed, click on the Samples tab. Import the samples.
+4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - Ramp.
+5. Click on the Login Logic - Ramp object and in the inspector, modify the Scene To Load to your preferred scene.
+6. Add the Ramp scene and your scene to the build settings, and you’re done.
+
 ## Why would you choose this over an exchange?
 
 Utilizing ramp will ease the onboarding process for your users as many exchanges have a lengthy sign up process before anyone can purchase native tokens, which are needed for gas or even to purchase custom tokens. Instead of having to walk your users through this process, you can simply point your users at this service and get them into your game sooner.
@@ -33,14 +40,14 @@ This video will show you how to initialize Ramp as well as how to use it. Below 
 
 ## Initializing Ramp
 
-![](Assets/RampLogin.png)
+![](assets/RampLogin.png)
 As you can see, there is a `RampServiceAdapter` attached to the game object that is responsible for logging in your user. We highly encourage to attach all the necessary services you want to add to the login object itself, because we're retrieving the `IWeb3BuilderServiceAdapter` from the object that implements the `ILoginProvider`, in this case, that's `Web3AuthLoginProvider`.
 
 As you can see, the `RampServiceAdapter`has one field, and that's the ramp scriptable object. We're providing the Scriptable Object as part of the Ramp Package sample.
 
 ## The Ramp scriptable object
 
-![](Assets/RampObject.png)
+![](assets/RampObject.png)
 
 This object contains all the configuration you'll need to begin testing out Ramp in your project. You can also see that we've utilized an interface here for ease of use. Feel free to explore around and see what you can do.
 
@@ -48,18 +55,18 @@ This object contains all the configuration you'll need to begin testing out Ramp
 
 By selecting the ramp scriptable object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration) as needed.
 
-![](Assets/RampLogo.png)
+![](assets/RampLogo.png)
 
 
 ## Accessing Ramp Trough Sample Scene
 
 Once logged in you'll be presented with our famous sample scene page, which you'll notice has a new area to showcase Ramp functionality. As these are testnet tokens please feel free to click around to see the functionality of the 3 functions mentioned above.
 
-![](Assets/RampSample.png)
+![](assets/RampSample.png)
 
 ## Ramp functions
 
-![](Assets/RampFunctionality.png)
+![](assets/RampFunctionality.png)
 
 As you can see from the functions here in ramp.cs, we're providing 3 different types of ramp functionality for use with your project. This can be accessed through the Web3 object as needed. You can also check out the ramp configuration docs [here](https://docs.ramp.network/configuration) if you would like to add additional settings or use other tokens besides sepolia eth.
 
@@ -141,7 +148,7 @@ private async void OnRampOffRampPressed()
 }
 ```
 
-![](Assets/RampBuySell.png)
+![](assets/RampBuySell.png)
 
 As some projects will only want to facilitate purchases, others will want sales and some will want to use both. We've provided all the necessary functionality to do so. All of these functions are set up asynchronously and are being passed through event systems which you can subscribe to as needed.
 

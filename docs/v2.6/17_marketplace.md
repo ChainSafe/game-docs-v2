@@ -16,6 +16,13 @@ This page will walk you through our marketplace feature.
 ## What is the Chainsafe marketplace?
 ChainSafe's marketplace is an NFT trading hub where you can create collections of NFTs and list them into different marketplaces. You can then dispaly these marketplaces and interact with them in game. The marketplace dashboard can be accessed [here](https://dashboard.gaming.chainsafe.io) You can find a variety of services here to compliment your marketplace, from collections to minting NFTs.
 
+1. You can import our Marketplace sample scene by navigating to Window → Package Manager.
+2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
+3. Once the package is installed, click on the Samples tab. Import the samples.
+4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - Marketplace.
+5. Click on the Login Logic - Ramp object and in the inspector, modify the Scene To Load to your preferred scene.
+6. Add the Marketplace scene and your scene to the build settings, and you’re done.
+
 ## How do i access the marketplace?
 The marketplace dashboard can be accessed [here](https://dashboard.gaming.chainsafe.io/marketplaces)
 The NFT dashboard can be accessed [here](https://dashboard.gaming.chainsafe.io/marketplaces)

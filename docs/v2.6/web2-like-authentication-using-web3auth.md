@@ -17,7 +17,7 @@ The Web3Auth build option allows game developers to build Unity games that run o
 
 Web3Auth builds will work alongside both Web3Wallet and WebGL scripts/prefabs. You may select either platform provided any other scripts you're using match the build platform. Check out our amazing fully functional in game wallet below!
 
-![](Assets/Web3Auth-Wallet.png)
+![](assets/Web3Auth-Wallet.png)
 
 # Web3Auth Wallet Coming Soon
 
@@ -28,20 +28,20 @@ The code below refers to a work in progress which will be ready for release shor
 1. Open package manager to install the Web3Auth package.
 2. Click on web3.unity SDK Web3Auth and install the package.
 
-![](Assets/web3auth-package.png)
+![](assets/web3auth-package.png)
 
 3. Under the Samples section, import the sample scenes, and close the window once they are samples are done importing.
 
-![](Assets/web3auth-sample.png)
+![](assets/web3auth-sample.png)
 
-4. Open the sample scene by navigating to Assets -> Samples -> web3.unity SDK Web3Auth -> 2.5.5 -> Web3.Unity Web3Auth Samples -> Scenes -> SampleLogin - Web3Auth.unity
+4. Open the sample scene by navigating to assets -> Samples -> web3.unity SDK Web3Auth -> 2.5.5 -> Web3.Unity Web3Auth Samples -> Scenes -> SampleLogin - Web3Auth.unity
 5. When you double click on the scene, you will see a popup to import TMP Essentials and TMP Examples & Extras. Import both.
 
-![](Assets/web3auth-samplelogin.png)
+![](assets/web3auth-samplelogin.png)
 
 6. Double click on the Canvas in your hierarchy panel to view the Web3Auth scene.
 
-![](Assets/web3auth-scene.png)
+![](assets/web3auth-scene.png)
 
 ## Sign Web3Auth {#sign-through-web3auth}
 

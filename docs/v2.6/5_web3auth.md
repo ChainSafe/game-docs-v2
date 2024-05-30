@@ -8,15 +8,15 @@ sidebar_label: Web3Auth
 
 Here’s how you can include Web3Auth in your video games.
 1. You can import our Web3Auth sample scene by navigating to Window → Package Manager.
-2. Add a new package by name by pressing + and adding io.chainsafe.web3-unity.web3auth.
+2. Add a new package by name by pressing + and pressing add via git url entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
 3. Once the package is installed, click on the Samples tab. Import the samples.
 
-![](Assets/web3auth-import.png)
+![](assets/web3auth-import.png)
 
 4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK Web3Auth → 2.6 → Web3.Unity Web3Auth Samples → Scenes → SampleLogin - Web3Auth.
 5. Click on the Login Logic - Web3Auth object and in the inspector, modify the Scene To Load to your preferred scene.
 
-![](Assets/web3auth-login-logic.png)
+![](assets/web3auth-login-logic.png)
 
 6. Add the Web3Auth scene and your scene to the build settings, and you’re done.
 
