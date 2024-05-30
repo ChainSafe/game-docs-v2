@@ -23,9 +23,9 @@ If you right click in the unity explorer you can create a c# script. For example
 Fetches the name of an ERC20 contract.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -42,8 +42,8 @@ public class Erc20NameOf : MonoBehaviour
     // Function
     public async void Name()
     {
-        var response = await Erc20.Name(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Balace: {response}");
+        var name = await Web3Accessor.Web3.Erc20.GetName(contractAddress);
+        SampleOutputUtil.PrintResult(name, "ERC-20", nameof(Erc20Service.GetName));
         // You can make additional changes after this line
     }
 }
@@ -53,9 +53,9 @@ public class Erc20NameOf : MonoBehaviour
 Fetches the symbol of an ERC20 contract.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -72,8 +72,8 @@ public class Erc20Symbol : MonoBehaviour
     // Function
     public async void Symbol()
     {
-        var response = await Erc20.Symbol(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Symbol: {response}");
+        var symbol = await Web3Accessor.Web3.Erc20.GetSymbol(contractAddress);
+        SampleOutputUtil.PrintResult(symbol, "ERC-20", nameof(Erc20Service.GetSymbol));
         // You can make additional changes after this line
     }
 }
@@ -83,9 +83,9 @@ public class Erc20Symbol : MonoBehaviour
 Fetches the decimals of an ERC20 contract.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -102,8 +102,8 @@ public class Erc20Decimals : MonoBehaviour
     // Function
     public async void Decimals()
     {
-        var response = await Erc20.Decimals(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Decimals: {response.ToString()}");
+        var decimals = await Web3Accessor.Web3.Erc20.GetDecimals(contractAddress);
+        SampleOutputUtil.PrintResult(decimals.ToString(), "ERC-20", nameof(Erc20Service.GetDecimals));
         // You can make additional changes after this line
     }
 }
@@ -113,9 +113,8 @@ public class Erc20Decimals : MonoBehaviour
 Fetches the total supply of an ERC20 token.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
-using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -132,8 +131,8 @@ public class Erc20TotalSupply : MonoBehaviour
     // Function
     public async void TotalSupply()
     {
-        var response = await Erc20.TotalSupply(Web3Accessor.Web3, contractAddress);
-        Debug.Log($"Total Supply: {response.ToString()}");
+        var totalSupply = await Web3Accessor.Web3.Erc20.GetTotalSupply(contractAddress);
+        SampleOutputUtil.PrintResult(totalSupply.ToString(), "ERC-20", nameof(Erc20Service.GetTotalSupply));
         // You can make additional changes after this line
     }
 }
@@ -143,9 +142,8 @@ public class Erc20TotalSupply : MonoBehaviour
 Fetches the balance of an ERC20 token from an account.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
-using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -156,46 +154,16 @@ The scripts function should be called by a method of your choosing - button, fun
 /// </summary>
 public class Erc20BalanceOf : MonoBehaviour
 {
-    // Variables
+    // Sets the account to be queried, you can change this to be any address
+    string account = Web3Accessor.Web3.Signer.PublicAddress;
+    //Set the contract address to be queried
     private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
 
     // Function
     public async void BalanceOf()
     {
-        // Sets the account to be queried, you can change this to be any address
-        string account = PlayerPrefs.GetString("PlayerAccount");
-        var response = await Erc20.BalanceOf(Web3Accessor.Web3, contractAddress, account);
-        Debug.Log($"Balance Of: {response.ToString()}");
-        // You can make additional changes after this line
-    }
-}
-```
-
-### Balance Of Custom Token
-Fetches the balance of a custom ERC20 token from an account.
-
-``` csharp
-using ChainSafe.Gaming.UnityPackage;
-using Scripts.EVM.Token;
-using UnityEngine;
-
-/* This prefab script should be copied & placed on the root of an object in a scene.
-Change the class name, variables and add any additional changes at the end of the function.
-The scripts function should be called by a method of your choosing - button, function etc */
-
-/// <summary>
-/// Fetches the balance of a custom ERC20 token from an account
-/// </summary>
-public class Erc20CustomTokenBalanceOf : MonoBehaviour
-{
-    // Variables
-    private string contractAddress = "0x358969310231363CBEcFEFe47323139569D8a88b";
-    private string contractAbi = "[ { \"inputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"allowance\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"needed\", \"type\": \"uint256\" } ], \"name\": \"ERC20InsufficientAllowance\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"balance\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"needed\", \"type\": \"uint256\" } ], \"name\": \"ERC20InsufficientBalance\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"approver\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidApprover\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"receiver\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidReceiver\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidSender\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" } ], \"name\": \"ERC20InvalidSpender\", \"type\": \"error\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"Approval\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"Transfer\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" } ], \"name\": \"allowance\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"spender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"approve\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"decimals\", \"outputs\": [ { \"internalType\": \"uint8\", \"name\": \"\", \"type\": \"uint8\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_amount\", \"type\": \"uint256\" } ], \"name\": \"mint\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"name\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"symbol\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"totalSupply\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"transfer\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"transferFrom\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
-
-    public async void CustomTokenBalanceOf()
-    {
-        var response = await Erc20.CustomTokenBalance(Web3Accessor.Web3, contractAbi, contractAddress);
-        Debug.Log($"Custom Balance Of: {response.ToString()}");
+        var balance = await Web3Accessor.Web3.Erc20.GetBalanceOf(contractAddress, account);
+        SampleOutputUtil.PrintResult(balance.ToString(), "ERC-20", nameof(Erc20Service.GetBalanceOf));
         // You can make additional changes after this line
     }
 }
@@ -205,10 +173,8 @@ public class Erc20CustomTokenBalanceOf : MonoBehaviour
 Fetches the native balance of an ERC20 token from an account.
 
 ``` csharp
-using System.Threading.Tasks;
+using ChainSafe.Gaming.Evm.Providers;
 using ChainSafe.Gaming.UnityPackage;
-using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -222,9 +188,9 @@ public class Erc20NativeBalanceOf : MonoBehaviour
     public async void NativeBalanceOf()
     {
         // Sets the account to be queried, you can change this to be any address
-        string account = PlayerPrefs.GetString("PlayerAccount");
-        var response = await Erc20.NativeBalanceOf(Web3Accessor.Web3, account);
-        Debug.Log($"Native Balance Of: {response.ToString()}");
+        string account = Web3Accessor.Web3.Signer.PublicAddress;
+        var balance = await Web3Accessor.Web3.RpcProvider.GetBalance(account);
+        SampleOutputUtil.PrintResult(balance.ToString(), "Native Balance Of");
         // You can make additional changes after this line
     }
 }
@@ -234,10 +200,9 @@ public class Erc20NativeBalanceOf : MonoBehaviour
 Mints ERC20 tokens to an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -256,10 +221,10 @@ public class Erc20Mint : MonoBehaviour
     public async void MintErc20()
     {
         // Sets the account to mint to, you can change this to be any address
-        string toAccount = await Web3Accessor.Web3.Signer.GetAddress();
-        var data = await Erc20.MintErc20(Web3Accessor.Web3, contractAddress, toAccount, amount);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        string toAccount = Web3Accessor.Web3.Signer.PublicAddress;
+        var mintResponse = await Web3Accessor.Web3.Erc20.Mint(ChainSafeContracts.Erc20, amountMint, toAccount);
+        var output = SampleOutputUtil.BuildOutputValue(mintResponse);
+        SampleOutputUtil.PrintResult(output, "ERC-20", nameof(Erc20Service.Mint));
         // You can make additional changes after this line
     }
 }
@@ -269,10 +234,9 @@ public class Erc20Mint : MonoBehaviour
 Transfers ERC20 tokens to an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -291,9 +255,9 @@ public class Erc20Transfer : MonoBehaviour
     // Function
     public async void TransferErc20()
     {
-        var data = await Erc20.TransferErc20(Web3Accessor.Web3, contractAddress, toAccount, amount);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var mintResponse = await Web3Accessor.Web3.Erc20.Transfer(contractAddress, toAccount, amountTransfer);
+        var output = SampleOutputUtil.BuildOutputValue(mintResponse);
+        SampleOutputUtil.PrintResult(output, "ERC-20", nameof(Erc20Service.Transfer));
         // You can make additional changes after this line
     }
 }
@@ -305,9 +269,9 @@ public class Erc20Transfer : MonoBehaviour
 Fetches the balance of ERC721 NFTs from an account
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -325,9 +289,9 @@ public class Erc721BalanceOf : MonoBehaviour
     public async void BalanceOf()
     {
         // Sets the account to be queried, you can change this to be any address
-        string account = PlayerPrefs.GetString("PlayerAccount");
-        var response = await Erc721.BalanceOf(Web3Accessor.Web3, contractAddress, account);
-        Debug.Log($"Balance Of: {response.ToString()}");
+        string account = Web3Accessor.Web3.Signer.PublicAddress;
+        var balance = await Web3Accessor.Web3.Erc721.GetBalanceOf(contractAddress, account);
+        SampleOutputUtil.PrintResult(balance.ToString(), "ERC-721", nameof(Erc721Service.GetBalanceOf));
         // You can make additional changes after this line
     }
 }
@@ -337,10 +301,9 @@ public class Erc721BalanceOf : MonoBehaviour
 Fetches the owner of an ERC721 token id.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -358,10 +321,8 @@ public class Erc721OwnerOf : MonoBehaviour
     // Function
     public async void OwnerOf()
     {
-        var response = tokenId.StartsWith("0x") ? 
-            await Erc721.OwnerOf(Web3Accessor.Web3, contractAddress, tokenId) 
-            : await Erc721.OwnerOf(Web3Accessor.Web3, contractAddress, BigInteger.Parse(tokenId));
-        Debug.Log($"Owner: {response}");
+        var owner = await Web3Accessor.Web3.Erc721.GetOwnerOf(contractAddress, tokenIdOwnerOf);
+        SampleOutputUtil.PrintResult(owner, "ERC-721", nameof(Erc721Service.GetOwnerOf));
         // You can make additional changes after this line
     }
 }
@@ -371,9 +332,11 @@ public class Erc721OwnerOf : MonoBehaviour
 Fetches the owners of ERC721 token ids.
 
 ``` csharp
+using System.Linq;
+using System.Text;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -391,9 +354,18 @@ public class Erc721OwnerOfBatch : MonoBehaviour
     // Function
     public async void OwnerOfBatch()
     {
-        var data = await Erc721.OwnerOfBatch(Web3Accessor.Web3, contractAddress, tokenIds);
-        var response = $"{data.Count} owner(s):\n" + string.Join(",\n", data);
-        Debug.Log($"Owners: {response}");
+        var owners = await Web3Accessor.Web3.Erc721.GetOwnerOfBatch(contractAddress, tokenIds);
+        var ownersString = new StringBuilder();
+        var dict = owners.GroupBy(x => x.Owner).ToDictionary(x => x.Key, x => x.Select(x => x.TokenId).ToList());
+        foreach (var owner in dict)
+        {
+            ownersString.AppendLine($"Owner: {owner.Key} owns the following token(s):");
+            foreach (var tokenId in owner.Value)
+            {
+                ownersString.AppendLine("\t" + tokenId);
+            }
+        }
+        SampleOutputUtil.PrintResult(ownersString.ToString(), "ERC-721", nameof(Erc721Service.GetOwnerOfBatch));
         // You can make additional changes after this line
     }
 }
@@ -403,9 +375,9 @@ public class Erc721OwnerOfBatch : MonoBehaviour
 Fetches the URI from an ERC721 NFT.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -423,8 +395,8 @@ public class Erc721Uri : MonoBehaviour
     // Function
     public async void Uri()
     {
-        var response = await Erc721.Uri(Web3Accessor.Web3, Contracts.Erc721, tokenId);
-        Debug.Log($"Uri: {response}");
+        var uri = await Web3Accessor.Web3.Erc721.GetUri(contractAddress, tokenId);
+        SampleOutputUtil.PrintResult(uri, "ERC-721", nameof(Erc721Service.GetUri));
         // You can make additional changes after this line
     }
 }
@@ -434,9 +406,9 @@ public class Erc721Uri : MonoBehaviour
 Mints a 721 NFT to an account.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -448,16 +420,15 @@ The scripts function should be called by a method of your choosing - button, fun
 public class Erc721Mint : MonoBehaviour
 {
     // Variables
-    private string abi = "[ { \"inputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" }, { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" } ], \"name\": \"ERC721IncorrectOwner\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"ERC721InsufficientApproval\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"approver\", \"type\": \"address\" } ], \"name\": \"ERC721InvalidApprover\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" } ], \"name\": \"ERC721InvalidOperator\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" } ], \"name\": \"ERC721InvalidOwner\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"receiver\", \"type\": \"address\" } ], \"name\": \"ERC721InvalidReceiver\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" } ], \"name\": \"ERC721InvalidSender\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"ERC721NonexistentToken\", \"type\": \"error\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"approved\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"Approval\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"ApprovalForAll\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_fromTokenId\", \"type\": \"uint256\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_toTokenId\", \"type\": \"uint256\" } ], \"name\": \"BatchMetadataUpdate\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"_tokenId\", \"type\": \"uint256\" } ], \"name\": \"MetadataUpdate\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"Transfer\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"approve\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"getApproved\", \"outputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" } ], \"name\": \"isApprovedForAll\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"name\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"ownerOf\", \"outputs\": [ { \"internalType\": \"address\", \"name\": \"\", \"type\": \"address\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"string\", \"name\": \"_uri\", \"type\": \"string\" } ], \"name\": \"safeMint\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"safeTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" }, { \"internalType\": \"bytes\", \"name\": \"data\", \"type\": \"bytes\" } ], \"name\": \"safeTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"setApprovalForAll\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"bytes4\", \"name\": \"interfaceId\", \"type\": \"bytes4\" } ], \"name\": \"supportsInterface\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [], \"name\": \"symbol\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"tokenURI\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"transferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" } ]";
     private string contractAddress = "0x4f75BB7bdd6f7A0fD32f1b3A94dfF409F5a3F1CC";
     private string uri = "QmfUHuFj3YL2JMZkyXNtGRV8e9aLJgQ6gcSrqbfjWFvbqQ";
     
     // Function
     public async void MintErc721()
     {
-        var data = await Erc721.MintErc721(Web3Accessor.Web3, abi, contractAddress, uri);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var response = await Web3Accessor.Web3.Erc721.Mint(contractAddress, uri);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, "ERC-721", nameof(Erc721Service.GetUri));
         // You can make additional changes after this line
     }
 }
@@ -467,10 +438,8 @@ public class Erc721Mint : MonoBehaviour
 Transfers an ERC721 token to an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
-using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -489,9 +458,9 @@ public class Erc721Transfer : MonoBehaviour
     // Function
     public async void TransferErc721()
     {
-        var data = await Erc721.TransferErc721(Web3Accessor.Web3, contractAddress, toAccount, tokenId);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var response = await Web3Accessor.Web3.Erc721.Transfer(contractAddress, toAccount, tokenId);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, "ERC-721", nameof(Erc721Service.Transfer));
         // You can make additional changes after this line
     }
 }
@@ -503,10 +472,9 @@ public class Erc721Transfer : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -518,18 +486,19 @@ The scripts function should be called by a method of your choosing - button, fun
 public class Erc1155BalanceOf : MonoBehaviour
 {
     // Variables
+    // Sets the account to be queried, you can change this to be any address
+    private string account = Web3Accessor.Web3.Signer.PublicAddress;
     private string contractAddress = "0xAA2EbE78aa788d13AfFaaefD38C93333bbC4d51e";
     private string tokenId = "1";
 
     // Function
     public async void BalanceOf()
     {
-        // Sets the account to be queried, you can change this to be any address
-        string account = PlayerPrefs.GetString("PlayerAccount");
-        var response = tokenId.StartsWith("0x") ? 
-            await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, account, tokenId)
-            : await Erc1155.BalanceOf(Web3Accessor.Web3, Contracts.Erc1155, account, BigInteger.Parse(tokenId));
-        Debug.Log($"Balance Of: {response.ToString()}");
+        var balance = await Web3Accessor.Web3.Erc1155.GetBalanceOf(
+                ChainSafeContracts.Erc1155, 
+                tokenIdBalanceOf,
+                account);
+            SampleOutputUtil.PrintResult(balance.ToString(), "ERC-1155",nameof(Erc1155Service.GetBalanceOf));
         // You can make additional changes after this line
     }
 }
@@ -539,9 +508,9 @@ public class Erc1155BalanceOf : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from multiple accounts.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -559,9 +528,11 @@ public class Erc1155BalanceOfBatch : MonoBehaviour
 
     public async void BalanceOfBatch()
     {
-        var data = await Erc1155.BalanceOfBatch(Web3Accessor.Web3, Contracts.Erc1155, accounts, tokenIds);
-        var response = string.Join(", ", data);
-        Debug.Log($"Balance Of Batch: {response}");
+        var balances = await Web3Accessor.Web3.Erc1155.GetBalanceOfBatch(
+            contractAddress,
+            accounts, 
+            tokenIds);
+        SampleOutputUtil.PrintResult(string.Join(", ", balances), "ERC-1155",nameof(Erc1155Service.GetBalanceOfBatch));
         // You can make additional changes after this line
     }
 }
@@ -573,8 +544,6 @@ Fetches the texture of an ERC1155 NFT and displays it to a raw image.
 ``` csharp
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine.UI;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -594,8 +563,8 @@ public class Erc1155ImportTexture : MonoBehaviour
     // Function
     public async void ImportNftTexture1155()
     {
-        var response = await Erc1155.ImportNftTexture1155(Web3Accessor.Web3, contractAddress, tokenId);
-        rawImage.texture = response;
+        var texture = await Web3Accessor.Web3.Erc1155.ImportTexture(ChainSafeContracts.Erc1155, tokenIdTexture);
+        rawImage.texture = texture;
         // You can make additional changes after this line
     }
 }
@@ -605,9 +574,9 @@ public class Erc1155ImportTexture : MonoBehaviour
 Fetches the URI from an ERC1155 NFT.
 
 ``` csharp
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -625,8 +594,10 @@ public class Erc1155Uri : MonoBehaviour
     // Function
     public async void Uri()
     {
-        var response = await Erc1155.Uri(Web3Accessor.Web3, contractAddress, tokenId);
-        Debug.Log($"Uri: {response}");
+        var uri = await Web3Accessor.Web3.Erc1155.GetUri(
+            ChainSafeContracts.Erc1155,
+            tokenIdUri);
+        SampleOutputUtil.PrintResult(uri, "ERC-1155",nameof(Erc1155Service.GetUri));
         // You can make additional changes after this line
     }
 }
@@ -636,10 +607,9 @@ public class Erc1155Uri : MonoBehaviour
 Mints a 1155 NFT to an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -651,7 +621,6 @@ The scripts function should be called by a method of your choosing - button, fun
 public class Erc1155Mint : MonoBehaviour
 {
     // Variables
-    private string abi = "[ { \"inputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"constructor\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"balance\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"needed\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"tokenId\", \"type\": \"uint256\" } ], \"name\": \"ERC1155InsufficientBalance\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"approver\", \"type\": \"address\" } ], \"name\": \"ERC1155InvalidApprover\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"idsLength\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"valuesLength\", \"type\": \"uint256\" } ], \"name\": \"ERC1155InvalidArrayLength\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" } ], \"name\": \"ERC1155InvalidOperator\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"receiver\", \"type\": \"address\" } ], \"name\": \"ERC1155InvalidReceiver\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"sender\", \"type\": \"address\" } ], \"name\": \"ERC1155InvalidSender\", \"type\": \"error\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"owner\", \"type\": \"address\" } ], \"name\": \"ERC1155MissingApprovalForAll\", \"type\": \"error\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"ApprovalForAll\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" }, { \"indexed\": false, \"internalType\": \"uint256[]\", \"name\": \"values\", \"type\": \"uint256[]\" } ], \"name\": \"TransferBatch\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": true, \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"indexed\": true, \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" }, { \"indexed\": false, \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" } ], \"name\": \"TransferSingle\", \"type\": \"event\" }, { \"anonymous\": false, \"inputs\": [ { \"indexed\": false, \"internalType\": \"string\", \"name\": \"value\", \"type\": \"string\" }, { \"indexed\": true, \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" } ], \"name\": \"URI\", \"type\": \"event\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" } ], \"name\": \"balanceOf\", \"outputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address[]\", \"name\": \"accounts\", \"type\": \"address[]\" }, { \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" } ], \"name\": \"balanceOfBatch\", \"outputs\": [ { \"internalType\": \"uint256[]\", \"name\": \"\", \"type\": \"uint256[]\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"account\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" } ], \"name\": \"isApprovedForAll\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"_id\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"_amount\", \"type\": \"uint256\" }, { \"internalType\": \"bytes\", \"name\": \"_data\", \"type\": \"bytes\" } ], \"name\": \"mint\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"_to\", \"type\": \"address\" }, { \"internalType\": \"uint256[]\", \"name\": \"_ids\", \"type\": \"uint256[]\" }, { \"internalType\": \"uint256[]\", \"name\": \"_amounts\", \"type\": \"uint256[]\" }, { \"internalType\": \"bytes\", \"name\": \"_data\", \"type\": \"bytes\" } ], \"name\": \"mintBatch\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256[]\", \"name\": \"ids\", \"type\": \"uint256[]\" }, { \"internalType\": \"uint256[]\", \"name\": \"values\", \"type\": \"uint256[]\" }, { \"internalType\": \"bytes\", \"name\": \"data\", \"type\": \"bytes\" } ], \"name\": \"safeBatchTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"from\", \"type\": \"address\" }, { \"internalType\": \"address\", \"name\": \"to\", \"type\": \"address\" }, { \"internalType\": \"uint256\", \"name\": \"id\", \"type\": \"uint256\" }, { \"internalType\": \"uint256\", \"name\": \"value\", \"type\": \"uint256\" }, { \"internalType\": \"bytes\", \"name\": \"data\", \"type\": \"bytes\" } ], \"name\": \"safeTransferFrom\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"address\", \"name\": \"operator\", \"type\": \"address\" }, { \"internalType\": \"bool\", \"name\": \"approved\", \"type\": \"bool\" } ], \"name\": \"setApprovalForAll\", \"outputs\": [], \"stateMutability\": \"nonpayable\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"bytes4\", \"name\": \"interfaceId\", \"type\": \"bytes4\" } ], \"name\": \"supportsInterface\", \"outputs\": [ { \"internalType\": \"bool\", \"name\": \"\", \"type\": \"bool\" } ], \"stateMutability\": \"view\", \"type\": \"function\" }, { \"inputs\": [ { \"internalType\": \"uint256\", \"name\": \"\", \"type\": \"uint256\" } ], \"name\": \"uri\", \"outputs\": [ { \"internalType\": \"string\", \"name\": \"\", \"type\": \"string\" } ], \"stateMutability\": \"view\", \"type\": \"function\" } ]";
     private string contractAddress = "0xAA2EbE78aa788d13AfFaaefD38C93333bbC4d51e";
     private BigInteger id = 1;
     private BigInteger amount = 1;
@@ -659,9 +628,12 @@ public class Erc1155Mint : MonoBehaviour
     // Function
     public async void MintErc1155()
     {
-        var data = await Erc1155.MintErc1155(Web3Accessor.Web3, abi, contractAddress, id, amount);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var response = await Web3Accessor.Web3.Erc1155.Mint(
+            contractAddress,
+            id,
+            amount);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, "ERC-1155",nameof(Erc1155Service.Mint));
         // You can make additional changes after this line
     }
 }
@@ -671,10 +643,9 @@ public class Erc1155Mint : MonoBehaviour
 Transfer ERC1155 tokens to an account.
 
 ``` csharp
-using System.Numerics;
+using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -687,16 +658,20 @@ public class Erc1155Transfer : MonoBehaviour
 {
     // Variables
     private string toAccount = "0xdD4c825203f97984e7867F11eeCc813A036089D1";
-    private string contractAddress = "0xAA2EbE78aa788d13AfFaaefD38C93333bbC4d51e";
+    private string contract = "0xAA2EbE78aa788d13AfFaaefD38C93333bbC4d51e";
     private BigInteger tokenId = 1;
     private BigInteger amount = 1;
 
     // Function
     public async void TransferErc1155()
     {
-        var data = await Erc1155.TransferErc1155(Web3Accessor.Web3, Contracts.Erc1155, tokenId, amount, toAccount);
-        var response = SampleOutputUtil.BuildOutputValue(data);
-        Debug.Log($"TX: {response}");
+        var response = await Web3Accessor.Web3.Erc1155.Transfer(
+            contract,
+            tokenId,
+            amount,
+            toAccount);
+        var output = SampleOutputUtil.BuildOutputValue(response);
+        SampleOutputUtil.PrintResult(output, "ERC-1155",nameof(Erc1155Service.Transfer));
         // You can make additional changes after this line
     }
 }
