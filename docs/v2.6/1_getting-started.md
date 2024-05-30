@@ -20,9 +20,9 @@ On the top bar in unity, navigate to Window → Package Manager → Press the pl
    
 ![](assets/getting-started/package-manager-add-package.png)
 
-Our packages are modular so your project wont bloat out with SDK files & you can have a lean development environment. The first piece you will need to being your development journey is the core SDK package. This package contains everything you need for standard chain interactions. Simply enter this url into the add path field of the package manager.
+Our packages are modular so your project wont bloat out with SDK files and you can have a lean development environment. The first piece you will need to begin your development journey is the core SDK package. This package contains everything you need for standard chain interactions. Simply enter this url into the add path field of the package manager.
 
-Core SDK
+Core SDK:
 `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
 
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
@@ -37,7 +37,7 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 ### Set Project ID
 
-As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the need to register button in the server settings.
+As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Need To Register?" button in the server settings.
 
 ![](assets/getting-started/project-settings.png)
 
