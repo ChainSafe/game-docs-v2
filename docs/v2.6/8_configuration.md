@@ -18,20 +18,14 @@ This page walks you through our new Web3 builder and it's functionality in terms
 To access most features provided by the SDK, you first have to create an instance of Web3 object.
 You can think of it as a preconfigured entry point to the SDK or a facade.
 It usually makes sense to keep 1 instance of Web3 for the active player for the lifetime of 1 session.
-When player connects his wallet, you build a new instance that's associated with him.
+When player connects their wallet, you build a new instance that's associated with them.
 This makes Web3 a good candidate to be stored in a singleton of some sort.
 
-With all that in mind, nobody stops you from creating as many Web3 instances as you need.
-You can think of one instance that's created before user even logged into the game just for blockchain reading purposes.
-Or even 4 instances for each player in a couch-party-game, to load their credits, preferences
-or any other web3 goodness you can think of.
+With all that in mind, nothing stops you from creating as many Web3 instances as you need. You can think of one instance that's created before user even logged into the game just for blockchain reading purposes. Even 4 instances for each player in a couch party game, to load their credits, preferences or any other web3 goodness you can think of.
 
 ## Web3Builder
 
-To build a new instance of Web3 you'd have to use Web3Builder object.
-You can simply create one using a constructor with one required parameter being the
-Project Configuration scriptable object. This object contains the data you entered when setting up
-the SDK and can be obtained using `ProjectConfigUtilities.Load()`:
+To build a new instance of Web3 you'd have to use Web3Builder object. You can simply create one using a constructor with one required parameter being the Project Configuration scriptable object. This object contains the data you entered when setting up the SDK and can be obtained using `ProjectConfigUtilities.Load()`:
 
 ```csharp
 using ChainSafe.Gaming.Build;
@@ -44,8 +38,7 @@ private void Start()
 }
 ```
 
-You can also provide another instance of `ProjectConfigScriptableObject`,
-if you want to support multiple chains:
+You can also provide another instance of `ProjectConfigScriptableObject` if you want to support multiple chains:
 
 ```csharp
 public void InitializeModel(ProjectConfigScriptableObject web3ProjectConfig)
@@ -54,8 +47,7 @@ public void InitializeModel(ProjectConfigScriptableObject web3ProjectConfig)
 }
 ```
 
-Another option is to implement IProjectConfig and/or IChainConfig 
-and use them for the very same purposes:
+Another option is to implement IProjectConfig and/or IChainConfig and use them for the same purposes:
 
 ```csharp
 using ChainSafe.Gaming.Configuration;
@@ -90,9 +82,7 @@ var web3Builder = new Web3Builder(projectConfig)
 
 ### Environment
 
-Any Web3 instance requires environment it's gonna be running in bound.
-If running within Unity, go with UnityEnvironment.
-To bind it call `UseUnityEnvironment()` extension method:
+Any Web3 instance requires environment it's gonna be running in bound. If running within Unity, go with UnityEnvironment. To bind it call `UseUnityEnvironment()` extension method:
 
 ```csharp
 using ChainSafe.Gaming.Unity.Environment;

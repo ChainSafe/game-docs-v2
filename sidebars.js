@@ -5,8 +5,10 @@ module.exports = {
     {
       "type": "category",
       "label": "SDK Documentation",
+      "collapsed": false,
       "items": [
         "v2.6/getting-started",
+        "v2.6/project-id-registration",
         {
           type: 'category',
           label: 'Choose Your Wallet',
@@ -15,25 +17,36 @@ module.exports = {
             "v2.6/metamask",
             "v2.6/wallet-connect",
             "v2.6/web3auth",
-            "v2.6/hyperplay",
+            "v2.6/hyperplay"
           ]
         },
-        "v2.6/project-id-registration",
-        "v2.6/setting-up-an-rpc-node",
-        "v2.6/prefab-scripts",
         "v2.6/configuration",
+        "v2.6/setting-up-an-rpc-node",
         "v2.6/connecting-a-wallet",
-        "v2.6/interacting-with-tokens",
-        "v2.6/interacting-with-nfts",
-        "v2.6/interacting-with-smart-contracts",
-        "v2.6/web2-like-authentication-using-web3auth",
+        "v2.6/prefab-scripts",
+        {
+          type: 'category',
+          label: 'Interacting With Tokens',
+          items: [
+            "v2.6/interacting-with-erc20-tokens",
+            "v2.6/interacting-with-nfts",
+            "v2.6/interacting-with-smart-contracts"
+          ]
+        },
+        "v2.6/web3auth",
         "v2.6/gasless-transactions-using-gelato",
-        "v2.6/extending-the-sdk",
         "v2.6/ramp",
         "v2.6/lootboxes",
         "v2.6/marketplace",
-        "v2.6/block-racers-game",
-        "v2.6/block-blasterz-game",
+        "v2.6/extending-the-sdk",
+        {
+          type: 'category',
+          label: 'Game Examples',
+          items: [
+            "v2.6/block-racers-game",
+            "v2.6/block-blasterz-game"
+          ]
+        },
         "v2.6/faq"
       ]
     },

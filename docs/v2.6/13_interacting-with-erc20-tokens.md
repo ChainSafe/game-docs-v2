@@ -1,7 +1,7 @@
 ---
-slug: /current/interacting-with-tokens
+slug: /current/interacting-with-erc20-tokens
 sidebar_position: 13
-sidebar_label: Interacting With Tokens
+sidebar_label: Interacting With ERC20 Tokens
 ---
 
 
