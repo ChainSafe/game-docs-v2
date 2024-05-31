@@ -26,15 +26,11 @@ Yes, the SDK is free to use.
 
 ### Can I make desktop games with the SDK?
 
-Yes, you can make desktop, web, and mobile games using our SDK. To create a desktop game with web3.unity, you will need to create a Web3GL build with web3.unity.
+Yes, you can make desktop, web, and mobile games using our SDK.
 
 ### Does the SDK support other EVM-compatible chains besides Ethereum?
 
-Yes. The SDK will support other EVM-compatible chains. 
-
-You will need to edit the `network.js` file found within the **WebTemplates** folder. Edit the `ChainId` to the one for the blockchain you want your game to interact with. See websites like [Chainlist](https://chainlist.org/) for a list of EVM ChainID's. You will then also need to an appropriate RPC endpoint for the chain you wish to connect with.
-
-Should you run into any issues with a particular chain, please reach out on our [Discord](https://discord.gg/zxHUgGGTGk).
+Yes. The SDK will support other EVM-compatible chains, should you run into any issues with a particular chain, please reach out on our [Discord](https://discord.gg/zxHUgGGTGk).
 
 ### Does the SDK support other non-EVM blockchains like Solana or Algorand?
 
@@ -47,12 +43,6 @@ Not currently. Although, the SDK is mainly compatible with Ethereum Virtual Mach
 ![](assets/faq/request-metamask.png)
 
 **Answer #2:** Some stores may require a demo version of the game so that the stores teams can review the product without needing an external wallet. You can simply add a demo button within the game that takes the user to a free-to-play version of your game without blockchain calls to test. This should be enough for the store to accept your games application. Happy coding!
-
-### How do I enable Torus and other crypto wallets for the SDK?
-
-You can do this by editing the WebGLTemplates -> WebGL2020x -> Web3 -> index.js file. You need to uncomment the wallet at the top to allow the UNPKG javascript file to be used and then uncomment the wallet in the connect function below. Other wallets can be added the same way, provided the developers of the wallet supply a UNPKG javascript file and the wallet is EVM-compatible (such as MetaMask).
-
-![](assets/faq/enabling-alternate-wallets.png)
 
 ## Common Questions About Upgrading To The Latest Version of web3.unity
 
@@ -86,25 +76,17 @@ Join our [Discord](https://discord.gg/zxHUgGGTGk) for support or reach out to ou
     
 A Remote Procedure Call or RPC node is a type of computer server that allows users to read data on the blockchain and send transactions to different networks. You can deploy one using either [QuickNode](https://www.quicknode.com/) or [Chainstack](https://chainstack.com/).
     
-### Why are RPCs required?
+### Are RPCs required?
     
-The latest decentralized version of the SDK will significantly reduce the involvement our intermediary API servers play which previously was causing developers with intermittent outages and bottlenecks. Instead, we are encouraging users to assess and determine the uptime guarantees needed from infrastructure providers in supplying an RPC node.
+The latest decentralized version of the SDK will significantly reduce the involvement our intermediary API servers play which previously was causing developers with intermittent outages and bottlenecks. Instead, we are encouraging users to assess and determine the uptime guarantees needed from infrastructure providers in supplying an RPC node. A default rpc will suffice but if you want to avoid congestion and uptime issues we would suggest using your own.
     
 ### My current build is running just fine, is upgrading compulsory?
     
-While we appreciate and understand how this may impact some of our existing developers and their games/communities, an upgrade to the latest version is required. 
-    
-We believe the net positive as a result of ultimate developer control, transparency, and decentralization makes upgrading to the latest version a worthwhile endeavor in the long run.
+While we appreciate and understand how this may impact some of our existing developers and their games/communities, an upgrade to the latest version is required. There are many optimzations, fixes and new features in our latest version that make the upgrade well worth it.
     
 ### Can someone help migrate my game to the latest version?
     
-Please join us in our [Discord](https://discord.gg/zxHUgGGTGk) ([#gaming-help](https://discord.gg/QKxVQBsyPt), [#community-code-support](https://discord.gg/sYhfpxrEHt)) for support from our core devs, ChainSages, and other SDK community members. 
-    
-If additional consulting is required, please contact us at `bd@chainsafe.io` to set up a call with our team.
-    
-### Can I pay to keep my game running using ChainSafe’s API server?
-    
-Please stay tuned to our [website](https://gaming.chainsafe.io) or on our [Discord](https://discord.gg/zxHUgGGTGk) for further information. 
+Please join us in our [Discord](https://discord.gg/zxHUgGGTGk) ([#gaming-help](https://discord.gg/QKxVQBsyPt), [#community-code-support](https://discord.gg/sYhfpxrEHt)) for support from our core devs, ChainSages, and other SDK community members. If additional consulting is required, please contact us at `bd@chainsafe.io` to set up a call with our team.
     
 ### Will the web3.unity SDK remain free to use?
     
@@ -148,5 +130,5 @@ You need to add the web3 component into your react build manually. To do so:
 3. 
  ```js
  \<script src="%PUBLIC\_URL%/YourGame/web3/index.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3modal.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3.min.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/network.js">\</script>
-```
+ ```
  This should solve your issue. Happy coding!

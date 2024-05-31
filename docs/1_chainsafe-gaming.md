@@ -14,7 +14,7 @@ The ChainSafe Gaming docs is your portal to learn more about our products and se
 
 # Web3.unity, An SDK To Bridge Unity NFT Games To The Blockchain
 
-Your journey in blockchain-enabled gaming begins with the [latest release](https://github.com/ChainSafe/web3.unity/releases) of web3.unity.
+Your journey in blockchain-enabled gaming begins with our [SDK](https://docs.gaming.chainsafe.io/current/getting-started) We recommend you follow the package manager installation in the getting started section. If you'd like to see the source code repository you can do so [here](https://github.com/ChainSafe/web3.unity/releases).
 
 web3.unity is an open-source gaming SDK written in C# and developed by [ChainSafe Gaming](https://gaming.chainsafe.io/?utm_source=github&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs). It connects games built in the Unity game engine to the blockchain. The library currently supports games built for web browsers (WebGL), iOS/Android mobile, and desktop. web3.unity is compatible with most EVM-based chains such as Ethereum, Polygon, Moonbeam, Cronos, Godwoken, and Binance Smart Chain, letting developers easily choose and switch between them to create the best in-game experience.
 
@@ -68,9 +68,7 @@ If you are new to web3.unity and blockchain-enabled gaming, we recommend that yo
 * Our [YouTube](https://youtube.com/chainsafe-systems) provides a set of video tutorials and how-to guides on using web3.unity:
   * [Installing web3.unity](https://www.youtube.com/playlist?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N)
   * [web3.unity Documentation Videos](https://www.youtube.com/playlist?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW)
-  * [Web3Wallet Builds](https://www.youtube.com/playlist?list=PLPn3rQCo3XrNirDbLmwb98V3YJP8R6kkr)
   * [Web3GL Builds](https://www.youtube.com/playlist?list=PLPn3rQCo3XrOBxe6e7EJ-hdoK4hTs3VqS)
-  * [Legacy tutorials](https://www.youtube.com/playlist?list=PLPn3rQCo3XrOQkC3v55Ou8NMPgn8pb7O5)
   * [Gaming Community Calls](https://www.youtube.com/playlist?list=PLPn3rQCo3XrPW_HOF6QyKUgLiaARDp2wx)
 
 ## Contribute
