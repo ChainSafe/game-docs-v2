@@ -17,7 +17,7 @@ You'll notice when you import the samples into the project that some scenes are 
 ### Adding a script to a scene for testing
 If you right click in the unity explorer you can create a c# script. For example we're going to test erc20NameOf to get the name of an ERC20 token from chain data. Right click in the editor file explorer and create a new script, attach this script to an empty object in the scene next to the editor system. Name the script erc20NameOf, place the code below into it and press save. Once saved you can go back to the editor, create a button and assign the scripts public function to a button press event on the right. You can do this by finding the objects properties on the right, scrolling down to button and adding an event. Just drag the object with the script into the button event area and choose the starting function of the script.
 
-## ERC20 Prefab Scripts
+## ERC20 Sample Scripts
 
 ### Name Of
 Fetches the name of an ERC20 contract.
@@ -27,7 +27,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -57,7 +57,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -87,7 +87,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -116,7 +116,7 @@ Fetches the total supply of an ERC20 token.
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -145,7 +145,7 @@ Fetches the balance of an ERC20 token from an account.
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -176,7 +176,7 @@ Fetches the native balance of an ERC20 token from an account.
 using ChainSafe.Gaming.Evm.Providers;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -204,7 +204,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -238,7 +238,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -263,7 +263,7 @@ public class Erc20Transfer : MonoBehaviour
 }
 ```
 
-## ERC721 Prefab Scripts
+## ERC721 Sample Scripts
 
 ### Balance Of
 Fetches the balance of ERC721 NFTs from an account
@@ -273,7 +273,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -305,7 +305,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -338,7 +338,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -379,7 +379,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -410,7 +410,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -441,7 +441,7 @@ Transfers an ERC721 token to an account.
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -466,7 +466,7 @@ public class Erc721Transfer : MonoBehaviour
 }
 ```
 
-## ERC1155 Prefab Scripts
+## ERC1155 Sample Scripts
 
 ### Balance Of
 Fetches the balance of ERC1155 NFTs from an account.
@@ -476,7 +476,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -512,7 +512,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -545,7 +545,7 @@ Fetches the texture of an ERC1155 NFT and displays it to a raw image.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -578,7 +578,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -611,7 +611,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -647,7 +647,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -677,7 +677,7 @@ public class Erc1155Transfer : MonoBehaviour
 }
 ```
 
-## EVM Prefabs
+## EVM Sample Scripts
 
 ### IPFS Upload
 Uploads to IPFS, you will need to obtain your storage api secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
@@ -1058,7 +1058,7 @@ Makes a read call to a contract.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1095,7 +1095,7 @@ Makes a write call to a contract.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1135,7 +1135,7 @@ Gets an array response from a contract.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1167,7 +1167,7 @@ Sends an array to a contract.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1204,7 +1204,7 @@ Gets the current block number.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1230,7 +1230,7 @@ Gets the current gas limit.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1264,7 +1264,7 @@ Gets the current gas price.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1290,7 +1290,7 @@ Gets the current nonce for an account.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1315,7 +1315,7 @@ Encrypts a message with SHA3.
 ``` csharp
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1344,7 +1344,7 @@ Signs a message, the response is unique for each user.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1373,7 +1373,7 @@ Verifies a users account via message sign.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1403,7 +1403,7 @@ Sends a transaction.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1432,7 +1432,7 @@ Gets the status of a transaction.
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1532,7 +1532,7 @@ using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1559,7 +1559,7 @@ Signs a transaction with an ECDSA key
 ``` csharp
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1590,7 +1590,7 @@ Gets the public address the private key belongs to.
 ``` csharp
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1618,7 +1618,7 @@ Signs a message using a private key.
 ``` csharp
 using Scripts.EVM.Token;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1653,7 +1653,7 @@ using Nethereum.Contracts.QueryHandlers.MultiCall;
 using Scripts.EVM.Token;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1711,7 +1711,7 @@ public class MulticallSample : MonoBehaviour
 }
 ```
 
-## Gelato Prefabs
+## Gelato Sample Scripts
 
 ### Gelato Call With Sync Fee
 Allows sponsor calling to Gelato with sync fee.
@@ -1721,7 +1721,7 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1751,7 +1751,7 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1781,7 +1781,7 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 
@@ -1811,7 +1811,7 @@ using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
 using UnityEngine;
 
-/* This prefab script should be copied & placed on the root of an object in a scene.
+/* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
 The scripts function should be called by a method of your choosing - button, function etc */
 

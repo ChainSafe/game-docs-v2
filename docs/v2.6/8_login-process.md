@@ -1,19 +1,19 @@
 ﻿---
-slug: /current/connecting-a-wallet
+slug: /current/login-process
 sidebar_position: 8
-sidebar_label: Connecting A Wallet
+sidebar_label: Login Process
 ---
 
 
-# Connecting a Wallet
+# Login Process
 
 :::info
 
-This page teaches you how to connect a wallet and our how our system is initialized.
+This page teaches you how the login process is performed & the how the web3 object is being initialized.
 
 :::
 
-Wallet connections are made as apart of the Web3 object's build process. Once this build process is complete you'll have an instance and all of it's components with their states fully initialized. This makes using the SDK quite simple as most calls will come from this object.
+Wallet connections are made as apart of the Web3 object's build process when you log in. Once this build process is complete you'll have an instance and all of it's components with their states fully initialized. This makes using the SDK quite simple as most calls will come from this object.
 
 ```csharp
 ﻿using ChainSafe.Gaming.UnityPackage.Common;
@@ -91,3 +91,5 @@ Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` ob
     }
 ```
 Whilst we go into the core functionality of the build process here, if you simply want to use use the login scene provided with the samples, it will do everything here in the login process so you don't need to worry.
+
+![](assets/login-process/login-scene.png)
