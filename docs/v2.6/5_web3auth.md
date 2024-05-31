@@ -6,7 +6,11 @@ sidebar_label: Web3Auth
 
 # Web3Auth
 
+## What is Web3Auth?
+Web3Auth is a wallet solution that allows users to connect to the blockchain via social logins. Upon logging in you'll receive a wallet that is fully functional and able to make calls with our SDK.
+
 Here’s how you can include Web3Auth in your video games.
+
 1. You can import our Web3Auth sample scene by navigating to Window → Package Manager.
 2. Add a new package by name by pressing + and pressing add via git url entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
 3. Once the package is installed, click on the Samples tab. Import the samples.
