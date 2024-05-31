@@ -19,7 +19,6 @@ module.exports = {
             "v2.6/hyperplay"
           ]
         },
-        "v2.6/configuration",
         "v2.6/setting-up-an-rpc-node",
         "v2.6/connecting-a-wallet",
         "v2.6/prefab-scripts",

@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/extending-the-sdk
-sidebar_position: 19
+sidebar_position: 17
 sidebar_label: Extending The SDK
 ---
 

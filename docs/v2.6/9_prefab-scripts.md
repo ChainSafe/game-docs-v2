@@ -1,6 +1,6 @@
 ---
 slug: /current/prefab-scripts
-sidebar_position: 10
+sidebar_position: 9
 sidebar_label: Prefab Scripts
 ---
 
