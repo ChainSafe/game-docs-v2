@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/block-racers-game
-sidebar_position: 19
+sidebar_position: 16
 sidebar_label: Block Racers Game
 ---
 
