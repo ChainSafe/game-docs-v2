@@ -82,7 +82,7 @@ The latest decentralized version of the SDK will significantly reduce the involv
     
 ### My current build is running just fine, is upgrading compulsory?
     
-While we appreciate and understand how this may impact some of our existing developers and their games/communities, an upgrade to the latest version is required. There are many optimzations, fixes and new features in our latest version that make the upgrade well worth it.
+While we appreciate and understand how this may impact some of our existing developers and their games/communities, an upgrade to the latest version is required. There are many optimizations, fixes and new features in our latest version that make the upgrade well worth it.
     
 ### Can someone help migrate my game to the latest version?
     

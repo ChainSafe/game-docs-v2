@@ -13,8 +13,8 @@ This page will walk you through our marketplace feature.
 
 :::
 
-## What is the Chainsafe marketplace?
-ChainSafe's marketplace is an NFT trading hub where you can create collections of NFTs and list them into different marketplaces. You can then dispaly these marketplaces and interact with them in game. The marketplace dashboard can be accessed [here](https://dashboard.gaming.chainsafe.io) You can find a variety of services here to compliment your marketplace, from collections to minting NFTs.
+## What is the ChainSafe marketplace?
+ChainSafe's marketplace is an NFT trading hub where you can create collections of NFTs and list them into different marketplaces. You can then display these marketplaces and interact with them in game. The marketplace dashboard can be accessed [here](https://dashboard.gaming.chainsafe.io) You can find a variety of services here to compliment your marketplace, from collections to minting NFTs.
 
 1. You can import our Marketplace sample scene by navigating to Window → Package Manager.
 2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`

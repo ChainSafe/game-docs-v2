@@ -24,6 +24,8 @@ BalanceOf
 behaviour
 binance
 Binance
+Blasterz
+block-blasterz-game
 blockchain
 Blockchain
 blockchains
@@ -136,6 +138,7 @@ how-tos
 HTTPS
 HyperPlay
 hyperplay
+Hyperplay
 Infura-enabled
 IChainConfig
 Integrable
@@ -171,6 +174,7 @@ mainnets
 mainnetgoerli
 metamask
 MetaMask
+multicall
 minter-evm
 minting-nft
 MonoBehaviour
@@ -309,6 +313,7 @@ webpack
 webpage
 webserver
 WebTemplates
+WalletConnect
 WebWallet
 Web3GL-based
 web3-enabled

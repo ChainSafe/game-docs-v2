@@ -16,7 +16,7 @@ This page will walk you through the process of installing the Web3 Unity SDK, se
 
 ## Install the Web3.Unity SDK via Unity Package Manager
 
-On the top bar in unity, navigate to Window → Package Manager → Press the plus button on the top left → Add via Git Url.
+On the top bar in unity, navigate to Window → Package Manager → Press the plus button on the top left → Add via Git URL.
    
 ![](assets/getting-started/package-manager-add-package.png)
 

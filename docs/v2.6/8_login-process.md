@@ -90,6 +90,6 @@ Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` ob
         OnWeb3Initialized();
     }
 ```
-Whilst we go into the core functionality of the build process here, if you simply want to use use the login scene provided with the samples, it will do everything here in the login process so you don't need to worry.
+Whilst we go into the core functionality of the build process here, if you simply want to use the login scene provided with the samples, it will do everything here in the login process so you don't need to worry.
 
 ![](assets/login-process/login-scene.png)
