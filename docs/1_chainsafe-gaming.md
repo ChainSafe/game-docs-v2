@@ -20,7 +20,7 @@ web3.unity is an open-source gaming SDK written in C# and developed by [ChainSaf
 
 ## Features of web3.unity
 
-Out-of-the-box, web3.unity comes with Unity prefabs & tooling that will make building web3 games a little bit easier. These features include:
+Out-of-the-box, web3.unity comes with Unity sample scripts, prefabs & tooling that will make building web3 games a little bit easier. These features include:
 
 * In-game NFT minting
 * Integrable live marketplace for NFTs minted in-game or from the [ChainSafe Gaming Marketplace](https://marketplace.chainsafe.io) web UI

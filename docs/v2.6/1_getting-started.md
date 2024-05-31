@@ -25,7 +25,7 @@ Our packages are modular so your project wont bloat out with SDK files and you c
 Core SDK:
 `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
 
-Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the prefab scripts seen [here](https://docs.gaming.chainsafe.io/current/prefab-scripts)
+Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](https://docs.gaming.chainsafe.io/current/sample-scripts-and-chain-interactions)
 
 ![](assets/getting-started/import-samples.png)
 

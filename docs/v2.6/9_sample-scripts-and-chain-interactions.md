@@ -1,14 +1,14 @@
 ---
-slug: /current/prefab-scripts
+slug: /current/sample-scripts
 sidebar_position: 9
-sidebar_label: Prefab Scripts
+sidebar_label: Sample Scripts & Chain Interactions
 ---
 
-# Prefab Scripts
+# Sample Scripts & Chain Interactions
 
 :::info
 
-In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started).
+In order to copy and paste the scripts below without hassle you will need to have the sample package imported via unity package manager. If you need to install the core SDK sample package you can follow the install guide in our getting started section [here](https://docs.gaming.chainsafe.io/current/getting-started).
 :::
 
 ### The login scene

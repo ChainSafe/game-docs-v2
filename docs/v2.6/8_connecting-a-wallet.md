@@ -54,7 +54,7 @@ public class WalletConnectLoginProvider : LoginProvider, IWeb3BuilderServiceAdap
 }
 ```
 
-Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` object as seen below. You can then use this web3 instance as needed through the SDK which you can see examples of in our prefab scripts area [here](https://docs.gaming.chainsafe.io/current/prefab-scripts).
+Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` object as seen below. You can then use this web3 instance as needed through the SDK which you can see examples of in our sample scripts area [here](https://docs.gaming.chainsafe.io/current/sample-scripts-and-chain-interactions).
 
 
 ``` csharp
