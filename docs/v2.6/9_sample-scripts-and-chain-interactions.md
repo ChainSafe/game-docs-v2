@@ -680,7 +680,7 @@ public class Erc1155Transfer : MonoBehaviour
 ## EVM Sample Scripts
 
 ### IPFS Upload
-Uploads to IPFS, you will need to obtain your storage api secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
+Uploads to IPFS, you will need to obtain your storage API secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
 
 ``` csharp
 using System.Collections.Generic;
@@ -1641,7 +1641,7 @@ public class EcdsaSignMessage : MonoBehaviour
 }
 ```
 
-### Muliticall
+### Multicall
 Makes a multicall.
 
 ``` csharp

@@ -43,6 +43,6 @@ As the package is installed, you'll be prompted with the ChainSafe server settin
 
 After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. Select the chain you would like to use and the rest of the fields will auto populate. If you would like to set up your own RPC node, visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
 
-If you need to refer to the ChainSafe server settings area again, you can find it on the top naviagation bar. Simply select it and press server settings to view the menu.
+If you need to refer to the ChainSafe server settings area again, you can find it on the top navigation bar. Simply select it and press server settings to view the menu.
 
 ![](assets/getting-started/project-settings-menu.png)
