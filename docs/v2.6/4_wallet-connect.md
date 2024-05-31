@@ -1,6 +1,6 @@
 ---
 slug: /current/wallet-connect
-sidebar_position: 5
+sidebar_position: 4
 sidebar_label: Wallet Connect
 ---
 

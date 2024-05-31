@@ -8,7 +8,6 @@ module.exports = {
       "collapsed": false,
       "items": [
         "v2.6/getting-started",
-        "v2.6/project-id-registration",
         {
           type: 'category',
           label: 'Choose Your Wallet',
@@ -33,7 +32,6 @@ module.exports = {
             "v2.6/interacting-with-smart-contracts"
           ]
         },
-        "v2.6/web3auth",
         "v2.6/gasless-transactions-using-gelato",
         "v2.6/ramp",
         "v2.6/lootboxes",

@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/ramp
-sidebar_position: 18
+sidebar_position: 16
 sidebar_label: Ramp
 ---
 

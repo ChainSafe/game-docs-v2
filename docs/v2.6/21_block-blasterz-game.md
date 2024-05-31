@@ -1,11 +1,11 @@
 ﻿---
-slug: /current/block-racers-game
-sidebar_position: 22
-sidebar_label: Block Racers Game
+slug: /current/block-blasterz-game
+sidebar_position: 21
+sidebar_label: Block Blasterz Game
 ---
 
 
-# Block Racers Example Game
+# Block Blasterz Example Game
 
 :::info
 
@@ -13,13 +13,13 @@ This game was built to show you how our SDK would function in a game environment
 
 :::
 
-The repo contains a fun multiplayer racing game which was build to help explain the functionality of the SDK complete with code examples.
+The repo contains a fun fps game which was build to help explain the functionality of the SDK complete with code examples.
 
-## Block Racers Project Files
-The repo for the Block Racers project files can be found [here](https://github.com/ChainSafe/BlockRacers/)
+## Block Blasterz Project Files
+The repo for the Block Blasterz project files can be found [here](https://github.com/ChainSafe/BlockBlasterz/)
 
-## Block Racers Playable Demo
-The Block Racers game demo can be found [here](https://chainsafe.github.io/BlockRacersGame/)
+## Block Blasterz Playable Demo
+The Block Blasterz game demo can be found [here](https://chainsafe.github.io/BlockBlasterzGame/)
 
 ## Booting Up The Game & Connecting Your Wallet
 Once the game has booted up, simply connect your wallet and have a look around through the menus.

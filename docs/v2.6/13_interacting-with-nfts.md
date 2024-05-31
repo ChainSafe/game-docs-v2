@@ -1,6 +1,6 @@
 ﻿---
 slug: /current/interacting-with-nfts
-sidebar_position: 14
+sidebar_position: 13
 sidebar_label: Interacting With NFTs
 ---
 

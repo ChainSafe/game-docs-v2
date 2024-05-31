@@ -1,6 +1,6 @@
 ---
 slug: /current/setting-up-an-rpc-node
-sidebar_position: 9
+sidebar_position: 8
 sidebar_label: Setting Up An RPC Node
 ---
 
