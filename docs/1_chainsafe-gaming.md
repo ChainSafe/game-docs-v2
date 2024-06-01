@@ -65,7 +65,7 @@ Web3.Unity should work with any EVM based network on the blockchain. Below you'l
 If you are new to web3.unity and blockchain-enabled gaming, we recommend that you read over these docs carefully, starting with [Current SDK Builds (v2.x)](#current-sdk-builds-v2x). If you are new to building with the Unity game engine, the [Unity3D manual](https://docs.unity3d.com/Manual/index.html) is a great place to start as well as [learn Unity](https://learn.unity.com/).
 
 * Our [Discord](https://discord.gg/zxHUgGGTGk) is an active community of game devs sharing tips and tricks with each other
-  * Hop into our [office hours](https://discord.gg/GTK89A72?event=1242583988623769611) every Wednesday at 9am EST to get help with your code, brainstorm ideas, or provide feedback to the team.
+  * Hop into our [office hours](https://discord.gg/GTK89A72?event=1242583988623769611) every Wednesday at 9 am EST to get help with your code, brainstorm ideas, or provide feedback to the team.
 * Our [Twitter](https://twitter.com/chainsafegaming) periodically provides news and updates, and shares our community's work
 * Our [YouTube](https://youtube.com/chainsafe-systems) provides a set of video tutorials and how-to guides on using web3.unity:
   * [Installing web3.unity](https://www.youtube.com/playlist?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N)

@@ -13,6 +13,7 @@ all-1155s
 all-721s
 All1155s
 All721s
+Amoy
 analytics
 async
 APIs
