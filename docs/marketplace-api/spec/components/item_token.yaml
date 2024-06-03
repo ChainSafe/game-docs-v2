@@ -1,0 +1,23 @@
+type: object
+description: token structure for the NFT
+properties:
+  token_id:
+    type: string
+    description: token id of nft
+  token_type:
+    type: string
+    description: type of token
+  contract_address:
+    type: string
+    description: contract address of token
+  uri:
+    type: string
+    description: token uri of nft token
+  metadata:
+    type: object
+    additionalProperties:
+      anyOf:
+        - type: string
+        - type: integer
+        - type: boolean
+        - type: object

@@ -1,0 +1,9 @@
+type: object
+description: Token Owner
+properties:
+  owner:
+    type: string
+    description: Owner of the token
+  supply:
+    type: string
+    description: Total supply of the token

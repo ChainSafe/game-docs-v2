@@ -1,0 +1,84 @@
+.menu__link--active {
+  color: #B4FF68;
+}
+:root {
+  --ifm-color-primary-dark: #B4FF68;
+  --ifm-color-primary: #B4FF68;
+  --ifm-menu-color-active: #B4FF68;
+  --aa-primary-color-rgb: #B4FF68 !important;
+  --aa-text-color-rgb: #B4FF68 !important;
+  --aa-text-color-rgb: #B4FF68 !important;
+}
+
+
+a {
+  color: #B4FF68;
+}
+
+a:hover {
+  color: #B4FF68;
+}
+
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: #B4FF68;
+}
+
+.aa-DetachedSearchButton {
+  color: #B4FF68 !important;
+}
+.aa-DetachedSearchButtonIcon {
+  color: #B4FF68 !important;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Thin white outline with 50% transparency */
+  border-radius: 5px;
+  color: #B4FF68; /* Text color */
+  background-color: transparent; /* No background color */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px;
+  font-weight: bold; /* Make text bold */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.custom-button:hover {
+  border-color: #B4FF68; /* Change border color to green on hover */
+  background-color: rgba(180, 255, 104, 0.1); /* Slight background on hover */
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+.table-cell-bold-green {
+  color: #B4FF68; /* Green text color */
+  font-weight: bold; /* Bold text */
+}
+
+.center-content {
+  text-align: center;
+}
+
+.transparent-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.transparent-table th,
+.transparent-table td {
+  border: none;
+  background: transparent;
+  padding: 8px;
+}
+
+.transparent-table th {
+  font-weight: bold;
+  color: #B4FF68; /* Green text color */
+}
+
+.transparent-table td {
+  color: #B4FF68; /* Green text color */
+}
+
+.greyed-out {
+  color: grey !important; /* Grey out the Xs */
+}
