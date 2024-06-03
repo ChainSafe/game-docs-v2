@@ -36,8 +36,7 @@ public class LoginSample : MonoBehaviour
 }
 ```
 
-Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` object as seen below. You can then use this web3 instance as needed through the SDK which you can see examples of in our sample scripts area [here](https://docs.gaming.chainsafe.io/current/sample-scripts-and-chain-interactions).
-
+Wallet connection happens when `LaunchAsync()` is called on the `Web3Builder` object as seen below.
 
 ``` csharp
 public class LoginSample : MonoBehaviour
@@ -50,8 +49,16 @@ public class LoginSample : MonoBehaviour
     {
         web3 = await web3Builder.LaunchAsync();
     }
+}
+```
+
+You can then use this web3 instance as needed through the SDK which you can see examples of in our sample scripts area [here](https://docs.gaming.chainsafe.io/current/sample-scripts-and-chain-interactions).
+
+``` csharp
+public class LoginSample : MonoBehaviour
+{
+    . . .
     
-    // Web3 client usage example
     public string GetPlayerAddress()
     {
         return web3.Signer.PublicAddress;
