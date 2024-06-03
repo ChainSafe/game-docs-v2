@@ -1,1 +1,0 @@
-// This file is required for command yarn typecheck to work.
