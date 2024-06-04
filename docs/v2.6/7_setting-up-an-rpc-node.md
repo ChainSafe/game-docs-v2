@@ -9,7 +9,7 @@ sidebar_label: Setting Up An RPC Node
 
 :::info
 
-This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) as an example, but this can also be done with other providers. Setting up an RPC node is a requirement for the SDK and will enable interactions with selected EVM chains in Unity-based blockchain games.
+This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) as an example, but this can also be done with other providers. Setting up an RPC node is not a requirement for the SDK but it will help in terms of congestion and stability as the public nodes can be saturated at times.
 
 :::
 
