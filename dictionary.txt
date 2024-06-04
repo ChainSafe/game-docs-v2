@@ -13,6 +13,7 @@ all-1155s
 all-721s
 All1155s
 All721s
+Amoy
 analytics
 async
 APIs
@@ -24,6 +25,8 @@ BalanceOf
 behaviour
 binance
 Binance
+Blasterz
+block-blasterz-game
 blockchain
 Blockchain
 blockchains
@@ -134,6 +137,9 @@ Goerli's
 goerliETH
 how-tos
 HTTPS
+HyperPlay
+hyperplay
+Hyperplay
 Infura-enabled
 IChainConfig
 Integrable
@@ -169,6 +175,8 @@ mainnets
 mainnetgoerli
 metamask
 MetaMask
+Multicall
+multicall
 minter-evm
 minting-nft
 MonoBehaviour
@@ -307,6 +315,7 @@ webpack
 webpage
 webserver
 WebTemplates
+WalletConnect
 WebWallet
 Web3GL-based
 web3-enabled
@@ -324,3 +333,4 @@ localhost
 localhost:8000
 https
 Brotli
+LoginProvider
