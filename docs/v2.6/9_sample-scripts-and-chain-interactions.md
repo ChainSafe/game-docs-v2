@@ -23,6 +23,7 @@ If you right click in the unity explorer you can create a c# script. For example
 Fetches the name of an ERC20 contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -53,6 +54,7 @@ public class Erc20NameOf : MonoBehaviour
 Fetches the symbol of an ERC20 contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -83,6 +85,7 @@ public class Erc20Symbol : MonoBehaviour
 Fetches the decimals of an ERC20 contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -113,6 +116,7 @@ public class Erc20Decimals : MonoBehaviour
 Fetches the total supply of an ERC20 token.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
@@ -142,6 +146,7 @@ public class Erc20TotalSupply : MonoBehaviour
 Fetches the balance of an ERC20 token from an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
@@ -173,6 +178,7 @@ public class Erc20BalanceOf : MonoBehaviour
 Fetches the native balance of an ERC20 token from an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Providers;
 using ChainSafe.Gaming.UnityPackage;
 
@@ -200,6 +206,7 @@ public class Erc20NativeBalanceOf : MonoBehaviour
 Mints ERC20 tokens to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -234,6 +241,7 @@ public class Erc20Mint : MonoBehaviour
 Transfers ERC20 tokens to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -269,6 +277,7 @@ public class Erc20Transfer : MonoBehaviour
 Fetches the balance of ERC721 NFTs from an account
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -301,6 +310,7 @@ public class Erc721BalanceOf : MonoBehaviour
 Fetches the owner of an ERC721 token id.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -332,6 +342,7 @@ public class Erc721OwnerOf : MonoBehaviour
 Fetches the owners of ERC721 token ids.
 
 ``` csharp
+using UnityEngine;
 using System.Linq;
 using System.Text;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
@@ -375,6 +386,7 @@ public class Erc721OwnerOfBatch : MonoBehaviour
 Fetches the URI from an ERC721 NFT.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -406,6 +418,7 @@ public class Erc721Uri : MonoBehaviour
 Mints a 721 NFT to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -438,6 +451,7 @@ public class Erc721Mint : MonoBehaviour
 Transfers an ERC721 token to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 
@@ -472,6 +486,7 @@ public class Erc721Transfer : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -508,6 +523,7 @@ public class Erc1155BalanceOf : MonoBehaviour
 Fetches the balance of ERC1155 NFTs from multiple accounts.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -542,6 +558,7 @@ public class Erc1155BalanceOfBatch : MonoBehaviour
 Fetches the texture of an ERC1155 NFT and displays it to a raw image.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -574,6 +591,7 @@ public class Erc1155ImportTexture : MonoBehaviour
 Fetches the URI from an ERC1155 NFT.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -607,6 +625,7 @@ public class Erc1155Uri : MonoBehaviour
 Mints a 1155 NFT to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -643,6 +662,7 @@ public class Erc1155Mint : MonoBehaviour
 Transfer ERC1155 tokens to an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -683,9 +703,9 @@ public class Erc1155Transfer : MonoBehaviour
 Uploads to IPFS, you will need to obtain your storage API secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
 
 ``` csharp
+using UnityEngine;
 using System.Collections.Generic;
 using ChainSafe.Gaming.UnityPackage.Model;
-using UnityEngine;
 using ChainSafe.Gaming.Marketplace;
 
 public class IPFSCalls : MonoBehaviour
@@ -774,6 +794,7 @@ public class IPFSCalls : MonoBehaviour
 Makes reads and writes to and from ChainSafe's marketplace.
 
 ``` csharp
+using UnityEngine;
 #if MARKETPLACE_AVAILABLE
 using Scripts.EVM.Marketplace;
 using UnityEngine;
@@ -1055,6 +1076,7 @@ public class MarketplaceCalls : MonoBehaviour
 Makes a read call to a contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1092,6 +1114,7 @@ public class CallContract : MonoBehaviour
 Makes a write call to a contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1132,6 +1155,7 @@ public class SendContract : MonoBehaviour
 Gets an array response from a contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1164,6 +1188,7 @@ public class GetArray : MonoBehaviour
 Sends an array to a contract.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1201,6 +1226,7 @@ public class SendArray : MonoBehaviour
 Gets the current block number.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1227,6 +1253,7 @@ public class GetBlockNumber : MonoBehaviour
 Gets the current gas limit.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1261,6 +1288,7 @@ public class GetGasLimit : MonoBehaviour
 Gets the current gas price.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1287,6 +1315,7 @@ public class GetGasPrice : MonoBehaviour
 Gets the current nonce for an account.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1313,6 +1342,7 @@ public class GetNonce : MonoBehaviour
 Encrypts a message with SHA3.
 
 ``` csharp
+using UnityEngine;
 using Scripts.EVM.Token;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
@@ -1341,6 +1371,7 @@ public class Sha3 : MonoBehaviour
 Signs a message, the response is unique for each user.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1370,6 +1401,7 @@ public class SignMessage : MonoBehaviour
 Verifies a users account via message sign.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1400,6 +1432,7 @@ public class SignVerify : MonoBehaviour
 Sends a transaction.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1429,6 +1462,7 @@ public class SendTransaction : MonoBehaviour
 Gets the status of a transaction.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
 
@@ -1458,6 +1492,7 @@ public class GetTransactionStatus : MonoBehaviour
 ### Get Event Data Via Transaction Receipt
 
 ```csharp
+using UnityEngine;
 using System.Linq;
 using System.Numerics;
 using ChainSafe.Gaming.Evm.Contracts.Extensions;
@@ -1466,7 +1501,6 @@ using Nethereum.ABI.FunctionEncoding.Attributes;
 using Nethereum.RPC.Eth.DTOs;
 using Newtonsoft.Json;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /// <summary>
 /// Class for the event data that we're calling, this must match the solidity event i.e. event AmountIncreased(address indexed wallet, uint256 amount);
@@ -1528,6 +1562,7 @@ public class GetTxDataFromReceipt : MonoBehaviour
 Allows a contract to be registered for easy calling.
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
@@ -1557,6 +1592,7 @@ public class RegisteredContract : MonoBehaviour
 Signs a transaction with an ECDSA key
 
 ``` csharp
+using UnityEngine;
 using Scripts.EVM.Token;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
@@ -1588,6 +1624,7 @@ public class EcdsaSignTransaction : MonoBehaviour
 Gets the public address the private key belongs to.
 
 ``` csharp
+using UnityEngine;
 using Scripts.EVM.Token;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
@@ -1616,6 +1653,7 @@ public class EcdsaGetAddress : MonoBehaviour
 Signs a message using a private key.
 
 ``` csharp
+using UnityEngine;
 using Scripts.EVM.Token;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
@@ -1645,13 +1683,13 @@ public class EcdsaSignMessage : MonoBehaviour
 Makes a multicall.
 
 ``` csharp
+using UnityEngine;
 using System.Numerics;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.MultiCall;
 using ChainSafe.Gaming.UnityPackage;
 using Nethereum.Contracts.QueryHandlers.MultiCall;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1717,9 +1755,9 @@ public class MulticallSample : MonoBehaviour
 Allows sponsor calling to Gelato with sync fee.
 
 ``` csharp
+using UnityEngine;
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1747,9 +1785,9 @@ public class GelatoCallWithSyncFee : MonoBehaviour
 Allows sponsor calling to Gelato with sync fee for ERC2771.
 
 ``` csharp
+using UnityEngine;
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1777,9 +1815,9 @@ public class GelatoCallWithSyncFeeErc2771 : MonoBehaviour
 Allows sponsor calling to Gelato.
 
 ``` csharp
+using UnityEngine;
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -1807,9 +1845,9 @@ public class GelatoSponsorCall : MonoBehaviour
 Allows sponsor calling to Gelato for ERC2771.
 
 ``` csharp
+using UnityEngine;
 using System.Threading.Tasks;
 using ChainSafe.Gaming.UnityPackage;
-using UnityEngine;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
