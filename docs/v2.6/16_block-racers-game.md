@@ -38,9 +38,9 @@ This will generate a unique signature from a user that you may use for authoriza
 ![](assets/block-racers/block-racers3.png)
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -70,9 +70,9 @@ This will verify a signature from a wallet to prove its owners address.
 ![](assets/block-racers/block-racers4.png)
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -103,10 +103,10 @@ This can be used to mint ERC20 Race tokens or even native tokens via the faucet 
 ![](assets/block-racers/block-racers5.png)
 
 ``` csharp
+using UnityEngine;
 using System.Numerics;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -140,9 +140,9 @@ This will allow you to transfer ERC20 Race tokens between wallets.
 ![](assets/block-racers/block-racers6.png)
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -175,9 +175,9 @@ This will allow you to make a custom call, we've included 2 examples here. 1 bei
 ![](assets/block-racers/block-racers7.png)
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -209,9 +209,9 @@ public class ContractCall : MonoBehaviour
 ```
 
 ``` csharp
+using UnityEngine;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
-using UnityEngine;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
@@ -254,8 +254,8 @@ This will generate a unique voucher via ECDSA which can be used for things like 
 ![](assets/block-racers/block-racers9.png)
 
 ``` csharp
-using Scripts.EVM.Token;
 using UnityEngine;
+using Scripts.EVM.Token;
 
 /* This prefab script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
