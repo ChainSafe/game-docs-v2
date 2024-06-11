@@ -23,3 +23,11 @@ Here’s how you can include MetaMask in your video games.
 ![](assets/wallets/metamask/metamask-login-scene.png)
 
 Simply login with a local or published WebGL build and connect your MetaMask.
+
+## WebGL Builds
+
+Metamask uses a custom WebGL template to display your game in your browser. Navigate to File → Build Settings → Player Settings. In player settings, set your resolution to the Metamask WebGL template.
+
+![](assets/wallets/metamask/project-settings.png)
+
+Now you are ready to build your WebGL game.
