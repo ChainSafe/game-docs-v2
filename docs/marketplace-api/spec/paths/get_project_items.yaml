@@ -24,12 +24,24 @@ get:
       required: false
       schema:
           type: string
+    - name: tokenId
+      in: query
+      description: Token ID
+      required: false
+      schema:
+          type: string
     - name: status
       in: query
       description: Status of the item
       required: false
       schema:
         $ref: ../components/item_status.yaml
+    - name: uniqueToken
+      in: query
+      description: get unique token in the marketplace
+      required: false
+      schema:
+        type: boolean
     - name: sortBy
       in: query
       description: Sort by
