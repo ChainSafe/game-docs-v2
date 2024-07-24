@@ -52,7 +52,7 @@ public class LoginSample : MonoBehaviour
 }
 ```
 
-You can then use this web3 instance as needed through the SDK which you can see examples of in our sample scripts area [here](https://docs.gaming.chainsafe.io/current/sample-scripts-and-chain-interactions).
+You can then use this web3 instance as needed through the SDK which you can see examples of in our sample scripts area [here](/current/sample-scripts).
 
 ``` csharp
 public class LoginSample : MonoBehaviour
@@ -61,7 +61,7 @@ public class LoginSample : MonoBehaviour
     
     public string GetPlayerAddress()
     {
-        return web3.Signer.PublicAddress;
+        return Web3Accessor.Web3.Signer.PublicAddress;
     }
 }
 ```
