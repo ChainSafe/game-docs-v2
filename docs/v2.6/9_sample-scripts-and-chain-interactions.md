@@ -629,6 +629,7 @@ using UnityEngine;
 using ChainSafe.Gaming.Evm.Contracts.BuiltIn;
 using ChainSafe.Gaming.UnityPackage;
 using Scripts.EVM.Token;
+using System.Numerics;
 
 /* This sample script should be copied & placed on the root of an object in a scene.
 Change the class name, variables and add any additional changes at the end of the function.
