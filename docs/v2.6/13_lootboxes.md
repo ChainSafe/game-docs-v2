@@ -31,53 +31,47 @@ VRF stands for Verifiable Random Function, the team over at [Chainlink](https://
 
 The repo for the lootbox contracts can be found [here](https://github.com/ChainSafe/vrf-lootbox-contracts).
 
-![](assets/lootboxes/RepoLootbox.png)
+![](assets/lootboxes/repo-lootbox.png)
 
-## Explaining The Lootbox Dashboard
+<!-- ## Explaining The Lootbox Dashboard
 
-There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b7654257f0?sid=8b8b9fbb-6bbb-4c2a-bf1f-909f07c64896) Explaining how lootbox functionality works via our marketplace.
+There is a great video [here](https://www.loom.com/share/e06bd85195f546db9d8311b7654257f0?sid=8b8b9fbb-6bbb-4c2a-bf1f-909f07c64896) explaining how lootbox functionality works via our marketplace. -->
 
 ## Deploying a new Lootbox
 
-New lootboxes can be deployed by press the green deploy button on the top right of the dashboard in the addons area. This will give you a brief explanation on what lootboxes are as well as the requirements needed to use them.
+New lootboxes can be deployed by navigating to the Lootbox section. When you click on the section you will see a brief explanation on what lootboxes are as well as the requirements needed to use them. Press Continue to get started.
 
-![](assets/lootboxes/DeployLootbox.png)
+![](assets/lootboxes/lootbox-description.jpg)
 
 ## Adding Token Contracts To Your Lootbox
 
-Token contracts for use within your lootboxes may be added here, you can see more of they function in the lootbox rewards area below.
+The first step is to whitelist the tokens you want to place into the lootboxes. This ensures that only approved tokens can become available in your lootboxes.
 
-![](assets/lootboxes/AddTokenContractsLootbox.png)
+![](assets/lootboxes/whitelist.jpg)
 
 ## Granting Depositor Access To Your Lootbox
 
-These addresses can be nominated as suppliers for your lootbox content.
+Add approved addresses to prevent unauthorized deposits.
 
-![](assets/lootboxes/GrantDepositorAccessLootbox.png)
+![](assets/lootboxes/whitelist.jpg)
 
 ## Sending Loot To A Contract
 
 This area can be used to send loot to a contract.
 
-![](assets/lootboxes/SendLootToContractLootbox.png)
+![](assets/lootboxes/send-rewards.jpg)
 
 ## Updating Your Lootbox Rewards
 
 Here you can update all of the various reward amounts that your lootboxes contain as well as any remaining balances from your suppliers.
 
-![](assets/lootboxes/UpdateRewardUnitsLootbox.png)
+![](assets/lootboxes/manage-rewards.jpg)
 
 ## Minting & Transferring
 
-Here you can send some lootboxes with reward amounts out to your friends as they are created.
+Here you can send lootboxes with reward amounts out to your friends, Dapps, and other smart contracts.
 
-![](assets/lootboxes/MintAndTransferLootbox.png)
-
-## Review Summary
-
-This section contains a summary of everything inside your lootboxes.
-
-![](assets/lootboxes/ReviewSummaryLootbox.png)
+![](assets/lootboxes/lootbox-minting.jpg)
 
 # Lootbox Functions Within The SDK
 
@@ -278,17 +272,17 @@ This method allows a user to open a lootbox. This should be called last after al
 
 We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to an addon for modularization purposes and a prefab for ease of use. For now you can check the example scene by cloning the lootboxes branch of the SDK and opening up assets/lootboxes/Lootboxes/LootBoxes.scene.
 
-![](assets/lootboxes/LootBoxesScene.png)
+![](assets/lootboxes/lootboxes-scene.png)
 
 # Setting Up A Local Node For Testing With The Example Scene
 
 Once you've cloned the contracts repo, go ahead and run `npm run node` to boot up a local chain.
 
-![](assets/lootboxes/LootBoxesRunNode.png)
+![](assets/lootboxes/lootboxes-run-node.png)
 
 After this node is active you can open up another terminal and run `npm run hardhat -- devsetup` to initialize everything.
 
-![](assets/lootboxes/LootBoxesNpmInitialize.png)
+![](assets/lootboxes/lootboxes-npm-initialize.png)
 
 If you check the node window you can see everything that's happening during this process. Once complete, hit play within unity on the lootbox example scene and you'll be presented with a nice display area to test out. Here you can check different rarity levels of each lootbox and what they may contain as well as some great animations to go along with it.
 
@@ -300,19 +294,19 @@ You can switch between different lootboxes using the keys "A" and "D" and switch
 Once you find your box, select it by pressing "space" key and open it by pressing "enter" key.
 You need to wait a little bit on the Unity scene so the transaction goes through
 
-![](assets/lootboxes/OpeningLootBoxes.png)
+![](assets/lootboxes/opening-lootboxes.png)
 
 Next, in the terminal, run `npx hardhat compile` and then `npm run hardhat -- fulfill` to manually open the lootboxes.
 
-![](assets/lootboxes/LootBoxesNpmFulfill.png)
+![](assets/lootboxes/lootboxes-npm-fulfill.png)
 
 Go back to Unity and the lootboxes will be ready to open
 
-![](assets/lootboxes/ClaimRewardsLootBoxes.png)
+![](assets/lootboxes/claim-rewards.png)
 
 Click on the lootbox and you will receive the rewards!
 
-![](assets/lootboxes/RewardsLootBoxes.png)
+![](assets/lootboxes/rewards-lootboxes.png)
 
 We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
 
