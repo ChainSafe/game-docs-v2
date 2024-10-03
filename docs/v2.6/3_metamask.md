@@ -8,7 +8,7 @@ sidebar_label: Metamask
 
 :::info
 
-Please note that MetaMask will only work with WebGL builds that are built out locally or published in the browser. You can use wallet connect to login and scan the QR code on your device to connect with MetaMask if needed for desktop builds.
+Please note that MetaMask will only work with WebGL builds that are built out locally or published in the browser. You can use Reown to login and scan the QR code on your device to connect with MetaMask if needed for desktop builds.
 
 :::
 
