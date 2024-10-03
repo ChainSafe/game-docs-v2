@@ -78,3 +78,7 @@ Players will use wallets to manage their assets and interact with your games. Th
     </tr>
   </tbody>
 </table>
+
+# Add Wallets to Your Unity Game
+
+Adding wallet providers to your games are simpler than ever. Simply add the connect modal to your build and in the inspector select the wallets you would like to include. You no longer need to choose between wallets, you can add as many as you want to your game!
