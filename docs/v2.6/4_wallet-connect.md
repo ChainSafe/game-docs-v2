@@ -1,7 +1,7 @@
 ---
-slug: /current/wallet-connect
+slug: /current/reown
 sidebar_position: 4
-sidebar_label: Wallet Connect
+sidebar_label: Reown
 ---
 
 # Wallet Connect
