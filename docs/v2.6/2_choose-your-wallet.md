@@ -30,7 +30,7 @@ Players will use wallets to manage their assets and interact with your games. Th
     <tr>
       <th className="table-cell-bold-green">Browser</th>
       <td className="center-content">✓</td>
-      <td className="center-content greyed-out">✗</td>
+      <td className="center-content">✓</td>
       <td className="center-content">✓</td>
       <td className="center-content greyed-out">✗</td>
     </tr>
