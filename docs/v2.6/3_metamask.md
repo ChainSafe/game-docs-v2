@@ -14,7 +14,7 @@ Please note that MetaMask will only work with WebGL builds that are built out lo
 
 ## WebGL Builds
 
-MetaMask uses a custom WebGL template to display your game in your browser. It should be selected by default but if you run into issues you can navigate to File → Build Settings → Player Settings. In player settings, set your resolution to the MetaMask WebGL template.
+MetaMask uses a custom WebGL template to display your game in your browser. It should be selected by default but if you run into issues you can navigate to File → Build Settings → Player Settings. In player settings, set your resolution to the Web3.Unity template.
 
 ![](assets/wallets/metamask/metamask-project-settings.png)
 
