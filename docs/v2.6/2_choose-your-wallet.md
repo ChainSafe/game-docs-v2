@@ -21,7 +21,7 @@ Players will use wallets to manage their assets and interact with your games. Th
     <tr>
       <th></th>
       <th>Metamask</th>
-      <th>Reown</th>
+      <th>Reown (Wallet Connect)</th>
       <th>Web3 Auth</th>
       <th>Hyperplay</th>
     </tr>
@@ -71,10 +71,10 @@ Players will use wallets to manage their assets and interact with your games. Th
     </tr>
     <tr>
       <td></td>
-      <td><Link className="custom-button" to="/current/metamask" style={{ margin: '10px' }}>Metamask</Link></td>
-      <td><Link className="custom-button" to="/current/reown" style={{ margin: '10px' }}>Reown</Link></td>
-      <td><Link className="custom-button" to="/current/web3auth" style={{ margin: '10px' }}>Web3 Auth</Link></td>
-      <td><Link className="custom-button" to="/current/hyperplay" style={{ margin: '10px' }}>Hyperplay</Link></td>
+      <td><Link className="custom-button" to="/current/metamask" style={{ margin: '5px' }}>Metamask</Link></td>
+      <td><Link className="custom-button" to="/current/reown" style={{ margin: '5px' }}>Reown (Wallet Connect)</Link></td>
+      <td><Link className="custom-button" to="/current/web3auth" style={{ margin: '5px' }}>Web3 Auth</Link></td>
+      <td><Link className="custom-button" to="/current/hyperplay" style={{ margin: '5px' }}>Hyperplay</Link></td>
     </tr>
   </tbody>
 </table>
