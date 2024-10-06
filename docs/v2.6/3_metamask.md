@@ -12,21 +12,9 @@ Please note that MetaMask will only work with WebGL builds that are built out lo
 
 :::
 
-Here’s how you can include MetaMask in your video games.
-1. You can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - MetaMask.
-2. Click on the Login Logic - MetaMask object and in the inspector, modify the Scene To Load to your preferred scene.
-
-![](assets/wallets/metamask/metamask-login-logic.png)
-
-3. Add the MetaMask scene and your scene to the build settings, and you’re done.
-
-![](assets/wallets/metamask/metamask-login-scene.png)
-
-Simply login with a local or published WebGL build and connect your MetaMask.
-
 ## WebGL Builds
 
-MetaMask uses a custom WebGL template to display your game in your browser. Navigate to File → Build Settings → Player Settings. In player settings, set your resolution to the MetaMask WebGL template.
+MetaMask uses a custom WebGL template to display your game in your browser. It should be selected by default but if you run into issues you can navigate to File → Build Settings → Player Settings. In player settings, set your resolution to the MetaMask WebGL template.
 
 ![](assets/wallets/metamask/metamask-project-settings.png)
 
