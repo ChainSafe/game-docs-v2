@@ -37,11 +37,18 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 ### Set Project ID
 
-As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Need To Register?" button in the server settings.
+As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Get a Project ID" button in the server settings.
 
 ![](assets/getting-started/project-settings.png)
 
-After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. Select the chain you would like to use and the rest of the fields will auto populate. If you would like to set up your own RPC node, visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
+After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
+Next up, you need to set up the list of chains you want to interact with inside of your project:
+
+![](assets/getting-started/chain-settings.png)
+
+You need a minimum of 1 chain for the SDK to work normally.
+
+Small note: All of our samples are made on the Ethereum Sepolia network. If you run the samples whilst you are on another chain, you will get an exception.
 
 If you need to refer to the ChainSafe server settings area again, you can find it on the top navigation bar. Simply select it and press server settings to view the menu.
 
