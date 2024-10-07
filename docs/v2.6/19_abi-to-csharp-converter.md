@@ -35,7 +35,7 @@ public class CustomContractSample : MonoBehaviour
         if(Web3Unity.Web3 == null)
             await Web3Unity.Instance.Initialize(false);
 
-       _erc20Contract =  await Web3Unity.Instance.BuildContract<NameOfTheContract>(contractAddress);
+       _erc20Contract =  await Web3Unity.Instance.BuildContract<Erc20Contract>(contractAddress);
        //Calling any read method from the smart contract:
        var balanceOf = await _erc20Contract.BalanceOf(balanceOfAddress);
        _erc20.OnTransfer += Erc20Transfer;       
