@@ -1,7 +1,7 @@
 ---
 slug: /current/abi-to-csharp-converter
 sidebar_position: 19
-sidebar_label: Contract ABI To C#
+sidebar_label: Contract ABI To C# Generator
 ---
 
 # Contract ABI To C# Generator
@@ -27,7 +27,7 @@ public class CustomContractSample : MonoBehaviour
 {
     [SerializeField] private string contractAddress;
     [SerializeField] private string balanceOfAddress;
-    
+
     Erc20Contract _erc20Contract;
 
     public async void Start()
