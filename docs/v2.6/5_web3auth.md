@@ -12,7 +12,7 @@ Web3Auth is a wallet solution that allows users to connect to the blockchain via
 
 ## Moving to Production
 
-The default settings for Web3Auth are great for testing but once you're ready to move to production you will want to manage your won API key. To get started, visit the [Web3Auth dashboard](https://dashboard.web3auth.io/) and create your account.
+The default settings for Web3Auth are great for testing but once you're ready to move to production you will want to manage your own API key. To get started, visit the [Web3Auth dashboard](https://dashboard.web3auth.io/) and create your account.
 
 In the dashboard, click on project navigation column on the left, and click "Create Project".
 
