@@ -4,6 +4,12 @@ sidebar_position: 4
 sidebar_label: Reown (Wallet Connect)
 ---
 
+# Reown (Wallet Connect)
+
+## What is Reown (Wallet Connect)?
+
+Reown is an open protocol that allows users to connect their crypto wallets to games through a QR code or deep link. It enables secure interactions between mobile wallets and Web3 games, making it easy to authorize transactions and access blockchain features from any device.
+
 ## Custom Reown (Wallet Connect) Endpoint
 
 We've already given you some default values for the Reown (Wallet Connect) configuration so if you're fine with using the same endpoint as everyone else just leave it as is. Otherwise head on over to the dashboard at [Reown (Wallet Connect)](https://cloud.walletconnect.com/sign-in) to sign up and get your own details.
