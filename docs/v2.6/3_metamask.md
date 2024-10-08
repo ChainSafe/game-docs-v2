@@ -6,6 +6,10 @@ sidebar_label: Metamask
 
 # MetaMask
 
+## What is Metamask?
+
+MetaMask is a digital wallet and browser extension that allows users to securely interact with EVM-based games. It acts as a bridge between your browser and the EVM chains, making it easy to send, receive, and swap digital assets.
+
 :::info
 
 Please note that MetaMask will only work with WebGL builds that are built out locally or published in the browser. You can use Reown to login and scan the QR code on your device to connect with MetaMask if needed for desktop builds.
