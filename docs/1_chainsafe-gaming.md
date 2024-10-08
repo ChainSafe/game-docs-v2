@@ -38,7 +38,7 @@ Out-of-the-box, Web3.unity comes with Unity sample scripts, scenes, prefabs & to
 
 In the latest 3.0 we've significantly reduced the effort for developers to interact with the blockchain. Once you have the core package installed you can just drag and drop the Web3Unity prefab to the scene:
 
-```[csharp]
+```csharp
 public class ExampleClass : MonoBehaviour
 {
     public async void Start()

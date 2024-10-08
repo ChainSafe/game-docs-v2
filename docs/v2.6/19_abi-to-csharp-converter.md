@@ -22,7 +22,7 @@ Now, to actually interact with both the events and methods from the contract, th
 
 Here is a sample script for the Erc20Contract that we've generated in the previous images:
 
-```[csharp]
+```csharp
 public class CustomContractSample : MonoBehaviour
 {
     [SerializeField] private string contractAddress;
