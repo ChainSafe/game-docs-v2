@@ -81,8 +81,14 @@ Players will use wallets to manage their assets and interact with your games. Th
 
 # Add Wallets to Your Unity Game
 
-Adding wallet providers to your games is simpler than ever. Open the `SampleMain` scene, click Web3Unity, and in the inspector navigate to the Connection Handler component. In the Connection Providers drop down you can choose all the wallets you want to include in your game.
+Adding wallet providers to your games is simpler than ever. Inside the Web3Unity prefab that you've dragged and dropped into your scene, navigate to the Connection Handler script in your inspector and expand the Connection Providers dropdown.
 
 ![](assets/wallets/overview/connection-handler.png)
 
-You no longer need to choose between wallets, you can add as many as you want to your game!
+If you've only installed our core package, the two available providers will be WalletConnect (which will be renamed to Reown in future versions) and MetaMask. You can add these as providers by clicking the Add Provider button. This will create new configuration file(s) inside your Resources folder.
+
+To add support for social login (Google, Facebook, X), you need to install the web3auth package. 
+
+If your game is ready to be published on the Hyperplay launcher, you need to install the Hyperplay package.
+
+
