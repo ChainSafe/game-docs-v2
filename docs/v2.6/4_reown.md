@@ -30,4 +30,4 @@ Once you've created the project you'll be taken to the settings area. Here you'l
 
 Just place these into the editor values, press save and you're good to go.
 
-![](assets/wallets/reown/wallet-connect-info.png)
+![](assets/wallets/reown/reown-connect-info.png)
