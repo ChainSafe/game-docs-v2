@@ -30,6 +30,7 @@ module.exports = {
           type: 'category',
           label: 'Packages & Extensions',
           items: [
+            'v2.6/service-adapters',
             'v2.6/gasless-transactions-using-gelato',
             'v2.6/ramp',
             'v2.6/lootboxes',
