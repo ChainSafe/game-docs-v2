@@ -132,3 +132,11 @@ You need to add the web3 component into your react build manually. To do so:
  \<script src="%PUBLIC\_URL%/YourGame/web3/index.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3modal.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3.min.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/network.js">\</script>
  ```
  This should solve your issue. Happy coding!
+
+### I'm having `IndexOutOfRangeException` exception thrown when building to WebGL
+
+```
+IndexOutOfRangeException: Index was outside the bounds of the array.
+```
+
+When building to WebGL you could run into this issue on some Unity versions. To fix this, simply open your project's _Player Settings_ then navigate to _Resolution and Presentation_ and pick **Web3.Unity** under _WebGL Template_. Even if it was already selected your project should be able to build to WebGL now.
