@@ -22,6 +22,8 @@ module.exports = {
         'v2.6/setting-up-an-rpc-node',
         'v2.6/login-process',
         'v2.6/abi-to-csharp-converter',
+        'v2.6/chain-switching',
+        'v2.6/blockchain-events',
         'v2.6/sample-scripts-and-chain-interactions',
         {
           type: 'category',
