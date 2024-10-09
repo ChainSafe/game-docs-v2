@@ -25,6 +25,9 @@ Our packages are modular so your project wont bloat out with SDK files and you c
 Core SDK:
 `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
 
+If you prefer to download packages trough openUPM you can do it trough the following link:
+`https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
+
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
 
 ![](assets/getting-started/import-samples.png)
