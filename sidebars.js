@@ -24,6 +24,7 @@ module.exports = {
         'v2.6/abi-to-csharp-converter',
         'v2.6/chain-switching',
         'v2.6/blockchain-events',
+        'v2.6/mud',
         'v2.6/sample-scripts-and-chain-interactions',
         {
           type: 'category',
