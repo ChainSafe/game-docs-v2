@@ -71,9 +71,152 @@ Once you have created a marketplace, its time to list some NFTs for sale in the 
 ![](./assets/list_nft.gif)
 
 
+## 4. Use marketplace inside of your Unity game
+Add the Chainsafe marketplace package as a git package: 
+`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
+Add Marketplace Service Adapter to the Web3Unity prefab
 
-## 4. Launch Your Marketplace
+![](./assets/marketplace_sample.png)
 
-Once you have listed NFTs for your marketplace, you can access your marketplace items via RESTful set of APIs provided by the ChainSafe.
+Fill out the necessary details
+
+
+![](./assets/marketplace_overview.png)
+
+
+- Marketplace ID: Labeled as ID on the page of your marketplace.
+- Marketplace contract address: Labeled as Address on the page of your marketplace.
+- Project ID override: Override this value if you want to use a project ID that is different from the one that you have in your Chainsafe SDK settings.
+- Marketplace ABI override: Override this if you have created a custom version of our marketplace smart contract.
+- Endpoint override: Override this if you are hosting marketplace somewhere else other than on the Chainsafes dashboard.
+
+Once you fill out all the details you can list the items from the marketplace by simply calling
+
+```csharp
+var marketplacePage = await Web3Unity.Web3.Marketplace().LoadPage();
+```
+This will retrieve you a marketplace page, and not all the items that you have listed, because marketplace supports pagination, so you can add pagination support on your Unity client as well. 
+The basic sample can be found in the Samples section of the Marketplace package, but for the sake of simplicity I'll add the listing code snippet in here.
+```csharp
+namespace ChainSafe.Gaming.Marketplace.Samples
+{
+    public class MarketplaceSample : MonoBehaviour
+    {
+        [SerializeField] private Transform parentForItems;
+        [SerializeField] private UI_MarketplaceItem marketplaceItem;
+        [SerializeField] private Button nextPageButton;
+
+        private MarketplacePage _currentPage;
+        private async void Start()
+        {
+            //Always make sure to initialize the Web3Unity instance first.
+            await Web3Unity.Instance.Initialize(false);
+            try
+            {
+                LoadingOverlay.ShowLoadingOverlay();
+                //This gets all items from the marketplace
+                //LoadPage has a lot of parameters that you can fill out in order to filter out the results.
+                _currentPage = await Web3Unity.Web3.Marketplace().LoadPage();
+        
+                nextPageButton.interactable = !string.IsNullOrEmpty(_currentPage.Cursor);
+                
+                await DisplayItems();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Caught an exception whilst loading the marketplace page " + e.Message);
+            }
+            finally
+            {
+                LoadingOverlay.HideLoadingOverlay();
+            }
+        }
+
+        private async Task DisplayItems()
+        {
+            for (int i = parentForItems.childCount - 1; i >= 0; i--)
+            {
+                Destroy(parentForItems.GetChild(i).gameObject);
+            }
+            //_currentPage.Items holds the reference to all the items fetched from the marketplace
+            foreach (var pageItem in _currentPage.Items)
+            {
+                var item = Instantiate(marketplaceItem, parentForItems);
+                await item.Initialize(pageItem);
+            }
+        }
+    }
+}
+
+
+    //Monobehaviour that handles the display of the marketplace items.
+    public class UI_MarketplaceItem : MonoBehaviour
+    {
+        [SerializeField] private Image marketplaceItemImage;
+        [SerializeField] private TMP_Text type, itemId, itemPrice, itemStatus;
+        [SerializeField] private Button button;
+
+        private MarketplaceItem _marketplaceItemModel;
+
+        private static Dictionary<string, Sprite> _spritesDict = new();
+
+        public async Task Initialize(MarketplaceItem model)
+        {
+            _marketplaceItemModel = model;
+            button.interactable = model.Status == MarketplaceItemStatus.Listed;
+            itemStatus.text = model.Status == MarketplaceItemStatus.Listed ? "Purchase" : model.Status.ToString();
+            marketplaceItemImage.sprite = await GetSprite(model);
+            type.text = model.Token.Type;
+            itemId.text = "ID " + model.Token.Id;
+            itemPrice.text =
+                ((decimal)BigInteger.Parse(model.Price) / (decimal)BigInteger.Pow(10, 18)).ToString("0.############",
+                    CultureInfo.InvariantCulture) + Web3Unity.Web3.ChainConfig.Symbol;
+            button.onClick.AddListener(Purchase);
+        }
+
+        private async Task<Sprite> GetSprite(MarketplaceItem model)
+        {
+            Sprite sprite = null;
+            string imageUrl = (string)model.Token.Metadata["image"];
+            //Caching data for faster retreival of the sprites.
+            if (_spritesDict.TryGetValue(imageUrl, out sprite)) return sprite;
+
+            var unityWebRequest = UnityWebRequestTexture.GetTexture(imageUrl);
+            await unityWebRequest.SendWebRequest();
+            if (unityWebRequest.error != null)
+            {
+                Debug.LogError("There was an error getting the texture " + unityWebRequest.error);
+                return null;
+            }
+
+            var myTexture = ((DownloadHandlerTexture)unityWebRequest.downloadHandler).texture;
+
+            sprite = Sprite.Create(myTexture, new Rect(0, 0, myTexture.width, myTexture.height), Vector2.one * 0.5f);
+
+            return sprite;
+        }
+
+        private async void Purchase()
+        {
+            try
+            {
+                await Web3Unity.Web3.Marketplace().Purchase(_marketplaceItemModel.Id, _marketplaceItemModel.Price);
+                //After the purchase is sucsessfull, just make the button unresponsive and set the button indicator to Sold
+                button.interactable = false;
+                itemStatus.text = "Sold";
+            }
+            catch (ServiceNotBoundWeb3Exception<ISigner> _)
+            {
+                Debug.LogError("You wanted to purchase an item and you don't have a wallet. Please connect the wallet to make a purchase");
+                Web3Unity.ConnectModal.Open();
+            }
+        }
+    }
+
+```
+
+## 5. Use marketplace with the Rest API
+
+If you prefer to access your items without our official Marketplace plugin, once you have listed NFTs for your marketplace, you can access your marketplace items via RESTful set of APIs provided by the ChainSafe.
 Head over to the [Marketplace API Specification](./../marketplace-api/docs/marketplaceapi.mdx) to know more about how to interact with the marketplace items. 
 

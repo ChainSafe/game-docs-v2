@@ -7,27 +7,32 @@ sidebar_label: Web3Auth
 # Web3Auth
 
 ## What is Web3Auth?
+
 Web3Auth is a wallet solution that allows users to connect to the blockchain via social logins. Upon logging in you'll receive a wallet that is fully functional and able to make calls with our SDK.
 
-Here’s how you can include Web3Auth in your video games.
+## Populating the Configuration file
 
-1. You can import our Web3Auth sample scene by navigating to Window → Package Manager.
-2. Add a new package by name by pressing + and pressing add via git url entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
-3. Once the package is installed, click on the Samples tab. Import the samples.
+Once you have imported the package, Web3Auth entry will be available in the Connection Handler script in the inspector. Click on Add Provider to generate the Web3Auth configuration file.
 
-![](assets/wallets/web3auth/web3auth-import.png)
+![](assets/wallets/web3auth/web3auth-config.png)
 
-4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK Web3Auth → 2.6 → Web3.Unity Web3Auth Samples → Scenes → SampleLogin - Web3Auth.
-5. Click on the Login Logic - Web3Auth object and in the inspector, modify the Scene To Load to your preferred scene.
+### Web3Auth Wallet GUI
+Before showing you the process on how to add your own Client Id, we just want to introduce you to the new feature we've added in the 3.0.0 and that is Web3Auth Wallet GUI.
+We got a lot of requests to make the social logins with web3auth also feel like the regular wallets, where you would also be able to approve and decline transactions, see the latest transactions you've done in this session and also check balances of some of your native tokens and read the balance of the chain that you are on.
 
-![](assets/wallets/web3auth/web3auth-login-logic.png)
+![Web3Auth wallet](assets/wallets/web3auth/web3auth-wallet.png)
 
-6. Add the Web3Auth scene and your scene to the build settings, and you’re done.
+#### Web3Auth Wallet GUI configuration
 
-We hope you enjoy social logins as it offers a unique way to onboard users to the blockchain without actually requiring a wallet.
+![Web3Auth wallet](assets/wallets/web3auth/web3authgui-config.png)
 
-## Moving to Production
-The default settings for Web3Auth are great for testing but once you're ready to move to production you will want to manage your won API key. To get started, visit the [Web3Auth dashboard](https://dashboard.web3auth.io/) and create your account.
+In the connection provider settings, you have the <b>Enable Wallet GUI toggle</b>, which, when turned on, will instantiate the wallet GUI once the user is logged in.
+
+In the Wallet GUI Config, you can fine-tune the behavior and appearance of the Wallet GUI by modifying the colors and deciding if you want to auto-confirm transactions. You can also choose to view the transaction hash history in the GUI without requiring the end user to approve every write call to the blockchain.
+
+### Getting Client Id
+
+In order to properly populate the Client Id and redirect URL go to [Web3Auth dashboard](https://dashboard.web3auth.io/)
 
 In the dashboard, click on project navigation column on the left, and click "Create Project".
 
@@ -40,10 +45,3 @@ In the create new project menu, be sure to choose "Plug and Play" for your produ
 When you create your project, you'll be redirected to the project page. Copy your client ID and open Unity.
 
 ![](assets/wallets/web3auth/web3auth-project-page.png)
-
-
-Click on the Login Logic - Web3Auth object and in the inspector, paste in your client ID in the client ID field under the Web3Auth section.
-
-![](assets/wallets/web3auth/web3auth-login-logic.png)
-
-Now you are all set to move to production!

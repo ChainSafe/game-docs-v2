@@ -34,7 +34,20 @@ Out-of-the-box, Web3.unity comes with Unity sample scripts, scenes, prefabs & to
 
 ## Ready To Get Started?
 
-#### Current SDK Builds (v2.x)
+#### Current SDK Builds (v3.x)
+
+In the latest 3.0 we've significantly reduced the effort for developers to interact with the blockchain. Once you have the core package installed you can just drag and drop the Web3Unity prefab to the scene:
+
+```csharp
+public class ExampleClass : MonoBehaviour
+{
+    public async void Start()
+    {
+        await Web3Unity.Instance.Initialize(false);
+        await Web3Unity.Web3.Erc20.BalanceOf("0xd25b827D92b0fd656A1c829933e9b0b836d5C3e2");
+    }
+}
+```
 
 [Click here](https://docs.gaming.chainsafe.io/current/getting-started) to open documentation for the latest version of web3.unity.
 
