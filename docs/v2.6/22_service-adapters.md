@@ -14,12 +14,15 @@ This page shows you how to add additional functionality to your project using se
 
 Service Adapters are used to inject additional services to your Web3 instance. You can do this by attaching `ServiceAdapter` scripts to `Web3Unity` in your scene hierarchy.
 
-We have multiple `ServiceAdapters` available for you to use, such as:
-- `EventsServiceAdapter`
-- `MarketplaceServiceAdapter`
-- `GelatoServiceAdapter`
-- `RampServiceAdapter`
-- `MultiCallServiceAdapter`
+We have multiple service adapters available for you to use in the core package:
+- [Events](/current/blockchain-events) service adapter
+- MultiCall service adapter - Allows you to batch multiple calls into a single call.
+- [Gelato](/current/gasless-transactions-using-Gelato) service adapter
+
+We have additional service adapters available in our additional packages:
+- [Ramp](/current/ramp) service adapter
+- [Lootboxes](/current/lootboxes) service adapter
+- [Marketplace](/marketplace/tutorial#4-use-marketplace-inside-of-your-unity-game) service adapter
 
 ![img.png](assets/service-adapters/service-adapters.png)
 
