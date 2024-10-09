@@ -214,6 +214,7 @@ npm
 onboarding
 OpenSea
 OPM
+openUPM
 openupm-cli
 OnDestroy
 OpenUPM
