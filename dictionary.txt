@@ -208,6 +208,7 @@ nft-textures
 NFT's
 NFTPixels
 NFTs
+nfts
 nodeJS
 NodeJS
 npm
