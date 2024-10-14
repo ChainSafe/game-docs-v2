@@ -106,6 +106,36 @@ public class CustomContractSample : MonoBehaviour
 }
 ```
 
+## Creating Web3 instance just from the private key
+If you want to start communicating with the blockchain by providing your private key, without using any wallet provider, you can do it the following:
+
+```csharp
+var web3Builder = new Web3Builder(Web3Unity.Web3.ProjectConfig, Web3Unity.Web3.ChainConfig).Configure(s =>
+            {
+                s.UseUnityEnvironment();
+                s.UseRpcProvider();
+                TempAccountProvider tempAccountProvider = new TempAccountProvider()
+                {
+                    //Private key should be in the string format
+                    Account = new Account("PRIV_KEY")
+                };
+
+                s.AddSingleton<IAccountProvider>(tempAccountProvider);
+                s.UseInProcessSigner();
+                s.UseInProcessTransactionExecutor();
+            });
+var web3 = await web3Builder.LaunchAsync();
+
+var account = web3.ServiceProvider.GetService<IAccountProvider>();
+//We need to set the  client of the transaction manager in order to send transactions properly.
+account.Account.TransactionManager.Client = web3.ServiceProvider.GetService<IClient>();
+
+public class TempAccountProvider : IAccountProvider
+{
+    IAccount Account {get; set;}
+}
+```
+
 ## IPFS Upload
 In order to upload your files to IPFS, you will need to obtain your storage API secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
 
