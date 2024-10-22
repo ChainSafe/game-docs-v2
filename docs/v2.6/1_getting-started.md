@@ -72,3 +72,5 @@ If you need to refer to the ChainSafe server settings area again, you can find i
 You can find the Web3Unity Prefab by typing Web3Unity in the project search bar. From the Search: Choose either 'All' or 'In Packages' 
 
 ![](assets/getting-started/web3unity-prefab.png)
+
+Now after you've done this, you need to choose your wallet provider. Check it out in the "Choose Your Wallet" section.
