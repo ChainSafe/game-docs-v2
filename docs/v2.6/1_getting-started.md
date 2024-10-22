@@ -28,6 +28,17 @@ Core SDK:
 If you prefer to download packages trough openUPM you can do it trough the following link:
 `https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
 
+If you want to add other modules to the core SDK, just copy and paste these links inside of the Package Manager -> + -> Add trough git URL and paste in any of the packages:
+Web3Auth Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
+Hyperplay Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
+
+Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`
+Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
+MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`
+Fiat On/Off Ramp: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+
+
+
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
 
 ![](assets/getting-started/import-samples.png)
