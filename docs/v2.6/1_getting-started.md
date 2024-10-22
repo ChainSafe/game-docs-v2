@@ -28,14 +28,18 @@ Core SDK:
 If you prefer to download packages trough openUPM you can do it trough the following link:
 `https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
 
-If you want to add other modules to the core SDK, just copy and paste these links inside of the Package Manager -> + -> Add trough git URL and paste in any of the packages:
+Other modules that depend on the core SDK and can be downloaded trough git or openUPM:
+
+
 Web3Auth Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
 Hyperplay Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
 
-Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`
-Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
-MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`
-Fiat On/Off Ramp: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+
+
+Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`  
+Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`  
+MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`  
+Fiat On/Off Ramp support: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
 
 
 
