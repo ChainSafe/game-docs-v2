@@ -53,3 +53,29 @@ public class ConnectToWallet : MonoBehaviour
 ```
 
 You can replace `WalletConnectConnectionProvider` with any other connection provider available, If a connection provider doesn't exist you can also implement your own by inheriting from the `ConnectionProvider` class. Once connected you can access the instantiated Web3 via `Web3Unity.Web3`.
+
+## Web3Initialized event
+
+Since we wanted to provide you an easy way to figure out when did the web3 instance actually got created, we've added an event that you can subscribe to. 
+
+```csharp
+public class SubscribeToWeb3Created : MonoBehaviour
+{
+    private void Awake()
+    {
+         //Make sure to subscribe to the Web3Initialized event in awake so that you don't miss out the event invocation.
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
+
+    private async void Web3Initialized((Web3 web3, bool isLightweight) obj)
+    {
+    }
+
+    private void OnDestroy()
+    {
+        Web3Unity.Web3Initialized -= Web3Initialized;
+    }
+}
+```
+
+The Web3Initialized event passes in a tuple. The first part of the tuple is the actual Web3 instance that has been created. The boolean parameter isLightweight indicates whether the instance passed as the first parameter is lightweight, meaning it is only used for reading from the blockchain, or if it also has a wallet bound to it. If a wallet is bound, isLightweight will be set to false; otherwise, it will be true.

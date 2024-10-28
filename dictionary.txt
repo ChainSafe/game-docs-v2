@@ -158,6 +158,7 @@ Integrable
 IRpcProvider
 IOS
 IDE
+isLightweight
 implementing-social-logins-to-webgl-builds
 importing-nfts
 infura
@@ -326,6 +327,7 @@ web3unity
 Web3Unity
 web3authwallet
 web3wallet
+Web3Initialized
 Web3Wallet
 web3wallet-mobile-and-desktop
 Web4GL-2020x
