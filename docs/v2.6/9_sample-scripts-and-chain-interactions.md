@@ -16,12 +16,34 @@ public class CustomContractSample : MonoBehaviour
 
     Erc20Contract _erc20Contract;
 
+    void Awake()
+    {
+        //Make sure to subscribe to the Web3Initialized event in awake so that you don't miss out the event invocation.
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
+
     public async void Start()
     {
+        //You should call the Initialize only from a single place.
+        //That way there is no potential race condition and the behaviour of the app can become unpredictable.
         if(Web3Unity.Web3 == null)
             await Web3Unity.Instance.Initialize(false);
 
-       _erc20Contract =  await Web3Unity.Instance.BuildContract<Erc20Contract>(contractAddress);   
+    }
+
+    //Always create your custom contract inside of the event handler. That way you always have the up-to-date data inside of it. 
+    private async void Web3Initialized((Web3 web3, bool isLightweight) obj)
+    {
+        //Since Web3Initialized event can be invoked multiple times during the app lifecycle (once you open the app and don't have a wallet, then when there is a wallet etc.)
+        //You need to properly dispose the previously created contract to remove any potential memory leaks. 
+        if (_erc20Contract != null)
+        {
+            _erc20Contract.OnTransfer -= Erc20Transfer;
+            await _erc20Contract.DisposeAsync();
+        }
+
+        _erc20Contract = await web3.ContractBuilder.Build<Erc20Contract>(contractAddress);
+        _erc20Contract.OnTransfer += Erc20Transfer;
     }
 
     public async string BalanceOf(string address)
@@ -36,6 +58,7 @@ public class CustomContractSample : MonoBehaviour
 
     public async void OnDestroy()
     {
+        Web3Unity.Web3Initialized -= Web3Initialized;
         await _erc20Contract.DisposeAsync();
     }
     
@@ -53,12 +76,32 @@ public class CustomContractSample : MonoBehaviour
 
     Erc20Contract _erc20Contract;
 
+    void Awake()
+    {
+        //Make sure to subscribe to the Web3Initialized event in awake so that you don't miss out the event invocation.
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
+
     public async void Start()
     {
         if(Web3Unity.Web3 == null)
             await Web3Unity.Instance.Initialize(false);
 
-       _erc20Contract =  await Web3Unity.Instance.BuildContract<Erc20Contract>(contractAddress);   
+    }
+
+    //Always create your custom contract inside of the event handler. That way you always have the up-to-date data inside of it. 
+    private async void Web3Initialized((Web3 web3, bool isLightweight) obj)
+    {
+        //Since Web3Initialized event can be invoked multiple times during the app lifecycle (once you open the app and don't have a wallet, then when there is a wallet etc.)
+        //You need to properly dispose the previously created contract to remove any potential memory leaks. 
+        if (_erc20Contract != null)
+        {
+            _erc20Contract.OnTransfer -= Erc20Transfer;
+            await _erc20Contract.DisposeAsync();
+        }
+
+        _erc20Contract = await web3.ContractBuilder.Build<Erc20Contract>(contractAddress);
+        _erc20Contract.OnTransfer += Erc20Transfer;
     }
 
     public async Task<BigInteger> BalanceOf(string account)

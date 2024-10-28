@@ -326,6 +326,7 @@ web3unity
 Web3Unity
 web3authwallet
 web3wallet
+Web3Initialized
 Web3Wallet
 web3wallet-mobile-and-desktop
 Web4GL-2020x
