@@ -30,6 +30,12 @@ get:
       required: false
       schema:
           type: string
+    - name: seller
+      in: query
+      description: Seller Address
+      required: false
+      schema:
+        type: string
     - name: status
       in: query
       description: Status of the item
