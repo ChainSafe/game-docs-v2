@@ -187,6 +187,7 @@ Mainnet
 mainnets
 mainnetgoerli
 metamask
+Majiick
 MetaMask
 Metamask
 Multicall
@@ -231,6 +232,7 @@ RPC
 RPCs
 Reown
 reown
+react-unity-webgl
 SampleLoginMetamask
 SampleMain
 scalable
@@ -325,6 +327,7 @@ web3auth
 Web3GL
 web3unity
 Web3Unity
+web3UnityInstance
 web3authwallet
 web3wallet
 Web3Initialized
