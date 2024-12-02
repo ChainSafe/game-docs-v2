@@ -75,9 +75,13 @@ Here you can send lootboxes with reward amounts out to your friends, Dapps, and 
 
 # Lootbox Functions Within The SDK
 
-## Altering Login Scene Transition
+## Lootbox Sample Scene
 
-To use the lootbox example scene with the login scene you'll need to alter the inspector value on the login object in the login scene hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+To use the lootbox example scene simply open it and press play to check out how our lootboxes function on the front end of things within unity. You can claim lootboxes & even browse your inventory to see any existing rewards. The service adapter for the lootboxes can be found on the Web3 object in the scene. It's already set up with an example contract but you can change this out as you wish. The content generated from the rewards and the inventory are pulled dynamically from the lootbox contract entered here too.
+
+## Lootbox Methods
+
+Below we'll list some of the functions the loobox service has access to aswell as clarifying and what they do.
 
 ![](assets/lootboxes/login-scene.png)
 
@@ -267,51 +271,3 @@ This method allows a user to open a lootbox. This should be called last after al
             new TransactionRequest { Value = new HexBigInteger(openPrice) });
     }
 ```
-
-## Lootbox Example Scene
-
-We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to an addon for modularization purposes and a prefab for ease of use. For now you can check the example scene by cloning the lootboxes branch of the SDK and opening up assets/lootboxes/Lootboxes/LootBoxes.scene.
-
-![](assets/lootboxes/lootboxes-scene.png)
-
-# Setting Up A Local Node For Testing With The Example Scene
-
-Once you've cloned the contracts repo, go ahead and run `npm run node` to boot up a local chain.
-
-![](assets/lootboxes/lootboxes-run-node.png)
-
-After this node is active you can open up another terminal and run `npm run hardhat -- devsetup` to initialize everything.
-
-![](assets/lootboxes/lootboxes-npm-initialize.png)
-
-If you check the node window you can see everything that's happening during this process. Once complete, hit play within unity on the lootbox example scene and you'll be presented with a nice display area to test out. Here you can check different rarity levels of each lootbox and what they may contain as well as some great animations to go along with it.
-
-## Opening LootBoxes & Rarity
-
-Now in Unity you can click play and interact with the lootboxes.
-You can switch between different lootboxes using the keys "A" and "D" and switch between rarity using "W" and "S"
-
-Once you find your box, select it by pressing "space" key and open it by pressing "enter" key.
-You need to wait a little bit on the Unity scene so the transaction goes through
-
-![](assets/lootboxes/opening-lootboxes.png)
-
-Next, in the terminal, run `npx hardhat compile` and then `npm run hardhat -- fulfill` to manually open the lootboxes.
-
-![](assets/lootboxes/lootboxes-npm-fulfill.png)
-
-Go back to Unity and the lootboxes will be ready to open
-
-![](assets/lootboxes/claim-rewards.png)
-
-Click on the lootbox and you will receive the rewards!
-
-![](assets/lootboxes/rewards-lootboxes.png)
-
-We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
-
-:::caution Unity Lootbox Demo Scene
-
-When building the Lootbox Sample Scene, just make it a 0th scene in the build index. If you want to build the auth sample, make SampleLogin 0th index and then build. Since we don't support (yet) running both samples (so auth and Lootboxes) at the same time, and that can cause some unexpected behavior, especially on Lootbox scene.
-
-:::
