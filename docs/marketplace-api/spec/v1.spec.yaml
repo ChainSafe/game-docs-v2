@@ -8,7 +8,7 @@ info:
   version: 1.19.2
 externalDocs:
   description: Find out more about ChainSafe
-  url: "https://doc.chainsafe.io"
+  url: "https://gaming.chainsafe.io/"
 servers:
   - url: "https://game-api-stg.chainsafe.io"
     description: STAGING
