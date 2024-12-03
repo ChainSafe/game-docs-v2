@@ -113,7 +113,7 @@ The drop down menu below the claim button lets you choose which type of lootbox 
 
 ### Post
 
-This function opens up a social media post to twitter in the browser, this can be altered for any platform, bluesky, tiktok, facebook etc etc. This is a great opportunity to offer your users more rewards for posting about the loot found on their socials. Free publicity is always good for any game new & old.
+This function opens up a social media post to twitter in the browser, this can be altered for any platform, bluesky, tiktok, Facebook etc etc. This is a great opportunity to offer your users more rewards for posting about the loot found on their socials. Free publicity is always good for any game new & old.
 
 ### Recover
 
@@ -131,7 +131,7 @@ On the top navigation bar you'll find the My Inventory menu item, this opens the
 
 ### Lootbox Service Adapter
 
-On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and and Events Service Adapter script. Both of these are used to facilitate events as well as creating an access point to the lootbox methods.
+On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and Events Service Adapter script. Both of these are used to facilitate events as well as creating an access point to the lootbox methods.
 
 ![](assets/lootboxes/service-adapter-lootbox.png)
 
