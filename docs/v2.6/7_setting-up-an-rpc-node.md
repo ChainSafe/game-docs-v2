@@ -8,9 +8,11 @@ sidebar_label: Setting Up An RPC Node
 
 :::info
 
-This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) as an example, but this can also be done with other providers. Setting up an RPC node is not a requirement for the SDK but it will help in terms of congestion and stability as the public nodes can be saturated at times.
+This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) and [QuickNode](https://dashboard.quicknode.com/?prompt=signup) as an example, but this can also be done with other providers. Setting up an RPC node is not a requirement for the SDK but it will help in terms of congestion and stability as the public nodes can be saturated at times.
 
 :::
+
+# Chainstack
 
 # Prerequisites
 
@@ -71,3 +73,34 @@ Note that Chainstack’s Developer plan provides 3 million free API requests per
 2. From here, take note of the HTTPS endpoint, which will be the RPC URL you will use to configure web3.unity and allow your Unity game to interact with the blockchain.
 
 ![](assets/setting-up-an-rpc-node/chainstack-https-endpoints.png)
+
+# QuickNode
+
+# Prerequisites
+
+- A QuickNode account (sign up at [QuickNode](https://dashboard.quicknode.com/?prompt=signup) if you don't have one)
+- Familiarity with the web3.unity SDK
+
+# Creating a project in QuickNode
+
+1. Create (or log in) to your QuickNode account and navigate to the Dashboard.
+
+2. Click on "Endpoints" in the left sidebar, then click on “Create endpoint”.
+
+![](assets/setting-up-an-rpc-node/quicknode-dash.png)
+
+3. Select your chain & network, please choose an EVM compatible chain to work with the SDK.
+
+![](assets/setting-up-an-rpc-node/quicknode-select-chain.png)
+
+4. You will appear back on the dashboard. Select your newly created endpoint.
+
+5. Inside the endpoint dashboard, you are presented with an RPC and a web socket URL, enter both of these into the chainsafe server settings area in the SDK.
+
+![](assets/setting-up-an-rpc-node/quicknode-endpoints.png)
+
+:::info
+
+Note that the free plan QuickNode offers provides 10 million API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://dashboard.quicknode.com/select-plan).
+
+:::
