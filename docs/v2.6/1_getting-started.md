@@ -25,6 +25,24 @@ Our packages are modular so your project wont bloat out with SDK files and you c
 Core SDK:
 `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
 
+If you prefer to download packages trough openUPM you can do it trough the following link:
+`https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
+
+Other modules that depend on the core SDK and can be downloaded trough git or openUPM:
+
+
+Web3Auth Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
+Hyperplay Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
+
+
+
+Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`  
+Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`  
+MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`  
+Fiat On/Off Ramp support: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+
+
+
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
 
 ![](assets/getting-started/import-samples.png)
@@ -37,12 +55,26 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 ### Set Project ID
 
-As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Need To Register?" button in the server settings.
+As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Get a Project ID" button in the server settings.
 
 ![](assets/getting-started/project-settings.png)
 
-After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. Select the chain you would like to use and the rest of the fields will auto populate. If you would like to set up your own RPC node, visit [this page](https://docs.gaming.chainsafe.io/current/setting-up-an-rpc-node).
+After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
+Next up, you need to set up the list of chains you want to interact with inside of your project:
+
+![](assets/getting-started/chain-settings.png)
+
+You need a minimum of 1 chain for the SDK to work normally.
+
+Small note: All of our samples are made on the Ethereum Sepolia network. If you run the samples whilst you are on another chain, you will get an exception.
 
 If you need to refer to the ChainSafe server settings area again, you can find it on the top navigation bar. Simply select it and press server settings to view the menu.
 
 ![](assets/getting-started/project-settings-menu.png)
+
+### Drag and drop Web3Unity Prefab into your scene. 
+You can find the Web3Unity Prefab by typing Web3Unity in the project search bar. From the Search: Choose either 'All' or 'In Packages' 
+
+![](assets/getting-started/web3unity-prefab.png)
+
+Now after you've done this, you need to choose your wallet provider. Check it out in the "Choose Your Wallet" section.
