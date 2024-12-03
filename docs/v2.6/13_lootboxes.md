@@ -177,6 +177,8 @@ public class LootboxManager : MonoBehaviour
     {
         if (valueTuple.isLightweight) return;
         lootboxService = Web3Unity.Web3.Chainlink().Lootboxes();
+        // access functions from the service i.e
+        // await lootboxService.OpenLootbox(selectedId, amountToOpen);
     }
 
     public void OnDestroy()
@@ -187,7 +189,7 @@ public class LootboxManager : MonoBehaviour
 
 ## Lootbox Methods
 
-Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do.
+Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. 
 
 ## Get Loot box Types
 
