@@ -189,16 +189,16 @@ public class LootboxManager : MonoBehaviour
 
 ## Lootbox Methods
 
-Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. 
+Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. These is also a debug checkbox in the lootbox sample object OpenLootboxMenu object, toggle it on or off to see some additonal options.
 
 ## Get Loot box Types
 
 This method returns all lootbox type ids registered in the smart-contract. Lootbox type id also represents the number of rewards, that can be claimed by user when he opens the lootbox.
 
 ```csharp
-    public async Task<List<uint>> GetLootboxTypes()
+    public async Task<List<int>> GetLootboxTypes()
     {
-        var response = await contract.Call("getLootboxTypes");
+        var response = await this.contract.Call("getLootboxTypes");
         var bigIntTypes = (List<BigInteger>)response[0];
 
         if (bigIntTypes.Any(v => v > int.MaxValue))
@@ -207,7 +207,7 @@ This method returns all lootbox type ids registered in the smart-contract. Lootb
                 "Internal Error. Lootbox type is greater than int.MaxValue.");
         }
 
-        var types = bigIntTypes.Select(bigInt => (uint)bigInt).ToList();
+        var types = bigIntTypes.Select(bigInt => (int)bigInt).ToList();
 
         return types;
     }
@@ -218,21 +218,18 @@ This method returns all lootbox type ids registered in the smart-contract. Lootb
 This method returns the balance of lootboxes by type or specific user. Similar to how some games work, this may be used to display lootboxes in an inventory.
 
 ```csharp
-    public async Task<uint> BalanceOf(uint lootboxType)
+    // Uses the connected wallet as the target account.
+    public async Task<int> BalanceOf(int lootboxType)
     {
-        if (signer is null)
-        {
-            throw new Web3Exception($"No {nameof(ISigner)} was registered. Can't get current user's address.");
-        }
+        var playerAddress = this.GetCurrentPlayerAddress();
 
-        var playerAddress = await signer.GetAddress();
-
-        return await BalanceOf(playerAddress, lootboxType);
+        return await this.BalanceOf(playerAddress, lootboxType);
     }
 
-    public async Task<uint> BalanceOf(string account, uint lootboxType)
+    // Overload that takes an account address.
+    public async Task<int> BalanceOf(string account, int lootboxType)
     {
-        var response = await contract.Call(
+        var response = await this.contract.Call(
             "balanceOf",
             new object[] { account, lootboxType });
         var bigIntBalance = (BigInteger)response[0];
@@ -243,7 +240,7 @@ This method returns the balance of lootboxes by type or specific user. Similar t
                 "Internal Error. Balance is greater than int.MaxValue.");
         }
 
-        var balance = (uint)bigIntBalance;
+        var balance = (int)bigIntBalance;
 
         return balance;
     }
@@ -254,15 +251,15 @@ This method returns the balance of lootboxes by type or specific user. Similar t
 Calculates open price for the player. This can be used to display the total cost a user would need to pay for opening X amount of lootboxes.
 
 ```csharp
-    public async Task<BigInteger> CalculateOpenPrice(uint lootboxType, uint lootboxCount)
+    public async Task<BigInteger> CalculateOpenPrice(int lootboxType, int lootboxCount)
     {
         var rewardCount = lootboxType * lootboxCount;
-        var rawGasPrice = (await rpcProvider.GetGasPrice()).AssertNotNull("gasPrice").Value;
-        var safeGasPrice = rawGasPrice + BigInteger.Divide(rawGasPrice, new BigInteger(10)); // 110%
+        var rawGasPrice = (await this.rpcProvider.GetGasPrice()).AssertNotNull("gasPrice").Value;
+        var safeGasPrice = (rawGasPrice * 2) + BigInteger.Divide(rawGasPrice, new BigInteger(2)); // 300%
 
-        var response = await contract.Call(
+        var response = await this.contract.Call(
             "calculateOpenPrice",
-            new object[] { 50000 + GasPerUnit * rewardCount, safeGasPrice, rewardCount, });
+            new object[] { 100000 + (GasPerUnit * rewardCount), safeGasPrice, rewardCount, });
         var openPrice = (BigInteger)response[0];
 
         return openPrice;
@@ -290,75 +287,48 @@ This method checks if a user can claim their lootbox rewards. It's a great littl
 This method allows a user to claim their lootbox rewards. This can be placed after the call for payment.
 
 ```csharp
-    public async Task<LootboxRewards> ClaimRewards(string account)
-    {
-        var (_, receipt) = await contract.SendWithReceipt("claimRewards", new object[] { account });
-        var logs = receipt.Logs.Select(jToken => JsonConvert.DeserializeObject<FilterLog>(jToken.ToString()));
-        var eventAbi = EventExtensions.GetEventABI<RewardsClaimedEvent>();
-        var eventLogs = logs
-            .Select(log => eventAbi.DecodeEvent<RewardsClaimedEvent>(log))
-            .Where(l => l != null);
-
-        if (!eventLogs.Any())
-        {
-            throw new Web3Exception("No \"RewardsClaimed\" events were found in log's receipt.");
-        }
-
-        return ExtractRewards(eventLogs);
-
-        LootboxRewards ExtractRewards(IEnumerable<EventLog<RewardsClaimedEvent>> eventLogs)
+    private void ExtractRewards(RewardsClaimedEvent rewardsClaimedEvent)
         {
             var rewards = LootboxRewards.Empty;
-
-            foreach (var eventLog in eventLogs)
+            var rewardType = this.rewardTypeByTokenAddress[rewardsClaimedEvent.TokenAddress];
+            switch (rewardType)
             {
-                var eventData = eventLog.Event;
-                var rewardType = rewardTypeByTokenAddress[eventData.TokenAddress];
-
-                switch (rewardType)
-                {
-                    // Erc20 Tokens
-                    case RewardType.Erc20:
-                        rewards.Erc20Rewards.Add(new Erc20Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            AmountRaw = eventData.Amount,
-                        });
-                        break;
-                    // Erc721 NFTs
-                    case RewardType.Erc721:
-                        rewards.Erc721Rewards.Add(new Erc721Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                        });
-                        break;
-                    // Erc1155 NFTs
-                    case RewardType.Erc1155:
-                        rewards.Erc1155Rewards.Add(new Erc1155Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                            Amount = eventData.Amount,
-                        });
-                        break;
-                    // Single Erc1155 NFT
-                    case RewardType.Erc1155Nft:
-                        rewards.Erc1155NftRewards.Add(new Erc1155NftReward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                        });
-                        break;
-                    case RewardType.Unset:
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                case RewardType.Erc20:
+                    rewards.Erc20Rewards.Add(new Erc20Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        AmountRaw = rewardsClaimedEvent.Amount,
+                    });
+                    break;
+                case RewardType.Erc721:
+                    rewards.Erc721Rewards.Add(new Erc721Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                    });
+                    break;
+                case RewardType.Erc1155:
+                    rewards.Erc1155Rewards.Add(new Erc1155Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                        Amount = rewardsClaimedEvent.Amount,
+                    });
+                    break;
+                case RewardType.Erc1155Nft:
+                    rewards.Erc1155NftRewards.Add(new Erc1155NftReward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                    });
+                    break;
+                case RewardType.Unset:
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
-            return rewards;
+            OnRewardsClaimed?.Invoke(rewards);
         }
-    }
 ```
 
 ## Open Lootbox
@@ -366,14 +336,66 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
 This method allows a user to open a lootbox. This should be called last after all of the payment steps have been completed.
 
 ```csharp
-    public async Task OpenLootbox(uint lootboxType, uint lootboxCount = 1)
+    public async Task OpenLootbox(int lootboxType, int lootboxCount = 1)
     {
         var rewardCount = lootboxType * lootboxCount;
-        var openPrice = await CalculateOpenPrice(lootboxCount, lootboxCount);
+        var openPrice = await this.CalculateOpenPrice(lootboxCount, lootboxCount);
 
-        await contract.Send(
+        await this.contract.Send(
             "open",
-            new object[] { 50000 + GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
+            new object[] { 100000 + (GasPerUnit * rewardCount), new[] { lootboxType }, new[] { lootboxCount } },
             new TransactionRequest { Value = new HexBigInteger(openPrice) });
     }
 ```
+
+## Get Price
+
+This method gets the current lootbox price.
+
+```csharp
+public async Task<BigInteger> GetPrice()
+{
+    var response = await this.contract.Call("getPrice", new object[] { });
+    return BigInteger.Parse(response[0].ToString());
+}
+```
+
+## Set Price
+
+This method sets thr price to purhcase a lootbox, it can only be called by the person that deployed the lootboxes.
+
+```csharp
+public async Task SetPrice(BigInteger price)
+{
+    await this.contract.Send("setPrice", new object[] { price });
+}
+```
+
+## Buy Lootbox
+
+Allows a user to purchase a lootbox granted the price has been set by the lootbox owner.
+
+```csharp
+public async Task Buy(int amount, BigInteger maxPrice)
+{
+    // Gets the current lootbox price
+    var pricePerLootbox = await GetPrice();
+    var priceToSend = pricePerLootbox * amount;
+    await this.contract.Send("buy", new object[] { amount, maxPrice }, new TransactionRequest { Value = new HexBigInteger(priceToSend) });
+}
+```
+
+## Get inventory
+
+This method fetches all of the NFTs in the connected wallets inventory based on the contract supplied to the service adapter.
+
+```csharp
+public async Task<LootboxItemList> GetInventory()
+{
+    var result = await this.contract.Call("getInventory");
+    var jsonResult = JsonConvert.DeserializeObject<LootboxItemList>(JsonConvert.SerializeObject(result));
+    return jsonResult;
+}
+```
+
+Please check out the sample scene to see how these functions work.
