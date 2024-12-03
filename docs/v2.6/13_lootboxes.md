@@ -189,7 +189,7 @@ public class LootboxManager : MonoBehaviour
 
 ## Lootbox Methods
 
-Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. These is also a debug checkbox in the lootbox sample object OpenLootboxMenu object, toggle it on or off to see some additonal options.
+Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. These is also a debug checkbox in the lootbox sample object "Open Lootbox Menu" object, toggle it on or off to see some additional options.
 
 ## Get Loot box Types
 
@@ -362,7 +362,7 @@ public async Task<BigInteger> GetPrice()
 
 ## Set Price
 
-This method sets thr price to purhcase a lootbox, it can only be called by the person that deployed the lootboxes.
+This method sets the price to purchase a lootbox, it can only be called by the person that deployed the lootboxes.
 
 ```csharp
 public async Task SetPrice(BigInteger price)
