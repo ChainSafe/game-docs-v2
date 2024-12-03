@@ -72,9 +72,9 @@ If you need to refer to the ChainSafe server settings area again, you can find i
 
 ![](assets/getting-started/project-settings-menu.png)
 
-### Drag and drop Web3Unity Prefab into your scene. 
-You can find the Web3Unity Prefab by typing Web3Unity in the project search bar. From the Search: Choose either 'All' or 'In Packages' 
+### Add a Web3 Client object to your scene
+Right-click inside the Hierarchy view and select **Web3/Web3 Client**. This will add a new Web3 Client object for you.
 
-![](assets/getting-started/web3unity-prefab.png)
+![](assets/getting-started/create-web3-client-menu.png)
 
 Now after you've done this, you need to choose your wallet provider. Check it out in the "Choose Your Wallet" section.
