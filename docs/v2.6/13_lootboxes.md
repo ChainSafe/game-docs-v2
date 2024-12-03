@@ -77,11 +77,11 @@ Here you can send lootboxes with reward amounts out to your friends, Dapps, and 
 
 ## Lootbox Sample Scene
 
-To use the lootbox example scene simply open it and press play to check out how our lootboxes function on the front end of things within unity. You can claim lootboxes & even browse your inventory to see any existing rewards. The service adapter for the lootboxes can be found on the Web3 object in the scene. It's already set up with an example contract but you can change this out as you wish. The content generated from the rewards and the inventory are pulled dynamically from the lootbox contract entered here too.
+To use the lootbox example scene simply open it and press play to check out how our lootboxes function within unity. You can claim lootboxes & even browse your inventory to see any existing rewards. The service adapter for the lootboxes can be found on the Web3 object in the scene. It's already set up with an example contract but you can change this out as you wish. The content generated from the rewards and the inventory are pulled dynamically from the lootbox contract so you don't need to worry about manual updates.
 
 ## Lootbox Methods
 
-Below we'll list some of the functions the loobox service has access to aswell as clarifying and what they do.
+Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do.
 
 ![](assets/lootboxes/login-scene.png)
 
