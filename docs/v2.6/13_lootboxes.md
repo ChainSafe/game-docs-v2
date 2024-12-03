@@ -19,9 +19,7 @@ Lootboxes are a great way to offer your users NFTs, tokens & variety of other th
 1. You can import our Lootboxes sample scene by navigating to Window → Package Manager.
 2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`
 3. Once the package is installed, click on the Samples tab. Import the samples.
-4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - Lootboxes.
-5. Click on the Login Logic - Ramp object and in the inspector, modify the Scene To Load to your preferred scene.
-6. Add the Lootboxes scene and your scene to the build settings, and you’re done.
+4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 3.0.X → Web3.Unity Samples → Scenes → SampleLogin - Lootboxes.
 
 ## What is Chainlink VRF?
 
@@ -79,11 +77,117 @@ Here you can send lootboxes with reward amounts out to your friends, Dapps, and 
 
 To use the lootbox example scene simply open it and press play to check out how our lootboxes function within unity. You can claim lootboxes & even browse your inventory to see any existing rewards. The service adapter for the lootboxes can be found on the Web3 object in the scene. It's already set up with an example contract but you can change this out as you wish. The content generated from the rewards and the inventory are pulled dynamically from the lootbox contract so you don't need to worry about manual updates.
 
+![](assets/lootboxes/main-scene.png)
+
+### Open lootbox area
+
+Upon opening the lootbox sample scene you'll be presented with a lootbox image and a few menu options. The underlying code of the menu can be dropped straight into a scene of your choosing or you can alter piece of it as use what you like as needed to create your own loobox experience for your game.
+
+### Lootbox Quantity
+
+There is a quantity of lootboxes dispalyed just above the lootbox image, this is the amount of lootboxes the current connect account holds that are ready to be opened.
+
+### Claim
+
+This button will claim a lootbox if there is an amount avaliable to be claimed. By default it will open 1 at a time but if you go into the open function you can alter the amount parameter to open more.
+
+```csharp
+private async Task ClaimLootbox()
+{
+    var selectedText = lootboxDropdown.options[lootboxDropdown.value].text;
+    Debug.Log("Claiming Lootbox");
+    if (uint.TryParse(selectedText.Replace("ID: ", ""), out uint selectedId) && lootboxBalances.TryGetValue(selectedId, out uint selectedAmount))
+    {
+        uint amountToOpen = 1;
+        await lootboxService.OpenLootbox(selectedId, amountToOpen);
+    }
+    Debug.Log("Claiming rewards");
+    await new WaitForSeconds(30);
+    await lootboxService.ClaimRewards();
+}
+```
+
+### Drop down menu
+
+The drop down menu below the claim button lets you choose which type of lootbox to open. These are numbered in ascending order beginning from 1 based on the amount of loot assigned to the box from the dashboard. Whilst we've kept it logical here, you can change these to display rarities instead of numbers if you wish such as common, rare, epic etc to add a little bit more of a gamified feel.
+
+### Post
+
+This function opens up a social media post to twitter in the browser, this can be altered for any platform, bluesky, tiktok, facebook etc etc. This is a great opportunity to offer your users more rewards for posting about the loot found on their socials. Free publicity is always good for any game new & old.
+
+### Recover
+
+The recover function has been included here, it's there for debugging in the instance that a lootbox fails to open due to gas issues. If claiming a lootbox keeps failing it could be because there is a pending option to open a lootbox already that hasn't been fulfilled. Pressing recover will attempt to solve this.
+
+### Rewards
+
+When claiming rewards, after the VRF has processed the proof the user will be presented with a pop up modal with the rewards in the lootbox. The dispaly has been kept simple here in order for you to build ontop it. For example you can then use this data along side camera transitions to make a captivating lootbox open animation that suits your game. 
+
+### Inventory area
+
+On the top nav bar you'll find the My Inventory menu item, this opens the users inventory and scans for all lootbox items owned by the user. These contract options are also dynamically populated from the lootbox contract set in the web3object at the start. These items will spawn and populate with token infomation such as token type, id, name, amount, the image within the NFTs metadata (721/1155) will also be fetched and displayed.
+
+![](assets/lootboxes/inventory-lootbox.png)
+
+### Lootbox Service Adapter
+
+On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and and Events Service Adapter script. Both of these are used to facilitate events as well as creating an accesspoint to the lootbox methods.
+
+![](assets/lootboxes/service-adapter-lootbox.png)
+
+This service adapter registers the contract in the serialized field within the editor with our default ABI, if you're using a custom implementation of our lootbox contract you will need to replace the ABI here, if you're using a lootbox from our dashboard you can just leave it as is, only the contract address will need updating as this one points to the example lootboxes on sepolia.
+
+```csharp
+public class LootboxesServicesAdapter : MonoBehaviour, IServiceAdapter
+    {
+        // Default values for Sepolia, modify as needed.
+        [SerializeField] private string contractAbi = "ABI goes here";
+        [SerializeField] private string lootboxAddress = "0xa31B74DF647979D50f155C7de5b80e9BA3A0C979";
+
+        public Web3Builder ConfigureServices(Web3Builder web3Builder)
+        {
+            return web3Builder.Configure(services =>
+            {
+                services.UseChainlinkLootboxService(new LootboxServiceConfig
+                {
+                    LootboxAddress = lootboxAddress,
+                    ContractAbi = contractAbi 
+                });
+                services.AddSingleton<Erc1155MetaDataReader>();
+            });
+        }
+    }
+```
+
+### Accessing the service adapter
+
+Once logged in, you can access the service adapter quite easily using the code snippet below. We can then save the service locally and reuse it as much as we like within a script to gain access to the methods below. I've inlcuded the initialization steps with events below to avoid errors as the service wont exist before the web3object is built.
+
+```csharp
+public class LootboxManager : MonoBehaviour
+{
+    private ILootboxService lootboxService;
+
+    private void Awake()
+    {
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
+
+    private void Web3Initialized((Web3 web3, bool isLightweight) valueTuple)
+    {
+        if (valueTuple.isLightweight) return;
+        lootboxService = Web3Unity.Web3.Chainlink().Lootboxes();
+    }
+
+    public void OnDestroy()
+    {
+        Web3Unity.Web3Initialized -= Web3Initialized;
+    }
+```
+
 ## Lootbox Methods
 
 Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do.
-
-![](assets/lootboxes/login-scene.png)
 
 ## Get Loot box Types
 
