@@ -99,6 +99,10 @@ Note that Chainstack’s Developer plan provides 3 million free API requests per
 
 ![](assets/setting-up-an-rpc-node/quicknode-endpoints.png)
 
+6. QuickNode also has a great metrics area to track additional data, feel free to have a look around.
+
+![](assets/setting-up-an-rpc-node/quicknode-metrics.png)
+
 :::info
 
 Note that the free plan QuickNode offers provides 10 million API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://dashboard.quicknode.com/select-plan).
