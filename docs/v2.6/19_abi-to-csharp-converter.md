@@ -32,18 +32,30 @@ public class CustomContractSample : MonoBehaviour
 
     public async void Start()
     {
-        if(Web3Unity.Web3 == null)
-            await Web3Unity.Instance.Initialize(false);
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
 
-       _erc20Contract =  await Web3Unity.Instance.BuildContract<Erc20Contract>(contractAddress);
-       //Calling any read method from the smart contract:
-       var balanceOf = await _erc20Contract.BalanceOf(balanceOfAddress);
+    //Always create your custom contract inside of the event handler. That way you always have the up-to-date data. 
+    private async void Web3Initialized((Web3 web3, bool isLightweight) obj)
+    {
+        //Since Web3Initialized event can be invoked multiple times during the app lifecycle (once you open the app and don't have a wallet, then when there is a wallet etc.)
+        //You need to properly dispose the previously created contract to remove any potential memory leaks. 
+        if (_erc20Contract != null)
+        {
+            _erc20Contract.OnTransfer -= Erc20Transfer;
+            await _erc20Contract.DisposeAsync();
+        }
+
+        _erc20Contract = await web3.ContractBuilder.Build<Erc20Contract>("ContractAddress");
+        _erc20Contract.OnTransfer += Erc20Transfer;
     }
 
     public async void OnDestroy()
     {
         _erc20.OnTransfer -= Erc20Transfer;
+        Web3Unity.Web3Initialized -= Web3Initialized;
         await _erc20Contract.DisposeAsync();
+        
     }
 
 }
