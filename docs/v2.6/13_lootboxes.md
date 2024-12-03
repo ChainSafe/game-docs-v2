@@ -81,15 +81,15 @@ To use the lootbox example scene simply open it and press play to check out how 
 
 ### Open lootbox area
 
-Upon opening the lootbox sample scene you'll be presented with a lootbox image and a few menu options. The underlying code of the menu can be dropped straight into a scene of your choosing or you can alter piece of it as use what you like as needed to create your own loobox experience for your game.
+Upon opening the lootbox sample scene you'll be presented with a lootbox image and a few menu options. The underlying code of the menu can be dropped straight into a scene of your choosing or you can alter piece of it as use what you like as needed to create your own lootbox experience for your game.
 
 ### Lootbox Quantity
 
-There is a quantity of lootboxes dispalyed just above the lootbox image, this is the amount of lootboxes the current connect account holds that are ready to be opened.
+There is a quantity of lootboxes displayed just above the lootbox image, this is the amount of lootboxes the current connect account holds that are ready to be opened.
 
 ### Claim
 
-This button will claim a lootbox if there is an amount avaliable to be claimed. By default it will open 1 at a time but if you go into the open function you can alter the amount parameter to open more.
+This button will claim a lootbox if there is an amount available to be claimed. By default it will open 1 at a time but if you go into the open function you can alter the amount parameter to open more.
 
 ```csharp
 private async Task ClaimLootbox()
@@ -121,17 +121,17 @@ The recover function has been included here, it's there for debugging in the ins
 
 ### Rewards
 
-When claiming rewards, after the VRF has processed the proof the user will be presented with a pop up modal with the rewards in the lootbox. The dispaly has been kept simple here in order for you to build ontop it. For example you can then use this data along side camera transitions to make a captivating lootbox open animation that suits your game. 
+When claiming rewards, after the VRF has processed the proof the user will be presented with a pop up modal with the rewards in the lootbox. The display has been kept simple here in order for you to build on top it. For example you can then use this data along side camera transitions to make a captivating lootbox open animation that suits your game. 
 
 ### Inventory area
 
-On the top nav bar you'll find the My Inventory menu item, this opens the users inventory and scans for all lootbox items owned by the user. These contract options are also dynamically populated from the lootbox contract set in the web3object at the start. These items will spawn and populate with token infomation such as token type, id, name, amount, the image within the NFTs metadata (721/1155) will also be fetched and displayed.
+On the top navigation bar you'll find the My Inventory menu item, this opens the users inventory and scans for all lootbox items owned by the user. These contract options are also dynamically populated from the lootbox contract set in the web3 object at the start. These items will spawn and populate with token information such as token type, id, name, amount, the image within the NFTs metadata (721/1155) will also be fetched and displayed.
 
 ![](assets/lootboxes/inventory-lootbox.png)
 
 ### Lootbox Service Adapter
 
-On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and and Events Service Adapter script. Both of these are used to facilitate events as well as creating an accesspoint to the lootbox methods.
+On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and and Events Service Adapter script. Both of these are used to facilitate events as well as creating an access point to the lootbox methods.
 
 ![](assets/lootboxes/service-adapter-lootbox.png)
 
@@ -161,7 +161,7 @@ public class LootboxesServicesAdapter : MonoBehaviour, IServiceAdapter
 
 ### Accessing the service adapter
 
-Once logged in, you can access the service adapter quite easily using the code snippet below. We can then save the service locally and reuse it as much as we like within a script to gain access to the methods below. I've inlcuded the initialization steps with events below to avoid errors as the service wont exist before the web3object is built.
+Once logged in, you can access the service adapter quite easily using the code snippet below. We can then save the service locally and reuse it as much as we like within a script to gain access to the methods below. I've included the initialization steps with events below to avoid errors as the service wont exist before the web3 object is built.
 
 ```csharp
 public class LootboxManager : MonoBehaviour
