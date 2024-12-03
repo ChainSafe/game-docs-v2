@@ -1,6 +1,9 @@
 type: object
 description: token structure for the NFT
 properties:
+  id:
+    type: string
+    description: id of token on indexer
   token_id:
     type: string
     description: token id of nft

@@ -28,6 +28,21 @@ Core SDK:
 If you prefer to download packages trough openUPM you can do it trough the following link:
 `https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
 
+Other modules that depend on the core SDK and can be downloaded trough git or openUPM:
+
+
+Web3Auth Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
+Hyperplay Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
+
+
+
+Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`  
+Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`  
+MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`  
+Fiat On/Off Ramp support: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+
+
+
 Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
 
 ![](assets/getting-started/import-samples.png)
@@ -61,3 +76,5 @@ If you need to refer to the ChainSafe server settings area again, you can find i
 You can find the Web3Unity Prefab by typing Web3Unity in the project search bar. From the Search: Choose either 'All' or 'In Packages' 
 
 ![](assets/getting-started/web3unity-prefab.png)
+
+Now after you've done this, you need to choose your wallet provider. Check it out in the "Choose Your Wallet" section.
