@@ -19,9 +19,7 @@ Lootboxes are a great way to offer your users NFTs, tokens & variety of other th
 1. You can import our Lootboxes sample scene by navigating to Window → Package Manager.
 2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`
 3. Once the package is installed, click on the Samples tab. Import the samples.
-4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - Lootboxes.
-5. Click on the Login Logic - Ramp object and in the inspector, modify the Scene To Load to your preferred scene.
-6. Add the Lootboxes scene and your scene to the build settings, and you’re done.
+4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 3.0.X → Web3.Unity Samples → Scenes → SampleLogin - Lootboxes.
 
 ## What is Chainlink VRF?
 
@@ -75,20 +73,132 @@ Here you can send lootboxes with reward amounts out to your friends, Dapps, and 
 
 # Lootbox Functions Within The SDK
 
-## Altering Login Scene Transition
+## Lootbox Sample Scene
 
-To use the lootbox example scene with the login scene you'll need to alter the inspector value on the login object in the login scene hierarchy to your scene name as show below. By default it will be set the sample scene for examples sake.
+To use the lootbox example scene simply open it and press play to check out how our lootboxes function within unity. You can claim lootboxes & even browse your inventory to see any existing rewards. The service adapter for the lootboxes can be found on the Web3 object in the scene. It's already set up with an example contract but you can change this out as you wish. The content generated from the rewards and the inventory are pulled dynamically from the lootbox contract so you don't need to worry about manual updates.
 
-![](assets/lootboxes/login-scene.png)
+![](assets/lootboxes/main-scene.png)
+
+### Open lootbox area
+
+Upon opening the lootbox sample scene you'll be presented with a lootbox image and a few menu options. The underlying code of the menu can be dropped straight into a scene of your choosing or you can alter piece of it as use what you like as needed to create your own lootbox experience for your game.
+
+### Lootbox Quantity
+
+There is a quantity of lootboxes displayed just above the lootbox image, this is the amount of lootboxes the current connect account holds that are ready to be opened.
+
+### Claim
+
+This button will claim a lootbox if there is an amount available to be claimed. By default it will open 1 at a time but if you go into the open function you can alter the amount parameter to open more.
+
+```csharp
+private async Task ClaimLootbox()
+{
+    var selectedText = lootboxDropdown.options[lootboxDropdown.value].text;
+    Debug.Log("Claiming Lootbox");
+    if (uint.TryParse(selectedText.Replace("ID: ", ""), out uint selectedId) && lootboxBalances.TryGetValue(selectedId, out uint selectedAmount))
+    {
+        uint amountToOpen = 1;
+        await lootboxService.OpenLootbox(selectedId, amountToOpen);
+    }
+    Debug.Log("Claiming rewards");
+    await new WaitForSeconds(30);
+    await lootboxService.ClaimRewards();
+}
+```
+
+### Drop down menu
+
+The drop down menu below the claim button lets you choose which type of lootbox to open. These are numbered in ascending order beginning from 1 based on the amount of loot assigned to the box from the dashboard. Whilst we've kept it logical here, you can change these to display rarities instead of numbers if you wish such as common, rare, epic etc to add a little bit more of a gamified feel.
+
+### Post
+
+This function opens up a social media post to twitter in the browser, this can be altered for any platform, bluesky, tiktok, Facebook etc etc. This is a great opportunity to offer your users more rewards for posting about the loot found on their socials. Free publicity is always good for any game new & old.
+
+### Recover
+
+The recover function has been included here, it's there for debugging in the instance that a lootbox fails to open due to gas issues. If claiming a lootbox keeps failing it could be because there is a pending option to open a lootbox already that hasn't been fulfilled. Pressing recover will attempt to solve this.
+
+### Rewards
+
+When claiming rewards, after the VRF has processed the proof the user will be presented with a pop up modal with the rewards in the lootbox. The display has been kept simple here in order for you to build on top it. For example you can then use this data along side camera transitions to make a captivating lootbox open animation that suits your game. 
+
+### Inventory area
+
+On the top navigation bar you'll find the My Inventory menu item, this opens the users inventory and scans for all lootbox items owned by the user. These contract options are also dynamically populated from the lootbox contract set in the web3 object at the start. These items will spawn and populate with token information such as token type, id, name, amount, the image within the NFTs metadata (721/1155) will also be fetched and displayed.
+
+![](assets/lootboxes/inventory-lootbox.png)
+
+### Lootbox Service Adapter
+
+On the left side of the screen in the object hierarchy you can find the Web3Unity object, click on it and have a look at the components in the inspector on the right side of the screen. The example scenes object has a Lootboxes Service Adapter script and Events Service Adapter script. Both of these are used to facilitate events as well as creating an access point to the lootbox methods.
+
+![](assets/lootboxes/service-adapter-lootbox.png)
+
+This service adapter registers the contract in the serialized field within the editor with our default ABI, if you're using a custom implementation of our lootbox contract you will need to replace the ABI here, if you're using a lootbox from our dashboard you can just leave it as is, only the contract address will need updating as this one points to the example lootboxes on sepolia.
+
+```csharp
+public class LootboxesServicesAdapter : MonoBehaviour, IServiceAdapter
+    {
+        // Default values for Sepolia, modify as needed.
+        [SerializeField] private string contractAbi = "ABI goes here";
+        [SerializeField] private string lootboxAddress = "0xa31B74DF647979D50f155C7de5b80e9BA3A0C979";
+
+        public Web3Builder ConfigureServices(Web3Builder web3Builder)
+        {
+            return web3Builder.Configure(services =>
+            {
+                services.UseChainlinkLootboxService(new LootboxServiceConfig
+                {
+                    LootboxAddress = lootboxAddress,
+                    ContractAbi = contractAbi 
+                });
+                services.AddSingleton<Erc1155MetaDataReader>();
+            });
+        }
+    }
+```
+
+### Accessing the service adapter
+
+Once logged in, you can access the service adapter quite easily using the code snippet below. We can then save the service locally and reuse it as much as we like within a script to gain access to the methods below. I've included the initialization steps with events below to avoid errors as the service wont exist before the web3 object is built.
+
+```csharp
+public class LootboxManager : MonoBehaviour
+{
+    private ILootboxService lootboxService;
+
+    private void Awake()
+    {
+        Web3Unity.Web3Initialized += Web3Initialized;
+    }
+
+    private void Web3Initialized((Web3 web3, bool isLightweight) valueTuple)
+    {
+        if (valueTuple.isLightweight) return;
+        lootboxService = Web3Unity.Web3.Chainlink().Lootboxes();
+        // access functions from the service i.e
+        // await lootboxService.OpenLootbox(selectedId, amountToOpen);
+    }
+
+    public void OnDestroy()
+    {
+        Web3Unity.Web3Initialized -= Web3Initialized;
+    }
+```
+
+## Lootbox Methods
+
+Below we'll list some of the functions the lootbox service has access to as well as clarifying and what they do. These functions can be accessed via the lootboxService using dot notation as seen above. These is also a debug checkbox in the lootbox sample object "Open Lootbox Menu" object, toggle it on or off to see some additional options.
 
 ## Get Loot box Types
 
 This method returns all lootbox type ids registered in the smart-contract. Lootbox type id also represents the number of rewards, that can be claimed by user when he opens the lootbox.
 
 ```csharp
-    public async Task<List<uint>> GetLootboxTypes()
+    public async Task<List<int>> GetLootboxTypes()
     {
-        var response = await contract.Call("getLootboxTypes");
+        var response = await this.contract.Call("getLootboxTypes");
         var bigIntTypes = (List<BigInteger>)response[0];
 
         if (bigIntTypes.Any(v => v > int.MaxValue))
@@ -97,7 +207,7 @@ This method returns all lootbox type ids registered in the smart-contract. Lootb
                 "Internal Error. Lootbox type is greater than int.MaxValue.");
         }
 
-        var types = bigIntTypes.Select(bigInt => (uint)bigInt).ToList();
+        var types = bigIntTypes.Select(bigInt => (int)bigInt).ToList();
 
         return types;
     }
@@ -108,21 +218,18 @@ This method returns all lootbox type ids registered in the smart-contract. Lootb
 This method returns the balance of lootboxes by type or specific user. Similar to how some games work, this may be used to display lootboxes in an inventory.
 
 ```csharp
-    public async Task<uint> BalanceOf(uint lootboxType)
+    // Uses the connected wallet as the target account.
+    public async Task<int> BalanceOf(int lootboxType)
     {
-        if (signer is null)
-        {
-            throw new Web3Exception($"No {nameof(ISigner)} was registered. Can't get current user's address.");
-        }
+        var playerAddress = this.GetCurrentPlayerAddress();
 
-        var playerAddress = await signer.GetAddress();
-
-        return await BalanceOf(playerAddress, lootboxType);
+        return await this.BalanceOf(playerAddress, lootboxType);
     }
 
-    public async Task<uint> BalanceOf(string account, uint lootboxType)
+    // Overload that takes an account address.
+    public async Task<int> BalanceOf(string account, int lootboxType)
     {
-        var response = await contract.Call(
+        var response = await this.contract.Call(
             "balanceOf",
             new object[] { account, lootboxType });
         var bigIntBalance = (BigInteger)response[0];
@@ -133,7 +240,7 @@ This method returns the balance of lootboxes by type or specific user. Similar t
                 "Internal Error. Balance is greater than int.MaxValue.");
         }
 
-        var balance = (uint)bigIntBalance;
+        var balance = (int)bigIntBalance;
 
         return balance;
     }
@@ -144,15 +251,15 @@ This method returns the balance of lootboxes by type or specific user. Similar t
 Calculates open price for the player. This can be used to display the total cost a user would need to pay for opening X amount of lootboxes.
 
 ```csharp
-    public async Task<BigInteger> CalculateOpenPrice(uint lootboxType, uint lootboxCount)
+    public async Task<BigInteger> CalculateOpenPrice(int lootboxType, int lootboxCount)
     {
         var rewardCount = lootboxType * lootboxCount;
-        var rawGasPrice = (await rpcProvider.GetGasPrice()).AssertNotNull("gasPrice").Value;
-        var safeGasPrice = rawGasPrice + BigInteger.Divide(rawGasPrice, new BigInteger(10)); // 110%
+        var rawGasPrice = (await this.rpcProvider.GetGasPrice()).AssertNotNull("gasPrice").Value;
+        var safeGasPrice = (rawGasPrice * 2) + BigInteger.Divide(rawGasPrice, new BigInteger(2)); // 300%
 
-        var response = await contract.Call(
+        var response = await this.contract.Call(
             "calculateOpenPrice",
-            new object[] { 50000 + GasPerUnit * rewardCount, safeGasPrice, rewardCount, });
+            new object[] { 100000 + (GasPerUnit * rewardCount), safeGasPrice, rewardCount, });
         var openPrice = (BigInteger)response[0];
 
         return openPrice;
@@ -180,75 +287,48 @@ This method checks if a user can claim their lootbox rewards. It's a great littl
 This method allows a user to claim their lootbox rewards. This can be placed after the call for payment.
 
 ```csharp
-    public async Task<LootboxRewards> ClaimRewards(string account)
-    {
-        var (_, receipt) = await contract.SendWithReceipt("claimRewards", new object[] { account });
-        var logs = receipt.Logs.Select(jToken => JsonConvert.DeserializeObject<FilterLog>(jToken.ToString()));
-        var eventAbi = EventExtensions.GetEventABI<RewardsClaimedEvent>();
-        var eventLogs = logs
-            .Select(log => eventAbi.DecodeEvent<RewardsClaimedEvent>(log))
-            .Where(l => l != null);
-
-        if (!eventLogs.Any())
-        {
-            throw new Web3Exception("No \"RewardsClaimed\" events were found in log's receipt.");
-        }
-
-        return ExtractRewards(eventLogs);
-
-        LootboxRewards ExtractRewards(IEnumerable<EventLog<RewardsClaimedEvent>> eventLogs)
+    private void ExtractRewards(RewardsClaimedEvent rewardsClaimedEvent)
         {
             var rewards = LootboxRewards.Empty;
-
-            foreach (var eventLog in eventLogs)
+            var rewardType = this.rewardTypeByTokenAddress[rewardsClaimedEvent.TokenAddress];
+            switch (rewardType)
             {
-                var eventData = eventLog.Event;
-                var rewardType = rewardTypeByTokenAddress[eventData.TokenAddress];
-
-                switch (rewardType)
-                {
-                    // Erc20 Tokens
-                    case RewardType.Erc20:
-                        rewards.Erc20Rewards.Add(new Erc20Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            AmountRaw = eventData.Amount,
-                        });
-                        break;
-                    // Erc721 NFTs
-                    case RewardType.Erc721:
-                        rewards.Erc721Rewards.Add(new Erc721Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                        });
-                        break;
-                    // Erc1155 NFTs
-                    case RewardType.Erc1155:
-                        rewards.Erc1155Rewards.Add(new Erc1155Reward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                            Amount = eventData.Amount,
-                        });
-                        break;
-                    // Single Erc1155 NFT
-                    case RewardType.Erc1155Nft:
-                        rewards.Erc1155NftRewards.Add(new Erc1155NftReward
-                        {
-                            ContractAddress = eventData.TokenAddress,
-                            TokenId = eventData.TokenId,
-                        });
-                        break;
-                    case RewardType.Unset:
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                case RewardType.Erc20:
+                    rewards.Erc20Rewards.Add(new Erc20Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        AmountRaw = rewardsClaimedEvent.Amount,
+                    });
+                    break;
+                case RewardType.Erc721:
+                    rewards.Erc721Rewards.Add(new Erc721Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                    });
+                    break;
+                case RewardType.Erc1155:
+                    rewards.Erc1155Rewards.Add(new Erc1155Reward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                        Amount = rewardsClaimedEvent.Amount,
+                    });
+                    break;
+                case RewardType.Erc1155Nft:
+                    rewards.Erc1155NftRewards.Add(new Erc1155NftReward
+                    {
+                        ContractAddress = rewardsClaimedEvent.TokenAddress,
+                        TokenId = rewardsClaimedEvent.TokenId,
+                    });
+                    break;
+                case RewardType.Unset:
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
-            return rewards;
+            OnRewardsClaimed?.Invoke(rewards);
         }
-    }
 ```
 
 ## Open Lootbox
@@ -256,62 +336,66 @@ This method allows a user to claim their lootbox rewards. This can be placed aft
 This method allows a user to open a lootbox. This should be called last after all of the payment steps have been completed.
 
 ```csharp
-    public async Task OpenLootbox(uint lootboxType, uint lootboxCount = 1)
+    public async Task OpenLootbox(int lootboxType, int lootboxCount = 1)
     {
         var rewardCount = lootboxType * lootboxCount;
-        var openPrice = await CalculateOpenPrice(lootboxCount, lootboxCount);
+        var openPrice = await this.CalculateOpenPrice(lootboxCount, lootboxCount);
 
-        await contract.Send(
+        await this.contract.Send(
             "open",
-            new object[] { 50000 + GasPerUnit * rewardCount, new[] { lootboxType }, new[] { lootboxCount } },
+            new object[] { 100000 + (GasPerUnit * rewardCount), new[] { lootboxType }, new[] { lootboxCount } },
             new TransactionRequest { Value = new HexBigInteger(openPrice) });
     }
 ```
 
-## Lootbox Example Scene
+## Get Price
 
-We have an example scene setup if you want to check it out. It goes through different lootbox rarities and allows you to see what happens during the lootbox process. This will be converted to an addon for modularization purposes and a prefab for ease of use. For now you can check the example scene by cloning the lootboxes branch of the SDK and opening up assets/lootboxes/Lootboxes/LootBoxes.scene.
+This method gets the current lootbox price.
 
-![](assets/lootboxes/lootboxes-scene.png)
+```csharp
+public async Task<BigInteger> GetPrice()
+{
+    var response = await this.contract.Call("getPrice", new object[] { });
+    return BigInteger.Parse(response[0].ToString());
+}
+```
 
-# Setting Up A Local Node For Testing With The Example Scene
+## Set Price
 
-Once you've cloned the contracts repo, go ahead and run `npm run node` to boot up a local chain.
+This method sets the price to purchase a lootbox, it can only be called by the person that deployed the lootboxes.
 
-![](assets/lootboxes/lootboxes-run-node.png)
+```csharp
+public async Task SetPrice(BigInteger price)
+{
+    await this.contract.Send("setPrice", new object[] { price });
+}
+```
 
-After this node is active you can open up another terminal and run `npm run hardhat -- devsetup` to initialize everything.
+## Buy Lootbox
 
-![](assets/lootboxes/lootboxes-npm-initialize.png)
+Allows a user to purchase a lootbox granted the price has been set by the lootbox owner.
 
-If you check the node window you can see everything that's happening during this process. Once complete, hit play within unity on the lootbox example scene and you'll be presented with a nice display area to test out. Here you can check different rarity levels of each lootbox and what they may contain as well as some great animations to go along with it.
+```csharp
+public async Task Buy(int amount, BigInteger maxPrice)
+{
+    // Gets the current lootbox price
+    var pricePerLootbox = await GetPrice();
+    var priceToSend = pricePerLootbox * amount;
+    await this.contract.Send("buy", new object[] { amount, maxPrice }, new TransactionRequest { Value = new HexBigInteger(priceToSend) });
+}
+```
 
-## Opening LootBoxes & Rarity
+## Get inventory
 
-Now in Unity you can click play and interact with the lootboxes.
-You can switch between different lootboxes using the keys "A" and "D" and switch between rarity using "W" and "S"
+This method fetches all of the NFTs in the connected wallets inventory based on the contract supplied to the service adapter.
 
-Once you find your box, select it by pressing "space" key and open it by pressing "enter" key.
-You need to wait a little bit on the Unity scene so the transaction goes through
+```csharp
+public async Task<LootboxItemList> GetInventory()
+{
+    var result = await this.contract.Call("getInventory");
+    var jsonResult = JsonConvert.DeserializeObject<LootboxItemList>(JsonConvert.SerializeObject(result));
+    return jsonResult;
+}
+```
 
-![](assets/lootboxes/opening-lootboxes.png)
-
-Next, in the terminal, run `npx hardhat compile` and then `npm run hardhat -- fulfill` to manually open the lootboxes.
-
-![](assets/lootboxes/lootboxes-npm-fulfill.png)
-
-Go back to Unity and the lootboxes will be ready to open
-
-![](assets/lootboxes/claim-rewards.png)
-
-Click on the lootbox and you will receive the rewards!
-
-![](assets/lootboxes/rewards-lootboxes.png)
-
-We hope you enjoy bringing our new feature to life! We've found it's a great way to easily offer virtual items to any and all users with a gamified feel.
-
-:::caution Unity Lootbox Demo Scene
-
-When building the Lootbox Sample Scene, just make it a 0th scene in the build index. If you want to build the auth sample, make SampleLogin 0th index and then build. Since we don't support (yet) running both samples (so auth and Lootboxes) at the same time, and that can cause some unexpected behavior, especially on Lootbox scene.
-
-:::
+Please check out the sample scene to see how these functions work.
