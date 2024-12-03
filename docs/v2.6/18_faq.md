@@ -132,3 +132,74 @@ You need to add the web3 component into your react build manually. To do so:
  \<script src="%PUBLIC\_URL%/YourGame/web3/index.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3modal.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/web3/lib/web3.min.js">\</script> \<script src="%PUBLIC\_URL%/YourGame/network.js">\</script>
  ```
  This should solve your issue. Happy coding!
+
+### I'm having `IndexOutOfRangeException` exception thrown when building to WebGL
+
+```
+IndexOutOfRangeException: Index was outside the bounds of the array.
+```
+
+When building to WebGL you could run into this issue on some Unity versions. To fix this, simply open your project's _Player Settings_ then navigate to _Resolution and Presentation_ and pick **Web3.Unity** under _WebGL Template_. Even if it was already selected your project should be able to build to WebGL now.
+
+### I cannot use your WebGL template to build for WebGL since I already have my own template with other dependencies
+No problem! Our WebGL template primarily ensures that the web3UnityInstance is assigned after the Unity instance is fully loaded and injected into the HTML. Here's how this is typically handled:
+```js
+script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          web3UnityInstance = unityInstance;
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+```
+This assignment is critical for web3.unity to function properly. Regardless of how or where you are initializing the Unity instance, ensure that the web3UnityInstance is explicitly assigned to your Unity instance during the initialization process.
+
+
+ <details>
+  <summary>Example how to do it with react-unity-webgl</summary>
+
+  In react-unity-webgl add this: 
+  ```js
+  const { unityProvider, sendMessage, isLoaded, loadingProgression } =
+      useUnityContext({
+          loaderUrl: 'build/build.loader.js',
+          dataUrl: 'build/build.data',
+          frameworkUrl: 'build/build.framework.js',
+          codeUrl: 'build/build.wasm'
+      })
+
+     useEffect(() => {
+     window.web3UnityInstance = {
+          SendMessage: (gameObjectName, methodName, parameter) => {
+               if (!gameObjectName || !methodName) {
+                    console.error(
+                         "SendMessage requires at least 'gameObjectName' and 'methodName'."
+                    )
+                    return
+               }
+
+               // Call the sendMessage function
+               sendMessage(gameObjectName, methodName, parameter)
+
+               // Log for debugging
+               console.log(
+                    'SendMessage called with:',
+                    gameObjectName,
+                    methodName,
+                    parameter
+               )
+          }
+     }
+     }, [isLoaded])
+
+  ```
+   Big thanks to Majiick for this solution.
+
+</details> 
+      
