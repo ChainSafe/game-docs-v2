@@ -1,5 +1,8 @@
 type: object
 properties:
+  id:
+    type: string
+    description: ID of the token on the indexer
   token_id:
     type: string
     description: Token ID
