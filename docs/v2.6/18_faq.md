@@ -92,6 +92,29 @@ Please join us in our [Discord](https://discord.gg/zxHUgGGTGk) ([#gaming-help](h
     
 Yes, the SDK will remain free to use.
 
+### Wallet address is being returned in all lower case, i need it in checksum format.
+
+No problems you can simple run a checksum conversion on the wallet address like so:
+
+```csharp
+// Put this at the top of your script, it's a using directive to give you access to the helper method.
+using Nethereum.Util;
+
+// This is your checksum function, place it anywhere.
+
+/// <summary>
+/// Converts an address to checksum format.
+/// </summary>
+private string ConvertToChecksum(string address)
+{
+    string checksumAddress = new AddressUtil().ConvertToChecksumAddress(address);
+    return checksumAddress;
+}
+
+// Call it like this.
+var checksumAddress = ConvertToChecksum(Your Address Here);
+```
+
 ## Common Error Messages
 
 ### I'm seeing the following error when I install the package. `The type or namespace name 'Newtonsoft' could not be found`  
