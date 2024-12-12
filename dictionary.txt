@@ -120,6 +120,7 @@ Ethereum
 EVM
 evm-blockchain
 extending-the-sdk
+extending-ui
 faq
 fix-namespaces
 fullscreen
