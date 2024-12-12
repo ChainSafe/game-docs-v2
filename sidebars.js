@@ -35,6 +35,7 @@ module.exports = {
             'v2.6/ramp',
             'v2.6/lootboxes',
             'v2.6/extending-the-sdk',
+            'v2.6/extending-ui',
           ],
         },
         {
