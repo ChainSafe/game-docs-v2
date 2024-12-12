@@ -82,6 +82,7 @@ cryptographically
 Ctrl
 Docusaurus
 DApp
+deactivateOnClick
 devs
 dev
 devsetup
@@ -120,6 +121,7 @@ Ethereum
 EVM
 evm-blockchain
 extending-the-sdk
+extending-ui
 faq
 fix-namespaces
 fullscreen
@@ -147,6 +149,9 @@ GitHub
 github
 Goerli's
 goerliETH
+GuiOverlayManager
+GuiScreen
+GuiOverlayType
 how-tos
 HTTPS
 HyperPlay
