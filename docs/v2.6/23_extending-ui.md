@@ -30,11 +30,11 @@ To show an overlay, you can call the following method:
 int GuiManager.Instance.Overlays.Show(GuiOverlayType type, string message, bool deactivateOnClick, Action onClose = null, float timeOut = 0)
 ```
 
-| **Name**            | **Type**         | **Description**                                                                                      |
-|---------------------|------------------|------------------------------------------------------------------------------------------------------|
-| `type`              | `GuiOverlayType` | Type of the overlay, it be `Error`, `Loading` or `Toast`                                             |
-| `message`           | `string`         | Message to display in overlay                                                                        |
-| `deactivateOnClick` | `bool`           | Can overlay be closed on click                                                                       |
-| `onClose`           | `Action`         | Callback to be invoked when overlay is closed                                                        |
-| `timeOut`           | `float`          | Time in seconds after which overlay should be closed, if it is equal to 0 then it has has no timeout |
+| **Name**            | **Type**         | **Description**                                                                                  |
+|---------------------|------------------|--------------------------------------------------------------------------------------------------|
+| `type`              | `GuiOverlayType` | Type of the overlay, it be `Error`, `Loading` or `Toast`                                         |
+| `message`           | `string`         | Message to display in overlay                                                                    |
+| `deactivateOnClick` | `bool`           | Can overlay be closed on click                                                                   |
+| `onClose`           | `Action`         | Callback to be invoked when overlay is closed                                                    |
+| `timeOut`           | `float`          | Time in seconds after which overlay should be closed, if it is equal to 0 then it has no timeout |
 
