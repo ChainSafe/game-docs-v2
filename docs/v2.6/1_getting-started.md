@@ -22,24 +22,50 @@ On the top bar in unity, navigate to Window → Package Manager → Press the pl
 
 Our packages are modular so your project wont bloat out with SDK files and you can have a lean development environment. The first piece you will need to begin your development journey is the core SDK package. This package contains everything you need for standard chain interactions. Simply enter this url into the add path field of the package manager.
 
-Core SDK:
-`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity`
+### Packages
+
+**Core SDK**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity 
+```
 
 If you prefer to download packages trough openUPM you can do it trough the following link:
-`https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme`
+```js
+https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme
+```
 
-Other modules that depend on the core SDK and can be downloaded trough git or openUPM:
+### Extensions
+Other modules that depend on the core SDK and can be downloaded through git or openUPM:
 
+**Web3Auth Login Provider** 
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth
+```
 
-Web3Auth Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth`
-Hyperplay Login Provider: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay`
+**Hyperplay Login Provider**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay
+```
 
+**Lootboxes**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes
+```
 
+**Marketplace**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace
+```
 
-Lootboxes: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes`  
-Marketplace: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`  
-MUD: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud`  
-Fiat On/Off Ramp support: `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+**MUD**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud
+```
+
+**Fiat On/Off Ramp support**
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp
+```
 
 
 
@@ -59,6 +85,8 @@ As the package is installed, you'll be prompted with the ChainSafe server settin
 
 ![](assets/getting-started/project-settings.png)
 
+### Set Chain
+
 After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
 Next up, you need to set up the list of chains you want to interact with inside of your project:
 
@@ -66,7 +94,11 @@ Next up, you need to set up the list of chains you want to interact with inside 
 
 You need a minimum of 1 chain for the SDK to work normally.
 
-Small note: All of our samples are made on the Ethereum Sepolia network. If you run the samples whilst you are on another chain, you will get an exception.
+:::info
+All of our samples are made on the Ethereum Sepolia network. If you run the samples whilst you are on another chain, you will get an exception.
+:::
+
+### Accessing Server Settings
 
 If you need to refer to the ChainSafe server settings area again, you can find it on the top navigation bar. Simply select it and press server settings to view the menu.
 
@@ -77,4 +109,4 @@ Right-click inside the Hierarchy view and select **Web3/Web3 Client**. This will
 
 ![](assets/getting-started/create-web3-client-menu.png)
 
-Now after you've done this, you need to choose your wallet provider. Check it out in the "Choose Your Wallet" section.
+Now after you've done this, you need to choose your wallet provider.
