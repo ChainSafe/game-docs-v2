@@ -55,23 +55,23 @@ public class ExampleClass : MonoBehaviour
 
 Web3.Unity should work with any EVM based network on the blockchain. Below you'll find a list of tested and approved networks, however you can find a wider range of supported networks on [Chainlist](https://chainlist.org/): 
 
-| Network Name | Type of Chain |  Chain ID   |
-| ------------ | ------------- | ----------- |
-| ETH Mainnet  | Mainnet       | 1           |
-| Sepolia      | Testnet       | 11155111    |
-| Polygon      | Mainnet       | 137         |
-| Amoy         | Testnet       | 80002       |
-| BSC          | Mainnet       | 56          |
-| BSC          | Testnet       | 97          |
-| Avalanche    | Mainnet       | 43114       |
-| Avalanche    | Testnet       | 43113       |
-| Base         | Mainnet       | 8453        |
-| Cronos       | Mainnet       | 25          |
-| Cronos       | Testnet       | 338         |
-| Moonbeam     | Mainnet       | 1284        |
-| SKALE Nebula | Mainnet       | 1482601649  |
-| SKALE Nebula | Testnet       | 503129905   |
-| SKALE Chaos  | Testnet       | 1351057110  |
+| Network Name   | Type of Chain |  Chain ID   |
+| ------------   | ------------- | ----------- |
+| ETH Mainnet    | Mainnet       | 1           |
+| Sepolia        | Testnet       | 11155111    |
+| Polygon        | Mainnet       | 137         |
+| Amoy           | Testnet       | 80002       |
+| B3             | Testnet       | 8333        |
+| B3 Sepolia     | Testnet       | 1993        |
+| BSC            | Mainnet       | 56          |
+| BSC            | Testnet       | 97          |
+| Avalanche      | Mainnet       | 43114       |
+| Fuji Avalanche | Testnet       | 43113       |
+| Base           | Mainnet       | 8453        |
+| Base Sepolia   | Testnet       | 8453        |
+| SKALE Nebula   | Mainnet       | 1482601649  |
+| SKALE Nebula   | Testnet       | 503129905   |
+| SKALE Chaos    | Testnet       | 1351057110  |
 
 ## Additional Resources
 
