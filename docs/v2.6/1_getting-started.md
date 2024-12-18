@@ -37,41 +37,43 @@ https://openupm.com/packages/io.chainsafe.web3-unity/?subPage=readme
 ### Extensions
 Other modules that depend on the core SDK and can be downloaded through git or openUPM:
 
-**Web3Auth Login Provider** 
+#### Web3Auth Login Provider ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.web3auth
 ```
 
-**Hyperplay Login Provider**
+#### Hyperplay Login Provider ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.hyperplay
 ```
 
-**Lootboxes**
+#### Lootboxes ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.lootboxes
 ```
 
-**Marketplace**
+#### Marketplace ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace
 ```
 
-**MUD**
+#### MUD ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.mud
 ```
 
-**Fiat On/Off Ramp support**
+#### Fiat On/Off Ramp support ####
 ```js
 https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp
 ```
 
 
 
-Please note that each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
+:::note
+Each package has samples that can be installed, these samples are built to give you a working example on the packages calls. You will also need the CORE SDK samples package if you want to work with the sample scripts seen [here](/current/sample-scripts)
 
 ![](assets/getting-started/import-samples.png)
+:::
 
 ### Updating via The Package Manager
 

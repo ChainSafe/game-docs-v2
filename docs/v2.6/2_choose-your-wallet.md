@@ -81,8 +81,8 @@ Adding wallet providers to your games is simpler than ever. Inside the Web3Unity
 
 If you've only installed our core package, the two available providers will be WalletConnect (which will be renamed to Reown in future versions) and MetaMask. You can add these as providers by clicking the Add Provider button. This will create new configuration file(s) inside your Resources folder.
 
-To add support for social login (Google, Facebook, X), you need to install the [web3auth package](/current/getting-started#extensions). 
+To add support for social login (Google, Facebook, X), you need to install the [web3auth package](/current/getting-started#web3auth-login-provider). 
 
-If your game is ready to be published on the Hyperplay launcher, you need to install the [Hyperplay package](/current/getting-started#extensions).
+If your game is ready to be published on the Hyperplay launcher, you need to install the [Hyperplay package](/current/getting-started#hyperplay-login-provider).
 
 
