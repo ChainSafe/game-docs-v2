@@ -5,6 +5,7 @@ sidebar_label: Contract ABI To C# Generator
 ---
 
 # Contract ABI To C# Generator
+
 In version 3.0, we've made it super easy for you to communicate with the blockchain by introducing the ABI to C# converter. Besides encapsulating all of your contract ABI into more user-friendly, statically typed methods, this utility also allows you to easily subscribe and unsubscribe to events happening on the blockchain.
 
 You can access it by clicking on the top menu: Chainsafe SDK → Contract ABI To C# Generator.
