@@ -4,6 +4,9 @@ sidebar_position: 7
 sidebar_label: Setting Up An RPC Node
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Setting Up An RPC Node For web3.unity
 
 :::info
@@ -12,12 +15,17 @@ This section walks through the process of setting up an RPC node to be used with
 
 :::
 
+<Tabs className="unique-tabs">
+  <TabItem value="Chainstack">
+
 # Chainstack
 
-# Prerequisites
+:::note
+Prerequisites
 
 - A Chainstack account (sign up at [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) if you don't have one)
 - Familiarity with the web3.unity SDK
+:::
 
 # Creating a project in Chainstack
 
@@ -52,9 +60,7 @@ This section walks through the process of setting up an RPC node to be used with
 ![](assets/setting-up-an-rpc-node/chainstack-node-deployment.png)
 
 :::info
-
 Note that Chainstack’s Developer plan provides 3 million free API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals).
-
 :::
 
 4. Review the details under the “Summary” step and then click “Join network”.
@@ -74,12 +80,17 @@ Note that Chainstack’s Developer plan provides 3 million free API requests per
 
 ![](assets/setting-up-an-rpc-node/chainstack-https-endpoints.png)
 
+  </TabItem>
+  <TabItem value="QuickNode">
+
 # QuickNode
 
-# Prerequisites
+:::note
+Prerequisites
 
 - A QuickNode account (sign up at [QuickNode](https://dashboard.quicknode.com/?prompt=signup) if you don't have one)
 - Familiarity with the web3.unity SDK
+:::
 
 # Creating a project in QuickNode
 
@@ -108,3 +119,6 @@ Note that Chainstack’s Developer plan provides 3 million free API requests per
 Note that the free plan QuickNode offers provides 10 million API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://dashboard.quicknode.com/select-plan).
 
 :::
+
+  </TabItem>
+</Tabs>
