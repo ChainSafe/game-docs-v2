@@ -5,9 +5,9 @@ sidebar_label: Contract ABI To C# Generator
 ---
 
 # Contract ABI To C# Generator
-In version 3.0, we've made it super easy for you to communicate with the blockchain by introducing the ABI to C# converter. Besides encapsulating all of your contract ABI into more user-friendly, statically typed methods, this utility also allows you to easily subscribe to and unsubscribe from the events happening on the blockchain.
+In version 3.0, we've made it super easy for you to communicate with the blockchain by introducing the ABI to C# converter. Besides encapsulating all of your contract ABI into more user-friendly, statically typed methods, this utility also allows you to easily subscribe and unsubscribe to events happening on the blockchain.
 
-You can access it by clicking on the top menu: Chainsafe SDK > Contract ABI To C# Generator.
+You can access it by clicking on the top menu: Chainsafe SDK → Contract ABI To C# Generator.
 
 ![Contract ABI TO C# converter](assets/abi-csharp-contract/abi-csharp-overview.png)
 
@@ -16,7 +16,7 @@ Once there, you need to fill out the name of your contract and the folder where 
 
 ![Contract ABI TO C# converter](assets/abi-csharp-contract/abi-csharp-filled.png)
 
-If the data you provided is correct, you can click on Generate. After a few seconds, and once Unity reloads the domain, you should see a newly created C# class inside of your project.
+If the data you provided is correct, you can click on Convert. After a few seconds, and once Unity reloads the domain, you should see a newly created C# class inside of your project.
 
 Now, to actually interact with both the events and methods from the contract, the only remaining information needed is the contract address.
 
@@ -61,4 +61,4 @@ public class CustomContractSample : MonoBehaviour
 }
 ```
 
-Since we subscribe to blockchain events from the ABI during the contract building process behind the scenes, we need to manually dispose of the contract in a method like OnDestroy, which will handle unsubscribing from those events.
+Since we subscribe to blockchain events from the ABI during the contract building process, we need to manually dispose of the contract in a method like OnDestroy, which will handle unsubscribing from events.
