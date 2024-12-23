@@ -7,7 +7,7 @@ sidebar_label: Sample Scripts & Chain Interactions
 # Sample Scripts & Chain Interactions
 
 ## Reading and writing to the blockchain
-The fastest and most convenient way to do any blockchain interaction would be to first generate the C# class from the contracts ABI, which is described in the section above. 
+The fastest and most convenient way to do any blockchain interaction would be to first generate the [C# class from the contracts ABI](/current/abi-to-csharp-converter). 
 
 ```csharp
 public class CustomContractSample : MonoBehaviour

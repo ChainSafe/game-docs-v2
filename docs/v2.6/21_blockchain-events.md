@@ -3,15 +3,12 @@ slug: /current/blockchain-events
 sidebar_position: 21
 sidebar_label: Listening to Blockchain Events
 ---
-Here’s the corrected version of your content with improved grammar:
-
----
 
 # Listening to Blockchain Events
 Often, you will want to react to certain events happening on the blockchain. For example, you might want to know when a transfer of funds occurs on a specific smart contract.
 
 ## Prerequisite
-Fill in the WebSocket URL for the chains in the ChainSafe SDK > Project Settings.
+Fill in the WebSocket URL for the chains in the ChainSafe SDK → Project Settings.
 
 To subscribe to the events happening on the blockchain, you need to add the Events Service Adapter to your Web3Unity Prefab.  
 There, you will find a serialized field called the polling interval. For platforms other than WebGL, any changes made to that number won't take effect, as for WebGL, we use event polling (essentially pinging the RPC every `pollingInterval` seconds to check for new events from a specific address), due to the limitations of the WebGL platform. If you are not building for WebGL (this includes the Editor), you'll use the WebSocket URL provided in your chain configuration.
