@@ -24,6 +24,7 @@ AppKit
 auth
 abi-to-csharp-converter
 AUTH
+B3
 backend
 BalanceOf
 behaviour
@@ -270,6 +271,7 @@ sampleLogin
 sign-through-web3auth
 SHA-3
 setting-up-an-rpc-node
+TabItem
 tokenIds
 tokenId
 transfer-erc-20-token-through-web3auth
