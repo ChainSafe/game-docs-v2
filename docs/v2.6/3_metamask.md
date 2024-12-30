@@ -8,7 +8,7 @@ sidebar_label: Metamask
 
 ## What is Metamask?
 
-MetaMask is a digital wallet and browser extension that allows users to securely interact with EVM-based games. It acts as a bridge between your browser and the EVM chains, making it easy to send, receive, and swap digital assets. You can learn more about MetaMask [here](https://metamask.io/).
+MetaMask is a digital wallet and browser extension that allows users to securely interact with EVM-based games. It acts as a bridge between your browser and the EVM chains, making it easy to send, receive, and swap digital assets. You can learn more about MetaMask [here](https://metamask.io/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 :::note
 

@@ -13,13 +13,13 @@ extendable by default. These worlds come with access control, upgradability, hoo
 developer tools. MUD evolved from experiences building cutting-edge on-chain games like Dark Forest and zkDungeon. With
 our MUD integration, you can now easily create truly decentralized game applications within Unity!
 
-_If you're not familiar with MUD and the concept of autonomous worlds, please refer to the [MUD documentation](https://mud.dev/introduction) first._
+_If you're not familiar with MUD and the concept of autonomous worlds, please refer to the [MUD documentation](https://mud.dev/introduction?utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals) first._
 
 ## Building a MUD Application in Unity
 
 Before you can start developing your Unity MUD application, you should either deploy or run your MUD world locally. A
 MUD world is essentially a set of smart contracts with one main contract called 'World'. Please follow the [Hello World
-Tutorial](https://mud.dev/quickstart) from the original MUD documentation to get started.
+Tutorial](https://mud.dev/quickstart?utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals) from the original MUD documentation to get started.
 
 You can find examples of interacting with the MUD world in the Samples of our UPM package, but we'll cover the most
 important parts in this tutorial.

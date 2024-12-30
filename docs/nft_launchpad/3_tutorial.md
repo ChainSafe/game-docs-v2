@@ -12,7 +12,7 @@ This tutorial will guide you through the process of creating a collection, minti
 
 Before you begin, ensure you have the following:
 
-- A project created for your game. If you don't have one, you can create one [here](https://dashboard.gaming.chainsafe.io/dashboard).
+- A project created for your game. If you don't have one, you can create one [here](https://dashboard.gaming.chainsafe.io/dashboard?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 - Connect your wallet to the ChainSafe Gaming Dashboard. You can connect your wallet by clicking on the `Connect Wallet` button on the top right corner of the dashboard.
 
@@ -22,7 +22,7 @@ Before you begin, ensure you have the following:
 You can skip this step if you already have a project created for your game.
 :::
 
-- Go to the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/dashboard) and click on the `+` button on the top right.
+- Go to the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/dashboard?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) and click on the `+` button on the top right.
 
 - Fill in the details for your project and click on `Create Project` button.
 
@@ -30,7 +30,7 @@ You can skip this step if you already have a project created for your game.
 
 ## 2. Create a Collection
 
-- Head over to `NFT Launchpad` tab in the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/nfts/entry).
+- Head over to `NFT Launchpad` tab in the [ChainSafe Gaming Dashboard](https://dashboard.gaming.chainsafe.io/nfts/entry?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 
 - Select the project you want to create a collection for.

@@ -30,7 +30,7 @@ Yes, you can make desktop, web, and mobile games using our SDK.
 
 ### Does the SDK support other EVM-compatible chains besides Ethereum?
 
-Yes. The SDK will support other EVM-compatible chains, should you run into any issues with a particular chain, please reach out on our [Discord](https://discord.gg/zxHUgGGTGk).
+Yes. The SDK will support other EVM-compatible chains, should you run into any issues with a particular chain, please reach out on our [Discord](https://discord.gg/zxHUgGGTGk?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 ### Does the SDK support other non-EVM blockchains like Solana or Algorand?
 
@@ -50,7 +50,7 @@ Not currently. Although, the SDK is mainly compatible with Ethereum Virtual Mach
 
 web3.unity is currently on v2.
     
-You can download the [latest release](https://github.com/ChainSafe/web3.unity/releases/) and import it into your Unity build. We have an installation tutorial here: [https://docs.gaming.chainsafe.io/](https://docs.gaming.chainsafe.io/)
+You can download the [latest release](https://github.com/ChainSafe/web3.unity/releases/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) and import it into your Unity build. We have an installation tutorial [here](https://docs.gaming.chainsafe.io/).
     
 ### What are the benefits of moving to the latest version?
 
@@ -70,11 +70,11 @@ Some effort will be required to refactor games that use modified versions of our
     
 This largely depends on the amount of affected code you have in your game and the platform that you’re building on; both our team and the community are here to help.
     
-Join our [Discord](https://discord.gg/zxHUgGGTGk) for support or reach out to our team at `bd@chainsafe.io` for consulting engagements, we are happy to assist.
+Join our [Discord](https://discord.gg/zxHUgGGTGk?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) for support or reach out to our team at `bd@chainsafe.io` for consulting engagements, we are happy to assist.
     
 ### What is an RPC and how do I get one?
     
-A Remote Procedure Call or RPC node is a type of computer server that allows users to read data on the blockchain and send transactions to different networks. You can deploy one using either [QuickNode](https://www.quicknode.com/) or [Chainstack](https://chainstack.com/).
+A Remote Procedure Call or RPC node is a type of computer server that allows users to read data on the blockchain and send transactions to different networks. You can deploy one using either [QuickNode](https://www.quicknode.com/?utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals) or [Chainstack](https://chainstack.com/?utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals).
     
 ### Are RPCs required?
     
@@ -86,7 +86,10 @@ While we appreciate and understand how this may impact some of our existing deve
     
 ### Can someone help migrate my game to the latest version?
     
-Please join us in our [Discord](https://discord.gg/zxHUgGGTGk) ([#gaming-help](https://discord.gg/QKxVQBsyPt), [#community-code-support](https://discord.gg/sYhfpxrEHt)) for support from our core devs, ChainSages, and other SDK community members. If additional consulting is required, please contact us at `bd@chainsafe.io` to set up a call with our team.
+Please join us in our [Discord](https://discord.gg/zxHUgGGTGk?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) ([#gaming-help](https://discord.gg/QKxVQBsyPt?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) for support from our core devs, ChainSages, and other SDK community members. If additional consulting is required, please contact us at ```js
+bd@chainsafe.io
+``` 
+to set up a call with our team.
     
 ### Will the web3.unity SDK remain free to use?
     

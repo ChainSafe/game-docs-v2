@@ -12,9 +12,9 @@ This guide will help you to create an on-chain marketplace for your game and lis
 
 Before you begin, ensure you have the following:
 
-- A project created for your game. If you don't have one, you can create one [here](https://dashboard.gaming.chainsafe.io/dashboard).
+- A project created for your game. If you don't have one, you can create one [here](https://dashboard.gaming.chainsafe.io/dashboard?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
-- You should have already created some nfts for your game inside of the project. If you haven't, you can create some [here](https://dashboard.gaming.chainsafe.io/nfts/entry).
+- You should have already created some nfts for your game inside of the project. If you haven't, you can create some [here](https://dashboard.gaming.chainsafe.io/nfts/entry?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 - Connect your wallet to the ChainSafe Gaming Dashboard. You can connect your wallet by clicking on the `Connect Wallet` button on the top right corner of the dashboard.
 
@@ -73,7 +73,9 @@ Once you have created a marketplace, its time to list some NFTs for sale in the 
 
 ## 4. Use marketplace inside of your Unity game
 Add the Chainsafe marketplace package as a git package: 
-`https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace`
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.marketplace
+```
 Add Marketplace Service Adapter to the Web3Unity prefab
 
 ![](./assets/marketplace_sample.png)

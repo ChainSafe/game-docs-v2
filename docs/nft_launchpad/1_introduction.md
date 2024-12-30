@@ -15,6 +15,6 @@ Game Developers can create, manage and visualize NFTs through the dashboard with
 
 ### Ready To Get Started?
 
-Head over to the [NFT Launchpad Dashboard](https://dashboard.gaming.chainsafe.io/nfts/entry) to manage your collections and mint NFTs for your projects.
+Head over to the [NFT Launchpad Dashboard](https://dashboard.gaming.chainsafe.io/nfts/entry?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) to manage your collections and mint NFTs for your projects.
 
 Follow the guide to know more about how to interact with the NFT Launchpad and mint NFTs for your projects.

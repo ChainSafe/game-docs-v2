@@ -13,7 +13,7 @@ This area will explain basic interactions for using Gelato and gasless transacti
 
 :::
 
-We've now integrated Gelato gasless transactions into the SDK to help reduce friction that some users any face when entering the blockchain world. You simply need a Gelato API key which can be obtained [here](https://relay.Gelato.network/) We have an example API key for testing purposes but this shouldn't be used in a production app. Please ensure that you're replacing this with your own key before going to production.
+We've now integrated Gelato gasless transactions into the SDK to help reduce friction that some users any face when entering the blockchain world. You simply need a Gelato API key which can be obtained [here](https://relay.gelato.network/?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals) We have an example API key for testing purposes but this shouldn't be used in a production app. Please ensure that you're replacing this with your own key before going to production.
 
 ## Logging In With Gelato
 In order to make use of our Gelato functions you need to ensure the chain has Gelato capability enabled. You can check this by logging into our sample scene. If the Gelato functions are there then you're good to go, if not you will need to wait for Gelato to update on their end in order to provide functionality for your chain. Our SDKs sample scene provides a variety of Gelato functions for you to test out.
