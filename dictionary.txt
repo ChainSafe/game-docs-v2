@@ -175,7 +175,7 @@ IProjectConfig
 javascript
 JSON
 JsonRpcProvider
-`js`
+js
 KPIs
 KYB
 Kwame
