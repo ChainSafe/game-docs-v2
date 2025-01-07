@@ -16,10 +16,10 @@ This game was built to show you how our SDK would function in a game environment
 The repo contains a fun multiplayer racing game which was build to help explain the functionality of the SDK complete with code examples.
 
 ## Block Racers Project Files
-The repo for the Block Racers project files can be found [here](https://github.com/ChainSafe/BlockRacers/)
+The repo for the Block Racers project files can be found [here](https://github.com/ChainSafe/BlockRacers/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs)
 
 ## Block Racers Playable Demo
-The Block Racers game demo can be found [here](https://chainsafe.github.io/BlockRacersGame/)
+The Block Racers game demo can be found [here](https://chainsafe.github.io/BlockRacersGame/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs)
 
 ## Booting Up The Game & Connecting Your Wallet
 Once the game has booted up, simply connect your wallet and have a look around through the menus.
@@ -281,7 +281,7 @@ public class EcdsaSignMessage : MonoBehaviour
 ```
 
 ## Dashboard
-Clicking this button will take you to the chainsafe dashboard [here](https://dashboard.gaming.chainsafe.io/) where you can do things like signing up for a project ID and set various other project information.
+Clicking this button will take you to the chainsafe dashboard [here](https://dashboard.gaming.chainsafe.io/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) where you can do things like signing up for a project ID and set various other project information.
 
 ![](assets/block-racers/block-racers10.png)
 

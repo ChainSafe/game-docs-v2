@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 :::info
 
-This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) and [QuickNode](https://dashboard.quicknode.com/?prompt=signup) as an example, but this can also be done with other providers. Setting up an RPC node is not a requirement for the SDK but it will help in terms of congestion and stability as the public nodes can be saturated at times.
+This section walks through the process of setting up an RPC node to be used with the web3.unity SDK. We use [Chainstack](https://console.chainstack.com/user/account/create?utm_campaign=Referrals&utm_source=chainsafe&utm_medium=referrals) and [QuickNode](https://dashboard.quicknode.com/?prompt=signup&utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals) as an example, but this can also be done with other providers. Setting up an RPC node is not a requirement for the SDK but it will help in terms of congestion and stability as the public nodes can be saturated at times.
 
 :::
 
@@ -88,7 +88,7 @@ Note that Chainstack’s Developer plan provides 3 million free API requests per
 :::note
 Prerequisites
 
-- A QuickNode account (sign up at [QuickNode](https://dashboard.quicknode.com/?prompt=signup) if you don't have one)
+- A QuickNode account (sign up at [QuickNode](https://dashboard.quicknode.com/?prompt=signup&utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals) if you don't have one)
 - Familiarity with the web3.unity SDK
 :::
 
@@ -116,7 +116,7 @@ Prerequisites
 
 :::info
 
-Note that the free plan QuickNode offers provides 10 million API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://dashboard.quicknode.com/select-plan).
+Note that the free plan QuickNode offers provides 10 million API requests per month. This should be enough for most testing and app development purposes. If your game requires more calls per month, we would suggest [upgrading your plan](https://dashboard.quicknode.com/select-plan?utm_source=chainsafe&utm_medium=referrals&utm_campaign=Referrals).
 
 :::
 

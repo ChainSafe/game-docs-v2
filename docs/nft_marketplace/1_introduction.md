@@ -23,4 +23,4 @@ in one marketplace at a time. Our marketplace tool kit supports Ethereum, Polygo
 
 ### Ready To Get Started?
 
-Head over to the [NFT Marketplace Dashboard](https://dashboard.gaming.chainsafe.io/marketplaces/entry) to manage your marketplace and list NFTs for your projects.
+Head over to the [NFT Marketplace Dashboard](https://dashboard.gaming.chainsafe.io/marketplaces/entry?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) to manage your marketplace and list NFTs for your projects.

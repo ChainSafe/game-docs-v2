@@ -18,7 +18,7 @@ You must create an account and project in the Reown (Wallet Connect) dashboard t
 
 ## Custom Reown (Wallet Connect) Endpoint
 
-Head on over to the dashboard at [Reown (Wallet Connect)](https://cloud.walletconnect.com/sign-in) to sign up and get your details.
+Head on over to the dashboard at [Reown (Wallet Connect)](https://cloud.walletconnect.com/sign-in?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs) to sign up and get your details.
 
 ![](assets/wallets/reown/reown-dash.png)
 

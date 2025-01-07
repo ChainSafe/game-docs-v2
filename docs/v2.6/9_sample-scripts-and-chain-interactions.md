@@ -180,7 +180,7 @@ public class TempAccountProvider : IAccountProvider
 ```
 
 ## IPFS Upload
-In order to upload your files to IPFS, you will need to obtain your storage API secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/).
+In order to upload your files to IPFS, you will need to obtain your storage API secret and bucket id from ChainSafe's storage [here](https://app.storage.chainsafe.io/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs).
 
 ``` csharp
 public class IpfsSample : MonoBehaviour, ISample

@@ -16,7 +16,7 @@ This area will explain how we've made use of Dependency Injections as well as ho
 This SDK was designed to be extendable. This was achieved by utilizing the Dependency Injection framework.
 There are different implementations of DI frameworks that you can use in Unity, Zenject being 
 the most popular one. However as this SDK aims to be cross-engine Microsoft's DI framework was chosen
-as the one that can run in any CLR environment. You can read more about Microsoft's DI framework [using this link](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection#multiple-constructor-discovery-rules).
+as the one that can run in any CLR environment. You can read more about Microsoft's DI framework [using this link](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals#multiple-constructor-discovery-rules).
 
 As any DI framework it works with contract-implementation pairs. So, when you request the RpcProvider
 with `web3.RpcProvider`, the SDK looks for the implementation of `IRpcProvider` 
@@ -236,4 +236,4 @@ This modular approach allows you to create your own UPM (Unity Package Manager) 
 extend ChainSafe Gaming SDK. Just put your new services in a separate package and add a 
 reference to `io.chainsafe.web3-unity` in your manifest file.
 
-To learn more on how to create a new UPM package [visit this page](https://docs.unity3d.com/Manual/CustomPackages.html).
+To learn more on how to create a new UPM package [visit this page](https://docs.unity3d.com/Manual/CustomPackages.html?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals).

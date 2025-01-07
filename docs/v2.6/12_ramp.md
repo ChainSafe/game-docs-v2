@@ -18,7 +18,10 @@ This page explains what Ramp is & how to use it.
 Ramp is a quick and easy way to purchase crypto with Fiat currency if your country supports it.
 
 1. You can import our Ramp sample scene by navigating to Window → Package Manager.
-2. Add a new package by name by pressing + and adding via git url and entering `https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp`
+2. Add a new package by name by pressing + and adding via git url and entering 
+```js
+https://github.com/ChainSafe/web3.unity.git?path=/Packages/io.chainsafe.web3-unity.ramp
+```
 3. Once the package is installed, click on the Samples tab. Import the samples.
 4. Once imported, you can find the scene by navigating to Samples → web3.unity SDK → 2.6 → Web3.Unity Samples → Scenes → SampleLogin - Ramp.
 5. Click on the Login Logic - Ramp object and in the inspector, modify the Scene To Load to your preferred scene.
@@ -53,7 +56,7 @@ This object contains all the configuration you'll need to begin testing out Ramp
 
 ## Changing the company logo, app name & API key
 
-By selecting the ramp scriptable object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration) as needed.
+By selecting the ramp scriptable object you're able to customize the logo (currently we're using the ChainSafe logo) You can place whichever logo & app name you'd like in here along with your API key which you can get from [here](https://docs.ramp.network/configuration?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals) as needed.
 
 ![](assets/ramp/ramp-logo.png)
 
@@ -68,7 +71,7 @@ Once logged in you'll be presented with our famous sample scene page, which you'
 
 ![](assets/ramp/ramp-functionality.png)
 
-As you can see from the functions here in ramp.cs, we're providing 3 different types of ramp functionality for use with your project. This can be accessed through the Web3 object as needed. You can also check out the ramp configuration docs [here](https://docs.ramp.network/configuration) if you would like to add additional settings or use other tokens besides sepolia eth.
+As you can see from the functions here in ramp.cs, we're providing 3 different types of ramp functionality for use with your project. This can be accessed through the Web3 object as needed. You can also check out the ramp configuration docs [here](https://docs.ramp.network/configuration?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals) if you would like to add additional settings or use other tokens besides sepolia eth.
 
 ### On-ramp
 
@@ -81,7 +84,7 @@ private async void OnRampPressed()
     var purchaseData = await Web3Accessor.Web3.RampExchanger().BuyCrypto(
         new RampBuyWidgetSettings
         {
-            // For more info on widget settings check https://docs.ramp.network/configuration
+            // For more info on widget settings check https://docs.ramp.network/configuration?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals
             //Since this is only a demo, SEPOLIA_ETH is used as a fake token. For production environment,
             //you should use real tokens like ETH, DAI, USDC, etc.
             SwapAsset = "SEPOLIA_ETH",
@@ -108,7 +111,7 @@ private async void OffRampPressed()
     var saleData = await Web3Accessor.Web3.RampExchanger().SellCrypto(
         new RampSellWidgetSettings
         {
-            // For more info on widget settings check https://docs.ramp.network/configuration
+            // For more info on widget settings check https://docs.ramp.network/configuration?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals
             OfframpAsset = "SEPOLIA_ETH",
             DefaultAsset = "SEPOLIA_ETH",
             FiatCurrency = "EUR",
@@ -133,7 +136,7 @@ private async void OnRampOffRampPressed()
     var rampTransactionData = await Web3Accessor.Web3.RampExchanger().BuyOrSellCrypto(
         new RampBuyOrSellWidgetSettings
         {
-            // For more info on widget settings check https://docs.ramp.network/configuration 
+            // For more info on widget settings check https://docs.ramp.network/configuration?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals
             SwapAsset = "SEPOLIA_ETH",
             OfframpAsset = "SEPOLIA_ETH",
             DefaultAsset = "SEPOLIA_ETH",
@@ -180,7 +183,7 @@ This is a local/localhost specific error and doesn't happen on real domains duri
    <br />
    [Unity Editor Directory] is usually `C:/Program Files/Unity/Hub/Editor/2022.3.../`
    <br /><br />
-   Mac/Linux: Install [Python](https://www.python.org/downloads/) and in the Build directory open terminal
+   Mac/Linux: Install [Python](https://www.python.org/downloads/?utm_source=Referrals&utm_medium=chainsafe&utm_campaign=referrals) and in the Build directory open terminal
    <br />
    Run command `py -m http.server`
    <br /><br />

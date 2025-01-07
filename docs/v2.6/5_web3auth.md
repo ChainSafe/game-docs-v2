@@ -32,7 +32,7 @@ In the Wallet GUI Config, you can fine-tune the behavior and appearance of the W
 
 ### Getting Client Id
 
-In order to properly populate the Client Id and redirect URL go to [Web3Auth dashboard](https://dashboard.web3auth.io/)
+In order to properly populate the Client Id and redirect URL go to [Web3Auth dashboard](https://dashboard.web3auth.io/?utm_source=docs&utm_medium=documentation&utm_campaign=chainsafe_gaming_docs)
 
 In the dashboard, click on project navigation column on the left, and click "Create Project".
 
