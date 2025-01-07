@@ -6,11 +6,9 @@ sidebar_label: Hyperplay
 
 # Hyperplay
 
-![](assets/wallets/hyperplay/hyperplay-title.png)
-
 ## What is HyperPlay?
 
-HyperPlay is a wallet solution that runs in a desktop client, it uses web requests to communicate with the wallet with the client and makes connecting to games easy and simple.
+HyperPlay is a wallet solution that runs in a desktop client. It uses web requests to communicate with the wallet and the client and makes connecting to games easy and simple.
 
 ## HyperPlay Desktop App
 

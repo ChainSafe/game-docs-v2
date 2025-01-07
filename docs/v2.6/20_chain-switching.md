@@ -5,11 +5,14 @@ sidebar_label: Chain Switching
 ---
 
 # Chain Switching
-In version 3.0, we've added the most requested feature from the community—chain switching.
 
-Chain switching allows you to seamlessly switch between chains if you need to interact with smart contracts that are deployed on a different chain.
+In version 3.0, we've added the most requested feature from the community — chain switching.
+
+Chain switching allows you to seamlessly switch between chains if you need to interact with smart contracts that are deployed on a different chains.
+
 ![](assets/chain-switching/chain-settings.png)
-In the Chain Settings inside the ChainSafe SDK > Project Settings, you can add as many chains as you'd like. 
+
+In the Chain Settings inside the ChainSafe SDK → Project Settings, you can add as many chains as you'd like. 
 
 The first chain in the list will always be the initial one that Web3Unity connects to.
 

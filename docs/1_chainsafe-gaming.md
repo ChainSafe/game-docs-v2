@@ -55,34 +55,32 @@ public class ExampleClass : MonoBehaviour
 
 Web3.Unity should work with any EVM based network on the blockchain. Below you'll find a list of tested and approved networks, however you can find a wider range of supported networks on [Chainlist](https://chainlist.org/): 
 
-| Network Name | Type of Chain |  Chain ID   |
-| ------------ | ------------- | ----------- |
-| ETH Mainnet  | Mainnet       | 1           |
-| Sepolia      | Testnet       | 11155111    |
-| Polygon      | Mainnet       | 137         |
-| Amoy         | Testnet       | 80002       |
-| BSC          | Mainnet       | 56          |
-| BSC          | Testnet       | 97          |
-| Avalanche    | Mainnet       | 43114       |
-| Avalanche    | Testnet       | 43113       |
-| Base         | Mainnet       | 8453        |
-| Cronos       | Mainnet       | 25          |
-| Cronos       | Testnet       | 338         |
-| Moonbeam     | Mainnet       | 1284        |
-| SKALE Nebula | Mainnet       | 1482601649  |
-| SKALE Nebula | Testnet       | 503129905   |
-| SKALE Chaos  | Testnet       | 1351057110  |
+| Network Name   | Type of Chain |  Chain ID   |
+| ------------   | ------------- | ----------- |
+| ETH Mainnet    | Mainnet       | 1           |
+| Sepolia        | Testnet       | 11155111    |
+| Polygon        | Mainnet       | 137         |
+| Amoy           | Testnet       | 80002       |
+| B3             | Testnet       | 8333        |
+| B3 Sepolia     | Testnet       | 1993        |
+| BSC            | Mainnet       | 56          |
+| BSC            | Testnet       | 97          |
+| Avalanche      | Mainnet       | 43114       |
+| Fuji Avalanche | Testnet       | 43113       |
+| Base           | Mainnet       | 8453        |
+| Base Sepolia   | Testnet       | 8453        |
+| SKALE Nebula   | Mainnet       | 1482601649  |
+| SKALE Nebula   | Testnet       | 503129905   |
+| SKALE Chaos    | Testnet       | 1351057110  |
 
 ## Additional Resources
 
-If you are new to web3.unity and blockchain-enabled gaming, we recommend that you read over these docs carefully, starting with [Current SDK Builds (v2.x)](#current-sdk-builds-v2x). If you are new to building with the Unity game engine, the [Unity3D manual](https://docs.unity3d.com/Manual/index.html) is a great place to start as well as [learn Unity](https://learn.unity.com/).
+If you are new to web3.unity and blockchain-enabled gaming, we recommend that you read over these docs carefully. If you are new to building with the Unity game engine, the [Unity3D manual](https://docs.unity3d.com/Manual/index.html) is a great place to start as well as [learn Unity](https://learn.unity.com/).
 
 * Our [Discord](https://discord.gg/zxHUgGGTGk) is an active community of game devs sharing tips and tricks with each other
-  * Hop into our [office hours](https://discord.gg/GTK89A72?event=1242583988623769611) every Wednesday at 9 am EST to get help with your code, brainstorm ideas, or provide feedback to the team.
 * Our [Twitter](https://twitter.com/chainsafegaming) periodically provides news and updates, and shares our community's work
 * Our [YouTube](https://youtube.com/chainsafe-systems) provides a set of video tutorials and how-to guides on using web3.unity:
-  * [Installing web3.unity](https://www.youtube.com/playlist?list=PLPn3rQCo3XrMkgAqFRtih9xGIKciD0b0N)
-  * [Web3.unity Documentation Videos](https://www.youtube.com/playlist?list=PLPn3rQCo3XrP6kFaurgMfMQBsyppYBhqW)
+  * [Web3.Unity SDK 3.0 Tutorials](https://www.youtube.com/playlist?list=PLPn3rQCo3XrOOklu69R-G2DJypaXFmR_z)
 
 ## Contribute
 
