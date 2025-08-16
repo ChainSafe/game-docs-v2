@@ -82,9 +82,8 @@ Go to window → package manager → select the web3.unity SDK package and press
 ## ChainSafe Server Settings
 
 ### Set Chain
-
-After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
-Next up, you need to set up the list of chains you want to interact with inside of your project:
+To make the SDK work,
+You need to set up the list of chains you want to interact with inside of your project:
 
 ![](assets/getting-started/chain-settings.png)
 
