@@ -81,12 +81,6 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 ## ChainSafe Server Settings
 
-### Set Project ID
-
-As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Get a Project ID" button in the server settings.
-
-![](assets/getting-started/project-settings.png)
-
 ### Set Chain
 
 After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
