@@ -33,7 +33,6 @@ module.exports = {
             'v2.6/service-adapters',
             'v2.6/gasless-transactions-using-gelato',
             'v2.6/ramp',
-            'v2.6/lootboxes',
             'v2.6/extending-the-sdk',
             'v2.6/extending-ui',
           ],
@@ -44,25 +43,6 @@ module.exports = {
           items: ['v2.6/block-racers-game', 'v2.6/block-blasterz-game'],
         },
         'v2.6/faq',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'NFT Launchpad',
-      items: [
-        'nft_launchpad/introduction',
-        'nft_launchpad/details',
-        'nft_launchpad/tutorial',
-        'token-api/docs/tokenapi',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Marketplace',
-      items: [
-        'nft_marketplace/introduction',
-        'nft_marketplace/tutorial',
-        'marketplace-api/docs/marketplaceapi',
       ],
     },
   ],
