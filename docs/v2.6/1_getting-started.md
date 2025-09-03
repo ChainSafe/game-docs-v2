@@ -7,11 +7,7 @@ sidebar_label: Getting Started
 
 # Getting Started
 
-:::info
 
-This page will walk you through the process of installing the Web3 Unity SDK, setting up a project ID, and installing the ChainSafe Gaming sample scenes.
-
-:::
 
 
 ## Install the Web3.Unity SDK via Unity Package Manager
@@ -81,16 +77,9 @@ Go to window → package manager → select the web3.unity SDK package and press
 
 ## ChainSafe Server Settings
 
-### Set Project ID
-
-As the package is installed, you'll be prompted with the ChainSafe server settings. First you have to setup your Project ID. You can create one [here](https://dashboard.gaming.chainsafe.io/) or you can click on the "Get a Project ID" button in the server settings.
-
-![](assets/getting-started/project-settings.png)
-
 ### Set Chain
-
-After you've completed the registration process, copy your Project ID into the project settings window. You should see a message in the console saying your project id is valid. 
-Next up, you need to set up the list of chains you want to interact with inside of your project:
+To make the SDK work,
+You need to set up the list of chains you want to interact with inside of your project:
 
 ![](assets/getting-started/chain-settings.png)
 
@@ -107,8 +96,6 @@ If you need to refer to the ChainSafe server settings area again, you can find i
 ![](assets/getting-started/project-settings-menu.png)
 
 ### Add a Web3 Client object to your scene
-Right-click inside the Hierarchy view and select **Web3/Web3 Client**. This will add a new Web3 Client object for you.
-
-![](assets/getting-started/create-web3-client-menu.png)
+Just drag and drop the Web3Unity from Packages/io.chainsafe.web3-unity/Runtime/Prefabs/Web3Unity.prefab to the scene and you should be good to go!
 
 Now after you've done this, you need to choose your wallet provider.

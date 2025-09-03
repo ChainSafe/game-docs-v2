@@ -21,8 +21,6 @@ We have multiple service adapters available for you to use in the core package:
 
 We have additional service adapters available in our additional packages:
 - [Ramp](/current/ramp) service adapter
-- [Lootboxes](/current/lootboxes) service adapter
-- [Marketplace](/marketplace/tutorial#4-use-marketplace-inside-of-your-unity-game) service adapter
 
 ![img.png](assets/service-adapters/service-adapters.png)
 
